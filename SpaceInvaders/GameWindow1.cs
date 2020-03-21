@@ -12,8 +12,8 @@ using System.Windows.Forms;
 namespace SpaceInvaders {
     public partial class GameWindow : Form {
         double speedMultiplier = 1;
-        double gameTicks = 0;
-        int buttonCount;
+        double gameTicks = 1;
+        int buttonCount = 1;
 
 
 
