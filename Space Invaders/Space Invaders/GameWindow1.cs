@@ -15,7 +15,7 @@ namespace SpaceInvaders {
         double speedMultiplier = 1;
         double gameTicks = 1;
         int buttonCount = 1;
-
+        private int formRightSideDifference = 68;
 
 
         public GameWindow() {
@@ -54,7 +54,7 @@ namespace SpaceInvaders {
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
             {
-                if(player.Location.X < 747) // May need to change this as we adjust the screen size
+                if(player.Location.X < this.Width - formRightSideDifference) // Calculate current width in case we change this in the future
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
             }
         }
