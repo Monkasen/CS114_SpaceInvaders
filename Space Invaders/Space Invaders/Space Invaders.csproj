@@ -86,5 +86,8 @@
   <ItemGroup>
     <None Include="Resources\PlayerShip.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\textures\PlayerProjectile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

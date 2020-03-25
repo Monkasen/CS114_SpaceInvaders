@@ -27,47 +27,17 @@
             this.debugCount = new System.Windows.Forms.Label();
             this.alienSpeed = new System.Windows.Forms.Timer(this.components);
             this.debugTimer = new System.Windows.Forms.Label();
-            this.player = new System.Windows.Forms.PictureBox();
             this.playerMovement = new System.Windows.Forms.Timer(this.components);
             this.debugXLocation = new System.Windows.Forms.Label();
             this.debugPanel = new System.Windows.Forms.Panel();
             this.playerScore = new System.Windows.Forms.Label();
-            this.playerProjectile = new System.Windows.Forms.PictureBox();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
             this.alienDeath = new System.Windows.Forms.Timer(this.components);
-            this.pbAlien1 = new System.Windows.Forms.PictureBox();
-            this.pbAlien6 = new System.Windows.Forms.PictureBox();
-            this.pbAlien7 = new System.Windows.Forms.PictureBox();
-            this.pbAlien10 = new System.Windows.Forms.PictureBox();
-            this.pbAlien11 = new System.Windows.Forms.PictureBox();
-            this.pbAlien8 = new System.Windows.Forms.PictureBox();
-            this.pbAlien9 = new System.Windows.Forms.PictureBox();
-            this.pbAlien5 = new System.Windows.Forms.PictureBox();
-            this.pbAlien4 = new System.Windows.Forms.PictureBox();
-            this.pbAlien3 = new System.Windows.Forms.PictureBox();
-            this.pbAlien2 = new System.Windows.Forms.PictureBox();
-            this.pbAlien13 = new System.Windows.Forms.PictureBox();
-            this.pbAlien14 = new System.Windows.Forms.PictureBox();
-            this.pbAlien15 = new System.Windows.Forms.PictureBox();
-            this.pbAlien16 = new System.Windows.Forms.PictureBox();
-            this.pbAlien20 = new System.Windows.Forms.PictureBox();
-            this.pbAlien19 = new System.Windows.Forms.PictureBox();
-            this.pbAlien22 = new System.Windows.Forms.PictureBox();
-            this.pbAlien21 = new System.Windows.Forms.PictureBox();
-            this.pbAlien18 = new System.Windows.Forms.PictureBox();
-            this.pbAlien17 = new System.Windows.Forms.PictureBox();
-            this.pbAlien12 = new System.Windows.Forms.PictureBox();
-            this.pbAlien24 = new System.Windows.Forms.PictureBox();
-            this.pbAlien25 = new System.Windows.Forms.PictureBox();
-            this.pbAlien26 = new System.Windows.Forms.PictureBox();
-            this.pbAlien27 = new System.Windows.Forms.PictureBox();
-            this.pbAlien31 = new System.Windows.Forms.PictureBox();
-            this.pbAlien30 = new System.Windows.Forms.PictureBox();
-            this.pbAlien33 = new System.Windows.Forms.PictureBox();
-            this.pbAlien32 = new System.Windows.Forms.PictureBox();
-            this.pbAlien29 = new System.Windows.Forms.PictureBox();
-            this.pbAlien28 = new System.Windows.Forms.PictureBox();
-            this.pbAlien23 = new System.Windows.Forms.PictureBox();
+            this.pbAlien55 = new System.Windows.Forms.PictureBox();
+            this.pbAlien54 = new System.Windows.Forms.PictureBox();
+            this.pbAlien51 = new System.Windows.Forms.PictureBox();
+            this.pbAlien50 = new System.Windows.Forms.PictureBox();
+            this.pbAlien45 = new System.Windows.Forms.PictureBox();
             this.pbAlien35 = new System.Windows.Forms.PictureBox();
             this.pbAlien36 = new System.Windows.Forms.PictureBox();
             this.pbAlien37 = new System.Windows.Forms.PictureBox();
@@ -79,53 +49,53 @@
             this.pbAlien40 = new System.Windows.Forms.PictureBox();
             this.pbAlien39 = new System.Windows.Forms.PictureBox();
             this.pbAlien34 = new System.Windows.Forms.PictureBox();
-            this.pbAlien46 = new System.Windows.Forms.PictureBox();
-            this.pbAlien47 = new System.Windows.Forms.PictureBox();
-            this.pbAlien48 = new System.Windows.Forms.PictureBox();
-            this.pbAlien49 = new System.Windows.Forms.PictureBox();
-            this.pbAlien53 = new System.Windows.Forms.PictureBox();
+            this.pbAlien24 = new System.Windows.Forms.PictureBox();
+            this.pbAlien25 = new System.Windows.Forms.PictureBox();
+            this.pbAlien26 = new System.Windows.Forms.PictureBox();
+            this.pbAlien27 = new System.Windows.Forms.PictureBox();
+            this.pbAlien31 = new System.Windows.Forms.PictureBox();
+            this.pbAlien30 = new System.Windows.Forms.PictureBox();
+            this.pbAlien33 = new System.Windows.Forms.PictureBox();
+            this.pbAlien32 = new System.Windows.Forms.PictureBox();
+            this.pbAlien29 = new System.Windows.Forms.PictureBox();
+            this.pbAlien28 = new System.Windows.Forms.PictureBox();
+            this.pbAlien23 = new System.Windows.Forms.PictureBox();
+            this.pbAlien13 = new System.Windows.Forms.PictureBox();
+            this.pbAlien14 = new System.Windows.Forms.PictureBox();
+            this.pbAlien15 = new System.Windows.Forms.PictureBox();
+            this.pbAlien16 = new System.Windows.Forms.PictureBox();
+            this.pbAlien20 = new System.Windows.Forms.PictureBox();
+            this.pbAlien19 = new System.Windows.Forms.PictureBox();
+            this.pbAlien22 = new System.Windows.Forms.PictureBox();
+            this.pbAlien21 = new System.Windows.Forms.PictureBox();
+            this.pbAlien18 = new System.Windows.Forms.PictureBox();
+            this.pbAlien17 = new System.Windows.Forms.PictureBox();
+            this.pbAlien12 = new System.Windows.Forms.PictureBox();
+            this.pbAlien2 = new System.Windows.Forms.PictureBox();
+            this.pbAlien3 = new System.Windows.Forms.PictureBox();
+            this.pbAlien4 = new System.Windows.Forms.PictureBox();
+            this.pbAlien5 = new System.Windows.Forms.PictureBox();
+            this.pbAlien9 = new System.Windows.Forms.PictureBox();
+            this.pbAlien8 = new System.Windows.Forms.PictureBox();
+            this.pbAlien11 = new System.Windows.Forms.PictureBox();
+            this.pbAlien10 = new System.Windows.Forms.PictureBox();
+            this.pbAlien7 = new System.Windows.Forms.PictureBox();
+            this.pbAlien6 = new System.Windows.Forms.PictureBox();
+            this.pbAlien1 = new System.Windows.Forms.PictureBox();
+            this.player = new System.Windows.Forms.PictureBox();
             this.pbAlien52 = new System.Windows.Forms.PictureBox();
-            this.pbAlien55 = new System.Windows.Forms.PictureBox();
-            this.pbAlien54 = new System.Windows.Forms.PictureBox();
-            this.pbAlien51 = new System.Windows.Forms.PictureBox();
-            this.pbAlien50 = new System.Windows.Forms.PictureBox();
-            this.pbAlien45 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            this.pbAlien53 = new System.Windows.Forms.PictureBox();
+            this.pbAlien49 = new System.Windows.Forms.PictureBox();
+            this.pbAlien48 = new System.Windows.Forms.PictureBox();
+            this.pbAlien47 = new System.Windows.Forms.PictureBox();
+            this.pbAlien46 = new System.Windows.Forms.PictureBox();
+            this.playerProjectile = new System.Windows.Forms.PictureBox();
             this.debugPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien29)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien50)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien45)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien37)).BeginInit();
@@ -137,17 +107,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien34)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien50)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).BeginInit();
             this.SuspendLayout();
             // 
             // debugCount
@@ -174,16 +174,6 @@
             this.debugTimer.Size = new System.Drawing.Size(63, 13);
             this.debugTimer.TabIndex = 2;
             this.debugTimer.Text = "debugTimer";
-            // 
-            // player
-            // 
-            this.player.Image = global::Space_Invaders.Properties.Resources.PlayerShip;
-            this.player.Location = new System.Drawing.Point(309, 769);
-            this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(52, 32);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.player.TabIndex = 3;
-            this.player.TabStop = false;
             // 
             // playerMovement
             // 
@@ -222,15 +212,6 @@
             this.playerScore.TabIndex = 5;
             this.playerScore.Text = "0";
             // 
-            // playerProjectile
-            // 
-            this.playerProjectile.Location = new System.Drawing.Point(12, 799);
-            this.playerProjectile.Name = "playerProjectile";
-            this.playerProjectile.Size = new System.Drawing.Size(4, 16);
-            this.playerProjectile.TabIndex = 7;
-            this.playerProjectile.TabStop = false;
-            this.playerProjectile.Visible = false;
-            // 
             // projectileCollision
             // 
             this.projectileCollision.Enabled = true;
@@ -241,302 +222,50 @@
             this.alienDeath.Interval = 10;
             this.alienDeath.Tick += new System.EventHandler(this.alienDeath_Tick);
             // 
-            // pbAlien1
-            // 
-            this.pbAlien1.Location = new System.Drawing.Point(41, 62);
-            this.pbAlien1.Name = "pbAlien1";
-            this.pbAlien1.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien1.TabIndex = 8;
-            this.pbAlien1.TabStop = false;
-            // 
-            // pbAlien6
-            // 
-            this.pbAlien6.Location = new System.Drawing.Point(311, 62);
-            this.pbAlien6.Name = "pbAlien6";
-            this.pbAlien6.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien6.TabIndex = 9;
-            this.pbAlien6.TabStop = false;
-            // 
-            // pbAlien7
-            // 
-            this.pbAlien7.Location = new System.Drawing.Point(365, 62);
-            this.pbAlien7.Name = "pbAlien7";
-            this.pbAlien7.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien7.TabIndex = 10;
-            this.pbAlien7.TabStop = false;
-            // 
-            // pbAlien10
-            // 
-            this.pbAlien10.Location = new System.Drawing.Point(527, 62);
-            this.pbAlien10.Name = "pbAlien10";
-            this.pbAlien10.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien10.TabIndex = 12;
-            this.pbAlien10.TabStop = false;
-            // 
-            // pbAlien11
-            // 
-            this.pbAlien11.Location = new System.Drawing.Point(581, 62);
-            this.pbAlien11.Name = "pbAlien11";
-            this.pbAlien11.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien11.TabIndex = 13;
-            this.pbAlien11.TabStop = false;
-            // 
-            // pbAlien8
-            // 
-            this.pbAlien8.Location = new System.Drawing.Point(419, 62);
-            this.pbAlien8.Name = "pbAlien8";
-            this.pbAlien8.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien8.TabIndex = 14;
-            this.pbAlien8.TabStop = false;
-            // 
-            // pbAlien9
-            // 
-            this.pbAlien9.Location = new System.Drawing.Point(473, 62);
-            this.pbAlien9.Name = "pbAlien9";
-            this.pbAlien9.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien9.TabIndex = 15;
-            this.pbAlien9.TabStop = false;
-            // 
-            // pbAlien5
-            // 
-            this.pbAlien5.Location = new System.Drawing.Point(257, 62);
-            this.pbAlien5.Name = "pbAlien5";
-            this.pbAlien5.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien5.TabIndex = 16;
-            this.pbAlien5.TabStop = false;
-            // 
-            // pbAlien4
-            // 
-            this.pbAlien4.Location = new System.Drawing.Point(203, 62);
-            this.pbAlien4.Name = "pbAlien4";
-            this.pbAlien4.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien4.TabIndex = 17;
-            this.pbAlien4.TabStop = false;
-            // 
-            // pbAlien3
-            // 
-            this.pbAlien3.Location = new System.Drawing.Point(149, 62);
-            this.pbAlien3.Name = "pbAlien3";
-            this.pbAlien3.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien3.TabIndex = 18;
-            this.pbAlien3.TabStop = false;
-            // 
-            // pbAlien2
-            // 
-            this.pbAlien2.Location = new System.Drawing.Point(95, 62);
-            this.pbAlien2.Name = "pbAlien2";
-            this.pbAlien2.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien2.TabIndex = 19;
-            this.pbAlien2.TabStop = false;
-            // 
-            // pbAlien13
-            // 
-            this.pbAlien13.Location = new System.Drawing.Point(95, 109);
-            this.pbAlien13.Name = "pbAlien13";
-            this.pbAlien13.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien13.TabIndex = 31;
-            this.pbAlien13.TabStop = false;
-            // 
-            // pbAlien14
-            // 
-            this.pbAlien14.Location = new System.Drawing.Point(149, 109);
-            this.pbAlien14.Name = "pbAlien14";
-            this.pbAlien14.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien14.TabIndex = 30;
-            this.pbAlien14.TabStop = false;
-            // 
-            // pbAlien15
-            // 
-            this.pbAlien15.Location = new System.Drawing.Point(203, 109);
-            this.pbAlien15.Name = "pbAlien15";
-            this.pbAlien15.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien15.TabIndex = 29;
-            this.pbAlien15.TabStop = false;
-            // 
-            // pbAlien16
-            // 
-            this.pbAlien16.Location = new System.Drawing.Point(257, 109);
-            this.pbAlien16.Name = "pbAlien16";
-            this.pbAlien16.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien16.TabIndex = 28;
-            this.pbAlien16.TabStop = false;
-            // 
-            // pbAlien20
-            // 
-            this.pbAlien20.Location = new System.Drawing.Point(473, 109);
-            this.pbAlien20.Name = "pbAlien20";
-            this.pbAlien20.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien20.TabIndex = 27;
-            this.pbAlien20.TabStop = false;
-            // 
-            // pbAlien19
-            // 
-            this.pbAlien19.Location = new System.Drawing.Point(419, 109);
-            this.pbAlien19.Name = "pbAlien19";
-            this.pbAlien19.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien19.TabIndex = 26;
-            this.pbAlien19.TabStop = false;
-            // 
-            // pbAlien22
-            // 
-            this.pbAlien22.Location = new System.Drawing.Point(581, 109);
-            this.pbAlien22.Name = "pbAlien22";
-            this.pbAlien22.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien22.TabIndex = 25;
-            this.pbAlien22.TabStop = false;
-            // 
-            // pbAlien21
-            // 
-            this.pbAlien21.Location = new System.Drawing.Point(527, 109);
-            this.pbAlien21.Name = "pbAlien21";
-            this.pbAlien21.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien21.TabIndex = 24;
-            this.pbAlien21.TabStop = false;
-            // 
-            // pbAlien18
-            // 
-            this.pbAlien18.Location = new System.Drawing.Point(365, 109);
-            this.pbAlien18.Name = "pbAlien18";
-            this.pbAlien18.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien18.TabIndex = 22;
-            this.pbAlien18.TabStop = false;
-            // 
-            // pbAlien17
-            // 
-            this.pbAlien17.Location = new System.Drawing.Point(311, 109);
-            this.pbAlien17.Name = "pbAlien17";
-            this.pbAlien17.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien17.TabIndex = 21;
-            this.pbAlien17.TabStop = false;
-            // 
-            // pbAlien12
-            // 
-            this.pbAlien12.Location = new System.Drawing.Point(41, 109);
-            this.pbAlien12.Name = "pbAlien12";
-            this.pbAlien12.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien12.TabIndex = 20;
-            this.pbAlien12.TabStop = false;
-            // 
-            // pbAlien24
-            // 
-            this.pbAlien24.Location = new System.Drawing.Point(95, 156);
-            this.pbAlien24.Name = "pbAlien24";
-            this.pbAlien24.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien24.TabIndex = 43;
-            this.pbAlien24.TabStop = false;
-            // 
-            // pbAlien25
-            // 
-            this.pbAlien25.Location = new System.Drawing.Point(149, 156);
-            this.pbAlien25.Name = "pbAlien25";
-            this.pbAlien25.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien25.TabIndex = 42;
-            this.pbAlien25.TabStop = false;
-            // 
-            // pbAlien26
-            // 
-            this.pbAlien26.Location = new System.Drawing.Point(203, 156);
-            this.pbAlien26.Name = "pbAlien26";
-            this.pbAlien26.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien26.TabIndex = 41;
-            this.pbAlien26.TabStop = false;
-            // 
-            // pbAlien27
-            // 
-            this.pbAlien27.Location = new System.Drawing.Point(257, 156);
-            this.pbAlien27.Name = "pbAlien27";
-            this.pbAlien27.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien27.TabIndex = 40;
-            this.pbAlien27.TabStop = false;
-            // 
-            // pbAlien31
-            // 
-            this.pbAlien31.Location = new System.Drawing.Point(473, 156);
-            this.pbAlien31.Name = "pbAlien31";
-            this.pbAlien31.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien31.TabIndex = 39;
-            this.pbAlien31.TabStop = false;
-            // 
-            // pbAlien30
-            // 
-            this.pbAlien30.Location = new System.Drawing.Point(419, 156);
-            this.pbAlien30.Name = "pbAlien30";
-            this.pbAlien30.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien30.TabIndex = 38;
-            this.pbAlien30.TabStop = false;
-            // 
-            // pbAlien33
-            // 
-            this.pbAlien33.Location = new System.Drawing.Point(581, 156);
-            this.pbAlien33.Name = "pbAlien33";
-            this.pbAlien33.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien33.TabIndex = 37;
-            this.pbAlien33.TabStop = false;
-            // 
-            // pbAlien32
-            // 
-            this.pbAlien32.Location = new System.Drawing.Point(527, 156);
-            this.pbAlien32.Name = "pbAlien32";
-            this.pbAlien32.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien32.TabIndex = 36;
-            this.pbAlien32.TabStop = false;
-            // 
-            // pbAlien29
-            // 
-            this.pbAlien29.Location = new System.Drawing.Point(365, 156);
-            this.pbAlien29.Name = "pbAlien29";
-            this.pbAlien29.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien29.TabIndex = 34;
-            this.pbAlien29.TabStop = false;
-            // 
-            // pbAlien28
-            // 
-            this.pbAlien28.Location = new System.Drawing.Point(311, 156);
-            this.pbAlien28.Name = "pbAlien28";
-            this.pbAlien28.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien28.TabIndex = 33;
-            this.pbAlien28.TabStop = false;
-            // 
-            // pbAlien23
-            // 
-            this.pbAlien23.Location = new System.Drawing.Point(41, 156);
-            this.pbAlien23.Name = "pbAlien23";
-            this.pbAlien23.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien23.TabIndex = 32;
-            this.pbAlien23.TabStop = false;
+            // pbAlien55
+            // 
+            this.pbAlien55.Location = new System.Drawing.Point(581, 251);
+            this.pbAlien55.Name = "pbAlien55";
+            this.pbAlien55.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien55.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien55.TabIndex = 61;
+            this.pbAlien55.TabStop = false;
+            // 
+            // pbAlien54
+            // 
+            this.pbAlien54.Location = new System.Drawing.Point(527, 251);
+            this.pbAlien54.Name = "pbAlien54";
+            this.pbAlien54.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien54.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien54.TabIndex = 60;
+            this.pbAlien54.TabStop = false;
+            // 
+            // pbAlien51
+            // 
+            this.pbAlien51.Location = new System.Drawing.Point(365, 251);
+            this.pbAlien51.Name = "pbAlien51";
+            this.pbAlien51.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien51.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien51.TabIndex = 58;
+            this.pbAlien51.TabStop = false;
+            // 
+            // pbAlien50
+            // 
+            this.pbAlien50.Location = new System.Drawing.Point(311, 251);
+            this.pbAlien50.Name = "pbAlien50";
+            this.pbAlien50.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien50.TabIndex = 57;
+            this.pbAlien50.TabStop = false;
+            // 
+            // pbAlien45
+            // 
+            this.pbAlien45.Location = new System.Drawing.Point(41, 251);
+            this.pbAlien45.Name = "pbAlien45";
+            this.pbAlien45.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien45.TabIndex = 56;
+            this.pbAlien45.TabStop = false;
             // 
             // pbAlien35
             // 
@@ -637,50 +366,312 @@
             this.pbAlien34.TabIndex = 44;
             this.pbAlien34.TabStop = false;
             // 
-            // pbAlien46
+            // pbAlien24
             // 
-            this.pbAlien46.Location = new System.Drawing.Point(95, 251);
-            this.pbAlien46.Name = "pbAlien46";
-            this.pbAlien46.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien46.TabIndex = 67;
-            this.pbAlien46.TabStop = false;
+            this.pbAlien24.Location = new System.Drawing.Point(95, 156);
+            this.pbAlien24.Name = "pbAlien24";
+            this.pbAlien24.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien24.TabIndex = 43;
+            this.pbAlien24.TabStop = false;
             // 
-            // pbAlien47
+            // pbAlien25
             // 
-            this.pbAlien47.Location = new System.Drawing.Point(149, 251);
-            this.pbAlien47.Name = "pbAlien47";
-            this.pbAlien47.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien47.TabIndex = 66;
-            this.pbAlien47.TabStop = false;
+            this.pbAlien25.Location = new System.Drawing.Point(149, 156);
+            this.pbAlien25.Name = "pbAlien25";
+            this.pbAlien25.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien25.TabIndex = 42;
+            this.pbAlien25.TabStop = false;
             // 
-            // pbAlien48
+            // pbAlien26
             // 
-            this.pbAlien48.Location = new System.Drawing.Point(203, 251);
-            this.pbAlien48.Name = "pbAlien48";
-            this.pbAlien48.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien48.TabIndex = 65;
-            this.pbAlien48.TabStop = false;
+            this.pbAlien26.Location = new System.Drawing.Point(203, 156);
+            this.pbAlien26.Name = "pbAlien26";
+            this.pbAlien26.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien26.TabIndex = 41;
+            this.pbAlien26.TabStop = false;
             // 
-            // pbAlien49
+            // pbAlien27
             // 
-            this.pbAlien49.Location = new System.Drawing.Point(257, 251);
-            this.pbAlien49.Name = "pbAlien49";
-            this.pbAlien49.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien49.TabIndex = 64;
-            this.pbAlien49.TabStop = false;
+            this.pbAlien27.Location = new System.Drawing.Point(257, 156);
+            this.pbAlien27.Name = "pbAlien27";
+            this.pbAlien27.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien27.TabIndex = 40;
+            this.pbAlien27.TabStop = false;
             // 
-            // pbAlien53
+            // pbAlien31
             // 
-            this.pbAlien53.Location = new System.Drawing.Point(473, 251);
-            this.pbAlien53.Name = "pbAlien53";
-            this.pbAlien53.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien53.TabIndex = 63;
-            this.pbAlien53.TabStop = false;
+            this.pbAlien31.Location = new System.Drawing.Point(473, 156);
+            this.pbAlien31.Name = "pbAlien31";
+            this.pbAlien31.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien31.TabIndex = 39;
+            this.pbAlien31.TabStop = false;
+            // 
+            // pbAlien30
+            // 
+            this.pbAlien30.Location = new System.Drawing.Point(419, 156);
+            this.pbAlien30.Name = "pbAlien30";
+            this.pbAlien30.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien30.TabIndex = 38;
+            this.pbAlien30.TabStop = false;
+            // 
+            // pbAlien33
+            // 
+            this.pbAlien33.Location = new System.Drawing.Point(581, 156);
+            this.pbAlien33.Name = "pbAlien33";
+            this.pbAlien33.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien33.TabIndex = 37;
+            this.pbAlien33.TabStop = false;
+            // 
+            // pbAlien32
+            // 
+            this.pbAlien32.Location = new System.Drawing.Point(527, 156);
+            this.pbAlien32.Name = "pbAlien32";
+            this.pbAlien32.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien32.TabIndex = 36;
+            this.pbAlien32.TabStop = false;
+            // 
+            // pbAlien29
+            // 
+            this.pbAlien29.Location = new System.Drawing.Point(365, 156);
+            this.pbAlien29.Name = "pbAlien29";
+            this.pbAlien29.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien29.TabIndex = 34;
+            this.pbAlien29.TabStop = false;
+            // 
+            // pbAlien28
+            // 
+            this.pbAlien28.Location = new System.Drawing.Point(311, 156);
+            this.pbAlien28.Name = "pbAlien28";
+            this.pbAlien28.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien28.TabIndex = 33;
+            this.pbAlien28.TabStop = false;
+            // 
+            // pbAlien23
+            // 
+            this.pbAlien23.Location = new System.Drawing.Point(41, 156);
+            this.pbAlien23.Name = "pbAlien23";
+            this.pbAlien23.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien23.TabIndex = 32;
+            this.pbAlien23.TabStop = false;
+            // 
+            // pbAlien13
+            // 
+            this.pbAlien13.Location = new System.Drawing.Point(95, 109);
+            this.pbAlien13.Name = "pbAlien13";
+            this.pbAlien13.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien13.TabIndex = 31;
+            this.pbAlien13.TabStop = false;
+            // 
+            // pbAlien14
+            // 
+            this.pbAlien14.Location = new System.Drawing.Point(149, 109);
+            this.pbAlien14.Name = "pbAlien14";
+            this.pbAlien14.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien14.TabIndex = 30;
+            this.pbAlien14.TabStop = false;
+            // 
+            // pbAlien15
+            // 
+            this.pbAlien15.Location = new System.Drawing.Point(203, 109);
+            this.pbAlien15.Name = "pbAlien15";
+            this.pbAlien15.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien15.TabIndex = 29;
+            this.pbAlien15.TabStop = false;
+            // 
+            // pbAlien16
+            // 
+            this.pbAlien16.Location = new System.Drawing.Point(257, 109);
+            this.pbAlien16.Name = "pbAlien16";
+            this.pbAlien16.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien16.TabIndex = 28;
+            this.pbAlien16.TabStop = false;
+            // 
+            // pbAlien20
+            // 
+            this.pbAlien20.Location = new System.Drawing.Point(473, 109);
+            this.pbAlien20.Name = "pbAlien20";
+            this.pbAlien20.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien20.TabIndex = 27;
+            this.pbAlien20.TabStop = false;
+            // 
+            // pbAlien19
+            // 
+            this.pbAlien19.Location = new System.Drawing.Point(419, 109);
+            this.pbAlien19.Name = "pbAlien19";
+            this.pbAlien19.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien19.TabIndex = 26;
+            this.pbAlien19.TabStop = false;
+            // 
+            // pbAlien22
+            // 
+            this.pbAlien22.Location = new System.Drawing.Point(581, 109);
+            this.pbAlien22.Name = "pbAlien22";
+            this.pbAlien22.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien22.TabIndex = 25;
+            this.pbAlien22.TabStop = false;
+            // 
+            // pbAlien21
+            // 
+            this.pbAlien21.Location = new System.Drawing.Point(527, 109);
+            this.pbAlien21.Name = "pbAlien21";
+            this.pbAlien21.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien21.TabIndex = 24;
+            this.pbAlien21.TabStop = false;
+            // 
+            // pbAlien18
+            // 
+            this.pbAlien18.Location = new System.Drawing.Point(365, 109);
+            this.pbAlien18.Name = "pbAlien18";
+            this.pbAlien18.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien18.TabIndex = 22;
+            this.pbAlien18.TabStop = false;
+            // 
+            // pbAlien17
+            // 
+            this.pbAlien17.Location = new System.Drawing.Point(311, 109);
+            this.pbAlien17.Name = "pbAlien17";
+            this.pbAlien17.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien17.TabIndex = 21;
+            this.pbAlien17.TabStop = false;
+            // 
+            // pbAlien12
+            // 
+            this.pbAlien12.Location = new System.Drawing.Point(41, 109);
+            this.pbAlien12.Name = "pbAlien12";
+            this.pbAlien12.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien12.TabIndex = 20;
+            this.pbAlien12.TabStop = false;
+            // 
+            // pbAlien2
+            // 
+            this.pbAlien2.Location = new System.Drawing.Point(95, 62);
+            this.pbAlien2.Name = "pbAlien2";
+            this.pbAlien2.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien2.TabIndex = 19;
+            this.pbAlien2.TabStop = false;
+            // 
+            // pbAlien3
+            // 
+            this.pbAlien3.Location = new System.Drawing.Point(149, 62);
+            this.pbAlien3.Name = "pbAlien3";
+            this.pbAlien3.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien3.TabIndex = 18;
+            this.pbAlien3.TabStop = false;
+            // 
+            // pbAlien4
+            // 
+            this.pbAlien4.Location = new System.Drawing.Point(203, 62);
+            this.pbAlien4.Name = "pbAlien4";
+            this.pbAlien4.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien4.TabIndex = 17;
+            this.pbAlien4.TabStop = false;
+            // 
+            // pbAlien5
+            // 
+            this.pbAlien5.Location = new System.Drawing.Point(257, 62);
+            this.pbAlien5.Name = "pbAlien5";
+            this.pbAlien5.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien5.TabIndex = 16;
+            this.pbAlien5.TabStop = false;
+            // 
+            // pbAlien9
+            // 
+            this.pbAlien9.Location = new System.Drawing.Point(473, 62);
+            this.pbAlien9.Name = "pbAlien9";
+            this.pbAlien9.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien9.TabIndex = 15;
+            this.pbAlien9.TabStop = false;
+            // 
+            // pbAlien8
+            // 
+            this.pbAlien8.Location = new System.Drawing.Point(419, 62);
+            this.pbAlien8.Name = "pbAlien8";
+            this.pbAlien8.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien8.TabIndex = 14;
+            this.pbAlien8.TabStop = false;
+            // 
+            // pbAlien11
+            // 
+            this.pbAlien11.Location = new System.Drawing.Point(581, 62);
+            this.pbAlien11.Name = "pbAlien11";
+            this.pbAlien11.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien11.TabIndex = 13;
+            this.pbAlien11.TabStop = false;
+            // 
+            // pbAlien10
+            // 
+            this.pbAlien10.Location = new System.Drawing.Point(527, 62);
+            this.pbAlien10.Name = "pbAlien10";
+            this.pbAlien10.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien10.TabIndex = 12;
+            this.pbAlien10.TabStop = false;
+            // 
+            // pbAlien7
+            // 
+            this.pbAlien7.Location = new System.Drawing.Point(365, 62);
+            this.pbAlien7.Name = "pbAlien7";
+            this.pbAlien7.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien7.TabIndex = 10;
+            this.pbAlien7.TabStop = false;
+            // 
+            // pbAlien6
+            // 
+            this.pbAlien6.Location = new System.Drawing.Point(311, 62);
+            this.pbAlien6.Name = "pbAlien6";
+            this.pbAlien6.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien6.TabIndex = 9;
+            this.pbAlien6.TabStop = false;
+            // 
+            // pbAlien1
+            // 
+            this.pbAlien1.Location = new System.Drawing.Point(41, 62);
+            this.pbAlien1.Name = "pbAlien1";
+            this.pbAlien1.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien1.TabIndex = 8;
+            this.pbAlien1.TabStop = false;
+            // 
+            // player
+            // 
+            this.player.Image = global::Space_Invaders.Properties.Resources.PlayerShip;
+            this.player.Location = new System.Drawing.Point(309, 769);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(52, 32);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player.TabIndex = 3;
+            this.player.TabStop = false;
             // 
             // pbAlien52
             // 
@@ -691,50 +682,60 @@
             this.pbAlien52.TabIndex = 62;
             this.pbAlien52.TabStop = false;
             // 
-            // pbAlien55
+            // pbAlien53
             // 
-            this.pbAlien55.Location = new System.Drawing.Point(581, 251);
-            this.pbAlien55.Name = "pbAlien55";
-            this.pbAlien55.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien55.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien55.TabIndex = 61;
-            this.pbAlien55.TabStop = false;
+            this.pbAlien53.Location = new System.Drawing.Point(473, 251);
+            this.pbAlien53.Name = "pbAlien53";
+            this.pbAlien53.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien53.TabIndex = 63;
+            this.pbAlien53.TabStop = false;
             // 
-            // pbAlien54
+            // pbAlien49
             // 
-            this.pbAlien54.Location = new System.Drawing.Point(527, 251);
-            this.pbAlien54.Name = "pbAlien54";
-            this.pbAlien54.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien54.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien54.TabIndex = 60;
-            this.pbAlien54.TabStop = false;
+            this.pbAlien49.Location = new System.Drawing.Point(257, 251);
+            this.pbAlien49.Name = "pbAlien49";
+            this.pbAlien49.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien49.TabIndex = 64;
+            this.pbAlien49.TabStop = false;
             // 
-            // pbAlien51
+            // pbAlien48
             // 
-            this.pbAlien51.Location = new System.Drawing.Point(365, 251);
-            this.pbAlien51.Name = "pbAlien51";
-            this.pbAlien51.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien51.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien51.TabIndex = 58;
-            this.pbAlien51.TabStop = false;
+            this.pbAlien48.Location = new System.Drawing.Point(203, 251);
+            this.pbAlien48.Name = "pbAlien48";
+            this.pbAlien48.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien48.TabIndex = 65;
+            this.pbAlien48.TabStop = false;
             // 
-            // pbAlien50
+            // pbAlien47
             // 
-            this.pbAlien50.Location = new System.Drawing.Point(311, 251);
-            this.pbAlien50.Name = "pbAlien50";
-            this.pbAlien50.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien50.TabIndex = 57;
-            this.pbAlien50.TabStop = false;
+            this.pbAlien47.Location = new System.Drawing.Point(149, 251);
+            this.pbAlien47.Name = "pbAlien47";
+            this.pbAlien47.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien47.TabIndex = 66;
+            this.pbAlien47.TabStop = false;
             // 
-            // pbAlien45
+            // pbAlien46
             // 
-            this.pbAlien45.Location = new System.Drawing.Point(41, 251);
-            this.pbAlien45.Name = "pbAlien45";
-            this.pbAlien45.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien45.TabIndex = 56;
-            this.pbAlien45.TabStop = false;
+            this.pbAlien46.Location = new System.Drawing.Point(95, 251);
+            this.pbAlien46.Name = "pbAlien46";
+            this.pbAlien46.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien46.TabIndex = 67;
+            this.pbAlien46.TabStop = false;
+            // 
+            // playerProjectile
+            // 
+            this.playerProjectile.Image = global::Space_Invaders.Properties.Resources.PlayerProjectile;
+            this.playerProjectile.Location = new System.Drawing.Point(12, 799);
+            this.playerProjectile.Name = "playerProjectile";
+            this.playerProjectile.Size = new System.Drawing.Size(4, 16);
+            this.playerProjectile.TabIndex = 7;
+            this.playerProjectile.TabStop = false;
+            this.playerProjectile.Visible = false;
             // 
             // GameWindow
             // 
@@ -800,45 +801,19 @@
             this.Controls.Add(this.debugPanel);
             this.Controls.Add(this.player);
             this.Controls.Add(this.playerProjectile);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GameWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Space Invaders";
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.debugPanel.ResumeLayout(false);
             this.debugPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien29)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien50)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien45)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien37)).EndInit();
@@ -850,17 +825,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien34)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien50)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -873,7 +878,6 @@
         private System.Windows.Forms.Timer playerMovement;
         private System.Windows.Forms.Label debugXLocation;
         private System.Windows.Forms.Panel debugPanel;
-        private System.Windows.Forms.PictureBox playerProjectile;
         private System.Windows.Forms.Timer projectileCollision;
         private System.Windows.Forms.Timer alienDeath;
         private System.Windows.Forms.PictureBox pbAlien1;
@@ -920,18 +924,19 @@
         private System.Windows.Forms.PictureBox pbAlien40;
         private System.Windows.Forms.PictureBox pbAlien39;
         private System.Windows.Forms.PictureBox pbAlien34;
-        private System.Windows.Forms.PictureBox pbAlien46;
-        private System.Windows.Forms.PictureBox pbAlien47;
-        private System.Windows.Forms.PictureBox pbAlien48;
-        private System.Windows.Forms.PictureBox pbAlien49;
-        private System.Windows.Forms.PictureBox pbAlien53;
-        private System.Windows.Forms.PictureBox pbAlien52;
         private System.Windows.Forms.PictureBox pbAlien55;
         private System.Windows.Forms.PictureBox pbAlien54;
         private System.Windows.Forms.PictureBox pbAlien51;
         private System.Windows.Forms.PictureBox pbAlien50;
         private System.Windows.Forms.PictureBox pbAlien45;
         private System.Windows.Forms.Label playerScore;
+        private System.Windows.Forms.PictureBox pbAlien52;
+        private System.Windows.Forms.PictureBox pbAlien53;
+        private System.Windows.Forms.PictureBox pbAlien49;
+        private System.Windows.Forms.PictureBox pbAlien48;
+        private System.Windows.Forms.PictureBox pbAlien47;
+        private System.Windows.Forms.PictureBox pbAlien46;
+        private System.Windows.Forms.PictureBox playerProjectile;
     }
 }
 

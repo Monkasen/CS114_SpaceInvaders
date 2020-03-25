@@ -13,69 +13,36 @@ using System.Windows.Input; // For key events
 
 namespace SpaceInvaders {
     public partial class GameWindow : Form {
-        double speedMultiplier = 1;
-        double gameTicks = 1;
-        int buttonCount = 1;
-        int score = 0;
-        private int rightSideDifference = 68;
-        private const int _projectileSpeed = 7;
-        private bool _isShotFired = false; // Is player's shot still fired?
-        private int soundStep = 1; 
+        double gameTicks = 0; // Internal game clock
+        double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
+        int buttonCount = 1; // DEBUG
+        int score = 0; // Track the player's close
+        private const int rightSideDifference = 68;
+        private const int projectileSpeed = 7;
+        private bool isShotFired = false; // Checks if player has active projectile
+        private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
-        private int alienAnimation = 0; // Alien animation step
+        private int alienAnimation = 0; // Alien animation step counter
         private List<Alien> AlienList = new List<Alien>();
-        private List<System.Windows.Forms.PictureBox> AlienPBList = new List<PictureBox>();
+        private List<PictureBox> AlienPBList = new List<PictureBox>();
 
         public GameWindow() {
             InitializeComponent();
             InitializeAliens(); // Set alien images and add list members
-            player.Image = Image.FromFile("resources/textures/PlayerShip.png"); // Load player ship (dunno if necessary)
-            playerProjectile.Image = Image.FromFile("resources/textures/PlayerProjectile.png");
         }
 
         private void alienSpeed_Tick(object sender, EventArgs e) { // Controls speed of aliens throughout the game
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             debugTimer.Text = $"{gameTicks}"; // TEMPORARY LABEL TO TRACK SPEED MULTIPLIER
             if (gameTicks >= 15) { // Move aliens forward after 15 ticks
-                #region sound events
-                if (soundStep == 1) {
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-                }
-                else if (soundStep == 2) {
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-
-                }
-                else if (soundStep == 3) {
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-                }
-                else if (soundStep == 4) {
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    soundStep = 1;
-                }
-                #endregion
-                AlienAnimation(); // Handles animations for alien movement
+                PlaySound(1); 
+                AlienAnimation(); 
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             ++gameTicks;
         }
 
-        // Timer will handle all input from the user
-        private void playerMovement_Tick(object sender, EventArgs e)
+        private void playerMovement_Tick(object sender, EventArgs e) // Timer handles all player movements and inputs
         {
             debugXLocation.Text = player.Location.X.ToString(); // TEMPORARY LABEL TO DISPLAY PLAYER'S X LOCATION
 
@@ -89,56 +56,45 @@ namespace SpaceInvaders {
                 if (player.Location.X < this.Width - rightSideDifference) // Calculate current width in case we change this in the future
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
             }
-            if (Keyboard.IsKeyDown(Key.Up)) // Shoot
+            if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
             {
-                if (!_isShotFired)
+                if (!isShotFired)
                 {
-                    _isShotFired = true;
+                    isShotFired = true;
                     playerProjectile.Location = new Point(player.Location.X + (25), player.Location.Y);
                     playerProjectile.Visible = true;
-                    // Play sound
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
+                    PlaySound(3);
                 }
             }
 
-            if (!_isShotFired) return;
-            playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - _projectileSpeed);
-            _isShotFired = ProjectileEvent();
+            if (!isShotFired) return;
+            playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - projectileSpeed);
+            isShotFired = ProjectileEvent();
         }
 
-        private bool ProjectileEvent() // Checks if either projectile collides with an invader (not implemented) or out of bounds
-        {
-            if (playerProjectile.Location.Y < 0)
-            {
+        private bool ProjectileEvent() { // Checks for out of bounds projectle
+            if (playerProjectile.Location.Y < 0) {
                 playerProjectile.Visible = false;
                 return false;
             }
             return true;
         }
 
-        private void projectileCollision_Tick(object sender, EventArgs e)
+        private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
         {
             for (int i = 0; i < 55; i++) {
-                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && _isShotFired) { // Checks for bullet intersecting alien, the alien is alive, and there if there is an active bullet
+                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && isShotFired) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = false; // Hides player's projectile
-                    _isShotFired = false; // Disables player's projectile
-                    AlienList[i].SetState(0); // Sets state to 'dead'
+                    isShotFired = false; // Disables player's projectile
+                    AlienList[i].SetState(0); // Sets alien state to 'dead'
                     AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
                     speedMultiplier = speedMultiplier * 1.01; // When an alien dies, increase game speed by 1%
                     ++buttonCount; // TEMPORARY INT TO TRACK LABEL  
                     debugCount.Text = $"{buttonCount}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED, MAX IS 55 IN NORMAL GAME
                     score += 10;
                     playerScore.Text = ($"{score}");
-                    // Play sound
-                    var sp = new System.Windows.Media.MediaPlayer();
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    // Starts timer to remove alien explosion
-                    alienDeath.Enabled = true;
+                    PlaySound(2);
+                    alienDeath.Enabled = true; // Starts timer to remove alien explosion
                 }
             }
         }
@@ -426,6 +382,47 @@ namespace SpaceInvaders {
                     AlienPBList[i].Image = AlienList[i].GetImage();
                 }
             }    
+        }
+
+        private void PlaySound(int input) {
+            var sp = new System.Windows.Media.MediaPlayer();
+            if (input == 1) { // Alien movement 'music'
+                if (soundStep == 1) {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    ++soundStep;
+                }
+                else if (soundStep == 2) {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    ++soundStep;
+
+                }
+                else if (soundStep == 3) {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    ++soundStep;
+                }
+                else if (soundStep == 4) {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    soundStep = 1;
+                }
+            }
+            if (input == 2) { // Alien death sound
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
+                sp.Open(new System.Uri(path));
+                sp.Play();
+            }
+            if (input == 3) { // Player shoot projectile sound
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
+                sp.Open(new System.Uri(path));
+                sp.Play();
+            }
         }
     }
 }
