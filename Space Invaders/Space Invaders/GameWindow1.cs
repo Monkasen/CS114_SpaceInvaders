@@ -31,12 +31,6 @@ namespace SpaceInvaders {
             InitializeAliens(); // Set alien images and add list members
             player.Image = Image.FromFile("resources/textures/PlayerShip.png"); // Load player ship (dunno if necessary)
             playerProjectile.Image = Image.FromFile("resources/textures/PlayerProjectile.png");
-            invaderTest.Image = Image.FromFile("resources/textures/Alien1_1.png"); // TEST IMAGE LOADING
-            invaderTest.Visible = true;
-        }
-
-        private void debugButton_Click(object sender, EventArgs e) { // TEMPORARY BUTTON TO INCREASE ALIEN SPEED, NORMALLY DONE BY KILLING ALIENS
-            
         }
 
         private void alienSpeed_Tick(object sender, EventArgs e) { // Controls speed of aliens throughout the game
@@ -398,7 +392,7 @@ namespace SpaceInvaders {
             AlienPBList.Add(pbAlien55);
         } 
 
-        private void AlienAnimation() {
+        private void AlienAnimation() { // Cycle through animations for aliens
             foreach (var item in AlienList) {
                 if (alienAnimation == 0) {
                     if (item.GetAlienType() == 1) {
