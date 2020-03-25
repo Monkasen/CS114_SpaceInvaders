@@ -23,6 +23,7 @@ namespace SpaceInvaders {
         private int deathTimer = 0; // Death timer for alien explosion
         private int alienAnimation = 0; // Alien animation step
         private List<Alien> AlienList = new List<Alien>();
+        private List<System.Windows.Forms.PictureBox> AlienPBList = new List<PictureBox>();
 
         public GameWindow() {
             InitializeComponent();
@@ -327,6 +328,63 @@ namespace SpaceInvaders {
             AlienList.Add(alien53);
             AlienList.Add(alien54);
             AlienList.Add(alien55);
+
+            // Add pictureboxes
+            AlienPBList.Add(pbAlien1);
+            AlienPBList.Add(pbAlien2);
+            AlienPBList.Add(pbAlien3);
+            AlienPBList.Add(pbAlien4);
+            AlienPBList.Add(pbAlien5);
+            AlienPBList.Add(pbAlien6);
+            AlienPBList.Add(pbAlien7);
+            AlienPBList.Add(pbAlien8);
+            AlienPBList.Add(pbAlien9);
+            AlienPBList.Add(pbAlien10);
+            AlienPBList.Add(pbAlien11);
+            AlienPBList.Add(pbAlien12);
+            AlienPBList.Add(pbAlien13);
+            AlienPBList.Add(pbAlien14);
+            AlienPBList.Add(pbAlien15);
+            AlienPBList.Add(pbAlien16);
+            AlienPBList.Add(pbAlien17);
+            AlienPBList.Add(pbAlien18);
+            AlienPBList.Add(pbAlien19);
+            AlienPBList.Add(pbAlien20);
+            AlienPBList.Add(pbAlien21);
+            AlienPBList.Add(pbAlien22);
+            AlienPBList.Add(pbAlien23);
+            AlienPBList.Add(pbAlien24);
+            AlienPBList.Add(pbAlien25);
+            AlienPBList.Add(pbAlien26);
+            AlienPBList.Add(pbAlien27);
+            AlienPBList.Add(pbAlien28);
+            AlienPBList.Add(pbAlien29);
+            AlienPBList.Add(pbAlien30);
+            AlienPBList.Add(pbAlien31);
+            AlienPBList.Add(pbAlien32);
+            AlienPBList.Add(pbAlien33);
+            AlienPBList.Add(pbAlien34);
+            AlienPBList.Add(pbAlien35);
+            AlienPBList.Add(pbAlien36);
+            AlienPBList.Add(pbAlien37);
+            AlienPBList.Add(pbAlien38);
+            AlienPBList.Add(pbAlien39);
+            AlienPBList.Add(pbAlien40);
+            AlienPBList.Add(pbAlien41);
+            AlienPBList.Add(pbAlien42);
+            AlienPBList.Add(pbAlien43);
+            AlienPBList.Add(pbAlien44);
+            AlienPBList.Add(pbAlien45);
+            AlienPBList.Add(pbAlien46);
+            AlienPBList.Add(pbAlien47);
+            AlienPBList.Add(pbAlien48);
+            AlienPBList.Add(pbAlien49);
+            AlienPBList.Add(pbAlien50);
+            AlienPBList.Add(pbAlien51);
+            AlienPBList.Add(pbAlien52);
+            AlienPBList.Add(pbAlien53);
+            AlienPBList.Add(pbAlien54);
+            AlienPBList.Add(pbAlien55);
         } 
 
         private void AlienAnimation() {
@@ -358,68 +416,70 @@ namespace SpaceInvaders {
             }
 
             // Update images
-            foreach (var item in AlienList) {
-                // Update top row alien images
-                pbAlien1.Image = item.GetImage();
-                pbAlien2.Image = item.GetImage();
-                pbAlien3.Image = item.GetImage();
-                pbAlien4.Image = item.GetImage();
-                pbAlien5.Image = item.GetImage();
-                pbAlien6.Image = item.GetImage();
-                pbAlien7.Image = item.GetImage();
-                pbAlien8.Image = item.GetImage();
-                pbAlien9.Image = item.GetImage();
-                pbAlien10.Image = item.GetImage();
-                pbAlien11.Image = item.GetImage();
-
-                // Update second from top and middle row alien images
-                pbAlien12.Image = item.GetImage();
-                pbAlien13.Image = item.GetImage();
-                pbAlien14.Image = item.GetImage();
-                pbAlien15.Image = item.GetImage();
-                pbAlien16.Image = item.GetImage();
-                pbAlien17.Image = item.GetImage();
-                pbAlien18.Image = item.GetImage();
-                pbAlien19.Image = item.GetImage();
-                pbAlien20.Image = item.GetImage();
-                pbAlien21.Image = item.GetImage();
-                pbAlien22.Image = item.GetImage();
-                pbAlien23.Image = item.GetImage();
-                pbAlien24.Image = item.GetImage();
-                pbAlien25.Image = item.GetImage();
-                pbAlien26.Image = item.GetImage();
-                pbAlien27.Image = item.GetImage();
-                pbAlien28.Image = item.GetImage();
-                pbAlien29.Image = item.GetImage();
-                pbAlien30.Image = item.GetImage();
-                pbAlien31.Image = item.GetImage();
-                pbAlien32.Image = item.GetImage();
-                pbAlien33.Image = item.GetImage();
-
-                // Update bottom two row alien images
-                pbAlien34.Image = item.GetImage();
-                pbAlien35.Image = item.GetImage();
-                pbAlien36.Image = item.GetImage();
-                pbAlien37.Image = item.GetImage();
-                pbAlien38.Image = item.GetImage();
-                pbAlien39.Image = item.GetImage();
-                pbAlien40.Image = item.GetImage();
-                pbAlien41.Image = item.GetImage();
-                pbAlien42.Image = item.GetImage();
-                pbAlien43.Image = item.GetImage();
-                pbAlien44.Image = item.GetImage();
-                pbAlien45.Image = item.GetImage();
-                pbAlien46.Image = item.GetImage();
-                pbAlien47.Image = item.GetImage();
-                pbAlien48.Image = item.GetImage();
-                pbAlien49.Image = item.GetImage();
-                pbAlien50.Image = item.GetImage();
-                pbAlien51.Image = item.GetImage();
-                pbAlien52.Image = item.GetImage();
-                pbAlien53.Image = item.GetImage();
-                pbAlien54.Image = item.GetImage();
-                pbAlien55.Image = item.GetImage();
-            }
+            for (int i = 0; i < 55; i++)
+                AlienPBList[i].Image = AlienList[i].GetImage();
+                /*foreach (var item in AlienList) {
+                    // Update top row alien images
+                    pbAlien1.Image = item.GetImage();
+                    pbAlien2.Image = item.GetImage();
+                    pbAlien3.Image = item.GetImage();
+                    pbAlien4.Image = item.GetImage();
+                    pbAlien5.Image = item.GetImage();
+                    pbAlien6.Image = item.GetImage();
+                    pbAlien7.Image = item.GetImage();
+                    pbAlien8.Image = item.GetImage();
+                    pbAlien9.Image = item.GetImage();
+                    pbAlien10.Image = item.GetImage();
+                    pbAlien11.Image = item.GetImage();
+    
+                    // Update second from top and middle row alien images
+                    pbAlien12.Image = item.GetImage();
+                    pbAlien13.Image = item.GetImage();
+                    pbAlien14.Image = item.GetImage();
+                    pbAlien15.Image = item.GetImage();
+                    pbAlien16.Image = item.GetImage();
+                    pbAlien17.Image = item.GetImage();
+                    pbAlien18.Image = item.GetImage();
+                    pbAlien19.Image = item.GetImage();
+                    pbAlien20.Image = item.GetImage();
+                    pbAlien21.Image = item.GetImage();
+                    pbAlien22.Image = item.GetImage();
+                    pbAlien23.Image = item.GetImage();
+                    pbAlien24.Image = item.GetImage();
+                    pbAlien25.Image = item.GetImage();
+                    pbAlien26.Image = item.GetImage();
+                    pbAlien27.Image = item.GetImage();
+                    pbAlien28.Image = item.GetImage();
+                    pbAlien29.Image = item.GetImage();
+                    pbAlien30.Image = item.GetImage();
+                    pbAlien31.Image = item.GetImage();
+                    pbAlien32.Image = item.GetImage();
+                    pbAlien33.Image = item.GetImage();
+    
+                    // Update bottom two row alien images
+                    pbAlien34.Image = item.GetImage();
+                    pbAlien35.Image = item.GetImage();
+                    pbAlien36.Image = item.GetImage();
+                    pbAlien37.Image = item.GetImage();
+                    pbAlien38.Image = item.GetImage();
+                    pbAlien39.Image = item.GetImage();
+                    pbAlien40.Image = item.GetImage();
+                    pbAlien41.Image = item.GetImage();
+                    pbAlien42.Image = item.GetImage();
+                    pbAlien43.Image = item.GetImage();
+                    pbAlien44.Image = item.GetImage();
+                    pbAlien45.Image = item.GetImage();
+                    pbAlien46.Image = item.GetImage();
+                    pbAlien47.Image = item.GetImage();
+                    pbAlien48.Image = item.GetImage();
+                    pbAlien49.Image = item.GetImage();
+                    pbAlien50.Image = item.GetImage();
+                    pbAlien51.Image = item.GetImage();
+                    pbAlien52.Image = item.GetImage();
+                    pbAlien53.Image = item.GetImage();
+                    pbAlien54.Image = item.GetImage();
+                    pbAlien55.Image = item.GetImage();
+                }*/
         }
     }
 }
