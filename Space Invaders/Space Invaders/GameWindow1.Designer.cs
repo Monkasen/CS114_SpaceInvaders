@@ -35,6 +35,7 @@
             this.debugPanel = new System.Windows.Forms.Panel();
             this.playerProjectile = new System.Windows.Forms.PictureBox();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
+            this.alienDeath = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invaderTest)).BeginInit();
             this.debugPanel.SuspendLayout();
@@ -137,6 +138,11 @@
             this.projectileCollision.Enabled = true;
             this.projectileCollision.Tick += new System.EventHandler(this.projectileCollision_Tick);
             // 
+            // alienDeath
+            // 
+            this.alienDeath.Interval = 10;
+            this.alienDeath.Tick += new System.EventHandler(this.alienDeath_Tick);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +177,7 @@
         private System.Windows.Forms.Panel debugPanel;
         private System.Windows.Forms.PictureBox playerProjectile;
         private System.Windows.Forms.Timer projectileCollision;
+        private System.Windows.Forms.Timer alienDeath;
     }
 }
 
