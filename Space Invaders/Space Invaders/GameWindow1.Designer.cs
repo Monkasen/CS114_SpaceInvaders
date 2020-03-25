@@ -33,9 +33,12 @@
             this.debugXLocation = new System.Windows.Forms.Label();
             this.invaderTest = new System.Windows.Forms.PictureBox();
             this.debugPanel = new System.Windows.Forms.Panel();
+            this.playerProjectile = new System.Windows.Forms.PictureBox();
+            this.projectileCollision = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invaderTest)).BeginInit();
             this.debugPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).BeginInit();
             this.SuspendLayout();
             // 
             // debugButton
@@ -106,6 +109,7 @@
             this.invaderTest.Size = new System.Drawing.Size(52, 32);
             this.invaderTest.TabIndex = 5;
             this.invaderTest.TabStop = false;
+            this.invaderTest.Visible = false;
             // 
             // debugPanel
             // 
@@ -119,12 +123,27 @@
             this.debugPanel.Size = new System.Drawing.Size(255, 56);
             this.debugPanel.TabIndex = 6;
             // 
+            // playerProjectile
+            // 
+            this.playerProjectile.Location = new System.Drawing.Point(12, 799);
+            this.playerProjectile.Name = "playerProjectile";
+            this.playerProjectile.Size = new System.Drawing.Size(4, 16);
+            this.playerProjectile.TabIndex = 7;
+            this.playerProjectile.TabStop = false;
+            this.playerProjectile.Visible = false;
+            // 
+            // projectileCollision
+            // 
+            this.projectileCollision.Enabled = true;
+            this.projectileCollision.Tick += new System.EventHandler(this.projectileCollision_Tick);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(799, 827);
+            this.Controls.Add(this.playerProjectile);
             this.Controls.Add(this.debugPanel);
             this.Controls.Add(this.invaderTest);
             this.Controls.Add(this.player);
@@ -134,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.invaderTest)).EndInit();
             this.debugPanel.ResumeLayout(false);
             this.debugPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,6 +169,8 @@
         private System.Windows.Forms.Label debugXLocation;
         private System.Windows.Forms.PictureBox invaderTest;
         private System.Windows.Forms.Panel debugPanel;
+        private System.Windows.Forms.PictureBox playerProjectile;
+        private System.Windows.Forms.Timer projectileCollision;
     }
 }
 

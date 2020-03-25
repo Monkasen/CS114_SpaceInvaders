@@ -15,12 +15,15 @@ namespace SpaceInvaders {
         double speedMultiplier = 1;
         double gameTicks = 1;
         int buttonCount = 1;
-        private int formRightSideDifference = 68;
+        private int rightSideDifference = 68;
+        private int _projectileSpeed = 7;
+        private bool _isShotFired = false; // Is player's shot still fired?
 
 
         public GameWindow() {
             InitializeComponent();
             player.Image = Image.FromFile("resources/textures/PlayerShip.png"); // Load player ship (dunno if necessary)
+            playerProjectile.Image = Image.FromFile("resources/textures/PlayerProjectile.png");
         }
 
         private void debugButton_Click(object sender, EventArgs e) { // TEMPORARY BUTTON TO INCREASE ALIEN SPEED, NORMALLY DONE BY KILLING ALIENS
@@ -28,6 +31,7 @@ namespace SpaceInvaders {
             ++buttonCount;
             debugCount.Text = $"{buttonCount}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED, MAX IS 55 IN NORMAL GAME
             invaderTest.Image = Image.FromFile("resources/textures/Alien1_1.png"); // TEST IMAGE LOADING
+            invaderTest.Visible = true;
         }
 
         private void alienSpeed_Tick(object sender, EventArgs e) {
@@ -54,9 +58,38 @@ namespace SpaceInvaders {
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
             {
-                if (player.Location.X < this.Width - formRightSideDifference) // Calculate current width in case we change this in the future
+                if (player.Location.X < this.Width - rightSideDifference) // Calculate current width in case we change this in the future
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
             }
+            if (Keyboard.IsKeyDown(Key.Up)) // Shoot
+            {
+                if (!_isShotFired)
+                {
+                    _isShotFired = true;
+                    playerProjectile.Location = new Point(player.Location.X + (52 / 2), player.Location.Y);
+                    playerProjectile.Visible = true;
+                }
+            }
+
+            if (!_isShotFired) return;
+            playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - _projectileSpeed);
+            _isShotFired = ProjectileEvent();
+        }
+
+        private bool ProjectileEvent() // Checks if either projectile collides with an invader (not implemented) or out of bounds
+        {
+            if (playerProjectile.Location.Y < 0)
+            {
+                playerProjectile.Visible = false;
+                return false;
+            }
+            return true;
+        }
+
+        private void projectileCollision_Tick(object sender, EventArgs e)
+        {
+            // Nothing here yet
+            // Should projectile tracking be in here too?
         }
     }
 }
