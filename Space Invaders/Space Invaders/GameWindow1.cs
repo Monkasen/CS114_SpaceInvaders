@@ -16,6 +16,7 @@ namespace SpaceInvaders {
         double speedMultiplier = 1;
         double gameTicks = 1;
         int buttonCount = 1;
+        int score = 0;
         private int rightSideDifference = 68;
         private const int _projectileSpeed = 7;
         private bool _isShotFired = false; // Is player's shot still fired?
@@ -35,9 +36,7 @@ namespace SpaceInvaders {
         }
 
         private void debugButton_Click(object sender, EventArgs e) { // TEMPORARY BUTTON TO INCREASE ALIEN SPEED, NORMALLY DONE BY KILLING ALIENS
-            speedMultiplier = speedMultiplier * 1.01; // When an alien dies, increase game speed by 1%
-            ++buttonCount;
-            debugCount.Text = $"{buttonCount}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED, MAX IS 55 IN NORMAL GAME
+            
         }
 
         private void alienSpeed_Tick(object sender, EventArgs e) { // Controls speed of aliens throughout the game
@@ -128,25 +127,37 @@ namespace SpaceInvaders {
 
         private void projectileCollision_Tick(object sender, EventArgs e)
         {
-            if (playerProjectile.Bounds.IntersectsWith(invaderTest.Bounds) && (invaderTest.Enabled = true)) { // Change invaderTest.Enabled = true to check if alien is alive using Alien class 'state' when implemented
-                playerProjectile.Visible = false;
-                invaderTest.Enabled = false;
-                invaderTest.Image = Image.FromFile("resources/textures/AlienDeath.png");
-                // Play sound
-                var sp = new System.Windows.Media.MediaPlayer();
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
-                sp.Open(new System.Uri(path));
-                sp.Play();
-                // Starts timer to remove alien explosion
-                alienDeath.Enabled = true;
+            for (int i = 0; i < 55; i++) {
+                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && _isShotFired) { // Checks for bullet intersecting alien, the alien is alive, and there if there is an active bullet
+                    playerProjectile.Visible = false; // Hides player's projectile
+                    _isShotFired = false; // Disables player's projectile
+                    AlienList[i].SetState(0); // Sets state to 'dead'
+                    AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
+                    speedMultiplier = speedMultiplier * 1.01; // When an alien dies, increase game speed by 1%
+                    ++buttonCount; // TEMPORARY INT TO TRACK LABEL  
+                    debugCount.Text = $"{buttonCount}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED, MAX IS 55 IN NORMAL GAME
+                    score += 10;
+                    playerScore.Text = ($"{score}");
+                    // Play sound
+                    var sp = new System.Windows.Media.MediaPlayer();
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    // Starts timer to remove alien explosion
+                    alienDeath.Enabled = true;
+                }
             }
         }
 
         private void alienDeath_Tick(object sender, EventArgs e) { //Handles removing alien explosion after death
             ++deathTimer;
             if (deathTimer == 10) { // After 10 ticks, remove the explosion and reset the timer
-                invaderTest.Enabled = false;
-                alienDeath.Enabled = false;
+                for (int i = 0; i < 55; i++) {
+                    if (AlienList[i].GetState() == 0) { // If the alien has a pending death animation...
+                        AlienPBList[i].Visible = false; // Disable alien image
+                        alienDeath.Enabled = false; // Turn timer off until next death
+                    }
+                }
                 deathTimer = 0;
             }
         }
@@ -329,7 +340,7 @@ namespace SpaceInvaders {
             AlienList.Add(alien54);
             AlienList.Add(alien55);
 
-            // Add pictureboxes
+            // Add pictureboxes to list
             AlienPBList.Add(pbAlien1);
             AlienPBList.Add(pbAlien2);
             AlienPBList.Add(pbAlien3);
@@ -393,10 +404,10 @@ namespace SpaceInvaders {
                     if (item.GetAlienType() == 1) {
                         item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
                     }
-                    else if (item.GetAlienType() == 2) {
+                    if (item.GetAlienType() == 2) {
                         item.SetImage(Image.FromFile("resources/textures/Alien2_2.png"));
                     }
-                    else if (item.GetAlienType() == 3) {
+                    if (item.GetAlienType() == 3) {
                         item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
                     }
                     ++alienAnimation;
@@ -405,10 +416,10 @@ namespace SpaceInvaders {
                     if (item.GetAlienType() == 1) {
                         item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
                     }
-                    else if (item.GetAlienType() == 2) {
+                    if (item.GetAlienType() == 2) {
                         item.SetImage(Image.FromFile("resources/textures/Alien2_1.png"));
                     }
-                    else if (item.GetAlienType() == 3) {
+                    if (item.GetAlienType() == 3) {
                         item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
                     }
                     --alienAnimation;
@@ -416,70 +427,11 @@ namespace SpaceInvaders {
             }
 
             // Update images
-            for (int i = 0; i < 55; i++)
-                AlienPBList[i].Image = AlienList[i].GetImage();
-                /*foreach (var item in AlienList) {
-                    // Update top row alien images
-                    pbAlien1.Image = item.GetImage();
-                    pbAlien2.Image = item.GetImage();
-                    pbAlien3.Image = item.GetImage();
-                    pbAlien4.Image = item.GetImage();
-                    pbAlien5.Image = item.GetImage();
-                    pbAlien6.Image = item.GetImage();
-                    pbAlien7.Image = item.GetImage();
-                    pbAlien8.Image = item.GetImage();
-                    pbAlien9.Image = item.GetImage();
-                    pbAlien10.Image = item.GetImage();
-                    pbAlien11.Image = item.GetImage();
-    
-                    // Update second from top and middle row alien images
-                    pbAlien12.Image = item.GetImage();
-                    pbAlien13.Image = item.GetImage();
-                    pbAlien14.Image = item.GetImage();
-                    pbAlien15.Image = item.GetImage();
-                    pbAlien16.Image = item.GetImage();
-                    pbAlien17.Image = item.GetImage();
-                    pbAlien18.Image = item.GetImage();
-                    pbAlien19.Image = item.GetImage();
-                    pbAlien20.Image = item.GetImage();
-                    pbAlien21.Image = item.GetImage();
-                    pbAlien22.Image = item.GetImage();
-                    pbAlien23.Image = item.GetImage();
-                    pbAlien24.Image = item.GetImage();
-                    pbAlien25.Image = item.GetImage();
-                    pbAlien26.Image = item.GetImage();
-                    pbAlien27.Image = item.GetImage();
-                    pbAlien28.Image = item.GetImage();
-                    pbAlien29.Image = item.GetImage();
-                    pbAlien30.Image = item.GetImage();
-                    pbAlien31.Image = item.GetImage();
-                    pbAlien32.Image = item.GetImage();
-                    pbAlien33.Image = item.GetImage();
-    
-                    // Update bottom two row alien images
-                    pbAlien34.Image = item.GetImage();
-                    pbAlien35.Image = item.GetImage();
-                    pbAlien36.Image = item.GetImage();
-                    pbAlien37.Image = item.GetImage();
-                    pbAlien38.Image = item.GetImage();
-                    pbAlien39.Image = item.GetImage();
-                    pbAlien40.Image = item.GetImage();
-                    pbAlien41.Image = item.GetImage();
-                    pbAlien42.Image = item.GetImage();
-                    pbAlien43.Image = item.GetImage();
-                    pbAlien44.Image = item.GetImage();
-                    pbAlien45.Image = item.GetImage();
-                    pbAlien46.Image = item.GetImage();
-                    pbAlien47.Image = item.GetImage();
-                    pbAlien48.Image = item.GetImage();
-                    pbAlien49.Image = item.GetImage();
-                    pbAlien50.Image = item.GetImage();
-                    pbAlien51.Image = item.GetImage();
-                    pbAlien52.Image = item.GetImage();
-                    pbAlien53.Image = item.GetImage();
-                    pbAlien54.Image = item.GetImage();
-                    pbAlien55.Image = item.GetImage();
-                }*/
+            for (int i = 0; i < 55; i++) {
+                if (AlienList[i].GetState() == 1) {
+                    AlienPBList[i].Image = AlienList[i].GetImage();
+                }
+            }    
         }
     }
 }

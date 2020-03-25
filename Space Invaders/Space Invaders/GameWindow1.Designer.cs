@@ -91,6 +91,7 @@
             this.pbAlien51 = new System.Windows.Forms.PictureBox();
             this.pbAlien50 = new System.Windows.Forms.PictureBox();
             this.pbAlien45 = new System.Windows.Forms.PictureBox();
+            this.playerScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invaderTest)).BeginInit();
             this.debugPanel.SuspendLayout();
@@ -225,13 +226,14 @@
             // debugPanel
             // 
             this.debugPanel.BackColor = System.Drawing.Color.LightGray;
+            this.debugPanel.Controls.Add(this.playerScore);
             this.debugPanel.Controls.Add(this.debugButton);
             this.debugPanel.Controls.Add(this.debugTimer);
             this.debugPanel.Controls.Add(this.debugXLocation);
             this.debugPanel.Controls.Add(this.debugCount);
             this.debugPanel.Location = new System.Drawing.Point(-1, 0);
             this.debugPanel.Name = "debugPanel";
-            this.debugPanel.Size = new System.Drawing.Size(255, 56);
+            this.debugPanel.Size = new System.Drawing.Size(377, 56);
             this.debugPanel.TabIndex = 6;
             // 
             // playerProjectile
@@ -748,6 +750,15 @@
             this.pbAlien45.TabIndex = 56;
             this.pbAlien45.TabStop = false;
             // 
+            // playerScore
+            // 
+            this.playerScore.AutoSize = true;
+            this.playerScore.Location = new System.Drawing.Point(298, 21);
+            this.playerScore.Name = "playerScore";
+            this.playerScore.Size = new System.Drawing.Size(13, 13);
+            this.playerScore.TabIndex = 5;
+            this.playerScore.Text = "0";
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,6 +959,7 @@
         private System.Windows.Forms.PictureBox pbAlien51;
         private System.Windows.Forms.PictureBox pbAlien50;
         private System.Windows.Forms.PictureBox pbAlien45;
+        private System.Windows.Forms.Label playerScore;
     }
 }
 
