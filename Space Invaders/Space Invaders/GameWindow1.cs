@@ -28,7 +28,7 @@ namespace SpaceInvaders {
 
         public GameWindow() {
             InitializeComponent();
-            InitializeAliens(); // Set alien images and add list members
+            InitializeAliens(); // Create list of aliens and their graphics
         }
 
         private void alienSpeed_Tick(object sender, EventArgs e) { // Controls speed of aliens throughout the game
@@ -112,183 +112,65 @@ namespace SpaceInvaders {
             }
         }
 
-        // Method will initialize aliens for use, brute force it broski
-        private void InitializeAliens()
-        {
-            // Load top row alien images
-            pbAlien1.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien2.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien3.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien4.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien5.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien6.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien7.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien8.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien9.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien10.Image = Image.FromFile("resources/textures/Alien3_1.png");
-            pbAlien11.Image = Image.FromFile("resources/textures/Alien3_1.png");
-
-            // Load second from top and middle row alien images
-            pbAlien12.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien13.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien14.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien15.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien16.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien17.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien18.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien19.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien20.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien21.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien22.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien23.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien24.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien25.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien26.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien27.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien28.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien29.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien30.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien31.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien32.Image = Image.FromFile("resources/textures/Alien2_1.png");
-            pbAlien33.Image = Image.FromFile("resources/textures/Alien2_1.png");
-
-            // Load bottom two row alien images
-            pbAlien34.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien35.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien36.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien37.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien38.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien39.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien40.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien41.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien42.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien43.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien44.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien45.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien46.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien47.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien48.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien49.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien50.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien51.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien52.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien53.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien54.Image = Image.FromFile("resources/textures/Alien1_1.png");
-            pbAlien55.Image = Image.FromFile("resources/textures/Alien1_1.png");
-
-            // Create Alien objects
-            Alien alien1 = new Alien(3, pbAlien1.Image);
-            Alien alien2 = new Alien(3, pbAlien2.Image);
-            Alien alien3 = new Alien(3, pbAlien3.Image);
-            Alien alien4 = new Alien(3, pbAlien4.Image);
-            Alien alien5 = new Alien(3, pbAlien5.Image);
-            Alien alien6 = new Alien(3, pbAlien6.Image);
-            Alien alien7 = new Alien(3, pbAlien7.Image);
-            Alien alien8 = new Alien(3, pbAlien8.Image);
-            Alien alien9 = new Alien(3, pbAlien9.Image);
-            Alien alien10 = new Alien(3, pbAlien10.Image);
-            Alien alien11 = new Alien(3, pbAlien11.Image);
-            Alien alien12 = new Alien(2, pbAlien12.Image);
-            Alien alien13 = new Alien(2, pbAlien13.Image);
-            Alien alien14 = new Alien(2, pbAlien14.Image);
-            Alien alien15 = new Alien(2, pbAlien15.Image);
-            Alien alien16 = new Alien(2, pbAlien16.Image);
-            Alien alien17 = new Alien(2, pbAlien17.Image);
-            Alien alien18 = new Alien(2, pbAlien18.Image);
-            Alien alien19 = new Alien(2, pbAlien19.Image);
-            Alien alien20 = new Alien(2, pbAlien20.Image);
-            Alien alien21 = new Alien(2, pbAlien21.Image);
-            Alien alien22 = new Alien(2, pbAlien22.Image);
-            Alien alien23 = new Alien(2, pbAlien23.Image);
-            Alien alien24 = new Alien(2, pbAlien24.Image);
-            Alien alien25 = new Alien(2, pbAlien25.Image);
-            Alien alien26 = new Alien(2, pbAlien26.Image);
-            Alien alien27 = new Alien(2, pbAlien27.Image);
-            Alien alien28 = new Alien(2, pbAlien28.Image);
-            Alien alien29 = new Alien(2, pbAlien29.Image);
-            Alien alien30 = new Alien(2, pbAlien30.Image);
-            Alien alien31 = new Alien(2, pbAlien31.Image);
-            Alien alien32 = new Alien(2, pbAlien32.Image);
-            Alien alien33 = new Alien(2, pbAlien33.Image);
-            Alien alien34 = new Alien(1, pbAlien34.Image);
-            Alien alien35 = new Alien(1, pbAlien35.Image);
-            Alien alien36 = new Alien(1, pbAlien36.Image);
-            Alien alien37 = new Alien(1, pbAlien37.Image);
-            Alien alien38 = new Alien(1, pbAlien38.Image);
-            Alien alien39 = new Alien(1, pbAlien39.Image);
-            Alien alien40 = new Alien(1, pbAlien40.Image);
-            Alien alien41 = new Alien(1, pbAlien41.Image);
-            Alien alien42 = new Alien(1, pbAlien42.Image);
-            Alien alien43 = new Alien(1, pbAlien43.Image);
-            Alien alien44 = new Alien(1, pbAlien44.Image);
-            Alien alien45 = new Alien(1, pbAlien45.Image);
-            Alien alien46 = new Alien(1, pbAlien46.Image);
-            Alien alien47 = new Alien(1, pbAlien47.Image);
-            Alien alien48 = new Alien(1, pbAlien48.Image);
-            Alien alien49 = new Alien(1, pbAlien49.Image);
-            Alien alien50 = new Alien(1, pbAlien50.Image);
-            Alien alien51 = new Alien(1, pbAlien51.Image);
-            Alien alien52 = new Alien(1, pbAlien52.Image);
-            Alien alien53 = new Alien(1, pbAlien53.Image);
-            Alien alien54 = new Alien(1, pbAlien54.Image);
-            Alien alien55 = new Alien(1, pbAlien55.Image);
-
-            // Add Alien objects to list
-            AlienList.Add(alien1);
-            AlienList.Add(alien2);
-            AlienList.Add(alien3);
-            AlienList.Add(alien4);
-            AlienList.Add(alien5);
-            AlienList.Add(alien6);
-            AlienList.Add(alien7);
-            AlienList.Add(alien8);
-            AlienList.Add(alien9);
-            AlienList.Add(alien10);
-            AlienList.Add(alien11);
-            AlienList.Add(alien12);
-            AlienList.Add(alien13);
-            AlienList.Add(alien14);
-            AlienList.Add(alien15);
-            AlienList.Add(alien16);
-            AlienList.Add(alien17);
-            AlienList.Add(alien18);
-            AlienList.Add(alien19);
-            AlienList.Add(alien20);
-            AlienList.Add(alien21);
-            AlienList.Add(alien22);
-            AlienList.Add(alien23);
-            AlienList.Add(alien24);
-            AlienList.Add(alien25);
-            AlienList.Add(alien26);
-            AlienList.Add(alien27);
-            AlienList.Add(alien28);
-            AlienList.Add(alien29);
-            AlienList.Add(alien30);
-            AlienList.Add(alien31);
-            AlienList.Add(alien32);
-            AlienList.Add(alien33);
-            AlienList.Add(alien34);
-            AlienList.Add(alien35);
-            AlienList.Add(alien36);
-            AlienList.Add(alien37);
-            AlienList.Add(alien38);
-            AlienList.Add(alien39);
-            AlienList.Add(alien40);
-            AlienList.Add(alien41);
-            AlienList.Add(alien42);
-            AlienList.Add(alien43);
-            AlienList.Add(alien44);
-            AlienList.Add(alien45);
-            AlienList.Add(alien46);
-            AlienList.Add(alien47);
-            AlienList.Add(alien48);
-            AlienList.Add(alien49);
-            AlienList.Add(alien50);
-            AlienList.Add(alien51);
-            AlienList.Add(alien52);
-            AlienList.Add(alien53);
-            AlienList.Add(alien54);
-            AlienList.Add(alien55);
+        
+        private void InitializeAliens() { // Builds lists for aliens and their graphics
+                       
+            // Create and add Alien objects to list
+            AlienList.Add(new Alien(3, pbAlien1.Image));
+            AlienList.Add(new Alien(3, pbAlien2.Image));
+            AlienList.Add(new Alien(3, pbAlien3.Image));
+            AlienList.Add(new Alien(3, pbAlien4.Image));
+            AlienList.Add(new Alien(3, pbAlien5.Image));
+            AlienList.Add(new Alien(3, pbAlien6.Image));
+            AlienList.Add(new Alien(3, pbAlien7.Image));
+            AlienList.Add(new Alien(3, pbAlien8.Image));
+            AlienList.Add(new Alien(3, pbAlien9.Image));
+            AlienList.Add(new Alien(3, pbAlien10.Image));
+            AlienList.Add(new Alien(3, pbAlien11.Image));
+            AlienList.Add(new Alien(2, pbAlien12.Image));
+            AlienList.Add(new Alien(2, pbAlien13.Image));
+            AlienList.Add(new Alien(2, pbAlien14.Image));
+            AlienList.Add(new Alien(2, pbAlien15.Image));
+            AlienList.Add(new Alien(2, pbAlien16.Image));
+            AlienList.Add(new Alien(2, pbAlien17.Image));
+            AlienList.Add(new Alien(2, pbAlien18.Image));
+            AlienList.Add(new Alien(2, pbAlien19.Image));
+            AlienList.Add(new Alien(2, pbAlien20.Image));
+            AlienList.Add(new Alien(2, pbAlien21.Image));
+            AlienList.Add(new Alien(2, pbAlien22.Image));
+            AlienList.Add(new Alien(2, pbAlien23.Image));
+            AlienList.Add(new Alien(2, pbAlien24.Image));
+            AlienList.Add(new Alien(2, pbAlien25.Image));
+            AlienList.Add(new Alien(2, pbAlien26.Image));
+            AlienList.Add(new Alien(2, pbAlien27.Image));
+            AlienList.Add(new Alien(2, pbAlien28.Image));
+            AlienList.Add(new Alien(2, pbAlien29.Image));
+            AlienList.Add(new Alien(2, pbAlien30.Image));
+            AlienList.Add(new Alien(2, pbAlien31.Image));
+            AlienList.Add(new Alien(2, pbAlien32.Image));
+            AlienList.Add(new Alien(2, pbAlien33.Image));
+            AlienList.Add(new Alien(1, pbAlien34.Image));
+            AlienList.Add(new Alien(1, pbAlien35.Image));
+            AlienList.Add(new Alien(1, pbAlien36.Image));
+            AlienList.Add(new Alien(1, pbAlien37.Image));
+            AlienList.Add(new Alien(1, pbAlien38.Image));
+            AlienList.Add(new Alien(1, pbAlien39.Image));
+            AlienList.Add(new Alien(1, pbAlien40.Image));
+            AlienList.Add(new Alien(1, pbAlien41.Image));
+            AlienList.Add(new Alien(1, pbAlien42.Image));
+            AlienList.Add(new Alien(1, pbAlien43.Image));
+            AlienList.Add(new Alien(1, pbAlien44.Image));
+            AlienList.Add(new Alien(1, pbAlien45.Image));
+            AlienList.Add(new Alien(1, pbAlien46.Image));
+            AlienList.Add(new Alien(1, pbAlien47.Image));
+            AlienList.Add(new Alien(1, pbAlien48.Image));
+            AlienList.Add(new Alien(1, pbAlien49.Image));
+            AlienList.Add(new Alien(1, pbAlien50.Image));
+            AlienList.Add(new Alien(1, pbAlien51.Image));
+            AlienList.Add(new Alien(1, pbAlien52.Image));
+            AlienList.Add(new Alien(1, pbAlien53.Image));
+            AlienList.Add(new Alien(1, pbAlien54.Image));
+            AlienList.Add(new Alien(1, pbAlien55.Image));
 
             // Add pictureboxes to list
             AlienPBList.Add(pbAlien1);

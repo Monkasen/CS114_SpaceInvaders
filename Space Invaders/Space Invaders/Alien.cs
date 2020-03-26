@@ -38,8 +38,7 @@ namespace Space_Invaders
             return alienImage;
         }
 
-        public int GetState()
-        {
+        public int GetState() {
             return state;
         }
     }

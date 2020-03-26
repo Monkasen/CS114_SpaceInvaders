@@ -89,5 +89,14 @@
   <ItemGroup>
     <None Include="bin\Debug\resources\textures\PlayerProjectile.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\textures\Alien1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\textures\Alien2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\resources\textures\Alien3_1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

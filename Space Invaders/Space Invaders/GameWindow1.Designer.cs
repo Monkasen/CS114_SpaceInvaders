@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.debugCount = new System.Windows.Forms.Label();
             this.alienSpeed = new System.Windows.Forms.Timer(this.components);
             this.debugTimer = new System.Windows.Forms.Label();
@@ -33,6 +34,12 @@
             this.playerScore = new System.Windows.Forms.Label();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
             this.alienDeath = new System.Windows.Forms.Timer(this.components);
+            this.pbAlien46 = new System.Windows.Forms.PictureBox();
+            this.pbAlien47 = new System.Windows.Forms.PictureBox();
+            this.pbAlien48 = new System.Windows.Forms.PictureBox();
+            this.pbAlien49 = new System.Windows.Forms.PictureBox();
+            this.pbAlien53 = new System.Windows.Forms.PictureBox();
+            this.pbAlien52 = new System.Windows.Forms.PictureBox();
             this.pbAlien55 = new System.Windows.Forms.PictureBox();
             this.pbAlien54 = new System.Windows.Forms.PictureBox();
             this.pbAlien51 = new System.Windows.Forms.PictureBox();
@@ -83,14 +90,14 @@
             this.pbAlien6 = new System.Windows.Forms.PictureBox();
             this.pbAlien1 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
-            this.pbAlien52 = new System.Windows.Forms.PictureBox();
-            this.pbAlien53 = new System.Windows.Forms.PictureBox();
-            this.pbAlien49 = new System.Windows.Forms.PictureBox();
-            this.pbAlien48 = new System.Windows.Forms.PictureBox();
-            this.pbAlien47 = new System.Windows.Forms.PictureBox();
-            this.pbAlien46 = new System.Windows.Forms.PictureBox();
             this.playerProjectile = new System.Windows.Forms.PictureBox();
             this.debugPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).BeginInit();
@@ -141,12 +148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,8 +223,69 @@
             this.alienDeath.Interval = 10;
             this.alienDeath.Tick += new System.EventHandler(this.alienDeath_Tick);
             // 
+            // pbAlien46
+            // 
+            this.pbAlien46.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien46.Image")));
+            this.pbAlien46.Location = new System.Drawing.Point(95, 251);
+            this.pbAlien46.Name = "pbAlien46";
+            this.pbAlien46.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien46.TabIndex = 67;
+            this.pbAlien46.TabStop = false;
+            // 
+            // pbAlien47
+            // 
+            this.pbAlien47.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien47.Image")));
+            this.pbAlien47.Location = new System.Drawing.Point(149, 251);
+            this.pbAlien47.Name = "pbAlien47";
+            this.pbAlien47.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien47.TabIndex = 66;
+            this.pbAlien47.TabStop = false;
+            // 
+            // pbAlien48
+            // 
+            this.pbAlien48.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien48.Image")));
+            this.pbAlien48.Location = new System.Drawing.Point(203, 251);
+            this.pbAlien48.Name = "pbAlien48";
+            this.pbAlien48.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien48.TabIndex = 65;
+            this.pbAlien48.TabStop = false;
+            // 
+            // pbAlien49
+            // 
+            this.pbAlien49.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien49.Image")));
+            this.pbAlien49.Location = new System.Drawing.Point(257, 251);
+            this.pbAlien49.Name = "pbAlien49";
+            this.pbAlien49.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien49.TabIndex = 64;
+            this.pbAlien49.TabStop = false;
+            // 
+            // pbAlien53
+            // 
+            this.pbAlien53.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien53.Image")));
+            this.pbAlien53.Location = new System.Drawing.Point(473, 251);
+            this.pbAlien53.Name = "pbAlien53";
+            this.pbAlien53.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien53.TabIndex = 63;
+            this.pbAlien53.TabStop = false;
+            // 
+            // pbAlien52
+            // 
+            this.pbAlien52.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien52.Image")));
+            this.pbAlien52.Location = new System.Drawing.Point(419, 251);
+            this.pbAlien52.Name = "pbAlien52";
+            this.pbAlien52.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien52.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAlien52.TabIndex = 62;
+            this.pbAlien52.TabStop = false;
+            // 
             // pbAlien55
             // 
+            this.pbAlien55.Image = global::Space_Invaders.Properties.Resources.Alien1_1;
             this.pbAlien55.Location = new System.Drawing.Point(581, 251);
             this.pbAlien55.Name = "pbAlien55";
             this.pbAlien55.Size = new System.Drawing.Size(48, 32);
@@ -233,6 +295,7 @@
             // 
             // pbAlien54
             // 
+            this.pbAlien54.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien54.Image")));
             this.pbAlien54.Location = new System.Drawing.Point(527, 251);
             this.pbAlien54.Name = "pbAlien54";
             this.pbAlien54.Size = new System.Drawing.Size(48, 32);
@@ -242,6 +305,7 @@
             // 
             // pbAlien51
             // 
+            this.pbAlien51.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien51.Image")));
             this.pbAlien51.Location = new System.Drawing.Point(365, 251);
             this.pbAlien51.Name = "pbAlien51";
             this.pbAlien51.Size = new System.Drawing.Size(48, 32);
@@ -251,6 +315,7 @@
             // 
             // pbAlien50
             // 
+            this.pbAlien50.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien50.Image")));
             this.pbAlien50.Location = new System.Drawing.Point(311, 251);
             this.pbAlien50.Name = "pbAlien50";
             this.pbAlien50.Size = new System.Drawing.Size(48, 32);
@@ -260,6 +325,7 @@
             // 
             // pbAlien45
             // 
+            this.pbAlien45.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien45.Image")));
             this.pbAlien45.Location = new System.Drawing.Point(41, 251);
             this.pbAlien45.Name = "pbAlien45";
             this.pbAlien45.Size = new System.Drawing.Size(48, 32);
@@ -269,6 +335,7 @@
             // 
             // pbAlien35
             // 
+            this.pbAlien35.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien35.Image")));
             this.pbAlien35.Location = new System.Drawing.Point(95, 204);
             this.pbAlien35.Name = "pbAlien35";
             this.pbAlien35.Size = new System.Drawing.Size(48, 32);
@@ -278,6 +345,7 @@
             // 
             // pbAlien36
             // 
+            this.pbAlien36.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien36.Image")));
             this.pbAlien36.Location = new System.Drawing.Point(149, 204);
             this.pbAlien36.Name = "pbAlien36";
             this.pbAlien36.Size = new System.Drawing.Size(48, 32);
@@ -287,6 +355,7 @@
             // 
             // pbAlien37
             // 
+            this.pbAlien37.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien37.Image")));
             this.pbAlien37.Location = new System.Drawing.Point(203, 204);
             this.pbAlien37.Name = "pbAlien37";
             this.pbAlien37.Size = new System.Drawing.Size(48, 32);
@@ -296,6 +365,7 @@
             // 
             // pbAlien38
             // 
+            this.pbAlien38.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien38.Image")));
             this.pbAlien38.Location = new System.Drawing.Point(257, 204);
             this.pbAlien38.Name = "pbAlien38";
             this.pbAlien38.Size = new System.Drawing.Size(48, 32);
@@ -305,6 +375,7 @@
             // 
             // pbAlien42
             // 
+            this.pbAlien42.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien42.Image")));
             this.pbAlien42.Location = new System.Drawing.Point(473, 204);
             this.pbAlien42.Name = "pbAlien42";
             this.pbAlien42.Size = new System.Drawing.Size(48, 32);
@@ -314,6 +385,7 @@
             // 
             // pbAlien41
             // 
+            this.pbAlien41.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien41.Image")));
             this.pbAlien41.Location = new System.Drawing.Point(419, 204);
             this.pbAlien41.Name = "pbAlien41";
             this.pbAlien41.Size = new System.Drawing.Size(48, 32);
@@ -323,6 +395,7 @@
             // 
             // pbAlien44
             // 
+            this.pbAlien44.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien44.Image")));
             this.pbAlien44.Location = new System.Drawing.Point(581, 204);
             this.pbAlien44.Name = "pbAlien44";
             this.pbAlien44.Size = new System.Drawing.Size(48, 32);
@@ -332,6 +405,7 @@
             // 
             // pbAlien43
             // 
+            this.pbAlien43.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien43.Image")));
             this.pbAlien43.Location = new System.Drawing.Point(527, 204);
             this.pbAlien43.Name = "pbAlien43";
             this.pbAlien43.Size = new System.Drawing.Size(48, 32);
@@ -341,6 +415,7 @@
             // 
             // pbAlien40
             // 
+            this.pbAlien40.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien40.Image")));
             this.pbAlien40.Location = new System.Drawing.Point(365, 204);
             this.pbAlien40.Name = "pbAlien40";
             this.pbAlien40.Size = new System.Drawing.Size(48, 32);
@@ -350,6 +425,7 @@
             // 
             // pbAlien39
             // 
+            this.pbAlien39.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien39.Image")));
             this.pbAlien39.Location = new System.Drawing.Point(311, 204);
             this.pbAlien39.Name = "pbAlien39";
             this.pbAlien39.Size = new System.Drawing.Size(48, 32);
@@ -359,6 +435,7 @@
             // 
             // pbAlien34
             // 
+            this.pbAlien34.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien34.Image")));
             this.pbAlien34.Location = new System.Drawing.Point(41, 204);
             this.pbAlien34.Name = "pbAlien34";
             this.pbAlien34.Size = new System.Drawing.Size(48, 32);
@@ -368,6 +445,7 @@
             // 
             // pbAlien24
             // 
+            this.pbAlien24.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien24.Image")));
             this.pbAlien24.Location = new System.Drawing.Point(95, 156);
             this.pbAlien24.Name = "pbAlien24";
             this.pbAlien24.Size = new System.Drawing.Size(48, 32);
@@ -377,6 +455,7 @@
             // 
             // pbAlien25
             // 
+            this.pbAlien25.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien25.Image")));
             this.pbAlien25.Location = new System.Drawing.Point(149, 156);
             this.pbAlien25.Name = "pbAlien25";
             this.pbAlien25.Size = new System.Drawing.Size(48, 32);
@@ -386,6 +465,7 @@
             // 
             // pbAlien26
             // 
+            this.pbAlien26.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien26.Image")));
             this.pbAlien26.Location = new System.Drawing.Point(203, 156);
             this.pbAlien26.Name = "pbAlien26";
             this.pbAlien26.Size = new System.Drawing.Size(48, 32);
@@ -395,6 +475,7 @@
             // 
             // pbAlien27
             // 
+            this.pbAlien27.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien27.Image")));
             this.pbAlien27.Location = new System.Drawing.Point(257, 156);
             this.pbAlien27.Name = "pbAlien27";
             this.pbAlien27.Size = new System.Drawing.Size(48, 32);
@@ -404,6 +485,7 @@
             // 
             // pbAlien31
             // 
+            this.pbAlien31.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien31.Image")));
             this.pbAlien31.Location = new System.Drawing.Point(473, 156);
             this.pbAlien31.Name = "pbAlien31";
             this.pbAlien31.Size = new System.Drawing.Size(48, 32);
@@ -413,6 +495,7 @@
             // 
             // pbAlien30
             // 
+            this.pbAlien30.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien30.Image")));
             this.pbAlien30.Location = new System.Drawing.Point(419, 156);
             this.pbAlien30.Name = "pbAlien30";
             this.pbAlien30.Size = new System.Drawing.Size(48, 32);
@@ -422,6 +505,7 @@
             // 
             // pbAlien33
             // 
+            this.pbAlien33.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien33.Image")));
             this.pbAlien33.Location = new System.Drawing.Point(581, 156);
             this.pbAlien33.Name = "pbAlien33";
             this.pbAlien33.Size = new System.Drawing.Size(48, 32);
@@ -431,6 +515,7 @@
             // 
             // pbAlien32
             // 
+            this.pbAlien32.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien32.Image")));
             this.pbAlien32.Location = new System.Drawing.Point(527, 156);
             this.pbAlien32.Name = "pbAlien32";
             this.pbAlien32.Size = new System.Drawing.Size(48, 32);
@@ -440,6 +525,7 @@
             // 
             // pbAlien29
             // 
+            this.pbAlien29.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien29.Image")));
             this.pbAlien29.Location = new System.Drawing.Point(365, 156);
             this.pbAlien29.Name = "pbAlien29";
             this.pbAlien29.Size = new System.Drawing.Size(48, 32);
@@ -449,6 +535,7 @@
             // 
             // pbAlien28
             // 
+            this.pbAlien28.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien28.Image")));
             this.pbAlien28.Location = new System.Drawing.Point(311, 156);
             this.pbAlien28.Name = "pbAlien28";
             this.pbAlien28.Size = new System.Drawing.Size(48, 32);
@@ -458,6 +545,7 @@
             // 
             // pbAlien23
             // 
+            this.pbAlien23.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien23.Image")));
             this.pbAlien23.Location = new System.Drawing.Point(41, 156);
             this.pbAlien23.Name = "pbAlien23";
             this.pbAlien23.Size = new System.Drawing.Size(48, 32);
@@ -467,6 +555,7 @@
             // 
             // pbAlien13
             // 
+            this.pbAlien13.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien13.Image")));
             this.pbAlien13.Location = new System.Drawing.Point(95, 109);
             this.pbAlien13.Name = "pbAlien13";
             this.pbAlien13.Size = new System.Drawing.Size(48, 32);
@@ -476,6 +565,7 @@
             // 
             // pbAlien14
             // 
+            this.pbAlien14.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien14.Image")));
             this.pbAlien14.Location = new System.Drawing.Point(149, 109);
             this.pbAlien14.Name = "pbAlien14";
             this.pbAlien14.Size = new System.Drawing.Size(48, 32);
@@ -485,6 +575,7 @@
             // 
             // pbAlien15
             // 
+            this.pbAlien15.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien15.Image")));
             this.pbAlien15.Location = new System.Drawing.Point(203, 109);
             this.pbAlien15.Name = "pbAlien15";
             this.pbAlien15.Size = new System.Drawing.Size(48, 32);
@@ -494,6 +585,7 @@
             // 
             // pbAlien16
             // 
+            this.pbAlien16.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien16.Image")));
             this.pbAlien16.Location = new System.Drawing.Point(257, 109);
             this.pbAlien16.Name = "pbAlien16";
             this.pbAlien16.Size = new System.Drawing.Size(48, 32);
@@ -503,6 +595,7 @@
             // 
             // pbAlien20
             // 
+            this.pbAlien20.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien20.Image")));
             this.pbAlien20.Location = new System.Drawing.Point(473, 109);
             this.pbAlien20.Name = "pbAlien20";
             this.pbAlien20.Size = new System.Drawing.Size(48, 32);
@@ -512,6 +605,7 @@
             // 
             // pbAlien19
             // 
+            this.pbAlien19.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien19.Image")));
             this.pbAlien19.Location = new System.Drawing.Point(419, 109);
             this.pbAlien19.Name = "pbAlien19";
             this.pbAlien19.Size = new System.Drawing.Size(48, 32);
@@ -521,6 +615,7 @@
             // 
             // pbAlien22
             // 
+            this.pbAlien22.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien22.Image")));
             this.pbAlien22.Location = new System.Drawing.Point(581, 109);
             this.pbAlien22.Name = "pbAlien22";
             this.pbAlien22.Size = new System.Drawing.Size(48, 32);
@@ -530,6 +625,7 @@
             // 
             // pbAlien21
             // 
+            this.pbAlien21.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien21.Image")));
             this.pbAlien21.Location = new System.Drawing.Point(527, 109);
             this.pbAlien21.Name = "pbAlien21";
             this.pbAlien21.Size = new System.Drawing.Size(48, 32);
@@ -539,6 +635,7 @@
             // 
             // pbAlien18
             // 
+            this.pbAlien18.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien18.Image")));
             this.pbAlien18.Location = new System.Drawing.Point(365, 109);
             this.pbAlien18.Name = "pbAlien18";
             this.pbAlien18.Size = new System.Drawing.Size(48, 32);
@@ -548,6 +645,7 @@
             // 
             // pbAlien17
             // 
+            this.pbAlien17.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien17.Image")));
             this.pbAlien17.Location = new System.Drawing.Point(311, 109);
             this.pbAlien17.Name = "pbAlien17";
             this.pbAlien17.Size = new System.Drawing.Size(48, 32);
@@ -557,6 +655,7 @@
             // 
             // pbAlien12
             // 
+            this.pbAlien12.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien12.Image")));
             this.pbAlien12.Location = new System.Drawing.Point(41, 109);
             this.pbAlien12.Name = "pbAlien12";
             this.pbAlien12.Size = new System.Drawing.Size(48, 32);
@@ -566,6 +665,7 @@
             // 
             // pbAlien2
             // 
+            this.pbAlien2.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien2.Location = new System.Drawing.Point(95, 62);
             this.pbAlien2.Name = "pbAlien2";
             this.pbAlien2.Size = new System.Drawing.Size(48, 32);
@@ -575,6 +675,7 @@
             // 
             // pbAlien3
             // 
+            this.pbAlien3.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien3.Location = new System.Drawing.Point(149, 62);
             this.pbAlien3.Name = "pbAlien3";
             this.pbAlien3.Size = new System.Drawing.Size(48, 32);
@@ -584,6 +685,7 @@
             // 
             // pbAlien4
             // 
+            this.pbAlien4.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien4.Location = new System.Drawing.Point(203, 62);
             this.pbAlien4.Name = "pbAlien4";
             this.pbAlien4.Size = new System.Drawing.Size(48, 32);
@@ -593,6 +695,7 @@
             // 
             // pbAlien5
             // 
+            this.pbAlien5.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien5.Location = new System.Drawing.Point(257, 62);
             this.pbAlien5.Name = "pbAlien5";
             this.pbAlien5.Size = new System.Drawing.Size(48, 32);
@@ -602,6 +705,7 @@
             // 
             // pbAlien9
             // 
+            this.pbAlien9.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien9.Location = new System.Drawing.Point(473, 62);
             this.pbAlien9.Name = "pbAlien9";
             this.pbAlien9.Size = new System.Drawing.Size(48, 32);
@@ -611,6 +715,7 @@
             // 
             // pbAlien8
             // 
+            this.pbAlien8.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien8.Location = new System.Drawing.Point(419, 62);
             this.pbAlien8.Name = "pbAlien8";
             this.pbAlien8.Size = new System.Drawing.Size(48, 32);
@@ -620,6 +725,7 @@
             // 
             // pbAlien11
             // 
+            this.pbAlien11.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien11.Location = new System.Drawing.Point(581, 62);
             this.pbAlien11.Name = "pbAlien11";
             this.pbAlien11.Size = new System.Drawing.Size(48, 32);
@@ -629,6 +735,7 @@
             // 
             // pbAlien10
             // 
+            this.pbAlien10.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien10.Location = new System.Drawing.Point(527, 62);
             this.pbAlien10.Name = "pbAlien10";
             this.pbAlien10.Size = new System.Drawing.Size(48, 32);
@@ -638,6 +745,7 @@
             // 
             // pbAlien7
             // 
+            this.pbAlien7.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien7.Location = new System.Drawing.Point(365, 62);
             this.pbAlien7.Name = "pbAlien7";
             this.pbAlien7.Size = new System.Drawing.Size(48, 32);
@@ -647,6 +755,7 @@
             // 
             // pbAlien6
             // 
+            this.pbAlien6.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien6.Location = new System.Drawing.Point(311, 62);
             this.pbAlien6.Name = "pbAlien6";
             this.pbAlien6.Size = new System.Drawing.Size(48, 32);
@@ -656,6 +765,7 @@
             // 
             // pbAlien1
             // 
+            this.pbAlien1.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
             this.pbAlien1.Location = new System.Drawing.Point(41, 62);
             this.pbAlien1.Name = "pbAlien1";
             this.pbAlien1.Size = new System.Drawing.Size(48, 32);
@@ -672,60 +782,6 @@
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player.TabIndex = 3;
             this.player.TabStop = false;
-            // 
-            // pbAlien52
-            // 
-            this.pbAlien52.Location = new System.Drawing.Point(419, 251);
-            this.pbAlien52.Name = "pbAlien52";
-            this.pbAlien52.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien52.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien52.TabIndex = 62;
-            this.pbAlien52.TabStop = false;
-            // 
-            // pbAlien53
-            // 
-            this.pbAlien53.Location = new System.Drawing.Point(473, 251);
-            this.pbAlien53.Name = "pbAlien53";
-            this.pbAlien53.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien53.TabIndex = 63;
-            this.pbAlien53.TabStop = false;
-            // 
-            // pbAlien49
-            // 
-            this.pbAlien49.Location = new System.Drawing.Point(257, 251);
-            this.pbAlien49.Name = "pbAlien49";
-            this.pbAlien49.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien49.TabIndex = 64;
-            this.pbAlien49.TabStop = false;
-            // 
-            // pbAlien48
-            // 
-            this.pbAlien48.Location = new System.Drawing.Point(203, 251);
-            this.pbAlien48.Name = "pbAlien48";
-            this.pbAlien48.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien48.TabIndex = 65;
-            this.pbAlien48.TabStop = false;
-            // 
-            // pbAlien47
-            // 
-            this.pbAlien47.Location = new System.Drawing.Point(149, 251);
-            this.pbAlien47.Name = "pbAlien47";
-            this.pbAlien47.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien47.TabIndex = 66;
-            this.pbAlien47.TabStop = false;
-            // 
-            // pbAlien46
-            // 
-            this.pbAlien46.Location = new System.Drawing.Point(95, 251);
-            this.pbAlien46.Name = "pbAlien46";
-            this.pbAlien46.Size = new System.Drawing.Size(48, 32);
-            this.pbAlien46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbAlien46.TabIndex = 67;
-            this.pbAlien46.TabStop = false;
             // 
             // playerProjectile
             // 
@@ -809,6 +865,12 @@
             this.Text = "Space Invaders";
             this.debugPanel.ResumeLayout(false);
             this.debugPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien55)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien54)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien51)).EndInit();
@@ -859,12 +921,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien52)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien49)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
             this.ResumeLayout(false);
 
