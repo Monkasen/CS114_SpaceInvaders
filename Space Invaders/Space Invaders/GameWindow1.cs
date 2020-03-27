@@ -226,12 +226,9 @@ namespace SpaceInvaders {
 
         private void AlienAnimation() // Cycle through animations for aliens
         { 
-            foreach (var item in AlienList)
-            {
-                switch (alienAnimation)
-                {
-                    case 0:
-                    {
+            foreach (var item in AlienList) {
+                switch (alienAnimation) {
+                    case 0: {
                         if (item.GetAlienType() == 1)
                             item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
                         if (item.GetAlienType() == 2)
@@ -240,8 +237,7 @@ namespace SpaceInvaders {
                             item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
                         break;
                     }
-                    case 1:
-                    {
+                    case 1: {
                         if (item.GetAlienType() == 1)
                             item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
                         if (item.GetAlienType() == 2)
@@ -261,66 +257,59 @@ namespace SpaceInvaders {
             }
 
             // Switch animation step
-            if (alienAnimation == 0){
-                ++alienAnimation;
-            }
-            else if (alienAnimation == 1){
-                --alienAnimation;
+            switch (alienAnimation) {
+                case 0: {
+                    ++alienAnimation;
+                    break;
+                }
+                case 1: {
+                    --alienAnimation;
+                    break;
+                }
             }
         }
 
         private void PlaySound(int input) // Handles various game sounds
         { 
             var sp = new System.Windows.Media.MediaPlayer();
-            switch (input)
-            {
+            switch (input) {
                 // Alien movement 'music'
-                case 1 when soundStep == 1:
-                {
+                case 1 when soundStep == 1: {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1 when soundStep == 2:
-                {
+                case 1 when soundStep == 2: {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1 when soundStep == 3:
-                {
+                case 1 when soundStep == 3: {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1:
-                {
-                    if (soundStep == 4) {
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
-                        sp.Open(new System.Uri(path));
-                        sp.Play();
-                        soundStep = 1;
-                    }
-
+                case 1 when soundStep == 4: {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    soundStep = 1;
                     break;
                 }
-                case 2:
-                {
-                    // Alien death sound
+                case 2: { // Alien death sound
+
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     break;
                 }
-                case 3:
-                {
-                    // Player shoot projectile sound
+                case 3: { // Player shoot projectile sound
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
