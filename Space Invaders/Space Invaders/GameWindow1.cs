@@ -15,7 +15,7 @@ namespace SpaceInvaders {
     public partial class GameWindow : Form {
         double gameTicks = 0; // Internal game clock
         double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
-        int buttonCount = 1; // DEBUG
+        int numAliensLeft = 55; // Tracks how many aliens remain
         int score = 0; // Track the player's close
         private const int rightSideDifference = 68;
         private const int projectileSpeed = 7;
@@ -31,12 +31,13 @@ namespace SpaceInvaders {
             InitializeAliens(); // Create list of aliens and their graphics
         }
 
-        private void alienSpeed_Tick(object sender, EventArgs e) { // Controls speed of aliens throughout the game
+        private void alienSpeed_Tick(object sender, EventArgs e) // Controls speed of aliens throughout the game
+        { 
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             debugTimer.Text = $"{gameTicks}"; // TEMPORARY LABEL TO TRACK SPEED MULTIPLIER
-            if (gameTicks >= 15) { // Move aliens forward after 15 ticks
-                PlaySound(1); 
-                AlienAnimation(); 
+            if (gameTicks >= 15) { // Move aliens after 15 ticks
+                PlaySound(1);
+                AlienAnimation();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             ++gameTicks;
@@ -53,7 +54,7 @@ namespace SpaceInvaders {
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
             {
-                if (player.Location.X < this.Width - rightSideDifference) // Calculate current width in case we change this in the future
+                if (player.Location.X < this.Width - rightSideDifference) // Calculate current width of form
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
             }
             if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
@@ -72,7 +73,8 @@ namespace SpaceInvaders {
             isShotFired = ProjectileEvent();
         }
 
-        private bool ProjectileEvent() { // Checks for out of bounds projectle
+        private bool ProjectileEvent() // Checks for out of bounds projectle
+        { 
             if (playerProjectile.Location.Y < 0) {
                 playerProjectile.Visible = false;
                 return false;
@@ -86,20 +88,13 @@ namespace SpaceInvaders {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && isShotFired) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = false; // Hides player's projectile
                     isShotFired = false; // Disables player's projectile
-                    AlienList[i].SetState(0); // Sets alien state to 'dead'
-                    AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
-                    speedMultiplier = speedMultiplier * 1.01; // When an alien dies, increase game speed by 1%
-                    ++buttonCount; // TEMPORARY INT TO TRACK LABEL  
-                    debugCount.Text = $"{buttonCount}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED, MAX IS 55 IN NORMAL GAME
-                    score += 10;
-                    playerScore.Text = ($"{score}");
-                    PlaySound(2);
-                    alienDeath.Enabled = true; // Starts timer to remove alien explosion
+                    KillAlien(ref i);
                 }
             }
         }
 
-        private void alienDeath_Tick(object sender, EventArgs e) { //Handles removing alien explosion after death
+        private void alienDeath_Tick(object sender, EventArgs e) // Handles removing alien explosion after death
+        { 
             ++deathTimer;
             if (deathTimer == 10) { // After 10 ticks, remove the explosion and reset the timer
                 for (int i = 0; i < 55; i++) {
@@ -108,13 +103,12 @@ namespace SpaceInvaders {
                         alienDeath.Enabled = false; // Turn timer off until next death
                     }
                 }
-                deathTimer = 0;
+                deathTimer = 0; // Reset timer
             }
         }
 
-        
-        private void InitializeAliens() { // Builds lists for aliens and their graphics
-                       
+        private void InitializeAliens() // Builds lists for aliens and their graphics
+        { 
             // Create and add Alien objects to list
             AlienList.Add(new Alien(3, pbAlien1.Image));
             AlienList.Add(new Alien(3, pbAlien2.Image));
@@ -230,7 +224,8 @@ namespace SpaceInvaders {
             AlienPBList.Add(pbAlien55);
         } 
 
-        private void AlienAnimation() { // Cycle through animations for aliens
+        private void AlienAnimation() // Cycle through animations for aliens
+        { 
             foreach (var item in AlienList) {
                 if (alienAnimation == 0) {
                     if (item.GetAlienType() == 1) {
@@ -242,7 +237,6 @@ namespace SpaceInvaders {
                     if (item.GetAlienType() == 3) {
                         item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
                     }
-                    ++alienAnimation;
                 }
                 else if (alienAnimation == 1) {
                     if (item.GetAlienType() == 1) {
@@ -254,7 +248,6 @@ namespace SpaceInvaders {
                     if (item.GetAlienType() == 3) {
                         item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
                     }
-                    --alienAnimation;
                 }
             }
 
@@ -263,10 +256,19 @@ namespace SpaceInvaders {
                 if (AlienList[i].GetState() == 1) {
                     AlienPBList[i].Image = AlienList[i].GetImage();
                 }
-            }    
+            }
+
+            // Switch animation step
+            if (alienAnimation == 0){
+                ++alienAnimation;
+            }
+            else if (alienAnimation == 1){
+                --alienAnimation;
+            }
         }
 
-        private void PlaySound(int input) {
+        private void PlaySound(int input) // Handles various game sounds
+        { 
             var sp = new System.Windows.Media.MediaPlayer();
             if (input == 1) { // Alien movement 'music'
                 if (soundStep == 1) {
@@ -305,6 +307,18 @@ namespace SpaceInvaders {
                 sp.Open(new System.Uri(path));
                 sp.Play();
             }
+        }
+
+        private void KillAlien(ref int i) // Handles process of killing an alien
+        { 
+            AlienList[i].SetState(0); // Sets alien state to 'dead'
+            AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
+            speedMultiplier *= 1.01; // When an alien dies, increase game speed by 1%
+            PlaySound(2); // Play death sound
+            playerScore.Text = ($"{score += 10}"); // Add 10 points to score
+            --numAliensLeft; // Decrement number of aliens remaining
+            debugCount.Text = $"{numAliensLeft}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED
+            alienDeath.Enabled = true; // Starts timer to remove alien explosion
         }
     }
 }
