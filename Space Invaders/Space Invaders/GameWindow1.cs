@@ -73,7 +73,7 @@ namespace SpaceInvaders {
             isShotFired = ProjectileEvent();
         }
 
-        private bool ProjectileEvent() // Checks for out of bounds projectle
+        private bool ProjectileEvent() // Checks for out of bounds projectile
         { 
             if (playerProjectile.Location.Y < 0) {
                 playerProjectile.Visible = false;
@@ -226,27 +226,29 @@ namespace SpaceInvaders {
 
         private void AlienAnimation() // Cycle through animations for aliens
         { 
-            foreach (var item in AlienList) {
-                if (alienAnimation == 0) {
-                    if (item.GetAlienType() == 1) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
+            foreach (var item in AlienList)
+            {
+                switch (alienAnimation)
+                {
+                    case 0:
+                    {
+                        if (item.GetAlienType() == 1)
+                            item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
+                        if (item.GetAlienType() == 2)
+                            item.SetImage(Image.FromFile("resources/textures/Alien2_2.png"));
+                        if (item.GetAlienType() == 3)
+                            item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
+                        break;
                     }
-                    if (item.GetAlienType() == 2) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien2_2.png"));
-                    }
-                    if (item.GetAlienType() == 3) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
-                    }
-                }
-                else if (alienAnimation == 1) {
-                    if (item.GetAlienType() == 1) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
-                    }
-                    if (item.GetAlienType() == 2) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien2_1.png"));
-                    }
-                    if (item.GetAlienType() == 3) {
-                        item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
+                    case 1:
+                    {
+                        if (item.GetAlienType() == 1)
+                            item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
+                        if (item.GetAlienType() == 2)
+                            item.SetImage(Image.FromFile("resources/textures/Alien2_1.png"));
+                        if (item.GetAlienType() == 3)
+                            item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
+                        break;
                     }
                 }
             }
@@ -270,42 +272,60 @@ namespace SpaceInvaders {
         private void PlaySound(int input) // Handles various game sounds
         { 
             var sp = new System.Windows.Media.MediaPlayer();
-            if (input == 1) { // Alien movement 'music'
-                if (soundStep == 1) {
+            switch (input)
+            {
+                // Alien movement 'music'
+                case 1 when soundStep == 1:
+                {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
+                    break;
                 }
-                else if (soundStep == 2) {
+                case 1 when soundStep == 2:
+                {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
-
+                    break;
                 }
-                else if (soundStep == 3) {
+                case 1 when soundStep == 3:
+                {
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
+                    break;
                 }
-                else if (soundStep == 4) {
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                case 1:
+                {
+                    if (soundStep == 4) {
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        soundStep = 1;
+                    }
+
+                    break;
+                }
+                case 2:
+                {
+                    // Alien death sound
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
-                    soundStep = 1;
+                    break;
                 }
-            }
-            if (input == 2) { // Alien death sound
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
-                sp.Open(new System.Uri(path));
-                sp.Play();
-            }
-            if (input == 3) { // Player shoot projectile sound
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
-                sp.Open(new System.Uri(path));
-                sp.Play();
+                case 3:
+                {
+                    // Player shoot projectile sound
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
+                    sp.Open(new System.Uri(path));
+                    sp.Play();
+                    break;
+                }
             }
         }
 
