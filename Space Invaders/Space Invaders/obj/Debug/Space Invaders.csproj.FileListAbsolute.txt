@@ -23,8 +23,9 @@ C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Spa
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.pdb
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csprojAssemblyReference.cache
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.GameWindow.resources
-C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space_Invaders.Properties.Resources.resources
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csproj.GenerateResource.cache
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.exe
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.pdb
+C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.MainMenu.resources
+C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.Properties.Resources.resources

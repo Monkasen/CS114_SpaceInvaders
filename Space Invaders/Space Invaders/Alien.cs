@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Space_Invaders {
+namespace SpaceInvaders {
     class Alien {
         private int type; // 1 = small, 2 = medium, 3 = large
         private int state = 1; // 1 = alive, 0 = dead

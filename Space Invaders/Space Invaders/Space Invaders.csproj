@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{92438D7C-50ED-4A01-A400-D06114E86389}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Space_Invaders</RootNamespace>
+    <RootNamespace>SpaceInvaders</RootNamespace>
     <AssemblyName>Space Invaders</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,10 +55,19 @@
     <Compile Include="GameWindow1.Designer.cs">
       <DependentUpon>GameWindow1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GameWindow1.resx">
       <DependentUpon>GameWindow1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

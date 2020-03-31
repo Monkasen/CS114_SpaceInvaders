@@ -1,4 +1,4 @@
-﻿using Space_Invaders;
+﻿using SpaceInvaders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ namespace SpaceInvaders {
         int numAliensLeft = 55; // Tracks how many aliens remain
         int score = 0; // Track the player's close
         private const int rightSideDifference = 68;
-        private const int projectileSpeed = 7;
+        private const int projectileSpeed = 10;
         private bool isShotFired = false; // Checks if player has active projectile
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
@@ -269,7 +269,7 @@ namespace SpaceInvaders {
             }
         }
 
-        private void PlaySound(int input) // Handles various game sounds
+        private void PlaySound(int input) // Handles various game sounds    
         { 
             var sp = new System.Windows.Media.MediaPlayer();
             switch (input) {
@@ -328,6 +328,15 @@ namespace SpaceInvaders {
             --numAliensLeft; // Decrement number of aliens remaining
             debugCount.Text = $"{numAliensLeft}"; // TEMPORARY LABEL TO DISPLAY HOW MANY ALIENS HAVE BEEN KILLED
             alienDeath.Enabled = true; // Starts timer to remove alien explosion
+        }
+
+        private void CheckEndGame() {
+            if (numAliensLeft == 0) { // If player wins...
+
+            }
+            if (true) { // If aliens reach the end point and take over Earth, NYI
+
+            }
         }
     }
 }

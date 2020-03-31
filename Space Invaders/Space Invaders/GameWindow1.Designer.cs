@@ -285,7 +285,7 @@
             // 
             // pbAlien55
             // 
-            this.pbAlien55.Image = global::Space_Invaders.Properties.Resources.Alien1_1;
+            this.pbAlien55.Image = global::SpaceInvaders.Properties.Resources.Alien1_1;
             this.pbAlien55.Location = new System.Drawing.Point(581, 251);
             this.pbAlien55.Name = "pbAlien55";
             this.pbAlien55.Size = new System.Drawing.Size(48, 32);
@@ -665,7 +665,7 @@
             // 
             // pbAlien2
             // 
-            this.pbAlien2.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien2.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien2.Location = new System.Drawing.Point(95, 62);
             this.pbAlien2.Name = "pbAlien2";
             this.pbAlien2.Size = new System.Drawing.Size(48, 32);
@@ -675,7 +675,7 @@
             // 
             // pbAlien3
             // 
-            this.pbAlien3.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien3.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien3.Location = new System.Drawing.Point(149, 62);
             this.pbAlien3.Name = "pbAlien3";
             this.pbAlien3.Size = new System.Drawing.Size(48, 32);
@@ -685,7 +685,7 @@
             // 
             // pbAlien4
             // 
-            this.pbAlien4.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien4.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien4.Location = new System.Drawing.Point(203, 62);
             this.pbAlien4.Name = "pbAlien4";
             this.pbAlien4.Size = new System.Drawing.Size(48, 32);
@@ -695,7 +695,7 @@
             // 
             // pbAlien5
             // 
-            this.pbAlien5.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien5.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien5.Location = new System.Drawing.Point(257, 62);
             this.pbAlien5.Name = "pbAlien5";
             this.pbAlien5.Size = new System.Drawing.Size(48, 32);
@@ -705,7 +705,7 @@
             // 
             // pbAlien9
             // 
-            this.pbAlien9.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien9.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien9.Location = new System.Drawing.Point(473, 62);
             this.pbAlien9.Name = "pbAlien9";
             this.pbAlien9.Size = new System.Drawing.Size(48, 32);
@@ -715,7 +715,7 @@
             // 
             // pbAlien8
             // 
-            this.pbAlien8.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien8.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien8.Location = new System.Drawing.Point(419, 62);
             this.pbAlien8.Name = "pbAlien8";
             this.pbAlien8.Size = new System.Drawing.Size(48, 32);
@@ -725,7 +725,7 @@
             // 
             // pbAlien11
             // 
-            this.pbAlien11.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien11.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien11.Location = new System.Drawing.Point(581, 62);
             this.pbAlien11.Name = "pbAlien11";
             this.pbAlien11.Size = new System.Drawing.Size(48, 32);
@@ -735,7 +735,7 @@
             // 
             // pbAlien10
             // 
-            this.pbAlien10.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien10.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien10.Location = new System.Drawing.Point(527, 62);
             this.pbAlien10.Name = "pbAlien10";
             this.pbAlien10.Size = new System.Drawing.Size(48, 32);
@@ -745,7 +745,7 @@
             // 
             // pbAlien7
             // 
-            this.pbAlien7.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien7.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien7.Location = new System.Drawing.Point(365, 62);
             this.pbAlien7.Name = "pbAlien7";
             this.pbAlien7.Size = new System.Drawing.Size(48, 32);
@@ -755,7 +755,7 @@
             // 
             // pbAlien6
             // 
-            this.pbAlien6.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien6.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien6.Location = new System.Drawing.Point(311, 62);
             this.pbAlien6.Name = "pbAlien6";
             this.pbAlien6.Size = new System.Drawing.Size(48, 32);
@@ -765,7 +765,7 @@
             // 
             // pbAlien1
             // 
-            this.pbAlien1.Image = global::Space_Invaders.Properties.Resources.Alien3_1;
+            this.pbAlien1.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
             this.pbAlien1.Location = new System.Drawing.Point(41, 62);
             this.pbAlien1.Name = "pbAlien1";
             this.pbAlien1.Size = new System.Drawing.Size(48, 32);
@@ -775,7 +775,7 @@
             // 
             // player
             // 
-            this.player.Image = global::Space_Invaders.Properties.Resources.PlayerShip;
+            this.player.Image = global::SpaceInvaders.Properties.Resources.PlayerShip;
             this.player.Location = new System.Drawing.Point(309, 769);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(52, 32);
@@ -785,7 +785,7 @@
             // 
             // playerProjectile
             // 
-            this.playerProjectile.Image = global::Space_Invaders.Properties.Resources.PlayerProjectile;
+            this.playerProjectile.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
             this.playerProjectile.Location = new System.Drawing.Point(12, 799);
             this.playerProjectile.Name = "playerProjectile";
             this.playerProjectile.Size = new System.Drawing.Size(4, 16);

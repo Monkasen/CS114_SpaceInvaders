@@ -13,7 +13,11 @@ namespace SpaceInvaders {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameWindow());
+            Application.Run(new MainMenu());
+
+            if (MainMenu.gameMode == 1) {
+                Application.Run(new GameWindow());
+            }
         }
     }
 }
