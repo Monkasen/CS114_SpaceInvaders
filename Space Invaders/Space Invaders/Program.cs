@@ -18,6 +18,9 @@ namespace SpaceInvaders {
             if (MainMenu.gameMode == 1) {
                 Application.Run(new GameWindow());
             }
+            else if (MainMenu.gameMode == 2){
+                MessageBox.Show("Not yet implemented!");
+            }
         }
     }
 }

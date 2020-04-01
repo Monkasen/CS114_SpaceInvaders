@@ -18,7 +18,7 @@ namespace SpaceInvaders {
         int numAliensLeft = 55; // Tracks how many aliens remain
         int score = 0; // Track the player's close
         private const int rightSideDifference = 68;
-        private const int projectileSpeed = 10;
+        private const int projectileSpeed = 7;
         private bool isShotFired = false; // Checks if player has active projectile
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
@@ -338,5 +338,7 @@ namespace SpaceInvaders {
 
             }
         }
+
+
     }
 }

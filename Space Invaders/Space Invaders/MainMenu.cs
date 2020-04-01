@@ -16,8 +16,13 @@ namespace SpaceInvaders {
             InitializeComponent();
         }
 
-        private void classicMode_Click(object sender, EventArgs e) {
+        private void onePlayerButton_Click(object sender, EventArgs e) {
             gameMode = 1;
+            Close();
+        }
+
+        private void twoPlayerButton_Click(object sender, EventArgs e) {
+            gameMode = 2;
             Close();
         }
     }

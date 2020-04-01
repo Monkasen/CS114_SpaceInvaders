@@ -91,6 +91,7 @@
             this.pbAlien1 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.playerProjectile = new System.Windows.Forms.PictureBox();
+            this.tutorial = new System.Windows.Forms.Label();
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -793,12 +794,23 @@
             this.playerProjectile.TabStop = false;
             this.playerProjectile.Visible = false;
             // 
+            // tutorial
+            // 
+            this.tutorial.AutoSize = true;
+            this.tutorial.ForeColor = System.Drawing.Color.Snow;
+            this.tutorial.Location = new System.Drawing.Point(235, 805);
+            this.tutorial.Name = "tutorial";
+            this.tutorial.Size = new System.Drawing.Size(200, 13);
+            this.tutorial.TabIndex = 6;
+            this.tutorial.Text = "left/right arrow keys to move, up to shoot";
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(671, 827);
+            this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
             this.Controls.Add(this.pbAlien48);
@@ -858,6 +870,7 @@
             this.Controls.Add(this.player);
             this.Controls.Add(this.playerProjectile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameWindow";
@@ -923,6 +936,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -993,6 +1007,7 @@
         private System.Windows.Forms.PictureBox pbAlien47;
         private System.Windows.Forms.PictureBox pbAlien46;
         private System.Windows.Forms.PictureBox playerProjectile;
+        private System.Windows.Forms.Label tutorial;
     }
 }
 
