@@ -44,6 +44,7 @@ namespace SpaceInvaders {
                 MoveAliens();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
+            CheckEndGame();
             ++gameTicks;
         }
 
@@ -273,7 +274,7 @@ namespace SpaceInvaders {
             }
         }
 
-        private void MoveAliens()
+        private void MoveAliens() // Moves aliens towards the player
         {
             bool noneEdge = true; // Variable checks if any alien made it to edge, if so change Y coord and switch direction
             // Loop checks if any alien made it to either edge of the screen (if visible)
@@ -322,7 +323,7 @@ namespace SpaceInvaders {
             }
         }
 
-        private void PlaySound(int input) // Handles various game sounds    
+        private void PlaySound(int input) // Handles various game sounds
         { 
             var sp = new System.Windows.Media.MediaPlayer();
             switch (input) {
@@ -382,13 +383,19 @@ namespace SpaceInvaders {
             alienDeath.Enabled = true; // Starts timer to remove alien explosion
         }
 
-        private void CheckEndGame() {
+        private void CheckEndGame() // Checks for win/lose condition
+        { 
             if (numAliensLeft == 0) { // If player wins...
+                alienSpeed.Enabled = false;
                 MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
                 Close();
             }
-            if (false) { // If aliens win...
-                // Check for aliens reaching end point, then end game
+            foreach (var item in AlienPBList) {
+                if (item.Location.Y > 700 && item.Visible == true) {
+                    alienSpeed.Enabled = false;
+                    MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
+                    Close();
+                }
             }
         }
     }
