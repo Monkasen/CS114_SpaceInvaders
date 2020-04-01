@@ -13,11 +13,11 @@ using System.Windows.Input; // For key events
 
 namespace SpaceInvaders {
     public partial class GameWindow : Form {
-        double gameTicks = 0; // Internal game clock
-        double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
-        int numAliensLeft = 55; // Tracks how many aliens remain
-        int score = 0; // Track the player's close
-        private const int rightSideDifference = 68;
+        private double gameTicks = 0; // Internal game clock
+        private double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
+        private int numAliensLeft = 55; // Tracks how many aliens remain
+        private int score = 0; // Track the player's close
+        private const int rightSideDifference = 88;
         private const int projectileSpeed = 7;
         private bool isShotFired = false; // Checks if player has active projectile
         private int soundStep = 1; // Alien movement sound counter
@@ -25,7 +25,7 @@ namespace SpaceInvaders {
         private int alienAnimation = 0; // Alien animation step counter
         private bool isGoingRight = true; // Used to check if aliens are going right or not
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
-        private const int AlienPushY = 10; // How far aliens are pushed on the Y axis each tick
+        private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private List<Alien> AlienList = new List<Alien>();
         private List<PictureBox> AlienPBList = new List<PictureBox>();
 
@@ -54,7 +54,7 @@ namespace SpaceInvaders {
 
             if (Keyboard.IsKeyDown(Key.Left)) // Move left
             {
-                if (player.Location.X > 0)
+                if (player.Location.X > 20)
                     player.Location = new Point(player.Location.X - 2, player.Location.Y);
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
@@ -80,11 +80,13 @@ namespace SpaceInvaders {
 
         private bool ProjectileEvent() // Checks for out of bounds projectile
         { 
-            if (playerProjectile.Location.Y < 0) {
+            if (playerProjectile.Location.Y < 50) {
                 playerProjectile.Visible = false;
                 return false;
             }
-            return true;
+            else {
+                return true;
+            }
         }
 
         private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
@@ -285,7 +287,7 @@ namespace SpaceInvaders {
                     noneEdge = false;
                     break;
                 }
-                if (item.Location.X < 5 && item.Visible == true) // Check left edge of screen
+                if (item.Location.X < 20 && item.Visible == true) // Check left edge of screen
                 {
                     noneEdge = false;
                     break;
@@ -383,7 +385,7 @@ namespace SpaceInvaders {
         { 
             AlienList[i].SetState(0); // Sets alien state to 'dead'
             AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
-            speedMultiplier *= 1.01; // When an alien dies, increase game speed by 1%
+            speedMultiplier *= 1.02; // When an alien dies, increase game speed by 2%
             PlaySound(2); // Play death sound
             playerScore.Text = ($"{score += 10}"); // Add 10 points to score
             --numAliensLeft; // Decrement number of aliens remaining
@@ -395,15 +397,15 @@ namespace SpaceInvaders {
         { 
             if (numAliensLeft == 0) { // If player wins...
                 alienSpeed.Enabled = false;
-                MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
                 playerMovement.Enabled = false;
+                MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
                 Close();
             }
             foreach (var item in AlienPBList) {
-                if (item.Location.Y > 700 && item.Visible == true) {
+                if (item.Location.Y > 750 && item.Visible == true) {
                     alienSpeed.Enabled = false;
-                    MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
                     playerMovement.Enabled = false;
+                    MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
                     Close();
                 }
             }

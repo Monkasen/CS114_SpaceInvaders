@@ -36,7 +36,7 @@
             // titleImage
             // 
             this.titleImage.Image = ((System.Drawing.Image)(resources.GetObject("titleImage.Image")));
-            this.titleImage.Location = new System.Drawing.Point(35, 12);
+            this.titleImage.Location = new System.Drawing.Point(85, 49);
             this.titleImage.Name = "titleImage";
             this.titleImage.Size = new System.Drawing.Size(598, 294);
             this.titleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -52,7 +52,7 @@
             this.onePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.onePlayerButton.ForeColor = System.Drawing.Color.Black;
             this.onePlayerButton.Image = ((System.Drawing.Image)(resources.GetObject("onePlayerButton.Image")));
-            this.onePlayerButton.Location = new System.Drawing.Point(35, 387);
+            this.onePlayerButton.Location = new System.Drawing.Point(85, 517);
             this.onePlayerButton.Name = "onePlayerButton";
             this.onePlayerButton.Size = new System.Drawing.Size(235, 67);
             this.onePlayerButton.TabIndex = 1;
@@ -68,7 +68,7 @@
             this.twoPlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.twoPlayerButton.ForeColor = System.Drawing.Color.Black;
             this.twoPlayerButton.Image = ((System.Drawing.Image)(resources.GetObject("twoPlayerButton.Image")));
-            this.twoPlayerButton.Location = new System.Drawing.Point(398, 387);
+            this.twoPlayerButton.Location = new System.Drawing.Point(448, 517);
             this.twoPlayerButton.Name = "twoPlayerButton";
             this.twoPlayerButton.Size = new System.Drawing.Size(235, 67);
             this.twoPlayerButton.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(671, 827);
+            this.ClientSize = new System.Drawing.Size(766, 933);
             this.Controls.Add(this.twoPlayerButton);
             this.Controls.Add(this.onePlayerButton);
             this.Controls.Add(this.titleImage);
