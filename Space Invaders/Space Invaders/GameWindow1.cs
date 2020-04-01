@@ -23,6 +23,9 @@ namespace SpaceInvaders {
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
         private int alienAnimation = 0; // Alien animation step counter
+        private bool isGoingRight = true; // Used to check if aliens are going right or not
+        private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
+        private const int AlienPushY = 10; // How far aliens are pushed on the Y axis each tick
         private List<Alien> AlienList = new List<Alien>();
         private List<PictureBox> AlienPBList = new List<PictureBox>();
 
@@ -38,6 +41,7 @@ namespace SpaceInvaders {
             if (gameTicks >= 15) { // Move aliens after 15 ticks
                 PlaySound(1);
                 AlienAnimation();
+                MoveAliens();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             ++gameTicks;
@@ -266,6 +270,55 @@ namespace SpaceInvaders {
                     --alienAnimation;
                     break;
                 }
+            }
+        }
+
+        private void MoveAliens()
+        {
+            bool noneEdge = true; // Variable checks if any alien made it to edge, if so change Y coord and switch direction
+            // Loop checks if any alien made it to either edge of the screen (if visible)
+            foreach (var item in AlienPBList)
+            {
+                if (item.Location.X > this.Width - rightSideDifference && item.Visible == true) // Check right edge of screen
+                {
+                    noneEdge = false;
+                    break;
+                }
+                if (item.Location.X < 0 && item.Visible == true) // Check left edge of screen
+                {
+                    noneEdge = false;
+                    break;
+                }
+            }
+
+            // If no alien made it to an edge then continue as normal
+            if (noneEdge)
+            {
+                if (isGoingRight) // Move right
+                    foreach (var item in AlienPBList)
+                        item.Location = new Point(item.Location.X + AlienPushX, item.Location.Y);
+                else // Move left
+                    foreach (var item in AlienPBList)
+                        item.Location = new Point(item.Location.X - AlienPushX, item.Location.Y);
+            }
+            // If an alien made it the edge, change Y coord and fix their X position
+            //else if (!noneEdge)
+            else
+            {
+                if (isGoingRight)
+                {
+                    foreach (var item in AlienPBList)
+                        item.Location = new Point(item.Location.X - 5, item.Location.Y + AlienPushY);
+                    isGoingRight = false;
+                }
+                else
+                {
+                    foreach (var item in AlienPBList)
+                        item.Location = new Point(item.Location.X + 5, item.Location.Y + AlienPushY);
+                    isGoingRight = true;
+                }
+
+                noneEdge = true; // No aliens should be at the edge now
             }
         }
 
