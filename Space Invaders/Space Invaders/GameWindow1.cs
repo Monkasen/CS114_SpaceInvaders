@@ -273,30 +273,29 @@ namespace SpaceInvaders {
         { 
             var sp = new System.Windows.Media.MediaPlayer();
             switch (input) {
-                // Alien movement 'music'
-                case 1 when soundStep == 1: {
+                case 1 when soundStep == 1: { // Alien movement 'music'
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1 when soundStep == 2: {
+                case 1 when soundStep == 2: { // Alien movement 'music'
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1 when soundStep == 3: {
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
+                case 1 when soundStep == 3: { // Alien movement 'music'
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     ++soundStep;
                     break;
                 }
-                case 1 when soundStep == 4: {
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                case 1 when soundStep == 4: { // Alien movement 'music'
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
                     sp.Open(new System.Uri(path));
                     sp.Play();
                     soundStep = 1;
@@ -332,13 +331,12 @@ namespace SpaceInvaders {
 
         private void CheckEndGame() {
             if (numAliensLeft == 0) { // If player wins...
-
+                MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
+                Close();
             }
-            if (true) { // If aliens reach the end point and take over Earth, NYI
-
+            if (false) { // If aliens win...
+                // Check for aliens reaching end point, then end game
             }
         }
-
-
     }
 }
