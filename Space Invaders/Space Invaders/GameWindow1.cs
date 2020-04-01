@@ -285,7 +285,7 @@ namespace SpaceInvaders {
                     noneEdge = false;
                     break;
                 }
-                if (item.Location.X < 0 && item.Visible == true) // Check left edge of screen
+                if (item.Location.X < 5 && item.Visible == true) // Check left edge of screen
                 {
                     noneEdge = false;
                     break;
@@ -297,10 +297,16 @@ namespace SpaceInvaders {
             {
                 if (isGoingRight) // Move right
                     foreach (var item in AlienPBList)
-                        item.Location = new Point(item.Location.X + AlienPushX, item.Location.Y);
+                    {
+                        if (item.Visible)
+                            item.Location = new Point(item.Location.X + AlienPushX, item.Location.Y);
+                    }
                 else // Move left
                     foreach (var item in AlienPBList)
-                        item.Location = new Point(item.Location.X - AlienPushX, item.Location.Y);
+                    {
+                        if (item.Visible)
+                            item.Location = new Point(item.Location.X - AlienPushX, item.Location.Y);
+                    }
             }
             // If an alien made it the edge, change Y coord and fix their X position
             //else if (!noneEdge)
@@ -309,13 +315,15 @@ namespace SpaceInvaders {
                 if (isGoingRight)
                 {
                     foreach (var item in AlienPBList)
-                        item.Location = new Point(item.Location.X - 5, item.Location.Y + AlienPushY);
+                        if (item.Visible)
+                            item.Location = new Point(item.Location.X - 10, item.Location.Y + AlienPushY);
                     isGoingRight = false;
                 }
                 else
                 {
                     foreach (var item in AlienPBList)
-                        item.Location = new Point(item.Location.X + 5, item.Location.Y + AlienPushY);
+                        if (item.Visible)
+                            item.Location = new Point(item.Location.X + 10, item.Location.Y + AlienPushY);
                     isGoingRight = true;
                 }
 
@@ -388,12 +396,14 @@ namespace SpaceInvaders {
             if (numAliensLeft == 0) { // If player wins...
                 alienSpeed.Enabled = false;
                 MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
+                playerMovement.Enabled = false;
                 Close();
             }
             foreach (var item in AlienPBList) {
                 if (item.Location.Y > 700 && item.Visible == true) {
                     alienSpeed.Enabled = false;
                     MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
+                    playerMovement.Enabled = false;
                     Close();
                 }
             }
