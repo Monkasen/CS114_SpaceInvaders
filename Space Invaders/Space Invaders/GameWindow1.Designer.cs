@@ -26,7 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
             this.debugCount = new System.Windows.Forms.Label();
-            this.alienSpeed = new System.Windows.Forms.Timer(this.components);
+            this.alienMovement = new System.Windows.Forms.Timer(this.components);
             this.debugTimer = new System.Windows.Forms.Label();
             this.playerMovement = new System.Windows.Forms.Timer(this.components);
             this.debugXLocation = new System.Windows.Forms.Label();
@@ -161,11 +161,11 @@
             this.debugCount.TabIndex = 1;
             this.debugCount.Text = "debugCount";
             // 
-            // alienSpeed
+            // alienMovement
             // 
-            this.alienSpeed.Enabled = true;
-            this.alienSpeed.Interval = 50;
-            this.alienSpeed.Tick += new System.EventHandler(this.alienSpeed_Tick);
+            this.alienMovement.Enabled = true;
+            this.alienMovement.Interval = 50;
+            this.alienMovement.Tick += new System.EventHandler(this.alienMovement_Tick);
             // 
             // debugTimer
             // 
@@ -216,7 +216,6 @@
             // 
             // projectileCollision
             // 
-            this.projectileCollision.Enabled = true;
             this.projectileCollision.Tick += new System.EventHandler(this.projectileCollision_Tick);
             // 
             // alienDeath
@@ -942,7 +941,7 @@
 
         #endregion
         private System.Windows.Forms.Label debugCount;
-        private System.Windows.Forms.Timer alienSpeed;
+        private System.Windows.Forms.Timer alienMovement;
         private System.Windows.Forms.Label debugTimer;
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer playerMovement;
