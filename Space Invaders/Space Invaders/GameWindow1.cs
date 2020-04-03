@@ -26,8 +26,10 @@ namespace SpaceInvaders {
         private bool isGoingRight = true; // Used to check if aliens are going right or not
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
+        private int totalProjectiles = 0;
         private List<Alien> AlienList = new List<Alien>();
         private List<PictureBox> AlienPBList = new List<PictureBox>();
+        private static Random RandomNum = new Random();
 
         public GameWindow() {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace SpaceInvaders {
                 PlaySound(1);
                 AlienAnimation();
                 MoveAliens();
+                TryShoot();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             CheckEndGame();
@@ -107,13 +110,12 @@ namespace SpaceInvaders {
 
         private bool ProjectileEvent() // Checks for out of bounds projectile
         {
-            if (playerProjectile.Location.Y < 50)
-            {
+            // Player projectile check
+            if (playerProjectile.Location.Y < 50) {
                 playerProjectile.Visible = false;
                 return false;
             }
-            else
-            {
+            else {
                 return true;
             }
         }
@@ -307,7 +309,6 @@ namespace SpaceInvaders {
                     }
             }
             // If an alien made it the edge, change Y coord and fix their X position
-            //else if (!noneEdge)
             else
             {
                 if (isGoingRight)
@@ -324,8 +325,6 @@ namespace SpaceInvaders {
                             item.Location = new Point(item.Location.X + 10, item.Location.Y + AlienPushY);
                     isGoingRight = true;
                 }
-
-                noneEdge = true; // No aliens should be at the edge now
             }
         }
 
@@ -397,12 +396,47 @@ namespace SpaceInvaders {
                 MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
                 Close();
             }
-            foreach (var item in AlienPBList) {
+            foreach (var item in AlienPBList) { // If aliens reach the end
                 if (item.Location.Y > 750 && item.Visible == true) {
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
                     MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
                     Close();
+                }
+            }
+            if (alienProjectile1.Bounds.IntersectsWith(player.Bounds) || alienProjectile2.Bounds.IntersectsWith(player.Bounds) || alienProjectile3.Bounds.IntersectsWith(player.Bounds)) { // If player is killed by alien projectile
+                alienMovement.Enabled = false;
+                playerMovement.Enabled = false;
+                MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
+                Close();
+            }
+        }
+
+        private void TryShoot() // VERY EARLY IMPLEMENTATION FOR ALIEN PROJECTILE
+        {
+            for (int i = 0; i < 55; i++) {
+                if ((AlienList[i].GetState() == 1) && totalProjectiles < 3) { // Checks for bullet limit, and if the alien is alive
+                    int rand = RandomNum.Next(0, numAliensLeft);
+                    if (rand == 1) {
+                        if (alienProjectile1.Enabled == false) {
+                            alienProjectile1.Enabled = true;
+                            alienProjectile1.Visible = true;
+                            ++totalProjectiles;
+                            break;
+                        }
+                        else if (alienProjectile2.Enabled == false) {
+                            alienProjectile2.Enabled = true;
+                            alienProjectile2.Visible = true;
+                            ++totalProjectiles;
+                            break;
+                        }
+                        else if (alienProjectile3.Enabled == false) {
+                            alienProjectile3.Enabled = true;
+                            alienProjectile3.Visible = true;
+                            ++totalProjectiles;
+                            break;
+                        }                 
+                    }
                 }
             }
         }

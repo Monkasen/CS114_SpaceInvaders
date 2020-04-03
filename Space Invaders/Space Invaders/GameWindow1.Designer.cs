@@ -92,6 +92,9 @@
             this.player = new System.Windows.Forms.PictureBox();
             this.playerProjectile = new System.Windows.Forms.PictureBox();
             this.tutorial = new System.Windows.Forms.Label();
+            this.alienProjectile1 = new System.Windows.Forms.PictureBox();
+            this.alienProjectile2 = new System.Windows.Forms.PictureBox();
+            this.alienProjectile3 = new System.Windows.Forms.PictureBox();
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -150,6 +153,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).BeginInit();
             this.SuspendLayout();
             // 
             // debugCount
@@ -803,12 +809,51 @@
             this.tutorial.TabIndex = 6;
             this.tutorial.Text = "left/right arrow keys to move, up to shoot";
             // 
+            // alienProjectile1
+            // 
+            this.alienProjectile1.Enabled = false;
+            this.alienProjectile1.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1.Image")));
+            this.alienProjectile1.Location = new System.Drawing.Point(15, 673);
+            this.alienProjectile1.Name = "alienProjectile1";
+            this.alienProjectile1.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile1.TabIndex = 68;
+            this.alienProjectile1.TabStop = false;
+            this.alienProjectile1.Visible = false;
+            // 
+            // alienProjectile2
+            // 
+            this.alienProjectile2.Enabled = false;
+            this.alienProjectile2.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2.Image")));
+            this.alienProjectile2.Location = new System.Drawing.Point(15, 707);
+            this.alienProjectile2.Name = "alienProjectile2";
+            this.alienProjectile2.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile2.TabIndex = 69;
+            this.alienProjectile2.TabStop = false;
+            this.alienProjectile2.Visible = false;
+            // 
+            // alienProjectile3
+            // 
+            this.alienProjectile3.Enabled = false;
+            this.alienProjectile3.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3.Image")));
+            this.alienProjectile3.Location = new System.Drawing.Point(15, 741);
+            this.alienProjectile3.Name = "alienProjectile3";
+            this.alienProjectile3.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile3.TabIndex = 70;
+            this.alienProjectile3.TabStop = false;
+            this.alienProjectile3.Visible = false;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.alienProjectile3);
+            this.Controls.Add(this.alienProjectile2);
+            this.Controls.Add(this.alienProjectile1);
             this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
@@ -934,6 +979,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerProjectile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1007,6 +1055,9 @@
         private System.Windows.Forms.PictureBox pbAlien46;
         private System.Windows.Forms.PictureBox playerProjectile;
         private System.Windows.Forms.Label tutorial;
+        private System.Windows.Forms.PictureBox alienProjectile1;
+        private System.Windows.Forms.PictureBox alienProjectile2;
+        private System.Windows.Forms.PictureBox alienProjectile3;
     }
 }
 
