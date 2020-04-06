@@ -249,8 +249,8 @@ namespace SpaceInvaders {
                         if (item.GetAlienType() == 3)
                             item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
                     }
-                ++alienAnimation;
-                break;
+                    ++alienAnimation;
+                    break;
                 }
                 case 1: {
                     foreach (var item in AlienList) {
@@ -261,8 +261,8 @@ namespace SpaceInvaders {
                         if (item.GetAlienType() == 3)
                             item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
                     }
-                --alienAnimation;
-                break;
+                    --alienAnimation;
+                    break;
                 }
             }
 
@@ -285,44 +285,35 @@ namespace SpaceInvaders {
                     noneEdge = false;
                     break;
                 }
-                if (item.Location.X < 20 && item.Visible == true) // Check left edge of screen
-                {
-                    noneEdge = false;
-                    break;
-                }
+
+                if (item.Location.X >= 20 || item.Visible != true) continue;
+                noneEdge = false;
+                break;
             }
 
             // If no alien made it to an edge then continue as normal
             if (noneEdge)
             {
                 if (isGoingRight) // Move right
-                    foreach (var item in AlienPBList)
-                    {
-                        if (item.Visible)
-                            item.Location = new Point(item.Location.X + AlienPushX, item.Location.Y);
-                    }
+                    foreach (var item in AlienPBList.Where(item => item.Visible))
+                        item.Location = new Point(item.Location.X + AlienPushX, item.Location.Y);
                 else // Move left
-                    foreach (var item in AlienPBList)
-                    {
-                        if (item.Visible)
-                            item.Location = new Point(item.Location.X - AlienPushX, item.Location.Y);
-                    }
+                    foreach (var item in AlienPBList.Where(item => item.Visible))
+                        item.Location = new Point(item.Location.X - AlienPushX, item.Location.Y);
             }
             // If an alien made it the edge, change Y coord and fix their X position
             else
             {
                 if (isGoingRight)
                 {
-                    foreach (var item in AlienPBList)
-                        if (item.Visible)
-                            item.Location = new Point(item.Location.X - 10, item.Location.Y + AlienPushY);
+                    foreach (var item in AlienPBList.Where(item => item.Visible))
+                        item.Location = new Point(item.Location.X - 10, item.Location.Y + AlienPushY);
                     isGoingRight = false;
                 }
                 else
                 {
-                    foreach (var item in AlienPBList)
-                        if (item.Visible)
-                            item.Location = new Point(item.Location.X + 10, item.Location.Y + AlienPushY);
+                    foreach (var item in AlienPBList.Where(item => item.Visible))
+                        item.Location = new Point(item.Location.X + 10, item.Location.Y + AlienPushY);
                     isGoingRight = true;
                 }
             }
