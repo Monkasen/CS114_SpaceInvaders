@@ -30,12 +30,13 @@ namespace SpaceInvaders {
         private List<Alien> AlienList = new List<Alien>();
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private static Random RandomNum = new Random();
+        private Player p1 = new Player();
 
         public GameWindow() {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
         }
-
+ 
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
         { 
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
@@ -59,17 +60,19 @@ namespace SpaceInvaders {
             {
                 if (player.Location.X > 20)
                     player.Location = new Point(player.Location.X - 2, player.Location.Y);
+                p1.SetPos(player.Location.X,'x');
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
             {
                 if (player.Location.X < this.Width - rightSideDifference) // Calculate current width of form
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
+                p1.SetPos(player.Location.X, 'y');
             }
             if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
             {
-                if (!isShotFired)
+                if (!(p1.IsFired()))
                 {
-                    isShotFired = true;
+                    p1.Fire(true);
                     playerProjectile.Location = new Point(player.Location.X + (25), player.Location.Y);
                     playerProjectile.Visible = true;
                     projectileCollision.Enabled = true;
@@ -77,17 +80,17 @@ namespace SpaceInvaders {
                 }
             }
 
-            if (!isShotFired) return;
+            if (!(p1.IsFired())) return;
             playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - projectileSpeed);
-            isShotFired = ProjectileEvent();
+            p1.Fire(ProjectileEvent());
         }
 
         private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
         {
             for (int i = 0; i < 55; i++) {
-                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && isShotFired) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
+                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = false; // Hides player's projectile
-                    isShotFired = false; // Disables player's projectile
+                    p1.Fire(false); // Disables player's projectile
                     projectileCollision.Enabled = false; // Disables bullet when not active
                     KillAlien(ref i);
                 }

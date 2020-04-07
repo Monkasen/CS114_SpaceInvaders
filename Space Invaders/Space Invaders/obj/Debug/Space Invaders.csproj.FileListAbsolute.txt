@@ -30,3 +30,13 @@ C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Spa
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.Properties.Resources.resources
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.MainMenu.resources
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.Properties.Resources.resources
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.exe.config
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.exe
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.pdb
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csprojAssemblyReference.cache
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.GameWindow.resources
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.MainMenu.resources
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.Properties.Resources.resources
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csproj.GenerateResource.cache
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.exe
+C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.pdb

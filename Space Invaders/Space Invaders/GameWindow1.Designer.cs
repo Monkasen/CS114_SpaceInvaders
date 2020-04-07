@@ -992,7 +992,7 @@
         private System.Windows.Forms.Label debugCount;
         private System.Windows.Forms.Timer alienMovement;
         private System.Windows.Forms.Label debugTimer;
-        private System.Windows.Forms.PictureBox player;
+        public System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer playerMovement;
         private System.Windows.Forms.Label debugXLocation;
         private System.Windows.Forms.Panel debugPanel;
