@@ -19,7 +19,6 @@ namespace SpaceInvaders {
         private int score = 0; // Track the player's close
         private const int rightSideDifference = 88;
         private const int projectileSpeed = 7;
-        private bool isShotFired = false; // Checks if player has active projectile
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
         private int alienAnimation = 0; // Alien animation step counter
@@ -31,6 +30,7 @@ namespace SpaceInvaders {
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private static Random RandomNum = new Random();
         private Player p1 = new Player();
+        private Projectile playerProj = new Projectile(0, Image.FromFile("resources/textures/playerProjectile.png"));
 
         public GameWindow() {
             InitializeComponent();
@@ -75,13 +75,17 @@ namespace SpaceInvaders {
                     p1.Fire(true);
                     playerProjectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
                     playerProjectile.Visible = true;
+                    playerProj.SetVisibility(true);
+                    playerProj.SetPos(p1.GetPos('x') + 25, 'x');
+                    playerProj.SetPos(p1.GetPos('y'), 'y');
                     projectileCollision.Enabled = true;
                     PlaySound(3);
                 }
             }
 
             if (!(p1.IsFired())) return;
-            playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - projectileSpeed);
+            playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
+            playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
             p1.Fire(ProjectileEvent());
         }
 
@@ -89,7 +93,8 @@ namespace SpaceInvaders {
         {
             for (int i = 0; i < 55; i++) {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
-                    playerProjectile.Visible = false; // Hides player's projectile
+                    playerProjectile.Visible = false;
+                    playerProj.SetVisibility(false); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
                     projectileCollision.Enabled = false; // Disables bullet when not active
                     KillAlien(ref i);
@@ -114,8 +119,9 @@ namespace SpaceInvaders {
         private bool ProjectileEvent() // Checks for out of bounds projectile
         {
             // Player projectile check
-            if (playerProjectile.Location.Y < 50) {
+            if (playerProj.GetPos('y') < 50) {
                 playerProjectile.Visible = false;
+                playerProj.SetVisibility(false);
                 return false;
             }
             else {
