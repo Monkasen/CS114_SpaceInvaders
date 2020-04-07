@@ -85,7 +85,7 @@ namespace SpaceInvaders {
 
             if (!(p1.IsFired())) return;
             playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
-            playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
+            playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
             p1.Fire(ProjectileEvent());
         }
 
