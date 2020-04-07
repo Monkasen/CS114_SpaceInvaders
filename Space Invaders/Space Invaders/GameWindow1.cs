@@ -11,15 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input; // For key events
 
-namespace SpaceInvaders {
-    public partial class GameWindow : Form {
+namespace SpaceInvaders
+{
+    public partial class GameWindow : Form
+    {
         private double gameTicks = 0; // Internal game clock
         private double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
         private int numAliensLeft = 55; // Tracks how many aliens remain
         private int score = 0; // Track the player's close
         private const int rightSideDifference = 88;
         private const int projectileSpeed = 7;
-        private bool isShotFired = false; // Checks if player has active projectile
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
         private int alienAnimation = 0; // Alien animation step counter
@@ -31,17 +32,21 @@ namespace SpaceInvaders {
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private static Random RandomNum = new Random();
         private Player p1 = new Player();
+        private Projectile playerProj = new Projectile(0, Image.FromFile("resources/textures/playerProjectile.png"));
 
-        public GameWindow() {
+        public GameWindow()
+        {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
+            p1.SetPos(player.Location); //syncs class and pictureBox
         }
- 
+
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
-        { 
+        {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             debugTimer.Text = $"{gameTicks}"; // TEMPORARY LABEL TO TRACK SPEED MULTIPLIER
-            if (gameTicks >= 15) { // Move aliens after 15 ticks
+            if (gameTicks >= 15)
+            { // Move aliens after 15 ticks
                 PlaySound(1);
                 AlienAnimation();
                 MoveAliens();
@@ -60,13 +65,13 @@ namespace SpaceInvaders {
             {
                 if (player.Location.X > 20)
                     player.Location = new Point(player.Location.X - 2, player.Location.Y);
-                p1.SetPos(player.Location.X,'x');
+                p1.SetPos(player.Location);
             }
             else if (Keyboard.IsKeyDown(Key.Right)) // Move right
             {
                 if (player.Location.X < this.Width - rightSideDifference) // Calculate current width of form
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
-                p1.SetPos(player.Location.X, 'y');
+                p1.SetPos(player.Location);
             }
             if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
             {
@@ -75,21 +80,28 @@ namespace SpaceInvaders {
                     p1.Fire(true);
                     playerProjectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
                     playerProjectile.Visible = true;
+                    playerProj.SetVisibility(true);
+                    playerProj.SetPos(p1.GetPos('x') + 25, 'x');
+                    playerProj.SetPos(p1.GetPos('y'), 'y');
                     projectileCollision.Enabled = true;
                     PlaySound(3);
                 }
             }
 
             if (!(p1.IsFired())) return;
-            playerProjectile.Location = new Point(playerProjectile.Location.X, playerProjectile.Location.Y - projectileSpeed);
+            playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
+            playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
             p1.Fire(ProjectileEvent());
         }
 
         private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
         {
-            for (int i = 0; i < 55; i++) {
-                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
-                    playerProjectile.Visible = false; // Hides player's projectile
+            for (int i = 0; i < 55; i++)
+            {
+                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired())
+                { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
+                    playerProjectile.Visible = false;
+                    playerProj.SetVisibility(false); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
                     projectileCollision.Enabled = false; // Disables bullet when not active
                     KillAlien(ref i);
@@ -98,11 +110,14 @@ namespace SpaceInvaders {
         }
 
         private void alienDeath_Tick(object sender, EventArgs e) // Handles removing alien explosion after death
-        { 
+        {
             ++deathTimer;
-            if (deathTimer == 10) { // After 10 ticks, remove the explosion and reset the timer
-                for (int i = 0; i < 55; i++) {
-                    if (AlienList[i].GetState() == 0) { // If the alien has a pending death animation...
+            if (deathTimer == 10)
+            { // After 10 ticks, remove the explosion and reset the timer
+                for (int i = 0; i < 55; i++)
+                {
+                    if (AlienList[i].GetState() == 0)
+                    { // If the alien has a pending death animation...
                         AlienPBList[i].Visible = false; // Disable alien image
                         alienDeath.Enabled = false; // Turn timer off until next death
                     }
@@ -114,17 +129,20 @@ namespace SpaceInvaders {
         private bool ProjectileEvent() // Checks for out of bounds projectile
         {
             // Player projectile check
-            if (playerProjectile.Location.Y < 50) {
+            if (playerProj.GetPos('y') < 50)
+            {
                 playerProjectile.Visible = false;
+                playerProj.SetVisibility(false);
                 return false;
             }
-            else {
+            else
+            {
                 return true;
             }
         }
 
         private void InitializeAliens() // Builds lists for aliens and their graphics
-        { 
+        {
             // Create and add Alien objects to list
             AlienList.Add(new Alien(3, pbAlien1.Image));
             AlienList.Add(new Alien(3, pbAlien2.Image));
@@ -242,36 +260,43 @@ namespace SpaceInvaders {
 
         private void AlienAnimation() // Cycle through animations for aliens
         {
-            switch (alienAnimation) {
-                case 0: {
-                    foreach (var item in AlienList) {
-                        if (item.GetAlienType() == 1)
-                            item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
-                        if (item.GetAlienType() == 2)
-                            item.SetImage(Image.FromFile("resources/textures/Alien2_2.png"));
-                        if (item.GetAlienType() == 3)
-                            item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
+            switch (alienAnimation)
+            {
+                case 0:
+                    {
+                        foreach (var item in AlienList)
+                        {
+                            if (item.GetAlienType() == 1)
+                                item.SetImage(Image.FromFile("resources/textures/Alien1_2.png"));
+                            if (item.GetAlienType() == 2)
+                                item.SetImage(Image.FromFile("resources/textures/Alien2_2.png"));
+                            if (item.GetAlienType() == 3)
+                                item.SetImage(Image.FromFile("resources/textures/Alien3_2.png"));
+                        }
+                        ++alienAnimation;
+                        break;
                     }
-                    ++alienAnimation;
-                    break;
-                }
-                case 1: {
-                    foreach (var item in AlienList) {
-                        if (item.GetAlienType() == 1)
-                            item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
-                        if (item.GetAlienType() == 2)
-                            item.SetImage(Image.FromFile("resources/textures/Alien2_1.png"));
-                        if (item.GetAlienType() == 3)
-                            item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
+                case 1:
+                    {
+                        foreach (var item in AlienList)
+                        {
+                            if (item.GetAlienType() == 1)
+                                item.SetImage(Image.FromFile("resources/textures/Alien1_1.png"));
+                            if (item.GetAlienType() == 2)
+                                item.SetImage(Image.FromFile("resources/textures/Alien2_1.png"));
+                            if (item.GetAlienType() == 3)
+                                item.SetImage(Image.FromFile("resources/textures/Alien3_1.png"));
+                        }
+                        --alienAnimation;
+                        break;
                     }
-                    --alienAnimation;
-                    break;
-                }
             }
 
             // Update images
-            for (int i = 0; i < 55; i++) {
-                if (AlienList[i].GetState() == 1) {
+            for (int i = 0; i < 55; i++)
+            {
+                if (AlienList[i].GetState() == 1)
+                {
                     AlienPBList[i].Image = AlienList[i].GetImage();
                 }
             }
@@ -323,50 +348,57 @@ namespace SpaceInvaders {
         }
 
         private void PlaySound(int input) // Handles various game sounds
-        { 
+        {
             var sp = new System.Windows.Media.MediaPlayer();
-            switch (input) {
-                case 1 when soundStep == 1: { // Alien movement 'music'
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-                    break;
-                }
-                case 1 when soundStep == 2: { // Alien movement 'music'
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-                    break;
-                }
-                case 1 when soundStep == 3: { // Alien movement 'music'
+            switch (input)
+            {
+                case 1 when soundStep == 1:
+                    { // Alien movement 'music'
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        ++soundStep;
+                        break;
+                    }
+                case 1 when soundStep == 2:
+                    { // Alien movement 'music'
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        ++soundStep;
+                        break;
+                    }
+                case 1 when soundStep == 3:
+                    { // Alien movement 'music'
                         var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    ++soundStep;
-                    break;
-                }
-                case 1 when soundStep == 4: { // Alien movement 'music'
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        ++soundStep;
+                        break;
+                    }
+                case 1 when soundStep == 4:
+                    { // Alien movement 'music'
                         var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    soundStep = 1;
-                    break;
-                }
-                case 2: { // Alien death sound
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        soundStep = 1;
+                        break;
+                    }
+                case 2:
+                    { // Alien death sound
 
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    break;
-                }
-                case 3: { // Player shoot projectile sound
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
-                    sp.Open(new System.Uri(path));
-                    sp.Play();
-                    break;
-                }
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        break;
+                    }
+                case 3:
+                    { // Player shoot projectile sound
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
+                        sp.Open(new System.Uri(path));
+                        sp.Play();
+                        break;
+                    }
             }
         }
 
@@ -383,22 +415,26 @@ namespace SpaceInvaders {
         }
 
         private void CheckEndGame() // Checks for win/lose condition
-        { 
-            if (numAliensLeft == 0) { // If player wins...
+        {
+            if (numAliensLeft == 0)
+            { // If player wins...
                 alienMovement.Enabled = false;
                 playerMovement.Enabled = false;
                 MessageBox.Show("You win! TEMPORARY MESSAGE BOX"); // Congratulate player, then start next wave of aliens
                 Close();
             }
-            foreach (var item in AlienPBList) { // If aliens reach the end
-                if (item.Location.Y > 750 && item.Visible == true) {
+            foreach (var item in AlienPBList)
+            { // If aliens reach the end
+                if (item.Location.Y > 750 && item.Visible == true)
+                {
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
                     MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
                     Close();
                 }
             }
-            if (alienProjectile1.Bounds.IntersectsWith(player.Bounds) || alienProjectile2.Bounds.IntersectsWith(player.Bounds) || alienProjectile3.Bounds.IntersectsWith(player.Bounds)) { // If player is killed by alien projectile
+            if (alienProjectile1.Bounds.IntersectsWith(player.Bounds) || alienProjectile2.Bounds.IntersectsWith(player.Bounds) || alienProjectile3.Bounds.IntersectsWith(player.Bounds))
+            { // If player is killed by alien projectile
                 alienMovement.Enabled = false;
                 playerMovement.Enabled = false;
                 MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
@@ -408,28 +444,34 @@ namespace SpaceInvaders {
 
         private void TryShoot() // VERY EARLY IMPLEMENTATION FOR ALIEN PROJECTILE
         {
-            for (int i = 0; i < 55; i++) {
-                if ((AlienList[i].GetState() == 1) && totalProjectiles < 3) { // Checks for bullet limit, and if the alien is alive
+            for (int i = 0; i < 55; i++)
+            {
+                if ((AlienList[i].GetState() == 1) && totalProjectiles < 3)
+                { // Checks for bullet limit, and if the alien is alive
                     int rand = RandomNum.Next(0, numAliensLeft);
-                    if (rand == 1) {
-                        if (alienProjectile1.Enabled == false) {
+                    if (rand == 1)
+                    {
+                        if (alienProjectile1.Enabled == false)
+                        {
                             alienProjectile1.Enabled = true;
                             alienProjectile1.Visible = true;
                             ++totalProjectiles;
                             break;
                         }
-                        else if (alienProjectile2.Enabled == false) {
+                        else if (alienProjectile2.Enabled == false)
+                        {
                             alienProjectile2.Enabled = true;
                             alienProjectile2.Visible = true;
                             ++totalProjectiles;
                             break;
                         }
-                        else if (alienProjectile3.Enabled == false) {
+                        else if (alienProjectile3.Enabled == false)
+                        {
                             alienProjectile3.Enabled = true;
                             alienProjectile3.Visible = true;
                             ++totalProjectiles;
                             break;
-                        }                 
+                        }
                     }
                 }
             }

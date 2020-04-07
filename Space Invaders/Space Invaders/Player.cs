@@ -24,9 +24,10 @@ namespace SpaceInvaders {
         private int xPos; //holds x position of player
         private int yPos; //hold y position of player
 
-        public Player(Image i)
+        public Player(Point dPosition) //set default position
         {
-            playerImage = i;
+            xPos = dPosition.X;
+            yPos = dPosition.Y;
         }
 
         public void SetImage(Image i) //sets current sprite of player
@@ -60,12 +61,10 @@ namespace SpaceInvaders {
                 return (yPos);
         }
 
-        public void SetPos(int pos, char dim) //sets the position of one dimension
+        public void SetPos(Point pos) //sets the position of one dimension
         {
-            if (dim == 'x')
-                xPos = pos;
-            else
-                yPos = pos;
+            xPos = pos.X;
+            yPos = pos.Y;
         }
     }
 }
