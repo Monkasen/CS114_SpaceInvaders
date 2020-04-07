@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,14 +15,13 @@ namespace SpaceInvaders {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenu());
+
             if (MainMenu.gameMode == 1) {
-                Application.Run(new GameWindow()); ;
+                Application.Run(new GameWindow());
             }
             else if (MainMenu.gameMode == 2){
                 MessageBox.Show("Not yet implemented!");
             }
-
-            
         }
     }
 }

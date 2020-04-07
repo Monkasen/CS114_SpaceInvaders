@@ -25,11 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameWindow));
-            this.debugCount = new System.Windows.Forms.Label();
             this.alienMovement = new System.Windows.Forms.Timer(this.components);
-            this.debugTimer = new System.Windows.Forms.Label();
             this.playerMovement = new System.Windows.Forms.Timer(this.components);
-            this.debugXLocation = new System.Windows.Forms.Label();
             this.debugPanel = new System.Windows.Forms.Panel();
             this.playerScore = new System.Windows.Forms.Label();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
@@ -158,30 +155,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).BeginInit();
             this.SuspendLayout();
             // 
-            // debugCount
-            // 
-            this.debugCount.AutoSize = true;
-            this.debugCount.Location = new System.Drawing.Point(13, 9);
-            this.debugCount.Name = "debugCount";
-            this.debugCount.Size = new System.Drawing.Size(65, 13);
-            this.debugCount.TabIndex = 1;
-            this.debugCount.Text = "debugCount";
-            // 
             // alienMovement
             // 
             this.alienMovement.Enabled = true;
             this.alienMovement.Interval = 50;
             this.alienMovement.Tick += new System.EventHandler(this.alienMovement_Tick);
-            // 
-            // debugTimer
-            // 
-            this.debugTimer.AutoSize = true;
-            this.debugTimer.ForeColor = System.Drawing.Color.Black;
-            this.debugTimer.Location = new System.Drawing.Point(175, 9);
-            this.debugTimer.Name = "debugTimer";
-            this.debugTimer.Size = new System.Drawing.Size(63, 13);
-            this.debugTimer.TabIndex = 2;
-            this.debugTimer.Text = "debugTimer";
             // 
             // playerMovement
             // 
@@ -189,32 +167,19 @@
             this.playerMovement.Interval = 1;
             this.playerMovement.Tick += new System.EventHandler(this.playerMovement_Tick);
             // 
-            // debugXLocation
-            // 
-            this.debugXLocation.AutoSize = true;
-            this.debugXLocation.ForeColor = System.Drawing.Color.Black;
-            this.debugXLocation.Location = new System.Drawing.Point(84, 9);
-            this.debugXLocation.Name = "debugXLocation";
-            this.debugXLocation.Size = new System.Drawing.Size(85, 13);
-            this.debugXLocation.TabIndex = 4;
-            this.debugXLocation.Text = "debugXLocation";
-            // 
             // debugPanel
             // 
             this.debugPanel.BackColor = System.Drawing.Color.LightGray;
             this.debugPanel.Controls.Add(this.playerScore);
-            this.debugPanel.Controls.Add(this.debugTimer);
-            this.debugPanel.Controls.Add(this.debugXLocation);
-            this.debugPanel.Controls.Add(this.debugCount);
-            this.debugPanel.Location = new System.Drawing.Point(217, 889);
+            this.debugPanel.Location = new System.Drawing.Point(337, 889);
             this.debugPanel.Name = "debugPanel";
-            this.debugPanel.Size = new System.Drawing.Size(306, 32);
+            this.debugPanel.Size = new System.Drawing.Size(94, 32);
             this.debugPanel.TabIndex = 6;
             // 
             // playerScore
             // 
             this.playerScore.AutoSize = true;
-            this.playerScore.Location = new System.Drawing.Point(265, 9);
+            this.playerScore.Location = new System.Drawing.Point(39, 9);
             this.playerScore.Name = "playerScore";
             this.playerScore.Size = new System.Drawing.Size(13, 13);
             this.playerScore.TabIndex = 5;
@@ -989,12 +954,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label debugCount;
         private System.Windows.Forms.Timer alienMovement;
-        private System.Windows.Forms.Label debugTimer;
         public System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.Timer playerMovement;
-        private System.Windows.Forms.Label debugXLocation;
         private System.Windows.Forms.Panel debugPanel;
         private System.Windows.Forms.Timer projectileCollision;
         private System.Windows.Forms.Timer alienDeath;
@@ -1054,7 +1016,7 @@
         private System.Windows.Forms.PictureBox pbAlien48;
         private System.Windows.Forms.PictureBox pbAlien47;
         private System.Windows.Forms.PictureBox pbAlien46;
-        private System.Windows.Forms.PictureBox playerProjectile;
+        public System.Windows.Forms.PictureBox playerProjectile;
         private System.Windows.Forms.Label tutorial;
         private System.Windows.Forms.PictureBox alienProjectile1;
         private System.Windows.Forms.PictureBox alienProjectile2;

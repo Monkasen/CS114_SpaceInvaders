@@ -1,68 +1,47 @@
-﻿using SpaceInvaders;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Input;
+﻿using System.Drawing;
 
 namespace SpaceInvaders {
-    class Player {
-        public Player()
-        {
-        }
-        
-        private int type; // 1 = small, 2 = medium, 3 = large
+    public class Player {
         private int state = 1; // 1 = alive, 0 = dead
         private Image playerImage;
         private bool isShoot; //holds whether player is currently shooting
         private int xPos; //holds x position of player
         private int yPos; //hold y position of player
 
-        public Player(Point dPosition) //set default position
-        {
+        public Player() {
+        }
+
+        public Player(Point dPosition) { // Sets default position
             xPos = dPosition.X;
             yPos = dPosition.Y;
         }
 
-        public void SetImage(Image i) //sets current sprite of player
-        {
+        public void SetImage(Image i) { // Sets current sprite of player
             playerImage = i;
         }
 
-        public void SetState(int s) //sets dead or alive state
-        {
-            if (s == 0)
-            {
+        public void SetState(int s) { // Sets dead or alive state
+            if (s == 0) {
                 state = s;
             }
         }
 
-        public bool IsFired() //checks if the player if firing
-        {
+        public bool IsFired() { // Checks if the player has an active projectile
             return (isShoot);
         }
 
-        public void Fire(bool fireState) //fires a projectile
-        {
-                isShoot = fireState;
+        public void Fire(bool fireState) { // Fires a projectile
+            isShoot = fireState;
         }
 
-        public int GetPos(char dim) //gets the position of one dimension
-        {
+        public int GetPos(char dim) { // Gets the position of one dimension
             if (dim == 'x')
                 return (xPos);
             else
                 return (yPos);
         }
 
-        public void SetPos(Point pos) //sets the position of one dimension
-        {
+        public void SetPos(Point pos) {  // Sets the position of one dimension
             xPos = pos.X;
             yPos = pos.Y;
         }
