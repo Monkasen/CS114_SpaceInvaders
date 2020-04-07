@@ -73,7 +73,7 @@ namespace SpaceInvaders {
                 if (!(p1.IsFired()))
                 {
                     p1.Fire(true);
-                    playerProjectile.Location = new Point(player.Location.X + (25), player.Location.Y);
+                    playerProjectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
                     playerProjectile.Visible = true;
                     projectileCollision.Enabled = true;
                     PlaySound(3);
