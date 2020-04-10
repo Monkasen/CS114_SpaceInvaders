@@ -25,6 +25,7 @@ namespace SpaceInvaders {
         private int totalProjectiles = 0;
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
+        private List<Alien> BottomAliens = new List<Alien>();
         private Projectile playerProj = new Projectile(1);
         private Player p1 = new Player();
         private static Random RandomNum = new Random();
@@ -251,6 +252,10 @@ namespace SpaceInvaders {
             AlienPBList.Add(pbAlien53);
             AlienPBList.Add(pbAlien54);
             AlienPBList.Add(pbAlien55);
+
+            // Add bottom most aliens to possible alien shooting list
+            for (int i = 1; i < 12; i++)
+                BottomAliens.Add(AlienList[AlienList.Count - i]);
         }
 
         private void AlienAnimation() // Cycle through animations for aliens
@@ -387,6 +392,28 @@ namespace SpaceInvaders {
             playerScore.Text = ($"{score += 10}"); // Add 10 points to score
             --numAliensLeft; // Decrement number of aliens remaining
             alienDeath.Enabled = true; // Starts timer to remove alien explosion
+            if (i - 11 > -1)
+            {
+                for (int j = i; j > -1; j -= 10) // Check if preceding aliens are dead
+                {
+                    if (AlienList[j].GetState() == 1)
+                    {
+                        BottomAliens[j % 11] = AlienList[i - 11];
+                        //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
+                        break;
+                    }
+                    if (j - 10 < -1)
+                        BottomAliens.RemoveAt(i);
+                }
+
+                //BottomAliens[i % 11] = AlienList[i - 11];
+                //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
+            }
+            else
+            {
+                BottomAliens.RemoveAt(i);
+                //MessageBox.Show($"Alien removed at index {i}, now bottomaliens is size {BottomAliens.Count}");
+            }
         }
 
         private void CheckEndGame() // Checks for win/lose condition
