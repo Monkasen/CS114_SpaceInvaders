@@ -65,21 +65,21 @@ namespace SpaceInvaders {
 
         private void playerMovement_Tick(object sender, EventArgs e) // Timer handles all player movements and inputs
         {
-            if (Keyboard.IsKeyDown(Key.Left)) // Move left
+            if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A)) // Move left
             {
                 if (player.Location.X > 20) { // Limit movement within game area
                     player.Location = new Point(player.Location.X - 2, player.Location.Y);
                     p1.SetPos(player.Location);
                 }
             }
-            else if (Keyboard.IsKeyDown(Key.Right)) // Move right
+            else if (Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D)) // Move right
             {
                 if (player.Location.X < this.Width - rightSideDifference) { // Limit movement within game area
                     player.Location = new Point(player.Location.X + 2, player.Location.Y);
                     p1.SetPos(player.Location);
                 }
             }
-            if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
+            if (Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W)) // Shoot projectile
             {
                 if (!p1.IsFired()) {
                     p1.Fire(true);
