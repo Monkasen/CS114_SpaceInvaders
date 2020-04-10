@@ -22,7 +22,7 @@ namespace SpaceInvaders {
         private bool isGoingRight = true; // Used to check if aliens are going right or not
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
-        private int totalProjectiles = 0;
+        private int totalProjectiles = 0; // Track how many alien projectiles are active
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
@@ -38,7 +38,7 @@ namespace SpaceInvaders {
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
-            { 
+            {
             if (musicToggle) {
                 musicToggle = false;
                 soundToggle.Image = Image.FromFile("resources/textures/Sound_Off.png");
@@ -54,10 +54,8 @@ namespace SpaceInvaders {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             if (gameTicks >= 15) { // Move aliens after 15 ticks
                 PlaySound(1);
-                AlienAnimation();
-                MoveAliens();
+                UpdateAliens();
                 TryShoot();
-                UpdateLocations();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             CheckEndGame();
@@ -93,13 +91,7 @@ namespace SpaceInvaders {
                 }
             }
 
-            if (alienProjectile1.Enabled)
-                alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
-            if (alienProjectile2.Enabled)
-                alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
-            if (alienProjectile3.Enabled)
-                alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
-
+            
             if (!p1.IsFired()) return;
 
             playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
@@ -121,25 +113,30 @@ namespace SpaceInvaders {
 
             // Check collision for alien projectile
             if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile1.Location.Y > this.Size.Height)
-            {
+                alienProjectile1.Location.Y > this.Size.Height) {
                 alienProjectile1.Enabled = false;
                 totalProjectiles--;
             }
 
             if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile2.Location.Y > this.Size.Height)
-            {
+                alienProjectile2.Location.Y > this.Size.Height) {
                 alienProjectile2.Enabled = false;
                 totalProjectiles--;
             }
 
             if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile3.Location.Y > this.Size.Height)
-            {
+                alienProjectile3.Location.Y > this.Size.Height) {
                 alienProjectile3.Enabled = false;
                 totalProjectiles--;
             }
+
+            // Update alien projectiles
+            if (alienProjectile1.Enabled)
+                alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
+            if (alienProjectile2.Enabled)
+                alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
+            if (alienProjectile3.Enabled)
+                alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
         }
 
         private void alienDeath_Tick(object sender, EventArgs e) // Handles removing alien explosion after death
@@ -289,8 +286,9 @@ namespace SpaceInvaders {
                 BottomAliens.Add(AlienList[AlienList.Count - i]);
         }
 
-        private void AlienAnimation() // Cycle through animations for aliens
+        private void UpdateAliens() // Handles alien animations, moving the aliens, and updating their position
         {
+            #region alien animation
             switch (alienAnimation) {
                 case 0: {
                         foreach (var item in AlienList) {
@@ -324,10 +322,8 @@ namespace SpaceInvaders {
                     AlienPBList[i].Image = AlienList[i].GetImage();
                 }
             }
-        }
-
-        private void MoveAliens() // Moves aliens towards the player
-        {
+            #endregion
+            #region alien movement
             bool noneEdge = true; // Variable checks if any alien made it to edge, if so change Y coord and switch direction
 
             foreach (var item in AlienPBList) { // Loop checks if any alien that makes it to the edge is alive
@@ -362,6 +358,13 @@ namespace SpaceInvaders {
                     isGoingRight = true;
                 }
             }
+            #endregion
+            #region update alien position
+            for (int i = 0; i < AlienList.Count; i++) {
+                AlienList[i].SetXCord(AlienPBList[i].Location.X);
+                AlienList[i].SetYCord(AlienPBList[i].Location.Y);
+            }
+            #endregion
         }
 
         private void PlaySound(int input) // Handles various game sounds
@@ -423,12 +426,10 @@ namespace SpaceInvaders {
             playerScore.Text = ($"{score += 10}"); // Add 10 points to score
             --numAliensLeft; // Decrement number of aliens remaining
             alienDeath.Enabled = true; // Starts timer to remove alien explosion
-            if (i - 11 > -1)
-            {
-                for (int j = i; j > -1; j -= 10) // Check if preceding aliens are dead
-                {
-                    if (AlienList[j].GetState() == 1)
-                    {
+
+            if (i - 11 > -1) {
+                for (int j = i; j > -1; j -= 10) { // Check if preceding aliens are dead
+                    if (AlienList[j].GetState() == 1) {
                         BottomAliens[j % 11] = AlienList[i - 11];
                         //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
                         break;
@@ -436,12 +437,10 @@ namespace SpaceInvaders {
                     if (j - 10 < -1)
                         BottomAliens.RemoveAt(i);
                 }
-
                 //BottomAliens[i % 11] = AlienList[i - 11];
                 //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
             }
-            else
-            {
+            else {
                 BottomAliens.RemoveAt(i);
                 //MessageBox.Show($"Alien removed at index {i}, now bottomaliens is size {BottomAliens.Count}");
             }
@@ -473,11 +472,11 @@ namespace SpaceInvaders {
             }
         }
 
-        private void TryShoot() // Make aliens shoot
+        private void TryShoot() // Random chance for an alien to shoot 
         {
             for (int i = 0; i < BottomAliens.Count; i++) {
                 if ((BottomAliens[i].GetState() == 1) && totalProjectiles <= 3) { // Checks for bullet limit, and if the alien is alive
-                    int rand = RandomNum.Next(0, BottomAliens.Count);
+                    int rand = RandomNum.Next(0, numAliensLeft);
                     if (rand == 1) {
                         int randAlien = RandomNum.Next(0, BottomAliens.Count);
                         if (alienProjectile1.Enabled == false) {
@@ -503,16 +502,6 @@ namespace SpaceInvaders {
                         }
                     }
                 }
-            }
-        }
-
-        // Update the locations of each alien's class object on each tick of alienMovement
-        private void UpdateLocations()
-        {
-            for (int i = 0; i < AlienList.Count; i++)
-            {
-                AlienList[i].SetXCord(AlienPBList[i].Location.X);
-                AlienList[i].SetYCord(AlienPBList[i].Location.Y);
             }
         }
     }
