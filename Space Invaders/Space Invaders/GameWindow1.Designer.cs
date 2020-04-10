@@ -92,6 +92,7 @@
             this.alienProjectile1 = new System.Windows.Forms.PictureBox();
             this.alienProjectile2 = new System.Windows.Forms.PictureBox();
             this.alienProjectile3 = new System.Windows.Forms.PictureBox();
+            this.soundToggle = new System.Windows.Forms.PictureBox();
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -153,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundToggle)).BeginInit();
             this.SuspendLayout();
             // 
             // alienMovement
@@ -811,12 +813,24 @@
             this.alienProjectile3.TabStop = false;
             this.alienProjectile3.Visible = false;
             // 
+            // soundToggle
+            // 
+            this.soundToggle.Image = ((System.Drawing.Image)(resources.GetObject("soundToggle.Image")));
+            this.soundToggle.Location = new System.Drawing.Point(15, 879);
+            this.soundToggle.Name = "soundToggle";
+            this.soundToggle.Size = new System.Drawing.Size(60, 42);
+            this.soundToggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.soundToggle.TabIndex = 71;
+            this.soundToggle.TabStop = false;
+            this.soundToggle.Click += new System.EventHandler(this.soundToggle_Click);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.soundToggle);
             this.Controls.Add(this.alienProjectile3);
             this.Controls.Add(this.alienProjectile2);
             this.Controls.Add(this.alienProjectile1);
@@ -948,6 +962,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundToggle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1021,6 +1036,7 @@
         private System.Windows.Forms.PictureBox alienProjectile1;
         private System.Windows.Forms.PictureBox alienProjectile2;
         private System.Windows.Forms.PictureBox alienProjectile3;
+        private System.Windows.Forms.PictureBox soundToggle;
     }
 }
 

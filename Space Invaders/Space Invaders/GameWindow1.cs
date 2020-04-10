@@ -9,6 +9,7 @@ using System.Windows.Input; // For key events
 
 namespace SpaceInvaders {
     public partial class GameWindow : Form {
+        private bool musicToggle = true;
         private double gameTicks = 0; // Internal game clock
         private double speedMultiplier = 1; // Modifies speed of game clock as more aliens are killed
         private int numAliensLeft = 55; // Tracks how many aliens remain
@@ -35,11 +36,24 @@ namespace SpaceInvaders {
             p1.SetPos(player.Location); // Syncs class and pictureBox
         }
 
+        private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
+            { 
+            if (musicToggle) {
+                musicToggle = false;
+                soundToggle.Image = Image.FromFile("resources/textures/Sound_Off.png");
+            }
+            else {
+                musicToggle = true;
+                soundToggle.Image = Image.FromFile("resources/textures/Sound_On.png");
+            }
+        }
+
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
         {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             if (gameTicks >= 15) { // Move aliens after 15 ticks
-                PlaySound(1);
+                if (musicToggle)
+                    PlaySound(1);
                 AlienAnimation();
                 MoveAliens();
                 TryShoot();
