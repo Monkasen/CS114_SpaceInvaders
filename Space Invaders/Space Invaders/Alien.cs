@@ -9,6 +9,8 @@ namespace SpaceInvaders {
     class Alien {
         private int type; // 1 = small, 2 = medium, 3 = large
         private int state = 1; // 1 = alive, 0 = dead
+        private int xCord;
+        private int yCord;
         private Image alienImage;
 
         public Alien() {
@@ -17,6 +19,14 @@ namespace SpaceInvaders {
         public Alien(int t, Image i) {
             type = t;
             alienImage = i;
+        }
+
+        public Alien(int t, Image i, int x, int y)
+        {
+            type = t;
+            alienImage = i;
+            xCord = x;
+            yCord = y;
         }
 
         public void SetImage(Image i) {
@@ -29,6 +39,14 @@ namespace SpaceInvaders {
             }
         }
 
+        public void SetXCord(int x) {
+            xCord = x;
+        }
+
+        public void SetYCord(int y) {
+            yCord = y;
+        }
+
         public int GetAlienType() {
             return type;
         }
@@ -39,6 +57,14 @@ namespace SpaceInvaders {
 
         public int GetState() {
             return state;
+        }
+
+        public int GetXCord() {
+            return xCord;
+        }
+
+        public int GetYCord() {
+            return yCord;
         }
     }
 }

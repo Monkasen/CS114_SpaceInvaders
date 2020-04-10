@@ -842,9 +842,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
             this.Controls.Add(this.soundToggle);
-            this.Controls.Add(this.alienProjectile3);
-            this.Controls.Add(this.alienProjectile2);
-            this.Controls.Add(this.alienProjectile1);
             this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
@@ -904,6 +901,9 @@
             this.Controls.Add(this.debugPanel);
             this.Controls.Add(this.player);
             this.Controls.Add(this.playerProjectile);
+            this.Controls.Add(this.alienProjectile1);
+            this.Controls.Add(this.alienProjectile2);
+            this.Controls.Add(this.alienProjectile3);
             this.Controls.Add(this.alienBoundsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

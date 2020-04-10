@@ -57,6 +57,7 @@ namespace SpaceInvaders {
                 AlienAnimation();
                 MoveAliens();
                 TryShoot();
+                UpdateLocations();
                 gameTicks = 0; // Reset counter to 0 for next alien movement
             }
             CheckEndGame();
@@ -92,6 +93,13 @@ namespace SpaceInvaders {
                 }
             }
 
+            if (alienProjectile1.Enabled)
+                alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
+            if (alienProjectile2.Enabled)
+                alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
+            if (alienProjectile3.Enabled)
+                alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
+
             if (!p1.IsFired()) return;
 
             playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
@@ -101,6 +109,7 @@ namespace SpaceInvaders {
 
         private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
         {
+            // Check player's projectile collision
             for (int i = 0; i < 55; i++) {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = playerProj.SetVisibility(); // Hides player's projectile
@@ -108,6 +117,28 @@ namespace SpaceInvaders {
                     projectileCollision.Enabled = false; // Disables collision detection for bullet
                     KillAlien(ref i);
                 }
+            }
+
+            // Check collision for alien projectile
+            if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(player.Bounds) ||
+                alienProjectile1.Location.Y > this.Size.Height)
+            {
+                alienProjectile1.Enabled = false;
+                totalProjectiles--;
+            }
+
+            if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(player.Bounds) ||
+                alienProjectile2.Location.Y > this.Size.Height)
+            {
+                alienProjectile2.Enabled = false;
+                totalProjectiles--;
+            }
+
+            if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(player.Bounds) ||
+                alienProjectile3.Location.Y > this.Size.Height)
+            {
+                alienProjectile3.Enabled = false;
+                totalProjectiles--;
             }
         }
 
@@ -140,61 +171,61 @@ namespace SpaceInvaders {
         private void InitializeAliens() // Builds lists for aliens and their graphics
         {
             // Create and add Alien objects to list
-            AlienList.Add(new Alien(3, pbAlien1.Image));
-            AlienList.Add(new Alien(3, pbAlien2.Image));
-            AlienList.Add(new Alien(3, pbAlien3.Image));
-            AlienList.Add(new Alien(3, pbAlien4.Image));
-            AlienList.Add(new Alien(3, pbAlien5.Image));
-            AlienList.Add(new Alien(3, pbAlien6.Image));
-            AlienList.Add(new Alien(3, pbAlien7.Image));
-            AlienList.Add(new Alien(3, pbAlien8.Image));
-            AlienList.Add(new Alien(3, pbAlien9.Image));
-            AlienList.Add(new Alien(3, pbAlien10.Image));
-            AlienList.Add(new Alien(3, pbAlien11.Image));
-            AlienList.Add(new Alien(2, pbAlien12.Image));
-            AlienList.Add(new Alien(2, pbAlien13.Image));
-            AlienList.Add(new Alien(2, pbAlien14.Image));
-            AlienList.Add(new Alien(2, pbAlien15.Image));
-            AlienList.Add(new Alien(2, pbAlien16.Image));
-            AlienList.Add(new Alien(2, pbAlien17.Image));
-            AlienList.Add(new Alien(2, pbAlien18.Image));
-            AlienList.Add(new Alien(2, pbAlien19.Image));
-            AlienList.Add(new Alien(2, pbAlien20.Image));
-            AlienList.Add(new Alien(2, pbAlien21.Image));
-            AlienList.Add(new Alien(2, pbAlien22.Image));
-            AlienList.Add(new Alien(2, pbAlien23.Image));
-            AlienList.Add(new Alien(2, pbAlien24.Image));
-            AlienList.Add(new Alien(2, pbAlien25.Image));
-            AlienList.Add(new Alien(2, pbAlien26.Image));
-            AlienList.Add(new Alien(2, pbAlien27.Image));
-            AlienList.Add(new Alien(2, pbAlien28.Image));
-            AlienList.Add(new Alien(2, pbAlien29.Image));
-            AlienList.Add(new Alien(2, pbAlien30.Image));
-            AlienList.Add(new Alien(2, pbAlien31.Image));
-            AlienList.Add(new Alien(2, pbAlien32.Image));
-            AlienList.Add(new Alien(2, pbAlien33.Image));
-            AlienList.Add(new Alien(1, pbAlien34.Image));
-            AlienList.Add(new Alien(1, pbAlien35.Image));
-            AlienList.Add(new Alien(1, pbAlien36.Image));
-            AlienList.Add(new Alien(1, pbAlien37.Image));
-            AlienList.Add(new Alien(1, pbAlien38.Image));
-            AlienList.Add(new Alien(1, pbAlien39.Image));
-            AlienList.Add(new Alien(1, pbAlien40.Image));
-            AlienList.Add(new Alien(1, pbAlien41.Image));
-            AlienList.Add(new Alien(1, pbAlien42.Image));
-            AlienList.Add(new Alien(1, pbAlien43.Image));
-            AlienList.Add(new Alien(1, pbAlien44.Image));
-            AlienList.Add(new Alien(1, pbAlien45.Image));
-            AlienList.Add(new Alien(1, pbAlien46.Image));
-            AlienList.Add(new Alien(1, pbAlien47.Image));
-            AlienList.Add(new Alien(1, pbAlien48.Image));
-            AlienList.Add(new Alien(1, pbAlien49.Image));
-            AlienList.Add(new Alien(1, pbAlien50.Image));
-            AlienList.Add(new Alien(1, pbAlien51.Image));
-            AlienList.Add(new Alien(1, pbAlien52.Image));
-            AlienList.Add(new Alien(1, pbAlien53.Image));
-            AlienList.Add(new Alien(1, pbAlien54.Image));
-            AlienList.Add(new Alien(1, pbAlien55.Image));
+            AlienList.Add(new Alien(3, pbAlien1.Image, pbAlien1.Location.X, pbAlien1.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien2.Image, pbAlien2.Location.X, pbAlien2.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien3.Image, pbAlien3.Location.X, pbAlien3.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien4.Image, pbAlien4.Location.X, pbAlien4.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien5.Image, pbAlien5.Location.X, pbAlien5.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien6.Image, pbAlien6.Location.X, pbAlien6.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien7.Image, pbAlien7.Location.X, pbAlien7.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien8.Image, pbAlien8.Location.X, pbAlien8.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien9.Image, pbAlien9.Location.X, pbAlien9.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien10.Image, pbAlien10.Location.X, pbAlien10.Location.Y));
+            AlienList.Add(new Alien(3, pbAlien11.Image, pbAlien11.Location.X, pbAlien11.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien12.Image, pbAlien12.Location.X, pbAlien12.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien13.Image, pbAlien13.Location.X, pbAlien13.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien14.Image, pbAlien14.Location.X, pbAlien14.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien15.Image, pbAlien15.Location.X, pbAlien15.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien16.Image, pbAlien16.Location.X, pbAlien16.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien17.Image, pbAlien17.Location.X, pbAlien17.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien18.Image, pbAlien18.Location.X, pbAlien18.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien19.Image, pbAlien19.Location.X, pbAlien19.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien20.Image, pbAlien20.Location.X, pbAlien20.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien21.Image, pbAlien21.Location.X, pbAlien21.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien22.Image, pbAlien22.Location.X, pbAlien22.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien23.Image, pbAlien23.Location.X, pbAlien23.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien24.Image, pbAlien24.Location.X, pbAlien24.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien25.Image, pbAlien25.Location.X, pbAlien25.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien26.Image, pbAlien26.Location.X, pbAlien26.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien27.Image, pbAlien27.Location.X, pbAlien27.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien28.Image, pbAlien28.Location.X, pbAlien28.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien29.Image, pbAlien29.Location.X, pbAlien29.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien30.Image, pbAlien30.Location.X, pbAlien30.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien31.Image, pbAlien31.Location.X, pbAlien31.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien32.Image, pbAlien32.Location.X, pbAlien32.Location.Y));
+            AlienList.Add(new Alien(2, pbAlien33.Image, pbAlien33.Location.X, pbAlien33.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien34.Image, pbAlien34.Location.X, pbAlien34.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien35.Image, pbAlien35.Location.X, pbAlien35.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien36.Image, pbAlien36.Location.X, pbAlien36.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien37.Image, pbAlien37.Location.X, pbAlien37.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien38.Image, pbAlien38.Location.X, pbAlien38.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien39.Image, pbAlien39.Location.X, pbAlien39.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien40.Image, pbAlien40.Location.X, pbAlien40.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien41.Image, pbAlien41.Location.X, pbAlien41.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien42.Image, pbAlien42.Location.X, pbAlien42.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien43.Image, pbAlien43.Location.X, pbAlien43.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien44.Image, pbAlien44.Location.X, pbAlien44.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien45.Image, pbAlien45.Location.X, pbAlien45.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien46.Image, pbAlien46.Location.X, pbAlien46.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien47.Image, pbAlien47.Location.X, pbAlien47.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien48.Image, pbAlien48.Location.X, pbAlien48.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien49.Image, pbAlien49.Location.X, pbAlien49.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien50.Image, pbAlien50.Location.X, pbAlien50.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien51.Image, pbAlien51.Location.X, pbAlien51.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien52.Image, pbAlien52.Location.X, pbAlien52.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien53.Image, pbAlien53.Location.X, pbAlien53.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien54.Image, pbAlien54.Location.X, pbAlien54.Location.Y));
+            AlienList.Add(new Alien(1, pbAlien55.Image, pbAlien55.Location.X, pbAlien55.Location.Y));
 
             // Add pictureboxes to list
             AlienPBList.Add(pbAlien1);
@@ -442,25 +473,29 @@ namespace SpaceInvaders {
             }
         }
 
-        private void TryShoot() // VERY EARLY IMPLEMENTATION FOR ALIEN PROJECTILE
+        private void TryShoot() // Make aliens shoot
         {
-            for (int i = 0; i < 55; i++) {
-                if ((AlienList[i].GetState() == 1) && totalProjectiles < 3) { // Checks for bullet limit, and if the alien is alive
-                    int rand = RandomNum.Next(0, numAliensLeft);
+            for (int i = 0; i < BottomAliens.Count; i++) {
+                if ((BottomAliens[i].GetState() == 1) && totalProjectiles <= 3) { // Checks for bullet limit, and if the alien is alive
+                    int rand = RandomNum.Next(0, BottomAliens.Count);
                     if (rand == 1) {
+                        int randAlien = RandomNum.Next(0, BottomAliens.Count);
                         if (alienProjectile1.Enabled == false) {
+                            alienProjectile1.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
                             alienProjectile1.Enabled = true;
                             alienProjectile1.Visible = true;
                             ++totalProjectiles;
                             break;
                         }
                         else if (alienProjectile2.Enabled == false) {
+                            alienProjectile2.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
                             alienProjectile2.Enabled = true;
                             alienProjectile2.Visible = true;
                             ++totalProjectiles;
                             break;
                         }
                         else if (alienProjectile3.Enabled == false) {
+                            alienProjectile3.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
                             alienProjectile3.Enabled = true;
                             alienProjectile3.Visible = true;
                             ++totalProjectiles;
@@ -468,6 +503,16 @@ namespace SpaceInvaders {
                         }
                     }
                 }
+            }
+        }
+
+        // Update the locations of each alien's class object on each tick of alienMovement
+        private void UpdateLocations()
+        {
+            for (int i = 0; i < AlienList.Count; i++)
+            {
+                AlienList[i].SetXCord(AlienPBList[i].Location.X);
+                AlienList[i].SetYCord(AlienPBList[i].Location.Y);
             }
         }
     }
