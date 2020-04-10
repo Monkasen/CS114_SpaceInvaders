@@ -93,6 +93,7 @@
             this.alienProjectile2 = new System.Windows.Forms.PictureBox();
             this.alienProjectile3 = new System.Windows.Forms.PictureBox();
             this.soundToggle = new System.Windows.Forms.PictureBox();
+            this.alienBoundsPanel = new System.Windows.Forms.Panel();
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -781,7 +782,7 @@
             // 
             this.alienProjectile1.Enabled = false;
             this.alienProjectile1.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1.Image")));
-            this.alienProjectile1.Location = new System.Drawing.Point(15, 673);
+            this.alienProjectile1.Location = new System.Drawing.Point(36, 828);
             this.alienProjectile1.Name = "alienProjectile1";
             this.alienProjectile1.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -793,7 +794,7 @@
             // 
             this.alienProjectile2.Enabled = false;
             this.alienProjectile2.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2.Image")));
-            this.alienProjectile2.Location = new System.Drawing.Point(15, 707);
+            this.alienProjectile2.Location = new System.Drawing.Point(63, 828);
             this.alienProjectile2.Name = "alienProjectile2";
             this.alienProjectile2.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -805,7 +806,7 @@
             // 
             this.alienProjectile3.Enabled = false;
             this.alienProjectile3.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3.Image")));
-            this.alienProjectile3.Location = new System.Drawing.Point(15, 741);
+            this.alienProjectile3.Location = new System.Drawing.Point(90, 828);
             this.alienProjectile3.Name = "alienProjectile3";
             this.alienProjectile3.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -823,6 +824,16 @@
             this.soundToggle.TabIndex = 71;
             this.soundToggle.TabStop = false;
             this.soundToggle.Click += new System.EventHandler(this.soundToggle_Click);
+            // 
+            // alienBoundsPanel
+            // 
+            this.alienBoundsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.alienBoundsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.alienBoundsPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.alienBoundsPanel.Location = new System.Drawing.Point(14, 67);
+            this.alienBoundsPanel.Name = "alienBoundsPanel";
+            this.alienBoundsPanel.Size = new System.Drawing.Size(739, 693);
+            this.alienBoundsPanel.TabIndex = 72;
             // 
             // GameWindow
             // 
@@ -893,6 +904,7 @@
             this.Controls.Add(this.debugPanel);
             this.Controls.Add(this.player);
             this.Controls.Add(this.playerProjectile);
+            this.Controls.Add(this.alienBoundsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1037,6 +1049,7 @@
         private System.Windows.Forms.PictureBox alienProjectile2;
         private System.Windows.Forms.PictureBox alienProjectile3;
         private System.Windows.Forms.PictureBox soundToggle;
+        private System.Windows.Forms.Panel alienBoundsPanel;
     }
 }
 

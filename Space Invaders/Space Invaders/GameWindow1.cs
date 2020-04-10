@@ -52,8 +52,7 @@ namespace SpaceInvaders {
         {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
             if (gameTicks >= 15) { // Move aliens after 15 ticks
-                if (musicToggle)
-                    PlaySound(1);
+                PlaySound(1);
                 AlienAnimation();
                 MoveAliens();
                 TryShoot();
@@ -331,49 +330,51 @@ namespace SpaceInvaders {
 
         private void PlaySound(int input) // Handles various game sounds
         {
-            var sp = new System.Windows.Media.MediaPlayer();
-            switch (input) {
-                case 1 when soundStep == 1: { // Alien movement 'music'
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        ++soundStep;
-                        break;
-                    }
-                case 1 when soundStep == 2: { // Alien movement 'music'
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        ++soundStep;
-                        break;
-                    }
-                case 1 when soundStep == 3: { // Alien movement 'music'
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        ++soundStep;
-                        break;
-                    }
-                case 1 when soundStep == 4: { // Alien movement 'music'
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        soundStep = 1;
-                        break;
-                    }
-                case 2: { // Alien death sound
+            if (musicToggle) {
+                var sp = new System.Windows.Media.MediaPlayer();
+                switch (input) {
+                    case 1 when soundStep == 1: { // Alien movement 'music'
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick1.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            ++soundStep;
+                            break;
+                        }
+                    case 1 when soundStep == 2: { // Alien movement 'music'
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick2.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            ++soundStep;
+                            break;
+                        }
+                    case 1 when soundStep == 3: { // Alien movement 'music'
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick3.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            ++soundStep;
+                            break;
+                        }
+                    case 1 when soundStep == 4: { // Alien movement 'music'
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/tick4.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            soundStep = 1;
+                            break;
+                        }
+                    case 2: { // Alien death sound
 
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        break;
-                    }
-                case 3: { // Player shoot projectile sound
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
-                        sp.Open(new Uri(path));
-                        sp.Play();
-                        break;
-                    }
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/alienDeath.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            break;
+                        }
+                    case 3: { // Player shoot projectile sound
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "resources/sounds/playerShoot.wav");
+                            sp.Open(new Uri(path));
+                            sp.Play();
+                            break;
+                        }
+                }
             }
         }
 
@@ -397,9 +398,11 @@ namespace SpaceInvaders {
                 Close();
             }
             foreach (var item in AlienPBList) { // If aliens reach the end
-                if (item.Location.Y > 750 && item.Visible == true) {
+                if (item.Location.Y > 725 && item.Visible == true) {
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
+                    foreach (var item2 in AlienPBList)
+                        item2.Visible = false;
                     MessageBox.Show("The invaders win! TEMPORARY MESSAGE BOX"); // Player loses, end the game
                     Close();
                 }
