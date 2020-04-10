@@ -88,7 +88,7 @@ namespace SpaceInvaders {
                     playerProjectile.Visible = playerProj.SetVisibility();
                     playerProj.SetPos(p1.GetPos('x') + 25, 'x');
                     playerProj.SetPos(p1.GetPos('y'), 'y');
-                    projectileCollision.Enabled = true; // Enables collision detection for bullet
+                    //projectileCollision.Enabled = true; // Enables collision detection for bullet
                     PlaySound(3);
                 }
             }
@@ -114,7 +114,7 @@ namespace SpaceInvaders {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = playerProj.SetVisibility(); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
-                    projectileCollision.Enabled = false; // Disables collision detection for bullet
+                    //projectileCollision.Enabled = false; // Disables collision detection for bullet
                     KillAlien(ref i);
                 }
             }

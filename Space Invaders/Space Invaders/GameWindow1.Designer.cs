@@ -190,6 +190,7 @@
             // 
             // projectileCollision
             // 
+            this.projectileCollision.Enabled = true;
             this.projectileCollision.Interval = 1;
             this.projectileCollision.Tick += new System.EventHandler(this.projectileCollision_Tick);
             // 
