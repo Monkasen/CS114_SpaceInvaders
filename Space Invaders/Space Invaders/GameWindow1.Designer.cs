@@ -30,7 +30,7 @@
             this.debugPanel = new System.Windows.Forms.Panel();
             this.playerScore = new System.Windows.Forms.Label();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
-            this.alienDeath = new System.Windows.Forms.Timer(this.components);
+            this.objectDeath = new System.Windows.Forms.Timer(this.components);
             this.pbAlien46 = new System.Windows.Forms.PictureBox();
             this.pbAlien47 = new System.Windows.Forms.PictureBox();
             this.pbAlien48 = new System.Windows.Forms.PictureBox();
@@ -94,6 +94,8 @@
             this.alienProjectile3 = new System.Windows.Forms.PictureBox();
             this.soundToggle = new System.Windows.Forms.PictureBox();
             this.alienBoundsPanel = new System.Windows.Forms.Panel();
+            this.gameOver = new System.Windows.Forms.PictureBox();
+            this.projectileAnimation = new System.Windows.Forms.Timer(this.components);
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -156,6 +158,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundToggle)).BeginInit();
+            this.alienBoundsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
             this.SuspendLayout();
             // 
             // alienMovement
@@ -194,10 +198,10 @@
             this.projectileCollision.Interval = 1;
             this.projectileCollision.Tick += new System.EventHandler(this.projectileCollision_Tick);
             // 
-            // alienDeath
+            // objectDeath
             // 
-            this.alienDeath.Interval = 10;
-            this.alienDeath.Tick += new System.EventHandler(this.alienDeath_Tick);
+            this.objectDeath.Interval = 10;
+            this.objectDeath.Tick += new System.EventHandler(this.objectDeath_Tick);
             // 
             // pbAlien46
             // 
@@ -751,11 +755,11 @@
             // 
             // player
             // 
-            this.player.Image = global::SpaceInvaders.Properties.Resources.PlayerShip;
+            this.player.Image = ((System.Drawing.Image)(resources.GetObject("player.Image")));
             this.player.Location = new System.Drawing.Point(355, 824);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(52, 32);
-            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.player.TabIndex = 3;
             this.player.TabStop = false;
             // 
@@ -783,10 +787,10 @@
             // 
             this.alienProjectile1.Enabled = false;
             this.alienProjectile1.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1.Image")));
-            this.alienProjectile1.Location = new System.Drawing.Point(36, 828);
+            this.alienProjectile1.Location = new System.Drawing.Point(207, 889);
             this.alienProjectile1.Name = "alienProjectile1";
             this.alienProjectile1.Size = new System.Drawing.Size(12, 28);
-            this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile1.TabIndex = 68;
             this.alienProjectile1.TabStop = false;
             this.alienProjectile1.Visible = false;
@@ -795,10 +799,10 @@
             // 
             this.alienProjectile2.Enabled = false;
             this.alienProjectile2.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2.Image")));
-            this.alienProjectile2.Location = new System.Drawing.Point(63, 828);
+            this.alienProjectile2.Location = new System.Drawing.Point(225, 889);
             this.alienProjectile2.Name = "alienProjectile2";
             this.alienProjectile2.Size = new System.Drawing.Size(12, 28);
-            this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile2.TabIndex = 69;
             this.alienProjectile2.TabStop = false;
             this.alienProjectile2.Visible = false;
@@ -807,10 +811,10 @@
             // 
             this.alienProjectile3.Enabled = false;
             this.alienProjectile3.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3.Image")));
-            this.alienProjectile3.Location = new System.Drawing.Point(90, 828);
+            this.alienProjectile3.Location = new System.Drawing.Point(243, 889);
             this.alienProjectile3.Name = "alienProjectile3";
             this.alienProjectile3.Size = new System.Drawing.Size(12, 28);
-            this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile3.TabIndex = 70;
             this.alienProjectile3.TabStop = false;
             this.alienProjectile3.Visible = false;
@@ -830,11 +834,29 @@
             // 
             this.alienBoundsPanel.BackColor = System.Drawing.Color.Transparent;
             this.alienBoundsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.alienBoundsPanel.Controls.Add(this.gameOver);
             this.alienBoundsPanel.ForeColor = System.Drawing.Color.Transparent;
             this.alienBoundsPanel.Location = new System.Drawing.Point(14, 67);
             this.alienBoundsPanel.Name = "alienBoundsPanel";
             this.alienBoundsPanel.Size = new System.Drawing.Size(739, 693);
             this.alienBoundsPanel.TabIndex = 72;
+            // 
+            // gameOver
+            // 
+            this.gameOver.Image = ((System.Drawing.Image)(resources.GetObject("gameOver.Image")));
+            this.gameOver.Location = new System.Drawing.Point(244, 102);
+            this.gameOver.Name = "gameOver";
+            this.gameOver.Size = new System.Drawing.Size(248, 28);
+            this.gameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.gameOver.TabIndex = 0;
+            this.gameOver.TabStop = false;
+            this.gameOver.Visible = false;
+            // 
+            // projectileAnimation
+            // 
+            this.projectileAnimation.Enabled = true;
+            this.projectileAnimation.Interval = 15;
+            this.projectileAnimation.Tick += new System.EventHandler(this.projectileAnimation_Tick);
             // 
             // GameWindow
             // 
@@ -976,6 +998,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundToggle)).EndInit();
+            this.alienBoundsPanel.ResumeLayout(false);
+            this.alienBoundsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -987,7 +1012,7 @@
         private System.Windows.Forms.Timer playerMovement;
         private System.Windows.Forms.Panel debugPanel;
         private System.Windows.Forms.Timer projectileCollision;
-        private System.Windows.Forms.Timer alienDeath;
+        private System.Windows.Forms.Timer objectDeath;
         private System.Windows.Forms.PictureBox pbAlien1;
         private System.Windows.Forms.PictureBox pbAlien6;
         private System.Windows.Forms.PictureBox pbAlien7;
@@ -1051,6 +1076,8 @@
         private System.Windows.Forms.PictureBox alienProjectile3;
         private System.Windows.Forms.PictureBox soundToggle;
         private System.Windows.Forms.Panel alienBoundsPanel;
+        private System.Windows.Forms.Timer projectileAnimation;
+        private System.Windows.Forms.PictureBox gameOver;
     }
 }
 
