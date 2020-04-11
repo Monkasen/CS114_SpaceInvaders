@@ -516,7 +516,6 @@ namespace SpaceInvaders {
                 gameOver.Visible = true;
                 player.Visible = false; // Placeholder for death animation
                 PlaySound(4);
-                --playerLives;
             }
         }
 
