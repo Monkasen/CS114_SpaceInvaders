@@ -427,6 +427,7 @@ namespace SpaceInvaders {
             --numAliensLeft; // Decrement number of aliens remaining
             alienDeath.Enabled = true; // Starts timer to remove alien explosion
 
+            // DELETE ALL THE COMMENTED OUT CODE LATER IF PROGRAM ENDS UP BEING FINE TO REDUCE CLUTTER
             if (i - 11 > -1) {
                 for (int j = i; j > -1; j -= 10) { // Check if preceding aliens are dead
                     if (AlienList[j].GetState() == 1) {
@@ -434,16 +435,16 @@ namespace SpaceInvaders {
                         //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
                         break;
                     }
-                    if (j - 10 < -1)
-                        BottomAliens.RemoveAt(i);
+                    //if (j - 10 < -1)
+                      //  BottomAliens.RemoveAt(i);
                 }
                 //BottomAliens[i % 11] = AlienList[i - 11];
                 //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
             }
-            else {
+            /*else {
                 BottomAliens.RemoveAt(i);
                 //MessageBox.Show($"Alien removed at index {i}, now bottomaliens is size {BottomAliens.Count}");
-            }
+            }*/
         }
 
         private void CheckEndGame() // Checks for win/lose condition
@@ -478,7 +479,9 @@ namespace SpaceInvaders {
                 if ((BottomAliens[i].GetState() == 1) && totalProjectiles <= 3) { // Checks for bullet limit, and if the alien is alive
                     int rand = RandomNum.Next(0, numAliensLeft);
                     if (rand == 1) {
-                        int randAlien = RandomNum.Next(0, BottomAliens.Count);
+                        int randAlien = RandomNum.Next(0, BottomAliens.Count); // Select random alien in BottomList
+                        while (BottomAliens[randAlien].GetState() == 0 && numAliensLeft > 0) // Will keep looping until an alive alien is selected
+                            randAlien = RandomNum.Next(0, BottomAliens.Count);
                         if (alienProjectile1.Enabled == false) {
                             alienProjectile1.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
                             alienProjectile1.Enabled = true;
