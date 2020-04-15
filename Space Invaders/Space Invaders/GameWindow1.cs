@@ -25,7 +25,6 @@ namespace SpaceInvaders {
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
-        private int playerLives = 3; // Tracks player lives remaining
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
@@ -37,6 +36,8 @@ namespace SpaceInvaders {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
+            p1.SetLives(3);
+            liveLabel.Text = Convert.ToString(p1.GetLives());
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -496,6 +497,7 @@ namespace SpaceInvaders {
                 playerMovement.Enabled = false;
                 Thread.Sleep(1000);
                 GameWindow NewForm = new GameWindow(); // Open new form to start next wave
+                NewForm.p1.SetLives(p1.GetLives());
                 NewForm.Show();
                 Dispose(false);
             }
@@ -513,7 +515,19 @@ namespace SpaceInvaders {
                 playerMovement.Enabled = false;
                 foreach (var item2 in AlienPBList)
                     item2.Visible = false;
-                gameOver.Visible = true;
+                p1.LoseLife();
+                if (p1.GetLives() == 0)
+                    gameOver.Visible = true;
+                else
+                {
+                    alienMovement.Enabled = false;
+                    playerMovement.Enabled = false;
+                    Thread.Sleep(1000);
+                    GameWindow NewForm = new GameWindow(); // Open new form to start next wave
+                    NewForm.Show();
+                    NewForm.p1.SetLives(p1.GetLives());
+                    Dispose(false);
+                }
                 player.Visible = false; // Placeholder for death animation
                 PlaySound(4);
             }

@@ -96,6 +96,7 @@
             this.alienBoundsPanel = new System.Windows.Forms.Panel();
             this.gameOver = new System.Windows.Forms.PictureBox();
             this.projectileAnimation = new System.Windows.Forms.Timer(this.components);
+            this.liveLabel = new System.Windows.Forms.Label();
             this.debugPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
@@ -178,17 +179,19 @@
             // 
             this.debugPanel.BackColor = System.Drawing.Color.LightGray;
             this.debugPanel.Controls.Add(this.playerScore);
-            this.debugPanel.Location = new System.Drawing.Point(337, 889);
+            this.debugPanel.Location = new System.Drawing.Point(449, 1094);
+            this.debugPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.debugPanel.Name = "debugPanel";
-            this.debugPanel.Size = new System.Drawing.Size(94, 32);
+            this.debugPanel.Size = new System.Drawing.Size(125, 39);
             this.debugPanel.TabIndex = 6;
             // 
             // playerScore
             // 
             this.playerScore.AutoSize = true;
-            this.playerScore.Location = new System.Drawing.Point(39, 9);
+            this.playerScore.Location = new System.Drawing.Point(52, 11);
+            this.playerScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(13, 13);
+            this.playerScore.Size = new System.Drawing.Size(16, 17);
             this.playerScore.TabIndex = 5;
             this.playerScore.Text = "0";
             // 
@@ -206,9 +209,10 @@
             // pbAlien46
             // 
             this.pbAlien46.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien46.Image")));
-            this.pbAlien46.Location = new System.Drawing.Point(127, 303);
+            this.pbAlien46.Location = new System.Drawing.Point(169, 373);
+            this.pbAlien46.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien46.Name = "pbAlien46";
-            this.pbAlien46.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien46.Size = new System.Drawing.Size(64, 39);
             this.pbAlien46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien46.TabIndex = 67;
             this.pbAlien46.TabStop = false;
@@ -216,9 +220,10 @@
             // pbAlien47
             // 
             this.pbAlien47.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien47.Image")));
-            this.pbAlien47.Location = new System.Drawing.Point(185, 303);
+            this.pbAlien47.Location = new System.Drawing.Point(247, 373);
+            this.pbAlien47.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien47.Name = "pbAlien47";
-            this.pbAlien47.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien47.Size = new System.Drawing.Size(64, 39);
             this.pbAlien47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien47.TabIndex = 66;
             this.pbAlien47.TabStop = false;
@@ -226,9 +231,10 @@
             // pbAlien48
             // 
             this.pbAlien48.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien48.Image")));
-            this.pbAlien48.Location = new System.Drawing.Point(243, 303);
+            this.pbAlien48.Location = new System.Drawing.Point(324, 373);
+            this.pbAlien48.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien48.Name = "pbAlien48";
-            this.pbAlien48.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien48.Size = new System.Drawing.Size(64, 39);
             this.pbAlien48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien48.TabIndex = 65;
             this.pbAlien48.TabStop = false;
@@ -236,9 +242,10 @@
             // pbAlien49
             // 
             this.pbAlien49.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien49.Image")));
-            this.pbAlien49.Location = new System.Drawing.Point(301, 303);
+            this.pbAlien49.Location = new System.Drawing.Point(401, 373);
+            this.pbAlien49.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien49.Name = "pbAlien49";
-            this.pbAlien49.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien49.Size = new System.Drawing.Size(64, 39);
             this.pbAlien49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien49.TabIndex = 64;
             this.pbAlien49.TabStop = false;
@@ -246,9 +253,10 @@
             // pbAlien53
             // 
             this.pbAlien53.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien53.Image")));
-            this.pbAlien53.Location = new System.Drawing.Point(533, 303);
+            this.pbAlien53.Location = new System.Drawing.Point(711, 373);
+            this.pbAlien53.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien53.Name = "pbAlien53";
-            this.pbAlien53.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien53.Size = new System.Drawing.Size(64, 39);
             this.pbAlien53.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien53.TabIndex = 63;
             this.pbAlien53.TabStop = false;
@@ -256,9 +264,10 @@
             // pbAlien52
             // 
             this.pbAlien52.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien52.Image")));
-            this.pbAlien52.Location = new System.Drawing.Point(475, 303);
+            this.pbAlien52.Location = new System.Drawing.Point(633, 373);
+            this.pbAlien52.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien52.Name = "pbAlien52";
-            this.pbAlien52.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien52.Size = new System.Drawing.Size(64, 39);
             this.pbAlien52.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien52.TabIndex = 62;
             this.pbAlien52.TabStop = false;
@@ -266,9 +275,10 @@
             // pbAlien55
             // 
             this.pbAlien55.Image = global::SpaceInvaders.Properties.Resources.Alien1_1;
-            this.pbAlien55.Location = new System.Drawing.Point(649, 303);
+            this.pbAlien55.Location = new System.Drawing.Point(865, 373);
+            this.pbAlien55.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien55.Name = "pbAlien55";
-            this.pbAlien55.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien55.Size = new System.Drawing.Size(64, 39);
             this.pbAlien55.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien55.TabIndex = 61;
             this.pbAlien55.TabStop = false;
@@ -276,9 +286,10 @@
             // pbAlien54
             // 
             this.pbAlien54.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien54.Image")));
-            this.pbAlien54.Location = new System.Drawing.Point(591, 303);
+            this.pbAlien54.Location = new System.Drawing.Point(788, 373);
+            this.pbAlien54.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien54.Name = "pbAlien54";
-            this.pbAlien54.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien54.Size = new System.Drawing.Size(64, 39);
             this.pbAlien54.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien54.TabIndex = 60;
             this.pbAlien54.TabStop = false;
@@ -286,9 +297,10 @@
             // pbAlien51
             // 
             this.pbAlien51.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien51.Image")));
-            this.pbAlien51.Location = new System.Drawing.Point(417, 303);
+            this.pbAlien51.Location = new System.Drawing.Point(556, 373);
+            this.pbAlien51.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien51.Name = "pbAlien51";
-            this.pbAlien51.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien51.Size = new System.Drawing.Size(64, 39);
             this.pbAlien51.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien51.TabIndex = 58;
             this.pbAlien51.TabStop = false;
@@ -296,9 +308,10 @@
             // pbAlien50
             // 
             this.pbAlien50.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien50.Image")));
-            this.pbAlien50.Location = new System.Drawing.Point(359, 303);
+            this.pbAlien50.Location = new System.Drawing.Point(479, 373);
+            this.pbAlien50.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien50.Name = "pbAlien50";
-            this.pbAlien50.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien50.Size = new System.Drawing.Size(64, 39);
             this.pbAlien50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien50.TabIndex = 57;
             this.pbAlien50.TabStop = false;
@@ -306,9 +319,10 @@
             // pbAlien45
             // 
             this.pbAlien45.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien45.Image")));
-            this.pbAlien45.Location = new System.Drawing.Point(69, 303);
+            this.pbAlien45.Location = new System.Drawing.Point(92, 373);
+            this.pbAlien45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien45.Name = "pbAlien45";
-            this.pbAlien45.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien45.Size = new System.Drawing.Size(64, 39);
             this.pbAlien45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien45.TabIndex = 56;
             this.pbAlien45.TabStop = false;
@@ -316,9 +330,10 @@
             // pbAlien35
             // 
             this.pbAlien35.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien35.Image")));
-            this.pbAlien35.Location = new System.Drawing.Point(127, 246);
+            this.pbAlien35.Location = new System.Drawing.Point(169, 303);
+            this.pbAlien35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien35.Name = "pbAlien35";
-            this.pbAlien35.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien35.Size = new System.Drawing.Size(64, 39);
             this.pbAlien35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien35.TabIndex = 55;
             this.pbAlien35.TabStop = false;
@@ -326,9 +341,10 @@
             // pbAlien36
             // 
             this.pbAlien36.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien36.Image")));
-            this.pbAlien36.Location = new System.Drawing.Point(185, 246);
+            this.pbAlien36.Location = new System.Drawing.Point(247, 303);
+            this.pbAlien36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien36.Name = "pbAlien36";
-            this.pbAlien36.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien36.Size = new System.Drawing.Size(64, 39);
             this.pbAlien36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien36.TabIndex = 54;
             this.pbAlien36.TabStop = false;
@@ -336,9 +352,10 @@
             // pbAlien37
             // 
             this.pbAlien37.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien37.Image")));
-            this.pbAlien37.Location = new System.Drawing.Point(243, 246);
+            this.pbAlien37.Location = new System.Drawing.Point(324, 303);
+            this.pbAlien37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien37.Name = "pbAlien37";
-            this.pbAlien37.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien37.Size = new System.Drawing.Size(64, 39);
             this.pbAlien37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien37.TabIndex = 53;
             this.pbAlien37.TabStop = false;
@@ -346,9 +363,10 @@
             // pbAlien38
             // 
             this.pbAlien38.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien38.Image")));
-            this.pbAlien38.Location = new System.Drawing.Point(301, 246);
+            this.pbAlien38.Location = new System.Drawing.Point(401, 303);
+            this.pbAlien38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien38.Name = "pbAlien38";
-            this.pbAlien38.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien38.Size = new System.Drawing.Size(64, 39);
             this.pbAlien38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien38.TabIndex = 52;
             this.pbAlien38.TabStop = false;
@@ -356,9 +374,10 @@
             // pbAlien42
             // 
             this.pbAlien42.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien42.Image")));
-            this.pbAlien42.Location = new System.Drawing.Point(533, 246);
+            this.pbAlien42.Location = new System.Drawing.Point(711, 303);
+            this.pbAlien42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien42.Name = "pbAlien42";
-            this.pbAlien42.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien42.Size = new System.Drawing.Size(64, 39);
             this.pbAlien42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien42.TabIndex = 51;
             this.pbAlien42.TabStop = false;
@@ -366,9 +385,10 @@
             // pbAlien41
             // 
             this.pbAlien41.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien41.Image")));
-            this.pbAlien41.Location = new System.Drawing.Point(475, 246);
+            this.pbAlien41.Location = new System.Drawing.Point(633, 303);
+            this.pbAlien41.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien41.Name = "pbAlien41";
-            this.pbAlien41.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien41.Size = new System.Drawing.Size(64, 39);
             this.pbAlien41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien41.TabIndex = 50;
             this.pbAlien41.TabStop = false;
@@ -376,9 +396,10 @@
             // pbAlien44
             // 
             this.pbAlien44.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien44.Image")));
-            this.pbAlien44.Location = new System.Drawing.Point(649, 246);
+            this.pbAlien44.Location = new System.Drawing.Point(865, 303);
+            this.pbAlien44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien44.Name = "pbAlien44";
-            this.pbAlien44.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien44.Size = new System.Drawing.Size(64, 39);
             this.pbAlien44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien44.TabIndex = 49;
             this.pbAlien44.TabStop = false;
@@ -386,9 +407,10 @@
             // pbAlien43
             // 
             this.pbAlien43.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien43.Image")));
-            this.pbAlien43.Location = new System.Drawing.Point(591, 246);
+            this.pbAlien43.Location = new System.Drawing.Point(788, 303);
+            this.pbAlien43.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien43.Name = "pbAlien43";
-            this.pbAlien43.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien43.Size = new System.Drawing.Size(64, 39);
             this.pbAlien43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien43.TabIndex = 48;
             this.pbAlien43.TabStop = false;
@@ -396,9 +418,10 @@
             // pbAlien40
             // 
             this.pbAlien40.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien40.Image")));
-            this.pbAlien40.Location = new System.Drawing.Point(417, 246);
+            this.pbAlien40.Location = new System.Drawing.Point(556, 303);
+            this.pbAlien40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien40.Name = "pbAlien40";
-            this.pbAlien40.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien40.Size = new System.Drawing.Size(64, 39);
             this.pbAlien40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien40.TabIndex = 46;
             this.pbAlien40.TabStop = false;
@@ -406,9 +429,10 @@
             // pbAlien39
             // 
             this.pbAlien39.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien39.Image")));
-            this.pbAlien39.Location = new System.Drawing.Point(359, 246);
+            this.pbAlien39.Location = new System.Drawing.Point(479, 303);
+            this.pbAlien39.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien39.Name = "pbAlien39";
-            this.pbAlien39.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien39.Size = new System.Drawing.Size(64, 39);
             this.pbAlien39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien39.TabIndex = 45;
             this.pbAlien39.TabStop = false;
@@ -416,9 +440,10 @@
             // pbAlien34
             // 
             this.pbAlien34.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien34.Image")));
-            this.pbAlien34.Location = new System.Drawing.Point(69, 246);
+            this.pbAlien34.Location = new System.Drawing.Point(92, 303);
+            this.pbAlien34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien34.Name = "pbAlien34";
-            this.pbAlien34.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien34.Size = new System.Drawing.Size(64, 39);
             this.pbAlien34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien34.TabIndex = 44;
             this.pbAlien34.TabStop = false;
@@ -426,9 +451,10 @@
             // pbAlien24
             // 
             this.pbAlien24.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien24.Image")));
-            this.pbAlien24.Location = new System.Drawing.Point(127, 190);
+            this.pbAlien24.Location = new System.Drawing.Point(169, 234);
+            this.pbAlien24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien24.Name = "pbAlien24";
-            this.pbAlien24.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien24.Size = new System.Drawing.Size(64, 39);
             this.pbAlien24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien24.TabIndex = 43;
             this.pbAlien24.TabStop = false;
@@ -436,9 +462,10 @@
             // pbAlien25
             // 
             this.pbAlien25.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien25.Image")));
-            this.pbAlien25.Location = new System.Drawing.Point(185, 190);
+            this.pbAlien25.Location = new System.Drawing.Point(247, 234);
+            this.pbAlien25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien25.Name = "pbAlien25";
-            this.pbAlien25.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien25.Size = new System.Drawing.Size(64, 39);
             this.pbAlien25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien25.TabIndex = 42;
             this.pbAlien25.TabStop = false;
@@ -446,9 +473,10 @@
             // pbAlien26
             // 
             this.pbAlien26.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien26.Image")));
-            this.pbAlien26.Location = new System.Drawing.Point(243, 190);
+            this.pbAlien26.Location = new System.Drawing.Point(324, 234);
+            this.pbAlien26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien26.Name = "pbAlien26";
-            this.pbAlien26.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien26.Size = new System.Drawing.Size(64, 39);
             this.pbAlien26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien26.TabIndex = 41;
             this.pbAlien26.TabStop = false;
@@ -456,9 +484,10 @@
             // pbAlien27
             // 
             this.pbAlien27.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien27.Image")));
-            this.pbAlien27.Location = new System.Drawing.Point(301, 190);
+            this.pbAlien27.Location = new System.Drawing.Point(401, 234);
+            this.pbAlien27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien27.Name = "pbAlien27";
-            this.pbAlien27.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien27.Size = new System.Drawing.Size(64, 39);
             this.pbAlien27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien27.TabIndex = 40;
             this.pbAlien27.TabStop = false;
@@ -466,9 +495,10 @@
             // pbAlien31
             // 
             this.pbAlien31.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien31.Image")));
-            this.pbAlien31.Location = new System.Drawing.Point(533, 190);
+            this.pbAlien31.Location = new System.Drawing.Point(711, 234);
+            this.pbAlien31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien31.Name = "pbAlien31";
-            this.pbAlien31.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien31.Size = new System.Drawing.Size(64, 39);
             this.pbAlien31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien31.TabIndex = 39;
             this.pbAlien31.TabStop = false;
@@ -476,9 +506,10 @@
             // pbAlien30
             // 
             this.pbAlien30.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien30.Image")));
-            this.pbAlien30.Location = new System.Drawing.Point(475, 190);
+            this.pbAlien30.Location = new System.Drawing.Point(633, 234);
+            this.pbAlien30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien30.Name = "pbAlien30";
-            this.pbAlien30.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien30.Size = new System.Drawing.Size(64, 39);
             this.pbAlien30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien30.TabIndex = 38;
             this.pbAlien30.TabStop = false;
@@ -486,9 +517,10 @@
             // pbAlien33
             // 
             this.pbAlien33.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien33.Image")));
-            this.pbAlien33.Location = new System.Drawing.Point(649, 190);
+            this.pbAlien33.Location = new System.Drawing.Point(865, 234);
+            this.pbAlien33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien33.Name = "pbAlien33";
-            this.pbAlien33.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien33.Size = new System.Drawing.Size(64, 39);
             this.pbAlien33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien33.TabIndex = 37;
             this.pbAlien33.TabStop = false;
@@ -496,9 +528,10 @@
             // pbAlien32
             // 
             this.pbAlien32.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien32.Image")));
-            this.pbAlien32.Location = new System.Drawing.Point(591, 190);
+            this.pbAlien32.Location = new System.Drawing.Point(788, 234);
+            this.pbAlien32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien32.Name = "pbAlien32";
-            this.pbAlien32.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien32.Size = new System.Drawing.Size(64, 39);
             this.pbAlien32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien32.TabIndex = 36;
             this.pbAlien32.TabStop = false;
@@ -506,9 +539,10 @@
             // pbAlien29
             // 
             this.pbAlien29.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien29.Image")));
-            this.pbAlien29.Location = new System.Drawing.Point(417, 190);
+            this.pbAlien29.Location = new System.Drawing.Point(556, 234);
+            this.pbAlien29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien29.Name = "pbAlien29";
-            this.pbAlien29.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien29.Size = new System.Drawing.Size(64, 39);
             this.pbAlien29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien29.TabIndex = 34;
             this.pbAlien29.TabStop = false;
@@ -516,9 +550,10 @@
             // pbAlien28
             // 
             this.pbAlien28.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien28.Image")));
-            this.pbAlien28.Location = new System.Drawing.Point(359, 190);
+            this.pbAlien28.Location = new System.Drawing.Point(479, 234);
+            this.pbAlien28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien28.Name = "pbAlien28";
-            this.pbAlien28.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien28.Size = new System.Drawing.Size(64, 39);
             this.pbAlien28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien28.TabIndex = 33;
             this.pbAlien28.TabStop = false;
@@ -526,9 +561,10 @@
             // pbAlien23
             // 
             this.pbAlien23.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien23.Image")));
-            this.pbAlien23.Location = new System.Drawing.Point(69, 190);
+            this.pbAlien23.Location = new System.Drawing.Point(92, 234);
+            this.pbAlien23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien23.Name = "pbAlien23";
-            this.pbAlien23.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien23.Size = new System.Drawing.Size(64, 39);
             this.pbAlien23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien23.TabIndex = 32;
             this.pbAlien23.TabStop = false;
@@ -536,9 +572,10 @@
             // pbAlien13
             // 
             this.pbAlien13.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien13.Image")));
-            this.pbAlien13.Location = new System.Drawing.Point(127, 132);
+            this.pbAlien13.Location = new System.Drawing.Point(169, 162);
+            this.pbAlien13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien13.Name = "pbAlien13";
-            this.pbAlien13.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien13.Size = new System.Drawing.Size(64, 39);
             this.pbAlien13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien13.TabIndex = 31;
             this.pbAlien13.TabStop = false;
@@ -546,9 +583,10 @@
             // pbAlien14
             // 
             this.pbAlien14.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien14.Image")));
-            this.pbAlien14.Location = new System.Drawing.Point(185, 132);
+            this.pbAlien14.Location = new System.Drawing.Point(247, 162);
+            this.pbAlien14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien14.Name = "pbAlien14";
-            this.pbAlien14.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien14.Size = new System.Drawing.Size(64, 39);
             this.pbAlien14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien14.TabIndex = 30;
             this.pbAlien14.TabStop = false;
@@ -556,9 +594,10 @@
             // pbAlien15
             // 
             this.pbAlien15.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien15.Image")));
-            this.pbAlien15.Location = new System.Drawing.Point(243, 132);
+            this.pbAlien15.Location = new System.Drawing.Point(324, 162);
+            this.pbAlien15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien15.Name = "pbAlien15";
-            this.pbAlien15.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien15.Size = new System.Drawing.Size(64, 39);
             this.pbAlien15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien15.TabIndex = 29;
             this.pbAlien15.TabStop = false;
@@ -566,9 +605,10 @@
             // pbAlien16
             // 
             this.pbAlien16.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien16.Image")));
-            this.pbAlien16.Location = new System.Drawing.Point(301, 132);
+            this.pbAlien16.Location = new System.Drawing.Point(401, 162);
+            this.pbAlien16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien16.Name = "pbAlien16";
-            this.pbAlien16.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien16.Size = new System.Drawing.Size(64, 39);
             this.pbAlien16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien16.TabIndex = 28;
             this.pbAlien16.TabStop = false;
@@ -576,9 +616,10 @@
             // pbAlien20
             // 
             this.pbAlien20.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien20.Image")));
-            this.pbAlien20.Location = new System.Drawing.Point(533, 132);
+            this.pbAlien20.Location = new System.Drawing.Point(711, 162);
+            this.pbAlien20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien20.Name = "pbAlien20";
-            this.pbAlien20.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien20.Size = new System.Drawing.Size(64, 39);
             this.pbAlien20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien20.TabIndex = 27;
             this.pbAlien20.TabStop = false;
@@ -586,9 +627,10 @@
             // pbAlien19
             // 
             this.pbAlien19.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien19.Image")));
-            this.pbAlien19.Location = new System.Drawing.Point(475, 132);
+            this.pbAlien19.Location = new System.Drawing.Point(633, 162);
+            this.pbAlien19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien19.Name = "pbAlien19";
-            this.pbAlien19.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien19.Size = new System.Drawing.Size(64, 39);
             this.pbAlien19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien19.TabIndex = 26;
             this.pbAlien19.TabStop = false;
@@ -596,9 +638,10 @@
             // pbAlien22
             // 
             this.pbAlien22.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien22.Image")));
-            this.pbAlien22.Location = new System.Drawing.Point(649, 132);
+            this.pbAlien22.Location = new System.Drawing.Point(865, 162);
+            this.pbAlien22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien22.Name = "pbAlien22";
-            this.pbAlien22.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien22.Size = new System.Drawing.Size(64, 39);
             this.pbAlien22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien22.TabIndex = 25;
             this.pbAlien22.TabStop = false;
@@ -606,9 +649,10 @@
             // pbAlien21
             // 
             this.pbAlien21.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien21.Image")));
-            this.pbAlien21.Location = new System.Drawing.Point(591, 132);
+            this.pbAlien21.Location = new System.Drawing.Point(788, 162);
+            this.pbAlien21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien21.Name = "pbAlien21";
-            this.pbAlien21.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien21.Size = new System.Drawing.Size(64, 39);
             this.pbAlien21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien21.TabIndex = 24;
             this.pbAlien21.TabStop = false;
@@ -616,9 +660,10 @@
             // pbAlien18
             // 
             this.pbAlien18.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien18.Image")));
-            this.pbAlien18.Location = new System.Drawing.Point(417, 132);
+            this.pbAlien18.Location = new System.Drawing.Point(556, 162);
+            this.pbAlien18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien18.Name = "pbAlien18";
-            this.pbAlien18.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien18.Size = new System.Drawing.Size(64, 39);
             this.pbAlien18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien18.TabIndex = 22;
             this.pbAlien18.TabStop = false;
@@ -626,9 +671,10 @@
             // pbAlien17
             // 
             this.pbAlien17.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien17.Image")));
-            this.pbAlien17.Location = new System.Drawing.Point(359, 132);
+            this.pbAlien17.Location = new System.Drawing.Point(479, 162);
+            this.pbAlien17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien17.Name = "pbAlien17";
-            this.pbAlien17.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien17.Size = new System.Drawing.Size(64, 39);
             this.pbAlien17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien17.TabIndex = 21;
             this.pbAlien17.TabStop = false;
@@ -636,9 +682,10 @@
             // pbAlien12
             // 
             this.pbAlien12.Image = ((System.Drawing.Image)(resources.GetObject("pbAlien12.Image")));
-            this.pbAlien12.Location = new System.Drawing.Point(69, 132);
+            this.pbAlien12.Location = new System.Drawing.Point(92, 162);
+            this.pbAlien12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien12.Name = "pbAlien12";
-            this.pbAlien12.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien12.Size = new System.Drawing.Size(64, 39);
             this.pbAlien12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien12.TabIndex = 20;
             this.pbAlien12.TabStop = false;
@@ -646,9 +693,10 @@
             // pbAlien2
             // 
             this.pbAlien2.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien2.Location = new System.Drawing.Point(127, 76);
+            this.pbAlien2.Location = new System.Drawing.Point(169, 94);
+            this.pbAlien2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien2.Name = "pbAlien2";
-            this.pbAlien2.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien2.Size = new System.Drawing.Size(64, 39);
             this.pbAlien2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien2.TabIndex = 19;
             this.pbAlien2.TabStop = false;
@@ -656,9 +704,10 @@
             // pbAlien3
             // 
             this.pbAlien3.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien3.Location = new System.Drawing.Point(185, 76);
+            this.pbAlien3.Location = new System.Drawing.Point(247, 94);
+            this.pbAlien3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien3.Name = "pbAlien3";
-            this.pbAlien3.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien3.Size = new System.Drawing.Size(64, 39);
             this.pbAlien3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien3.TabIndex = 18;
             this.pbAlien3.TabStop = false;
@@ -666,9 +715,10 @@
             // pbAlien4
             // 
             this.pbAlien4.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien4.Location = new System.Drawing.Point(243, 76);
+            this.pbAlien4.Location = new System.Drawing.Point(324, 94);
+            this.pbAlien4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien4.Name = "pbAlien4";
-            this.pbAlien4.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien4.Size = new System.Drawing.Size(64, 39);
             this.pbAlien4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien4.TabIndex = 17;
             this.pbAlien4.TabStop = false;
@@ -676,9 +726,10 @@
             // pbAlien5
             // 
             this.pbAlien5.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien5.Location = new System.Drawing.Point(301, 76);
+            this.pbAlien5.Location = new System.Drawing.Point(401, 94);
+            this.pbAlien5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien5.Name = "pbAlien5";
-            this.pbAlien5.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien5.Size = new System.Drawing.Size(64, 39);
             this.pbAlien5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien5.TabIndex = 16;
             this.pbAlien5.TabStop = false;
@@ -686,9 +737,10 @@
             // pbAlien9
             // 
             this.pbAlien9.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien9.Location = new System.Drawing.Point(533, 76);
+            this.pbAlien9.Location = new System.Drawing.Point(711, 94);
+            this.pbAlien9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien9.Name = "pbAlien9";
-            this.pbAlien9.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien9.Size = new System.Drawing.Size(64, 39);
             this.pbAlien9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien9.TabIndex = 15;
             this.pbAlien9.TabStop = false;
@@ -696,9 +748,10 @@
             // pbAlien8
             // 
             this.pbAlien8.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien8.Location = new System.Drawing.Point(475, 76);
+            this.pbAlien8.Location = new System.Drawing.Point(633, 94);
+            this.pbAlien8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien8.Name = "pbAlien8";
-            this.pbAlien8.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien8.Size = new System.Drawing.Size(64, 39);
             this.pbAlien8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien8.TabIndex = 14;
             this.pbAlien8.TabStop = false;
@@ -706,9 +759,10 @@
             // pbAlien11
             // 
             this.pbAlien11.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien11.Location = new System.Drawing.Point(649, 76);
+            this.pbAlien11.Location = new System.Drawing.Point(865, 94);
+            this.pbAlien11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien11.Name = "pbAlien11";
-            this.pbAlien11.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien11.Size = new System.Drawing.Size(64, 39);
             this.pbAlien11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien11.TabIndex = 13;
             this.pbAlien11.TabStop = false;
@@ -716,9 +770,10 @@
             // pbAlien10
             // 
             this.pbAlien10.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien10.Location = new System.Drawing.Point(591, 76);
+            this.pbAlien10.Location = new System.Drawing.Point(788, 94);
+            this.pbAlien10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien10.Name = "pbAlien10";
-            this.pbAlien10.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien10.Size = new System.Drawing.Size(64, 39);
             this.pbAlien10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien10.TabIndex = 12;
             this.pbAlien10.TabStop = false;
@@ -726,9 +781,10 @@
             // pbAlien7
             // 
             this.pbAlien7.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien7.Location = new System.Drawing.Point(417, 76);
+            this.pbAlien7.Location = new System.Drawing.Point(556, 94);
+            this.pbAlien7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien7.Name = "pbAlien7";
-            this.pbAlien7.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien7.Size = new System.Drawing.Size(64, 39);
             this.pbAlien7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien7.TabIndex = 10;
             this.pbAlien7.TabStop = false;
@@ -736,9 +792,10 @@
             // pbAlien6
             // 
             this.pbAlien6.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien6.Location = new System.Drawing.Point(359, 76);
+            this.pbAlien6.Location = new System.Drawing.Point(479, 94);
+            this.pbAlien6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien6.Name = "pbAlien6";
-            this.pbAlien6.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien6.Size = new System.Drawing.Size(64, 39);
             this.pbAlien6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien6.TabIndex = 9;
             this.pbAlien6.TabStop = false;
@@ -746,9 +803,10 @@
             // pbAlien1
             // 
             this.pbAlien1.Image = global::SpaceInvaders.Properties.Resources.Alien3_1;
-            this.pbAlien1.Location = new System.Drawing.Point(69, 76);
+            this.pbAlien1.Location = new System.Drawing.Point(92, 94);
+            this.pbAlien1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbAlien1.Name = "pbAlien1";
-            this.pbAlien1.Size = new System.Drawing.Size(48, 32);
+            this.pbAlien1.Size = new System.Drawing.Size(64, 39);
             this.pbAlien1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAlien1.TabIndex = 8;
             this.pbAlien1.TabStop = false;
@@ -756,7 +814,8 @@
             // player
             // 
             this.player.Image = ((System.Drawing.Image)(resources.GetObject("player.Image")));
-            this.player.Location = new System.Drawing.Point(355, 824);
+            this.player.Location = new System.Drawing.Point(473, 1014);
+            this.player.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(52, 32);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -766,9 +825,10 @@
             // playerProjectile
             // 
             this.playerProjectile.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
-            this.playerProjectile.Location = new System.Drawing.Point(15, 840);
+            this.playerProjectile.Location = new System.Drawing.Point(20, 1034);
+            this.playerProjectile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.playerProjectile.Name = "playerProjectile";
-            this.playerProjectile.Size = new System.Drawing.Size(4, 16);
+            this.playerProjectile.Size = new System.Drawing.Size(5, 20);
             this.playerProjectile.TabIndex = 7;
             this.playerProjectile.TabStop = false;
             this.playerProjectile.Visible = false;
@@ -777,9 +837,10 @@
             // 
             this.tutorial.AutoSize = true;
             this.tutorial.ForeColor = System.Drawing.Color.Snow;
-            this.tutorial.Location = new System.Drawing.Point(277, 860);
+            this.tutorial.Location = new System.Drawing.Point(369, 1058);
+            this.tutorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tutorial.Name = "tutorial";
-            this.tutorial.Size = new System.Drawing.Size(200, 13);
+            this.tutorial.Size = new System.Drawing.Size(264, 17);
             this.tutorial.TabIndex = 6;
             this.tutorial.Text = "left/right arrow keys to move, up to shoot";
             // 
@@ -787,9 +848,10 @@
             // 
             this.alienProjectile1.Enabled = false;
             this.alienProjectile1.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1.Image")));
-            this.alienProjectile1.Location = new System.Drawing.Point(207, 889);
+            this.alienProjectile1.Location = new System.Drawing.Point(276, 1094);
+            this.alienProjectile1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alienProjectile1.Name = "alienProjectile1";
-            this.alienProjectile1.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile1.Size = new System.Drawing.Size(16, 34);
             this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile1.TabIndex = 68;
             this.alienProjectile1.TabStop = false;
@@ -799,9 +861,10 @@
             // 
             this.alienProjectile2.Enabled = false;
             this.alienProjectile2.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2.Image")));
-            this.alienProjectile2.Location = new System.Drawing.Point(225, 889);
+            this.alienProjectile2.Location = new System.Drawing.Point(300, 1094);
+            this.alienProjectile2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alienProjectile2.Name = "alienProjectile2";
-            this.alienProjectile2.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile2.Size = new System.Drawing.Size(16, 34);
             this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile2.TabIndex = 69;
             this.alienProjectile2.TabStop = false;
@@ -811,9 +874,10 @@
             // 
             this.alienProjectile3.Enabled = false;
             this.alienProjectile3.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3.Image")));
-            this.alienProjectile3.Location = new System.Drawing.Point(243, 889);
+            this.alienProjectile3.Location = new System.Drawing.Point(324, 1094);
+            this.alienProjectile3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alienProjectile3.Name = "alienProjectile3";
-            this.alienProjectile3.Size = new System.Drawing.Size(12, 28);
+            this.alienProjectile3.Size = new System.Drawing.Size(16, 34);
             this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.alienProjectile3.TabIndex = 70;
             this.alienProjectile3.TabStop = false;
@@ -822,9 +886,10 @@
             // soundToggle
             // 
             this.soundToggle.Image = ((System.Drawing.Image)(resources.GetObject("soundToggle.Image")));
-            this.soundToggle.Location = new System.Drawing.Point(15, 879);
+            this.soundToggle.Location = new System.Drawing.Point(20, 1082);
+            this.soundToggle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.soundToggle.Name = "soundToggle";
-            this.soundToggle.Size = new System.Drawing.Size(60, 42);
+            this.soundToggle.Size = new System.Drawing.Size(80, 52);
             this.soundToggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.soundToggle.TabIndex = 71;
             this.soundToggle.TabStop = false;
@@ -836,15 +901,17 @@
             this.alienBoundsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alienBoundsPanel.Controls.Add(this.gameOver);
             this.alienBoundsPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.alienBoundsPanel.Location = new System.Drawing.Point(14, 67);
+            this.alienBoundsPanel.Location = new System.Drawing.Point(19, 82);
+            this.alienBoundsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.alienBoundsPanel.Name = "alienBoundsPanel";
-            this.alienBoundsPanel.Size = new System.Drawing.Size(739, 693);
+            this.alienBoundsPanel.Size = new System.Drawing.Size(985, 852);
             this.alienBoundsPanel.TabIndex = 72;
             // 
             // gameOver
             // 
             this.gameOver.Image = ((System.Drawing.Image)(resources.GetObject("gameOver.Image")));
-            this.gameOver.Location = new System.Drawing.Point(244, 102);
+            this.gameOver.Location = new System.Drawing.Point(325, 126);
+            this.gameOver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gameOver.Name = "gameOver";
             this.gameOver.Size = new System.Drawing.Size(248, 28);
             this.gameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -858,12 +925,21 @@
             this.projectileAnimation.Interval = 15;
             this.projectileAnimation.Tick += new System.EventHandler(this.projectileAnimation_Tick);
             // 
+            // liveLabel
+            // 
+            this.liveLabel.AutoSize = true;
+            this.liveLabel.Location = new System.Drawing.Point(92, 995);
+            this.liveLabel.Name = "liveLabel";
+            this.liveLabel.Size = new System.Drawing.Size(0, 17);
+            this.liveLabel.TabIndex = 73;
+            // 
             // GameWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(766, 933);
+            this.ClientSize = new System.Drawing.Size(1021, 1055);
+            this.Controls.Add(this.liveLabel);
             this.Controls.Add(this.soundToggle);
             this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
@@ -930,6 +1006,7 @@
             this.Controls.Add(this.alienBoundsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameWindow";
@@ -1078,6 +1155,7 @@
         private System.Windows.Forms.Panel alienBoundsPanel;
         private System.Windows.Forms.Timer projectileAnimation;
         private System.Windows.Forms.PictureBox gameOver;
+        private System.Windows.Forms.Label liveLabel;
     }
 }
 

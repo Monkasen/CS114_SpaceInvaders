@@ -7,7 +7,7 @@ namespace SpaceInvaders {
         private bool isShoot; //holds whether player is currently shooting
         private int xPos; //holds x position of player
         private int yPos; //hold y position of player
-
+        private int lives;
         public Player() {
         }
 
@@ -44,6 +44,26 @@ namespace SpaceInvaders {
         public void SetPos(Point pos) {  // Sets the position of one dimension
             xPos = pos.X;
             yPos = pos.Y;
+        }
+
+        public int GetLives()
+        {
+            return (lives);
+        }
+
+        public void SetLives(int l)
+        {
+            lives = l;
+        }
+
+        public void LoseLife()
+        {
+            lives--;
+        }
+
+        public void GainLife()
+        {
+            lives++;
         }
     }
 }
