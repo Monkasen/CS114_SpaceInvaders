@@ -37,7 +37,6 @@ namespace SpaceInvaders {
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
-            liveLabel.Text = Convert.ToString(p1.GetLives());
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -115,33 +114,30 @@ namespace SpaceInvaders {
 
             // Check collision for alien projectile
             if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile1.Location.Y > this.Size.Height) {
+                alienProjectile1.Location.Y > 860) {
                 alienProjectile1.Enabled = false;
                 alienProjectile1.Visible = false;
                 totalProjectiles--;
             }
 
             if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile2.Location.Y > this.Size.Height) {
+                alienProjectile2.Location.Y > 860) {
                 alienProjectile2.Enabled = false;
                 alienProjectile2.Visible = false;
                 totalProjectiles--;
             }
 
             if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile3.Location.Y > this.Size.Height) {
+                alienProjectile3.Location.Y > 860) {
                 alienProjectile3.Enabled = false;
                 alienProjectile3.Visible = false;
                 totalProjectiles--;
             }
 
             // Update alien projectiles
-            if (alienProjectile1.Enabled)
-                alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
-            if (alienProjectile2.Enabled)
-                alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
-            if (alienProjectile3.Enabled)
-                alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
+            alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
+            alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
+            alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
         }
 
         private void objectDeath_Tick(object sender, EventArgs e) // Handles removing alien/player explosion after death
@@ -492,7 +488,8 @@ namespace SpaceInvaders {
 
         private void CheckEndGame() // Checks for win/lose condition
         {
-            if (numAliensLeft == 0) { // If player wins...
+            // If player wins...
+            if (numAliensLeft == 0) { 
                 alienMovement.Enabled = false;
                 playerMovement.Enabled = false;
                 Thread.Sleep(1000);
@@ -501,8 +498,9 @@ namespace SpaceInvaders {
                 NewForm.Show();
                 Dispose(false);
             }
-            foreach (var item in AlienPBList) { // If aliens reach the end
-                if (item.Location.Y > 725 && item.Visible == true) {
+            // If aliens reach the end...
+            foreach (var item in AlienPBList) { 
+                if (item.Location.Y > 780 && item.Visible == true) {
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
                     foreach (var item2 in AlienPBList)
@@ -510,26 +508,33 @@ namespace SpaceInvaders {
                     gameOver.Visible = true;
                 }
             }
-            if (alienProjectile1.Bounds.IntersectsWith(player.Bounds) || alienProjectile2.Bounds.IntersectsWith(player.Bounds) || alienProjectile3.Bounds.IntersectsWith(player.Bounds)) { // If player is killed by alien projectile
-                alienMovement.Enabled = false;
-                playerMovement.Enabled = false;
-                foreach (var item2 in AlienPBList)
-                    item2.Visible = false;
+            // If player is killed by alien projectile
+            if ((alienProjectile1.Bounds.IntersectsWith(player.Bounds)) || 
+                (alienProjectile2.Bounds.IntersectsWith(player.Bounds)) || 
+                (alienProjectile3.Bounds.IntersectsWith(player.Bounds))) { 
+                PlaySound(4);
                 p1.LoseLife();
-                if (p1.GetLives() == 0)
+                if (p1.GetLives() <= 0) {
+                    livesCounter.Image = Image.FromFile("resources/textures/0.png");
+                    foreach (var item2 in AlienPBList)
+                        item2.Visible = false;
                     gameOver.Visible = true;
-                else
-                {
+                    player.Visible = false; // Placeholder for death animation
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
-                    Thread.Sleep(1000);
-                    GameWindow NewForm = new GameWindow(); // Open new form to start next wave
-                    NewForm.Show();
-                    NewForm.p1.SetLives(p1.GetLives());
-                    Dispose(false);
                 }
-                player.Visible = false; // Placeholder for death animation
-                PlaySound(4);
+                else {
+                    player.Location = new Point(355, 824);
+                }
+
+                if ((p1.GetLives() == 2)) {
+                    livesCounter.Image = Image.FromFile("resources/textures/2.png");
+                    lifeTwo.Visible = false;
+                }
+                if ((p1.GetLives() == 1)) {
+                    livesCounter.Image = Image.FromFile("resources/textures/1.png");
+                    lifeThree.Visible = false;
+                }
             }
         }
 
