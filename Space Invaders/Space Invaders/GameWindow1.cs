@@ -505,6 +505,7 @@ namespace SpaceInvaders {
                     playerMovement.Enabled = false;
                     foreach (var item2 in AlienPBList)
                         item2.Visible = false;
+                    playerProjectile.Visible = false;
                     gameOver.Visible = true;
                 }
             }
@@ -516,15 +517,20 @@ namespace SpaceInvaders {
                 p1.LoseLife();
                 if (p1.GetLives() <= 0) {
                     livesCounter.Image = Image.FromFile("resources/textures/0.png");
-                    foreach (var item2 in AlienPBList)
-                        item2.Visible = false;
+                    foreach (var item in AlienPBList)
+                        item.Visible = false;
+                    playerProjectile.Visible = false;
                     gameOver.Visible = true;
+                    alienProjectile1.Visible = false;
+                    alienProjectile2.Visible = false;
+                    alienProjectile3.Visible = false;
                     player.Visible = false; // Placeholder for death animation
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
                 }
                 else {
                     player.Location = new Point(355, 824);
+                    p1.SetPos(player.Location);
                 }
 
                 if ((p1.GetLives() == 2)) {
