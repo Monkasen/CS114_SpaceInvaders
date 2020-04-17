@@ -185,13 +185,13 @@ namespace SpaceInvaders {
                         playerMovement.Enabled = false;
                         while (deathCycle <= 10) { // Loop through animation 10 times
                             ++deathTimer;
-                            if (deathTimer == 1000 && deathAnimation) {
+                            if (deathTimer == 100 && deathAnimation) {
                                 player.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
                                 ++deathCycle;
                                 deathAnimation = false;
                                 deathTimer = 0;
                             }
-                            else if (deathTimer == 1000 && !deathAnimation) {
+                            else if (deathTimer == 100 && !deathAnimation) {
                                 player.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
                                 ++deathCycle;
                                 deathAnimation = true;
@@ -212,7 +212,6 @@ namespace SpaceInvaders {
                     }
             }
         }
-
 
         private void projectileAnimation_Tick(object sender, EventArgs e) // Handles animations for alien projectiles
         {
