@@ -149,6 +149,7 @@ namespace SpaceInvaders {
                             item.Visible = false;
                             proj.Enabled = false;
                             proj.Visible = false;
+                            proj.Location = new Point(0, 0);
                             --totalProjectiles;
                         }
                     }
