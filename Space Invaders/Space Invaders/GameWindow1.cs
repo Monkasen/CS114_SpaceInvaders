@@ -26,6 +26,7 @@ namespace SpaceInvaders {
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
         private List<PictureBox> AlienPBList = new List<PictureBox>();
+        private List<PictureBox> BaseBlockList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
         private Projectile playerProj = new Projectile(1);
@@ -132,6 +133,42 @@ namespace SpaceInvaders {
                 alienProjectile3.Enabled = false;
                 alienProjectile3.Visible = false;
                 totalProjectiles--;
+            }
+
+            // Check if any bases are hit
+            if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible ||
+                alienProjectile3.Visible) // If anyone shot...
+            {
+                foreach (var item in BaseBlockList.Where(item => item.Visible))
+                {
+                    if (playerProjectile.Bounds.IntersectsWith(item.Bounds))
+                    {
+                        item.Visible = false;
+                        playerProjectile.Visible = playerProj.SetVisibility();
+                        p1.Fire(false);
+                    }
+                    if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(item.Bounds))
+                    {
+                        item.Visible = false;
+                        alienProjectile1.Enabled = false;
+                        alienProjectile1.Visible = false;
+                        totalProjectiles--;
+                    }
+                    if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(item.Bounds))
+                    {
+                        item.Visible = false;
+                        alienProjectile2.Enabled = false;
+                        alienProjectile2.Visible = false;
+                        totalProjectiles--;
+                    }
+                    if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(item.Bounds))
+                    {
+                        item.Visible = false;
+                        alienProjectile3.Enabled = false;
+                        alienProjectile3.Visible = false;
+                        totalProjectiles--;
+                    }
+                }
             }
 
             // Update alien projectiles
@@ -313,6 +350,69 @@ namespace SpaceInvaders {
             AlienPBList.Add(pbAlien53);
             AlienPBList.Add(pbAlien54);
             AlienPBList.Add(pbAlien55);
+
+            // Add each individual block of each of the four bases to a list for hit detection
+            BaseBlockList.Add(pbBlock1);
+            BaseBlockList.Add(pbBlock2);
+            BaseBlockList.Add(pbBlock3);
+            BaseBlockList.Add(pbBlock4);
+            BaseBlockList.Add(pbBlock5);
+            BaseBlockList.Add(pbBlock6);
+            BaseBlockList.Add(pbBlock7);
+            BaseBlockList.Add(pbBlock8);
+            BaseBlockList.Add(pbBlock9);
+            BaseBlockList.Add(pbBlock10);
+            BaseBlockList.Add(pbBlock11);
+            BaseBlockList.Add(pbBlock12);
+            BaseBlockList.Add(pbBlock13);
+            BaseBlockList.Add(pbBlock14);
+            BaseBlockList.Add(pbBlock15);
+            BaseBlockList.Add(pbBlock16);
+            BaseBlockList.Add(pbBlock17);
+            BaseBlockList.Add(pbBlock18);
+            BaseBlockList.Add(pbBlock19);
+            BaseBlockList.Add(pbBlock20);
+            BaseBlockList.Add(pbBlock21);
+            BaseBlockList.Add(pbBlock22);
+            BaseBlockList.Add(pbBlock23);
+            BaseBlockList.Add(pbBlock24);
+            BaseBlockList.Add(pbBlock25);
+            BaseBlockList.Add(pbBlock26);
+            BaseBlockList.Add(pbBlock27);
+            BaseBlockList.Add(pbBlock28);
+            BaseBlockList.Add(pbBlock29);
+            BaseBlockList.Add(pbBlock30);
+            BaseBlockList.Add(pbBlock31);
+            BaseBlockList.Add(pbBlock32);
+            BaseBlockList.Add(pbBlock33);
+            BaseBlockList.Add(pbBlock34);
+            BaseBlockList.Add(pbBlock35);
+            BaseBlockList.Add(pbBlock36);
+            BaseBlockList.Add(pbBlock37);
+            BaseBlockList.Add(pbBlock38);
+            BaseBlockList.Add(pbBlock39);
+            BaseBlockList.Add(pbBlock40);
+            BaseBlockList.Add(pbBlock41);
+            BaseBlockList.Add(pbBlock42);
+            BaseBlockList.Add(pbBlock43);
+            BaseBlockList.Add(pbBlock44);
+            BaseBlockList.Add(pbBlock45);
+            BaseBlockList.Add(pbBlock46);
+            BaseBlockList.Add(pbBlock47);
+            BaseBlockList.Add(pbBlock48);
+            BaseBlockList.Add(pbBlock49);
+            BaseBlockList.Add(pbBlock50);
+            BaseBlockList.Add(pbBlock51);
+            BaseBlockList.Add(pbBlock52);
+            BaseBlockList.Add(pbBlock53);
+            BaseBlockList.Add(pbBlock54);
+            BaseBlockList.Add(pbBlock55);
+            BaseBlockList.Add(pbBlock56);
+            BaseBlockList.Add(pbBlock57);
+            BaseBlockList.Add(pbBlock58);
+            BaseBlockList.Add(pbBlock59);
+            BaseBlockList.Add(pbBlock60);
+
 
             // Add bottom most aliens to possible alien shooting list
             for (int i = 1; i < 12; i++)
