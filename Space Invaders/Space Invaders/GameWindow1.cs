@@ -115,7 +115,17 @@ namespace SpaceInvaders {
 
             // Check collision for alien projectile
             foreach (var item in AlienProjectileList) {
-                if (item.Bounds.IntersectsWith(player.Bounds) || item.Location.Y > 860) {
+                if (item.Bounds.IntersectsWith(player.Bounds)) { // Check for alien projectile hitting player
+                    item.Enabled = false;
+                    item.Visible = false;
+                    item.Location = new Point(0, 0);
+                    PlaySound(4);
+                    p1.LoseLife();
+                    player.Location = new Point(355, 824);
+                    p1.SetPos(player.Location);
+                    --totalProjectiles;
+                }
+                if (item.Location.Y > 860) { // Check for out of bounds projectile
                     item.Enabled = false;
                     item.Visible = false;
                     item.Location = new Point(0, 0);
@@ -124,8 +134,7 @@ namespace SpaceInvaders {
             }
 
             // Check if any bases are hit
-            if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible ||
-                alienProjectile3.Visible) // If anyone shot...
+            if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
             {
                 foreach (var item in BaseBlockList.Where(item => item.Visible))
                 {
@@ -571,7 +580,7 @@ namespace SpaceInvaders {
             }
             // If aliens reach the end...
             foreach (var item in AlienPBList) { 
-                if (item.Location.Y > 780 && item.Visible == true) {
+                if (item.Location.Y > 720 && item.Visible == true) {
                     alienMovement.Enabled = false;
                     playerMovement.Enabled = false;
                     foreach (var item2 in AlienPBList)
@@ -580,36 +589,31 @@ namespace SpaceInvaders {
                     gameOver.Visible = true;
                 }
             }
-            // If player is killed by alien projectile...
-            foreach (var item in AlienProjectileList) { 
-                if (item.Bounds.IntersectsWith(player.Bounds)) {
-                    item.Visible = false;
-                    PlaySound(4);
-                    p1.LoseLife();
-                    if (p1.GetLives() <= 0) {
+            // Update player lives counter
+            switch (p1.GetLives()) {
+                case 2: {
+                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
+                        //placeholder for death animation
+                        lifeTwo.Visible = false;
+                        break;
+                    }
+                case 1: {
+                        livesCounter.Image = Image.FromFile("resources/textures/1.png");
+                        //placeholder for death animation
+                        lifeThree.Visible = false;
+                        break;
+                    }
+                case 0: {
                         livesCounter.Image = Image.FromFile("resources/textures/0.png");
+                        player.Visible = false; //placeholder for death animation
+                        alienMovement.Enabled = false;
+                        playerMovement.Enabled = false;
                         foreach (var item2 in AlienPBList)
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                        player.Visible = false; // Placeholder for death animation
-                        alienMovement.Enabled = false;
-                        playerMovement.Enabled = false;
+                        break;
                     }
-                    else {
-                        player.Location = new Point(355, 824);
-                        p1.SetPos(player.Location);
-                    }
-
-                    if ((p1.GetLives() == 2)) {
-                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
-                        lifeTwo.Visible = false;
-                    }
-                    if ((p1.GetLives() == 1)) {
-                        livesCounter.Image = Image.FromFile("resources/textures/1.png");
-                        lifeThree.Visible = false;
-                    }
-                }
             }
         }
 
