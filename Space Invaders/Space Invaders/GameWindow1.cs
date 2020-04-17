@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -20,11 +21,15 @@ namespace SpaceInvaders {
         private const int projectileSpeed = 7;
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
+        private int deathType = 0; // Variable to track if alien is dying (0) or the player is dying (1)
+        private bool deathAnimation = true; // Cycles through animation for player death
+        private int deathCycle = 0; // Controls length of animation for player death
         private int alienAnimation = 0; // Alien animation step counter
         private bool isGoingRight = true; // Used to check if aliens are going right or not
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
+       
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
         private List<PictureBox> AlienProjectileList = new List<PictureBox>();
@@ -90,7 +95,6 @@ namespace SpaceInvaders {
                     playerProjectile.Visible = playerProj.SetVisibility();
                     playerProj.SetPos(p1.GetPos('x') + 25, 'x');
                     playerProj.SetPos(p1.GetPos('y'), 'y');
-                    //projectileCollision.Enabled = true; // Enables collision detection for bullet
                     PlaySound(3);
                 }
             }
@@ -119,10 +123,7 @@ namespace SpaceInvaders {
                     item.Enabled = false;
                     item.Visible = false;
                     item.Location = new Point(0, 0);
-                    PlaySound(4);
-                    p1.LoseLife();
-                    player.Location = new Point(355, 824);
-                    p1.SetPos(player.Location);
+                    KillPlayer();
                     --totalProjectiles;
                 }
                 if (item.Location.Y > 860) { // Check for out of bounds projectile
@@ -132,7 +133,6 @@ namespace SpaceInvaders {
                     --totalProjectiles;
                 }
             }
-
             // Check if any bases are hit
             if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
             {
@@ -165,16 +165,51 @@ namespace SpaceInvaders {
 
         private void objectDeath_Tick(object sender, EventArgs e) // Handles removing alien/player explosion after death
         {
-            ++deathTimer;
-            if (deathTimer == 10) { // After 10 ticks, remove the explosion and reset the timer
-                for (int i = 0; i < 55; i++) { // For every alien
-                    if (AlienList[i].GetState() == 0) { // If the alien has a pending death animation...
-                        AlienPBList[i].Visible = false; // Disable alien image
-                        objectDeath.Enabled = false; // Turn timer off until next death
+            switch (deathType) {
+                case 0: { // Alien death
+                        ++deathTimer;
+                        if (deathTimer == 10) { // After 10 ticks, remove the explosion and reset the timer
+                            for (int i = 0; i < 55; i++) { // For every alien
+                                if (AlienList[i].GetState() == 0) { // If the alien has a pending death animation...
+                                    AlienPBList[i].Visible = false; // Disable alien image
+                                    objectDeath.Enabled = false; // Turn timer off until next death
+                                }
+                            }
+                            deathTimer = 0; // Reset timer
+                            objectDeath.Enabled = false; // Disable timer until next death event
+                        }
+                        break;
                     }
-                }
-                deathTimer = 0; // Reset timer
-                objectDeath.Enabled = false;
+                case 1: { // Player death
+                        alienMovement.Enabled = false; // Disable game while animation plays
+                        playerMovement.Enabled = false;
+                        while (deathCycle <= 10) { // Loop through animation 10 times
+                            ++deathTimer;
+                            if (deathTimer == 1000 && deathAnimation) {
+                                player.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
+                                ++deathCycle;
+                                deathAnimation = false;
+                                deathTimer = 0;
+                            }
+                            else if (deathTimer == 1000 && !deathAnimation) {
+                                player.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
+                                ++deathCycle;
+                                deathAnimation = true;
+                                deathTimer = 0;
+                            }
+                        }
+                        if (deathCycle == 11) { // After 10 cycles
+                            deathCycle = 0; // Reset cycle counter for next death
+                            alienMovement.Enabled = true; // Re-enable game
+                            playerMovement.Enabled = true;
+                            player.Image = Image.FromFile("resources/textures/PlayerShip.png");
+                            player.Location = new Point(355, 824); // Reset player's position
+                            p1.SetPos(player.Location);
+                            deathTimer = 0; // Reset timer
+                            objectDeath.Enabled = false; // Disable timer until next death event
+                        }
+                        break;
+                    }
             }
         }
 
@@ -547,6 +582,15 @@ namespace SpaceInvaders {
             }
         }
 
+        private void KillPlayer() // Handles process of kill the player
+        {
+            PlaySound(4);
+            p1.LoseLife();
+            deathType = 1;
+            deathCycle = 0;
+            objectDeath.Enabled = true;
+        }
+
         private void KillAlien(ref int i) // Handles process of killing an alien
         {
             AlienList[i].SetState(0); // Sets alien state to 'dead'
@@ -555,6 +599,7 @@ namespace SpaceInvaders {
             PlaySound(2); // Play death sound
             playerScore.Text = ($"{score += 10}"); // Add 10 points to score
             --numAliensLeft; // Decrement number of aliens remaining
+            deathType = 0;
             objectDeath.Enabled = true; // Starts timer to remove alien explosion
 
             if (i - 11 > -1) {
