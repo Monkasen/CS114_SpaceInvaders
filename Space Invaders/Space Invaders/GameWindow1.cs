@@ -27,6 +27,7 @@ namespace SpaceInvaders {
         private int totalProjectiles = 0; // Track how many alien projectiles are active
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
+        private List<PictureBox> AlienProjectileList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
         private Projectile playerProj = new Projectile(1);
@@ -108,31 +109,18 @@ namespace SpaceInvaders {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
                     playerProjectile.Visible = playerProj.SetVisibility(); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
-                    //projectileCollision.Enabled = false; // Disables collision detection for bullet
                     KillAlien(ref i);
                 }
             }
 
             // Check collision for alien projectile
-            if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile1.Location.Y > 860) {
-                alienProjectile1.Enabled = false;
-                alienProjectile1.Visible = false;
-                totalProjectiles--;
-            }
-
-            if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile2.Location.Y > 860) {
-                alienProjectile2.Enabled = false;
-                alienProjectile2.Visible = false;
-                totalProjectiles--;
-            }
-
-            if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(player.Bounds) ||
-                alienProjectile3.Location.Y > 860) {
-                alienProjectile3.Enabled = false;
-                alienProjectile3.Visible = false;
-                totalProjectiles--;
+            foreach (var item in AlienProjectileList) {
+                if (item.Bounds.IntersectsWith(player.Bounds) || item.Location.Y > 860) {
+                    item.Enabled = false;
+                    item.Visible = false;
+                    item.Location = new Point(0, 0);
+                    --totalProjectiles;
+                }
             }
 
             // Check if any bases are hit
@@ -147,34 +135,22 @@ namespace SpaceInvaders {
                         playerProjectile.Visible = playerProj.SetVisibility();
                         p1.Fire(false);
                     }
-                    if (alienProjectile1.Enabled && alienProjectile1.Bounds.IntersectsWith(item.Bounds))
-                    {
-                        item.Visible = false;
-                        alienProjectile1.Enabled = false;
-                        alienProjectile1.Visible = false;
-                        totalProjectiles--;
-                    }
-                    if (alienProjectile2.Enabled && alienProjectile2.Bounds.IntersectsWith(item.Bounds))
-                    {
-                        item.Visible = false;
-                        alienProjectile2.Enabled = false;
-                        alienProjectile2.Visible = false;
-                        totalProjectiles--;
-                    }
-                    if (alienProjectile3.Enabled && alienProjectile3.Bounds.IntersectsWith(item.Bounds))
-                    {
-                        item.Visible = false;
-                        alienProjectile3.Enabled = false;
-                        alienProjectile3.Visible = false;
-                        totalProjectiles--;
+                    foreach (var proj in AlienProjectileList) {
+                        if (proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)) {
+                            item.Visible = false;
+                            proj.Enabled = false;
+                            proj.Visible = false;
+                            --totalProjectiles;
+                        }
                     }
                 }
             }
 
             // Update alien projectiles
-            alienProjectile1.Location = new Point(alienProjectile1.Location.X, alienProjectile1.Location.Y + (projectileSpeed));
-            alienProjectile2.Location = new Point(alienProjectile2.Location.X, alienProjectile2.Location.Y + (projectileSpeed));
-            alienProjectile3.Location = new Point(alienProjectile3.Location.X, alienProjectile3.Location.Y + (projectileSpeed));
+            foreach (var item in AlienProjectileList) {
+                if (item.Enabled)
+                    item.Location = new Point(item.Location.X, item.Location.Y + (projectileSpeed));
+            }
         }
 
         private void objectDeath_Tick(object sender, EventArgs e) // Handles removing alien/player explosion after death
@@ -413,6 +389,11 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock59);
             BaseBlockList.Add(pbBlock60);
 
+            // Add three potential alien projectiles to a list
+            AlienProjectileList.Add(alienProjectile1);
+            AlienProjectileList.Add(alienProjectile2);
+            AlienProjectileList.Add(alienProjectile3);
+
 
             // Add bottom most aliens to possible alien shooting list
             for (int i = 1; i < 12; i++)
@@ -566,24 +547,14 @@ namespace SpaceInvaders {
             --numAliensLeft; // Decrement number of aliens remaining
             objectDeath.Enabled = true; // Starts timer to remove alien explosion
 
-            // DELETE ALL THE COMMENTED OUT CODE LATER IF PROGRAM ENDS UP BEING FINE TO REDUCE CLUTTER
             if (i - 11 > -1) {
                 for (int j = i; j > -1; j -= 10) { // Check if preceding aliens are dead
                     if (AlienList[j].GetState() == 1) {
                         BottomAliens[j % 11] = AlienList[i - 11];
-                        //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
                         break;
                     }
-                    //if (j - 10 < -1)
-                    //  BottomAliens.RemoveAt(i);
                 }
-                //BottomAliens[i % 11] = AlienList[i - 11];
-                //MessageBox.Show($"Alien in bottomlist {i % 11} index is now index {i - 11} from AlienList");
             }
-            /*else {
-                BottomAliens.RemoveAt(i);
-                //MessageBox.Show($"Alien removed at index {i}, now bottomaliens is size {BottomAliens.Count}");
-            }*/
         }
 
         private void CheckEndGame() // Checks for win/lose condition
@@ -609,37 +580,35 @@ namespace SpaceInvaders {
                     gameOver.Visible = true;
                 }
             }
-            // If player is killed by alien projectile
-            if ((alienProjectile1.Bounds.IntersectsWith(player.Bounds)) || 
-                (alienProjectile2.Bounds.IntersectsWith(player.Bounds)) || 
-                (alienProjectile3.Bounds.IntersectsWith(player.Bounds))) { 
-                PlaySound(4);
-                p1.LoseLife();
-                if (p1.GetLives() <= 0) {
-                    livesCounter.Image = Image.FromFile("resources/textures/0.png");
-                    foreach (var item in AlienPBList)
-                        item.Visible = false;
-                    playerProjectile.Visible = false;
-                    gameOver.Visible = true;
-                    alienProjectile1.Visible = false;
-                    alienProjectile2.Visible = false;
-                    alienProjectile3.Visible = false;
-                    player.Visible = false; // Placeholder for death animation
-                    alienMovement.Enabled = false;
-                    playerMovement.Enabled = false;
-                }
-                else {
-                    player.Location = new Point(355, 824);
-                    p1.SetPos(player.Location);
-                }
+            // If player is killed by alien projectile...
+            foreach (var item in AlienProjectileList) { 
+                if (item.Bounds.IntersectsWith(player.Bounds)) {
+                    item.Visible = false;
+                    PlaySound(4);
+                    p1.LoseLife();
+                    if (p1.GetLives() <= 0) {
+                        livesCounter.Image = Image.FromFile("resources/textures/0.png");
+                        foreach (var item2 in AlienPBList)
+                            item2.Visible = false;
+                        playerProjectile.Visible = false;
+                        gameOver.Visible = true;
+                        player.Visible = false; // Placeholder for death animation
+                        alienMovement.Enabled = false;
+                        playerMovement.Enabled = false;
+                    }
+                    else {
+                        player.Location = new Point(355, 824);
+                        p1.SetPos(player.Location);
+                    }
 
-                if ((p1.GetLives() == 2)) {
-                    livesCounter.Image = Image.FromFile("resources/textures/2.png");
-                    lifeTwo.Visible = false;
-                }
-                if ((p1.GetLives() == 1)) {
-                    livesCounter.Image = Image.FromFile("resources/textures/1.png");
-                    lifeThree.Visible = false;
+                    if ((p1.GetLives() == 2)) {
+                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwo.Visible = false;
+                    }
+                    if ((p1.GetLives() == 1)) {
+                        livesCounter.Image = Image.FromFile("resources/textures/1.png");
+                        lifeThree.Visible = false;
+                    }
                 }
             }
         }
@@ -653,26 +622,14 @@ namespace SpaceInvaders {
                         int randAlien = RandomNum.Next(0, BottomAliens.Count); // Select random alien in BottomList
                         while (BottomAliens[randAlien].GetState() == 0 && numAliensLeft > 0) // Will keep looping until an alive alien is selected
                             randAlien = RandomNum.Next(0, BottomAliens.Count);
-                        if (alienProjectile1.Enabled == false) {
-                            alienProjectile1.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
-                            alienProjectile1.Enabled = true;
-                            alienProjectile1.Visible = true;
-                            ++totalProjectiles;
-                            break;
-                        }
-                        else if (alienProjectile2.Enabled == false) {
-                            alienProjectile2.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
-                            alienProjectile2.Enabled = true;
-                            alienProjectile2.Visible = true;
-                            ++totalProjectiles;
-                            break;
-                        }
-                        else if (alienProjectile3.Enabled == false) {
-                            alienProjectile3.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
-                            alienProjectile3.Enabled = true;
-                            alienProjectile3.Visible = true;
-                            ++totalProjectiles;
-                            break;
+                        foreach (var item in AlienProjectileList) {
+                            if (item.Enabled == false) {
+                                item.Location = new Point(BottomAliens[randAlien].GetXCord(), BottomAliens[randAlien].GetYCord());
+                                item.Enabled = true;
+                                item.Visible = true;
+                                ++totalProjectiles;
+                                break;
+                            }
                         }
                     }
                 }
