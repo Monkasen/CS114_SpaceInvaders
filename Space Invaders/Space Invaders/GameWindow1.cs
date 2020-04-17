@@ -92,7 +92,8 @@ namespace SpaceInvaders {
                 if (!p1.IsFired()) {
                     p1.Fire(true);
                     playerProjectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
-                    playerProjectile.Visible = playerProj.SetVisibility();
+                    playerProjectile.Visible = playerProj.SetVisibility(true);
+                    playerProjectile.Visible = true;
                     playerProj.SetPos(p1.GetPos('x') + 25, 'x');
                     playerProj.SetPos(p1.GetPos('y'), 'y');
                     PlaySound(3);
@@ -111,7 +112,7 @@ namespace SpaceInvaders {
             // Check player's projectile collision
             for (int i = 0; i < 55; i++) {
                 if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
-                    playerProjectile.Visible = playerProj.SetVisibility(); // Hides player's projectile
+                    playerProjectile.Visible = playerProj.SetVisibility(false); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
                     KillAlien(ref i);
                 }
@@ -141,25 +142,25 @@ namespace SpaceInvaders {
                     if (playerProjectile.Bounds.IntersectsWith(item.Bounds))
                     {
                         item.Visible = false;
-                        playerProjectile.Visible = playerProj.SetVisibility();
+                        playerProjectile.Visible = playerProj.SetVisibility(false);
                         p1.Fire(false);
                     }
-                    foreach (var proj in AlienProjectileList) {
-                        if (proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)) {
-                            item.Visible = false;
-                            proj.Enabled = false;
-                            proj.Visible = false;
-                            proj.Location = new Point(0, 0);
-                            --totalProjectiles;
-                        }
+
+                    foreach (var proj in AlienProjectileList.Where(proj => proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)))
+                    {
+                        item.Visible = false;
+                        proj.Enabled = false;
+                        proj.Visible = false;
+                        proj.Location = new Point(0, 0);
+                        --totalProjectiles;
                     }
                 }
             }
 
             // Update alien projectiles
-            foreach (var item in AlienProjectileList) {
-                if (item.Enabled)
-                    item.Location = new Point(item.Location.X, item.Location.Y + (projectileSpeed));
+            foreach (var item in AlienProjectileList.Where(item => item.Enabled))
+            {
+                item.Location = new Point(item.Location.X, item.Location.Y + (projectileSpeed));
             }
         }
 
@@ -247,7 +248,7 @@ namespace SpaceInvaders {
         {
             // Player projectile check
             if (playerProj.GetPos('y') < 67) {
-                playerProjectile.Visible = playerProj.SetVisibility();
+                playerProjectile.Visible = playerProj.SetVisibility(false);
                 return false;
             }
             else {

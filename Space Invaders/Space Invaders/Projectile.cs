@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Security;
 
 namespace SpaceInvaders {
     class Projectile {
@@ -31,15 +32,9 @@ namespace SpaceInvaders {
             return (vis);
         }
 
-        public bool SetVisibility() {
-            if (vis) {
-                vis = false;
-                return vis;
-            }
-            else {
-                vis = true;
-                return vis;
-            }
+        public bool SetVisibility(bool b) {
+            vis = b;
+            return vis;
         }
 
         public int GetPos(char dim) { // Gets the position of one dimension
