@@ -29,6 +29,7 @@ namespace SpaceInvaders {
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
+        private int playerProjectileGhostOffset = 16; // How far to the left the playerProjectileGhost is set
        
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
@@ -100,11 +101,13 @@ namespace SpaceInvaders {
                 }
             }
 
-            if (!p1.IsFired()) return;
-
-            playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
-            playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
-            p1.Fire(OutOfBoundsCheck());
+            if (p1.IsFired())
+            {
+                playerProjectileGhost.Location = new Point(playerProj.GetPos('x') - playerProjectileGhostOffset, playerProj.GetPos('y') - projectileSpeed);
+                playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
+                playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
+                p1.Fire(OutOfBoundsCheck());
+            }
         }
 
         private void projectileCollision_Tick(object sender, EventArgs e) // Checks for player projectile collision with alien
@@ -134,13 +137,13 @@ namespace SpaceInvaders {
                     --totalProjectiles;
                 }
             }
-            // Check if any bases are hit
             
+            // Check if any bases are hit
             if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
             {
                 foreach (var item in BaseBlockList.Where(item => item.Visible))
                 {
-                    if (playerProjectile.Bounds.IntersectsWith(item.Bounds))
+                    if (playerProjectileGhost.Bounds.IntersectsWith(item.Bounds))
                     {
                         item.Visible = false;
                         playerProjectile.Visible = playerProj.SetVisibility(false);

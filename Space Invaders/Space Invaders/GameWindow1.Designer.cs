@@ -161,6 +161,7 @@
             this.lifeThree = new System.Windows.Forms.PictureBox();
             this.lifeTwo = new System.Windows.Forms.PictureBox();
             this.bottomBoundsBox = new System.Windows.Forms.PictureBox();
+            this.playerProjectileGhost = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -288,6 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifeThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBoundsBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectileGhost)).BeginInit();
             this.SuspendLayout();
             // 
             // alienMovement
@@ -1620,12 +1622,23 @@
             this.bottomBoundsBox.TabIndex = 77;
             this.bottomBoundsBox.TabStop = false;
             // 
+            // playerProjectileGhost
+            // 
+            this.playerProjectileGhost.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
+            this.playerProjectileGhost.Location = new System.Drawing.Point(686, 912);
+            this.playerProjectileGhost.Name = "playerProjectileGhost";
+            this.playerProjectileGhost.Size = new System.Drawing.Size(4, 16);
+            this.playerProjectileGhost.TabIndex = 78;
+            this.playerProjectileGhost.TabStop = false;
+            this.playerProjectileGhost.Visible = false;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.playerProjectileGhost);
             this.Controls.Add(this.playerScore);
             this.Controls.Add(this.bottomBoundsBox);
             this.Controls.Add(this.lifeTwo);
@@ -1829,6 +1842,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifeThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBoundsBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerProjectileGhost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1969,6 +1983,7 @@
         private System.Windows.Forms.PictureBox pbBlock2;
         private System.Windows.Forms.PictureBox pbBlock6;
         private System.Windows.Forms.PictureBox pbBlock11;
+        public System.Windows.Forms.PictureBox playerProjectileGhost;
     }
 }
 
