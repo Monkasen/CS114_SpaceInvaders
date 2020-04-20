@@ -34,6 +34,7 @@ namespace SpaceInvaders {
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
         private List<PictureBox> AlienProjectileList = new List<PictureBox>();
+        private List<PictureBox> AlienProjectileGhostList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
         private Projectile playerProj = new Projectile(1);
@@ -150,22 +151,47 @@ namespace SpaceInvaders {
                         p1.Fire(false);
                     }
 
-                    foreach (var proj in AlienProjectileList.Where(proj => proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)))
+                    for (int i = 0; i < AlienProjectileList.Count; i++)
+                    {
+                        if (AlienProjectileList[i].Enabled &&
+                            AlienProjectileGhostList[i].Bounds.IntersectsWith(item.Bounds))
+                        {
+                            item.Visible = false;
+                            AlienProjectileList[i].Enabled = false;
+                            AlienProjectileList[i].Visible = false;
+                            AlienProjectileList[i].Location = new Point(0, 0);
+                            --totalProjectiles;
+                        }
+                    }
+
+                    // Old way, deleted later if new way works better
+                    /*foreach (var proj in AlienProjectileList.Where(proj => proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)))
                     {
                         item.Visible = false;
                         proj.Enabled = false;
                         proj.Visible = false;
                         proj.Location = new Point(0, 0);
                         --totalProjectiles;
-                    }
+                    }*/
                 }
             }
 
             // Update alien projectiles
-            foreach (var item in AlienProjectileList.Where(item => item.Enabled))
+            for (int i = 0; i < AlienProjectileList.Count; i++)
+            {
+                if (AlienProjectileList[i].Enabled)
+                {
+                    AlienProjectileList[i].Location = new Point(AlienProjectileList[i].Location.X, AlienProjectileList[i].Location.Y + (projectileSpeed));
+                    AlienProjectileGhostList[i].Location = new Point(AlienProjectileList[i].Location.X - projectileGhostOffset, AlienProjectileList[i].Location.Y + (projectileSpeed));
+                }
+
+            }
+            
+            // Old way, delete later if new way works better
+            /*foreach (var item in AlienProjectileList.Where(item => item.Enabled))
             {
                 item.Location = new Point(item.Location.X, item.Location.Y + (projectileSpeed));
-            }
+            }*/
         }
 
         private void objectDeath_Tick(object sender, EventArgs e) // Handles removing alien/player explosion after death
@@ -438,11 +464,13 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock59);
             BaseBlockList.Add(pbBlock60);
 
-            // Add three potential alien projectiles to a list
+            // Add three potential and their ghosts alien projectiles to a list
             AlienProjectileList.Add(alienProjectile1);
             AlienProjectileList.Add(alienProjectile2);
             AlienProjectileList.Add(alienProjectile3);
-
+            AlienProjectileGhostList.Add(alienProjectile1Ghost);
+            AlienProjectileGhostList.Add(alienProjectile2Ghost);
+            AlienProjectileGhostList.Add(alienProjectile3Ghost);
 
             // Add bottom most aliens to possible alien shooting list
             for (int i = 1; i < 12; i++)

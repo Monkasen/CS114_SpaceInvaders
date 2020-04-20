@@ -995,6 +995,27 @@
         0jEBADAMA6CYmH9NVdRpaG4OHJA3WbgSh4o4VMShIg6F7AdqiEFqGlhnbAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="alienProjectile1Ghost.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAwAAAAcCAYAAABVo158AAAABGdBTUEAALGPC/xhBQAAAERJREFUOE/V
+        y7ENACAMA0Evwf4zMRE0EZJf6YmLK6zktbbogN1tlAEBHyghoC56QgO72ygDAj5QQkBd9IQGdrdRvgbS
+        BbJm3UCCpZdnAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="alienProjectile2Ghost.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAwAAAAcCAYAAABVo158AAAABGdBTUEAALGPC/xhBQAAAENJREFUOE/t
+        y6ERADAMQlGW6P4zdaLW/MsdiOiIiCcgQecqvWB3C9gBXbGAHdAVCxgwyIfW0EHKJ7tbwA7oigU0A+kD
+        ChO9YHhtRpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="alienProjectile3Ghost.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAwAAAAcCAYAAABVo158AAAABGdBTUEAALGPC/xhBQAAAE9JREFUOE/N
+        jMEJADAIA12i+8/UiVqEIE0Q+83jBOXOWDt+nJdOUAwCEnAraAEGwSgoOQwDZXxACzAMFHrQCYpBQAJu
+        BS3AIBgFJYdVEHEBM5CdgJS7UjsAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAEAIABoBAAAVgAAABgYAAABACAAiAkAAL4EAAAgIAAAAQAgAKgQAABGDgAAMDAAAAEA
