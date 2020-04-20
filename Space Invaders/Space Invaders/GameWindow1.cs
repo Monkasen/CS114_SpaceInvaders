@@ -29,7 +29,7 @@ namespace SpaceInvaders {
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
-        private int playerProjectileGhostOffset = 16; // How far to the left the playerProjectileGhost is set
+        private const int playerProjectileGhostOffset = 16; // How far to the left the playerProjectileGhost is set
        
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
