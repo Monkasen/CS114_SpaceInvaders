@@ -135,6 +135,7 @@ namespace SpaceInvaders {
                 }
             }
             // Check if any bases are hit
+            
             if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
             {
                 foreach (var item in BaseBlockList.Where(item => item.Visible))
@@ -182,17 +183,17 @@ namespace SpaceInvaders {
                         break;
                     }
                 case 1: { // Player death
+                        ++deathTimer;
                         alienMovement.Enabled = false; // Disable game while animation plays
                         playerMovement.Enabled = false;
-                        while (deathCycle <= 10) { // Loop through animation 10 times
-                            ++deathTimer;
-                            if (deathTimer == 100 && deathAnimation) {
+                        if (deathCycle <= 10) { // Loop through animation 10 times
+                            if (deathTimer == 10 && deathAnimation) {
                                 player.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
                                 ++deathCycle;
                                 deathAnimation = false;
                                 deathTimer = 0;
                             }
-                            else if (deathTimer == 100 && !deathAnimation) {
+                            else if (deathTimer == 10 && !deathAnimation) {
                                 player.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
                                 ++deathCycle;
                                 deathAnimation = true;
@@ -585,6 +586,7 @@ namespace SpaceInvaders {
         private void KillPlayer() // Handles process of kill the player
         {
             PlaySound(4);
+            Thread.Sleep(10); // Audio clips without this slight pause
             p1.LoseLife();
             deathType = 1;
             deathCycle = 0;
