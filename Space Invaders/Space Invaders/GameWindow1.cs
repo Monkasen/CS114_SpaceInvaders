@@ -282,7 +282,7 @@ namespace SpaceInvaders {
 
         private void InitializeAliens() // Builds lists for aliens and their graphics
         {
-            // Create and add Alien objects to list
+            #region Create and add Alien objects to list
             AlienList.Add(new Alien(3, pbAlien1.Image, pbAlien1.Location.X, pbAlien1.Location.Y));
             AlienList.Add(new Alien(3, pbAlien2.Image, pbAlien2.Location.X, pbAlien2.Location.Y));
             AlienList.Add(new Alien(3, pbAlien3.Image, pbAlien3.Location.X, pbAlien3.Location.Y));
@@ -338,8 +338,9 @@ namespace SpaceInvaders {
             AlienList.Add(new Alien(1, pbAlien53.Image, pbAlien53.Location.X, pbAlien53.Location.Y));
             AlienList.Add(new Alien(1, pbAlien54.Image, pbAlien54.Location.X, pbAlien54.Location.Y));
             AlienList.Add(new Alien(1, pbAlien55.Image, pbAlien55.Location.X, pbAlien55.Location.Y));
+            #endregion
 
-            // Add pictureboxes to list
+            #region Add pictureboxes to list
             AlienPBList.Add(pbAlien1);
             AlienPBList.Add(pbAlien2);
             AlienPBList.Add(pbAlien3);
@@ -395,8 +396,9 @@ namespace SpaceInvaders {
             AlienPBList.Add(pbAlien53);
             AlienPBList.Add(pbAlien54);
             AlienPBList.Add(pbAlien55);
+            #endregion
 
-            // Add each individual block of each of the four bases to a list for hit detection
+            #region Add each individual block of each of the four bases to a list for hit detection
             BaseBlockList.Add(pbBlock1);
             BaseBlockList.Add(pbBlock2);
             BaseBlockList.Add(pbBlock3);
@@ -457,14 +459,16 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock58);
             BaseBlockList.Add(pbBlock59);
             BaseBlockList.Add(pbBlock60);
+            #endregion
 
-            // Add three potential and their ghosts alien projectiles to a list
+            #region Add three potential and their ghosts alien projectiles to a list
             AlienProjectileList.Add(alienProjectile1);
             AlienProjectileList.Add(alienProjectile2);
             AlienProjectileList.Add(alienProjectile3);
             AlienProjectileGhostList.Add(alienProjectile1Ghost);
             AlienProjectileGhostList.Add(alienProjectile2Ghost);
             AlienProjectileGhostList.Add(alienProjectile3Ghost);
+            #endregion
 
             // Add bottom most aliens to possible alien shooting list
             for (int i = 1; i < 12; i++)
@@ -694,8 +698,8 @@ namespace SpaceInvaders {
 
         private void TryShoot() // Random chance for an alien to shoot 
         {
-            for (int i = 0; i < BottomAliens.Count; i++) {
-                if ((BottomAliens[i].GetState() == 1) && totalProjectiles <= 3) { // Checks for bullet limit, and if the alien is alive
+            foreach (var alien in BottomAliens) {
+                if ((alien.GetState() == 1) && totalProjectiles <= 3) { // Checks for bullet limit, and if the alien is alive
                     int rand = RandomNum.Next(0, numAliensLeft);
                     if (rand == 1) {
                         int randAlien = RandomNum.Next(0, BottomAliens.Count); // Select random alien in BottomList
