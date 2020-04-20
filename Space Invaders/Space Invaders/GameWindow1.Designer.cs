@@ -313,11 +313,11 @@
             // playerScore
             // 
             this.playerScore.AutoSize = true;
-            this.playerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerScore.Font = new System.Drawing.Font("Montserrat", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScore.ForeColor = System.Drawing.SystemColors.Control;
             this.playerScore.Location = new System.Drawing.Point(364, 9);
             this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(39, 42);
+            this.playerScore.Size = new System.Drawing.Size(45, 45);
             this.playerScore.TabIndex = 5;
             this.playerScore.Text = "0";
             // 
