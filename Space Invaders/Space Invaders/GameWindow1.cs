@@ -29,7 +29,7 @@ namespace SpaceInvaders {
         private const int AlienPushX = 10; // How far aliens are pushed on the X axis each tick
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
-        private const int playerProjectileGhostOffset = 16; // How far to the left the playerProjectileGhost is set
+        private const int projectileGhostOffset = 16; // How far to the left the ghost projectiles are set
        
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
@@ -103,7 +103,7 @@ namespace SpaceInvaders {
 
             if (p1.IsFired())
             {
-                playerProjectileGhost.Location = new Point(playerProj.GetPos('x') - playerProjectileGhostOffset, playerProj.GetPos('y') - projectileSpeed);
+                playerProjectileGhost.Location = new Point(playerProj.GetPos('x') - projectileGhostOffset, playerProj.GetPos('y') - projectileSpeed);
                 playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
                 playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
                 p1.Fire(OutOfBoundsCheck());
