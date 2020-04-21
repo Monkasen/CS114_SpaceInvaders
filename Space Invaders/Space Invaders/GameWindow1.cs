@@ -39,17 +39,12 @@ namespace SpaceInvaders {
         private Projectile playerProj = new Projectile(1);
         private Player p1 = new Player();
         private static Random RandomNum = new Random();
-        List<int> highScores = new List<int>();
-
         public GameWindow()
         {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
-            highScores[0] = 0;
-            //string tempNum = highScores[0].ToString();
-            highScore.Text = "0";
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -484,7 +479,7 @@ namespace SpaceInvaders {
 
         private void UpdateAliens() // Handles alien animations, moving the aliens, and updating their position
         {
-            #region Alien Animation
+            #region alien animation
             switch (alienAnimation) {
                 case 0: {
                         foreach (var item in AlienList) {
@@ -519,7 +514,7 @@ namespace SpaceInvaders {
                 }
             }
             #endregion
-            #region Alien Movement
+            #region alien movement
             bool noneEdge = true; // Variable checks if any alien made it to edge, if so change Y coord and switch direction
 
             foreach (var item in AlienPBList) { // Loop checks if any alien that makes it to the edge is alive
@@ -555,7 +550,7 @@ namespace SpaceInvaders {
                 }
             }
             #endregion
-            #region Update Alien Position
+            #region update alien position
             for (int i = 0; i < AlienList.Count; i++) {
                 AlienList[i].SetXCord(AlienPBList[i].Location.X);
                 AlienList[i].SetYCord(AlienPBList[i].Location.Y);
@@ -700,37 +695,41 @@ namespace SpaceInvaders {
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                        #region High Score Counter
-                        string fileName = Path.Combine("highscore");
-                        using (StreamWriter fileWrite = new StreamWriter(fileName)) {
+                        string fileName = Path.Combine("highscore.txt");
+                        using (StreamWriter fileWrite = new StreamWriter(fileName))
+                        {
+                            List<int> scores = new List<int>();
                             string line;
                             //if the file doesn't exist, create it
                             if (!File.Exists(fileName))
                                 File.Create(fileName);
-                            using (StreamReader fileRead = new StreamReader(fileName)) {
-                                line = fileRead.ReadLine();
-                                while (line != null) {
-                                    highScores.Add(Convert.ToInt32(line));
-                                    line = fileRead.ReadLine();
+                            using (StreamReader fileRead = new StreamReader(fileName))
+                            {
+                                while((line = fileRead.ReadLine()) != null)
+                                {
+                                    scores.Add(Convert.ToInt32(line));
                                 }
                             }
                             int itemCounter = 0;
-                            int tempHolder = highScores[2];
-                            foreach (int Item in highScores) {
-                                if (score > Item) {
-                                    tempHolder = highScores[itemCounter];
-                                    highScores[itemCounter] = score;
+                            int tempHolder = scores[2];
+                            foreach(int Item in scores)
+                            {
+                                if (score > Item)
+                                {
+                                    tempHolder = scores[itemCounter];
+                                    scores[itemCounter] = score;
                                     break;
                                 }
                                 itemCounter++;
                             }
-                            for (int i = itemCounter + 1; i < 2; i++) {
+                            for(int i = itemCounter+1; i < 2; i++)
+                            {
                                 if (itemCounter == i - 1)
-                                    highScores[i] = tempHolder;
-                                highScores[i] = highScores[i - 1];
+                                    scores[i] = tempHolder;
+                                scores[i] = scores[i - 1];
                             }
+
                         }
-                        #endregion
                         break;
                     }
             }

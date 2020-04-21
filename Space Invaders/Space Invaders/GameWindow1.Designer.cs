@@ -165,7 +165,6 @@
             this.alienProjectile1Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile2Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile3Ghost = new System.Windows.Forms.PictureBox();
-            this.highScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -1672,24 +1671,12 @@
             this.alienProjectile3Ghost.TabStop = false;
             this.alienProjectile3Ghost.Visible = false;
             // 
-            // highScore
-            // 
-            this.highScore.AutoSize = true;
-            this.highScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highScore.ForeColor = System.Drawing.SystemColors.Control;
-            this.highScore.Location = new System.Drawing.Point(632, 22);
-            this.highScore.Name = "highScore";
-            this.highScore.Size = new System.Drawing.Size(109, 25);
-            this.highScore.TabIndex = 82;
-            this.highScore.Text = "highScore";
-            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
-            this.Controls.Add(this.highScore);
             this.Controls.Add(this.alienProjectile1Ghost);
             this.Controls.Add(this.alienProjectile2Ghost);
             this.Controls.Add(this.alienProjectile3Ghost);
@@ -2045,7 +2032,6 @@
         private System.Windows.Forms.PictureBox alienProjectile1Ghost;
         private System.Windows.Forms.PictureBox alienProjectile2Ghost;
         private System.Windows.Forms.PictureBox alienProjectile3Ghost;
-        private System.Windows.Forms.Label highScore;
     }
 }
 
