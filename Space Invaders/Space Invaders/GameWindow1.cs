@@ -208,6 +208,7 @@ namespace SpaceInvaders {
                         alienMovement.Enabled = false; // Disable game while animation plays
                         playerMovement.Enabled = false;
                         projectileCollision.Enabled = false;
+                        projectileAnimation.Enabled = false;
                         if (deathCycle <= 10) { // Loop through animation 10 times
                             if (deathTimer == 10 && deathAnimation) {
                                 player.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
@@ -222,11 +223,12 @@ namespace SpaceInvaders {
                                 deathTimer = 0;
                             }
                         }
-                        if (deathCycle == 11) { // After 10 cycles
+                        if (deathCycle == 11 && p1.GetLives() >= 0) { // After 10 cycles, and game is still going
                             deathCycle = 0; // Reset cycle counter for next death
                             alienMovement.Enabled = true; // Re-enable game
                             playerMovement.Enabled = true;
                             projectileCollision.Enabled = true;
+                            projectileAnimation.Enabled = true;
                             player.Image = Image.FromFile("resources/textures/PlayerShip.png");
                             player.Location = new Point(355, 824); // Reset player's position
                             p1.SetPos(player.Location);
