@@ -39,12 +39,29 @@ namespace SpaceInvaders {
         private Projectile playerProj = new Projectile(1);
         private Player p1 = new Player();
         private static Random RandomNum = new Random();
+        string[] scores = new string[] { "0", "0", "0" };
         public GameWindow()
         {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
+            string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
+            //if the file doesn't exist, create it
+            if (!File.Exists(fileName))
+            {
+                File.Create(fileName);
+                for (int i = 0; i < 3; i++)
+                {
+                    File.WriteAllLines(fileName, scores);
+                }
+            }
+            using (StreamReader fileRead = new StreamReader(fileName))
+            {
+                scores[0] = fileRead.ReadLine();
+                scores[1] = fileRead.ReadLine();
+                scores[2] = fileRead.ReadLine();
+            }
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -695,23 +712,7 @@ namespace SpaceInvaders {
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                        string fileName = Path.Combine(Environment.CurrentDirectory,"highscore.txt");
-                        string[] scores = new string[] { "0", "0", "0" };
-                        //if the file doesn't exist, create it
-                        if (!File.Exists(fileName))
-                        {
-                            File.Create(fileName);
-                            for (int i = 0; i < 3; i++)
-                            {
-                                File.WriteAllLines(fileName, scores);
-                            }
-                        }
-                        using (StreamReader fileRead = new StreamReader(fileName))
-                        {
-                            scores[0] = fileRead.ReadLine();
-                            scores[1] = fileRead.ReadLine();
-                            scores[2] = fileRead.ReadLine();
-                        }
+                     
                         using (StreamWriter fileWrite = new StreamWriter(fileName))
                         {
                             

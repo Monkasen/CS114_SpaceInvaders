@@ -13,10 +13,10 @@ using System.Windows.Input; // For key events
 namespace SpaceInvaders {
     public partial class MainMenu : Form  {
         public static short gameMode = 0;
+        string[] scores = new string[] { "0", "0", "0" };
         public MainMenu() {
             InitializeComponent();
             string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
-            string[] scores = new string[] { "0", "0", "0" };
             //if the file doesn't exist, create it
             if (!File.Exists(fileName))
             {
