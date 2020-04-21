@@ -680,6 +680,8 @@ namespace SpaceInvaders {
                         break;
                     }
                 case 1: {
+                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwo.Visible = false;
                         livesCounter.Image = Image.FromFile("resources/textures/1.png");
                         lifeThree.Visible = false;
                         break;
