@@ -695,6 +695,41 @@ namespace SpaceInvaders {
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
+                        string fileName = Path.Combine("highscore.txt");
+                        using (StreamWriter fileWrite = new StreamWriter(fileName))
+                        {
+                            List<int> scores = new List<int>();
+                            string line;
+                            //if the file doesn't exist, create it
+                            if (!File.Exists(fileName))
+                                File.Create(fileName);
+                            using (StreamReader fileRead = new StreamReader(fileName))
+                            {
+                                while((line = fileRead.ReadLine()) != null)
+                                {
+                                    scores.Add(Convert.ToInt32(line));
+                                }
+                            }
+                            int itemCounter = 0;
+                            int tempHolder = scores[2];
+                            foreach(int Item in scores)
+                            {
+                                if (score > Item)
+                                {
+                                    tempHolder = scores[itemCounter];
+                                    scores[itemCounter] = score;
+                                    break;
+                                }
+                                itemCounter++;
+                            }
+                            for(int i = itemCounter+1; i < 2; i++)
+                            {
+                                if (itemCounter == i - 1)
+                                    scores[i] = tempHolder;
+                                scores[i] = scores[i - 1];
+                            }
+
+                        }
                         break;
                     }
             }
