@@ -29,6 +29,7 @@ namespace SpaceInvaders {
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
         private const int projectileGhostOffset = 16; // How far to the left the ghost projectiles are set
+        string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
 
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
@@ -40,13 +41,14 @@ namespace SpaceInvaders {
         private Player p1 = new Player();
         private static Random RandomNum = new Random();
         string[] scores = new string[] { "0", "0", "0" };
+
         public GameWindow()
         {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
-            string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
+            
             //if the file doesn't exist, create it
             if (!File.Exists(fileName))
             {
@@ -62,6 +64,8 @@ namespace SpaceInvaders {
                 scores[1] = fileRead.ReadLine();
                 scores[2] = fileRead.ReadLine();
             }
+
+            highScoreLabel.Text = scores[1];
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off

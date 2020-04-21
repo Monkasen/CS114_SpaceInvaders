@@ -165,6 +165,7 @@
             this.alienProjectile1Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile2Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile3Ghost = new System.Windows.Forms.PictureBox();
+            this.highScoreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -1671,12 +1672,24 @@
             this.alienProjectile3Ghost.TabStop = false;
             this.alienProjectile3Ghost.Visible = false;
             // 
+            // highScoreLabel
+            // 
+            this.highScoreLabel.AutoSize = true;
+            this.highScoreLabel.Font = new System.Drawing.Font("Montserrat", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.highScoreLabel.Location = new System.Drawing.Point(486, 9);
+            this.highScoreLabel.Name = "highScoreLabel";
+            this.highScoreLabel.Size = new System.Drawing.Size(204, 45);
+            this.highScoreLabel.TabIndex = 82;
+            this.highScoreLabel.Text = "highscore";
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.highScoreLabel);
             this.Controls.Add(this.alienProjectile1Ghost);
             this.Controls.Add(this.alienProjectile2Ghost);
             this.Controls.Add(this.alienProjectile3Ghost);
@@ -2032,6 +2045,7 @@
         private System.Windows.Forms.PictureBox alienProjectile1Ghost;
         private System.Windows.Forms.PictureBox alienProjectile2Ghost;
         private System.Windows.Forms.PictureBox alienProjectile3Ghost;
+        private System.Windows.Forms.Label highScoreLabel;
     }
 }
 
