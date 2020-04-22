@@ -109,8 +109,5 @@
   <ItemGroup>
     <None Include="bin\Debug\resources\textures\Alien3_1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="highscore.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

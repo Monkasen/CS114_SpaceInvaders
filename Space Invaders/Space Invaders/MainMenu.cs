@@ -15,6 +15,7 @@ namespace SpaceInvaders {
         public static short gameMode = 0;
         string[] scores = new string[] { "0", "0", "0" };
         string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
+
         public MainMenu() {
             InitializeComponent();
             
@@ -35,7 +36,6 @@ namespace SpaceInvaders {
             }
         }
 
-        
 
         private void onePlayerButton_Click(object sender, EventArgs e) {
             gameMode = 1;

@@ -48,24 +48,20 @@ namespace SpaceInvaders {
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
-            
-            //if the file doesn't exist, create it
-            if (!File.Exists(fileName))
-            {
+
+            // If the highscore file doesn't exist, create it
+            if (!File.Exists(fileName)) {
                 File.Create(fileName);
-                for (int i = 0; i < 3; i++)
-                {
+                for (int i = 0; i < 3; i++) {
                     File.WriteAllLines(fileName, scores);
                 }
             }
-            using (StreamReader fileRead = new StreamReader(fileName))
-            {
+            using (StreamReader fileRead = new StreamReader(fileName)) {
                 scores[0] = fileRead.ReadLine();
                 scores[1] = fileRead.ReadLine();
                 scores[2] = fileRead.ReadLine();
             }
-
-            highScoreLabel.Text = scores[1];
+            highScoreLabel.Text = scores[0];
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -707,7 +703,7 @@ namespace SpaceInvaders {
                         lifeThree.Visible = false;
                         break;
                     }
-                case 0: {
+                case 0: { // If player loses all their lives...
                         livesCounter.Image = Image.FromFile("resources/textures/0.png");
                         player.Visible = false;
                         alienMovement.Enabled = false;
@@ -716,30 +712,25 @@ namespace SpaceInvaders {
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                     
-                        using (StreamWriter fileWrite = new StreamWriter(fileName))
-                        {
-                            
+                        #region Update High Score COunter
+                        using (StreamWriter fileWrite = new StreamWriter(fileName)) {
                             int itemCounter = 0;
                             int tempHolder = Convert.ToInt32(scores[2]);
-                            foreach(string Item in scores)
-                            {
-                                if (score > Convert.ToInt32(Item))
-                                {
+                            foreach (string Item in scores) {
+                                if (score > Convert.ToInt32(Item)) {
                                     tempHolder = Convert.ToInt32(scores[itemCounter]);
                                     scores[itemCounter] = score.ToString();
                                     break;
                                 }
                                 itemCounter++;
                             }
-                            for(int i = itemCounter+1; i < 2; i++)
-                            {
+                            for (int i = itemCounter + 1; i < 2; i++) {
                                 if (itemCounter == i - 1)
                                     scores[i] = tempHolder.ToString();
                                 scores[i] = scores[i - 1];
                             }
-
                         }
+                        #endregion
                         break;
                     }
             }
