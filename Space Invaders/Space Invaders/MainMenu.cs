@@ -25,6 +25,7 @@ namespace SpaceInvaders {
                 File.Create(fileName);
                 for (int i = 0; i < 3; i++)
                 {
+                    File.OpenWrite(fileName);
                     File.WriteAllLines(fileName, scores);
                 }
             }

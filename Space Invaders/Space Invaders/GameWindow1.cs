@@ -53,6 +53,7 @@ namespace SpaceInvaders {
             if (!File.Exists(fileName)) {
                 File.Create(fileName);
                 for (int i = 0; i < 3; i++) {
+                    File.OpenWrite(fileName);
                     File.WriteAllLines(fileName, scores);
                 }
             }
@@ -712,7 +713,7 @@ namespace SpaceInvaders {
                             item2.Visible = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                        #region Update High Score COunter
+                        #region Update High Score Counter
                         using (StreamWriter fileWrite = new StreamWriter(fileName)) {
                             int itemCounter = 0;
                             int tempHolder = Convert.ToInt32(scores[2]);
@@ -729,6 +730,9 @@ namespace SpaceInvaders {
                                     scores[i] = tempHolder.ToString();
                                 scores[i] = scores[i - 1];
                             }
+                            fileWrite.WriteLine(scores[0]);
+                            fileWrite.WriteLine(scores[1]);
+                            fileWrite.WriteLine(scores[2]);
                         }
                         #endregion
                         break;
