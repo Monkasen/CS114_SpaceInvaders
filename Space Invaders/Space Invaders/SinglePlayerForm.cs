@@ -45,7 +45,7 @@ namespace SpaceInvaders {
 
         public SinglePlayerForm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             UseCustomFont();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
@@ -138,8 +138,7 @@ namespace SpaceInvaders {
                     p1.Fire(false); // Disables player's projectile
                     KillAlien(ref i);
                 }
-                foreach (var block in BaseBlockList.Where(block => block.Visible))
-                {
+                foreach (var block in BaseBlockList.Where(block => block.Visible)) {
                     if (AlienPBList[i].Visible && AlienPBList[i].Bounds.IntersectsWith(block.Bounds))
                         block.Visible = false;
                 }
@@ -754,7 +753,8 @@ namespace SpaceInvaders {
             }
         }
 
-        private void UpdateScore(ref int i) {
+        private void UpdateScore(ref int i)
+        {
             switch ((AlienList[i].GetAlienType())) {
                 case 1: {
                         playerScore.Text = ($"{score += 10}"); // Add 10 points to score
@@ -771,6 +771,44 @@ namespace SpaceInvaders {
             }
         }
 
+        private void UseCustomFont()
+        {
+            PrivateFontCollection customFont = new PrivateFontCollection();
 
+            customFont.AddFontFile("SpaceInvadersFont.ttf");
+
+            scoreText.Font = new Font(customFont.Families[0], 20);
+
+            playerScore.Font = new Font(customFont.Families[0], 20);
+
+            highScoreText.Font = new Font(customFont.Families[0], 20);
+
+            highScore.Font = new Font(customFont.Families[0], 20);
+        }
+
+        private void DisableAllTimers()
+        {
+            alienMovement.Enabled = false;
+            playerMovement.Enabled = false;
+            projectileCollision.Enabled = false;
+            objectDeath.Enabled = false;
+            projectileAnimation.Enabled = false;
+        }
+
+        private void EnableAllTimers()
+        {
+            alienMovement.Enabled = true;
+            playerMovement.Enabled = true;
+            projectileCollision.Enabled = true;
+            objectDeath.Enabled = true;
+            projectileAnimation.Enabled = true;
+        }
+
+        private void btnControls_Click(object sender, EventArgs e)
+        {
+            DisableAllTimers();
+            MessageBox.Show("Controls:\nA/Left arrow key: Move left\nD/Right arrow key: Move right\nW/Up arrow: Shoot");
+            EnableAllTimers();
+        }
     }
 }

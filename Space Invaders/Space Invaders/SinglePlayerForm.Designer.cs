@@ -32,7 +32,6 @@
             this.playerScore = new System.Windows.Forms.Label();
             this.projectileCollision = new System.Windows.Forms.Timer(this.components);
             this.objectDeath = new System.Windows.Forms.Timer(this.components);
-            this.tutorial = new System.Windows.Forms.Label();
             this.alienBoundsPanel = new System.Windows.Forms.Panel();
             this.pbBlock38 = new System.Windows.Forms.PictureBox();
             this.pbBlock43 = new System.Windows.Forms.PictureBox();
@@ -168,6 +167,7 @@
             this.alienProjectile2 = new System.Windows.Forms.PictureBox();
             this.alienProjectile3 = new System.Windows.Forms.PictureBox();
             this.highScoreText = new System.Windows.Forms.Label();
+            this.btnControls = new System.Windows.Forms.Button();
             this.alienBoundsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock43)).BeginInit();
@@ -334,17 +334,6 @@
             // 
             this.objectDeath.Interval = 10;
             this.objectDeath.Tick += new System.EventHandler(this.objectDeath_Tick);
-            // 
-            // tutorial
-            // 
-            this.tutorial.AutoSize = true;
-            this.tutorial.ForeColor = System.Drawing.Color.Snow;
-            this.tutorial.Location = new System.Drawing.Point(180, 911);
-            this.tutorial.Name = "tutorial";
-            this.tutorial.Size = new System.Drawing.Size(406, 13);
-            this.tutorial.TabIndex = 6;
-            this.tutorial.Text = "Press A/D or the left/right arrow keys to move, press W or the up arrow key to sh" +
-    "oot.";
             // 
             // alienBoundsPanel
             // 
@@ -1707,12 +1696,23 @@
             this.highScoreText.TabIndex = 84;
             this.highScoreText.Text = "HI - SCORE";
             // 
+            // btnControls
+            // 
+            this.btnControls.Location = new System.Drawing.Point(346, 900);
+            this.btnControls.Name = "btnControls";
+            this.btnControls.Size = new System.Drawing.Size(75, 23);
+            this.btnControls.TabIndex = 85;
+            this.btnControls.Text = "Controls";
+            this.btnControls.UseVisualStyleBackColor = true;
+            this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
+            // 
             // SinglePlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.btnControls);
             this.Controls.Add(this.highScoreText);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.highScore);
@@ -1726,7 +1726,6 @@
             this.Controls.Add(this.lifeThree);
             this.Controls.Add(this.livesCounter);
             this.Controls.Add(this.soundToggle);
-            this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
             this.Controls.Add(this.pbAlien48);
@@ -1995,7 +1994,6 @@
         private System.Windows.Forms.PictureBox pbAlien47;
         private System.Windows.Forms.PictureBox pbAlien46;
         public System.Windows.Forms.PictureBox playerProjectile;
-        private System.Windows.Forms.Label tutorial;
         private System.Windows.Forms.PictureBox alienProjectile1;
         private System.Windows.Forms.PictureBox alienProjectile2;
         private System.Windows.Forms.PictureBox alienProjectile3;
@@ -2074,6 +2072,7 @@
         private System.Windows.Forms.Label highScore;
         private System.Windows.Forms.Label scoreText;
         private System.Windows.Forms.Label highScoreText;
+        private System.Windows.Forms.Button btnControls;
     }
 }
 
