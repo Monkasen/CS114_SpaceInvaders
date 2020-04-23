@@ -771,18 +771,6 @@ namespace SpaceInvaders {
             }
         }
 
-        private void UseCustomFont() {
-            PrivateFontCollection customFont = new PrivateFontCollection();
 
-            customFont.AddFontFile("SpaceInvadersFont.ttf");
-
-            scoreText.Font = new Font(customFont.Families[0], 20);
-
-            playerScore.Font = new Font(customFont.Families[0], 20);
-
-            highScoreText.Font = new Font(customFont.Families[0], 20);
-
-            highScore.Font = new Font(customFont.Families[0], 20);
-        }
     }
 }
