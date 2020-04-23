@@ -156,9 +156,9 @@
             this.pbBlock14 = new System.Windows.Forms.PictureBox();
             this.gameOver = new System.Windows.Forms.PictureBox();
             this.projectileAnimation = new System.Windows.Forms.Timer(this.components);
-            this.livesCounter = new System.Windows.Forms.PictureBox();
-            this.lifeThree = new System.Windows.Forms.PictureBox();
-            this.lifeTwo = new System.Windows.Forms.PictureBox();
+            this.livesCounterP1 = new System.Windows.Forms.PictureBox();
+            this.lifeThreeP1 = new System.Windows.Forms.PictureBox();
+            this.lifeTwoP1 = new System.Windows.Forms.PictureBox();
             this.bottomBoundsBox = new System.Windows.Forms.PictureBox();
             this.player1ProjectileGhost = new System.Windows.Forms.PictureBox();
             this.alienProjectile1Ghost = new System.Windows.Forms.PictureBox();
@@ -171,6 +171,9 @@
             this.btnControls = new System.Windows.Forms.Button();
             this.highScoreText = new System.Windows.Forms.Label();
             this.scoreText = new System.Windows.Forms.Label();
+            this.lifeThreeP2 = new System.Windows.Forms.PictureBox();
+            this.lifeTwoP2 = new System.Windows.Forms.PictureBox();
+            this.livesCounterP2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -294,9 +297,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.livesCounter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeThree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.livesCounterP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBoundsBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1ProjectileGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1Ghost)).BeginInit();
@@ -305,6 +308,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Projectile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2ProjectileGhost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.livesCounterP2)).BeginInit();
             this.SuspendLayout();
             // 
             // alienMovement
@@ -324,7 +330,7 @@
             this.playerScore.AutoSize = true;
             this.playerScore.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScore.ForeColor = System.Drawing.SystemColors.Control;
-            this.playerScore.Location = new System.Drawing.Point(254, 22);
+            this.playerScore.Location = new System.Drawing.Point(253, 24);
             this.playerScore.Name = "playerScore";
             this.playerScore.Size = new System.Drawing.Size(37, 37);
             this.playerScore.TabIndex = 5;
@@ -904,7 +910,7 @@
             // player1Projectile
             // 
             this.player1Projectile.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
-            this.player1Projectile.Location = new System.Drawing.Point(740, 911);
+            this.player1Projectile.Location = new System.Drawing.Point(299, 912);
             this.player1Projectile.Name = "player1Projectile";
             this.player1Projectile.Size = new System.Drawing.Size(4, 16);
             this.player1Projectile.TabIndex = 7;
@@ -915,7 +921,7 @@
             // 
             this.alienProjectile1.Enabled = false;
             this.alienProjectile1.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1.Image")));
-            this.alienProjectile1.Location = new System.Drawing.Point(722, 899);
+            this.alienProjectile1.Location = new System.Drawing.Point(281, 900);
             this.alienProjectile1.Name = "alienProjectile1";
             this.alienProjectile1.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -927,7 +933,7 @@
             // 
             this.alienProjectile2.Enabled = false;
             this.alienProjectile2.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2.Image")));
-            this.alienProjectile2.Location = new System.Drawing.Point(704, 899);
+            this.alienProjectile2.Location = new System.Drawing.Point(263, 900);
             this.alienProjectile2.Name = "alienProjectile2";
             this.alienProjectile2.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -939,7 +945,7 @@
             // 
             this.alienProjectile3.Enabled = false;
             this.alienProjectile3.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3.Image")));
-            this.alienProjectile3.Location = new System.Drawing.Point(686, 899);
+            this.alienProjectile3.Location = new System.Drawing.Point(245, 900);
             this.alienProjectile3.Name = "alienProjectile3";
             this.alienProjectile3.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1586,35 +1592,35 @@
             this.projectileAnimation.Interval = 15;
             this.projectileAnimation.Tick += new System.EventHandler(this.projectileAnimation_Tick);
             // 
-            // livesCounter
+            // livesCounterP1
             // 
-            this.livesCounter.Image = ((System.Drawing.Image)(resources.GetObject("livesCounter.Image")));
-            this.livesCounter.Location = new System.Drawing.Point(0, 900);
-            this.livesCounter.Name = "livesCounter";
-            this.livesCounter.Size = new System.Drawing.Size(43, 28);
-            this.livesCounter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.livesCounter.TabIndex = 74;
-            this.livesCounter.TabStop = false;
+            this.livesCounterP1.Image = ((System.Drawing.Image)(resources.GetObject("livesCounterP1.Image")));
+            this.livesCounterP1.Location = new System.Drawing.Point(0, 900);
+            this.livesCounterP1.Name = "livesCounterP1";
+            this.livesCounterP1.Size = new System.Drawing.Size(43, 28);
+            this.livesCounterP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.livesCounterP1.TabIndex = 74;
+            this.livesCounterP1.TabStop = false;
             // 
-            // lifeThree
+            // lifeThreeP1
             // 
-            this.lifeThree.Image = ((System.Drawing.Image)(resources.GetObject("lifeThree.Image")));
-            this.lifeThree.Location = new System.Drawing.Point(48, 896);
-            this.lifeThree.Name = "lifeThree";
-            this.lifeThree.Size = new System.Drawing.Size(52, 32);
-            this.lifeThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.lifeThree.TabIndex = 75;
-            this.lifeThree.TabStop = false;
+            this.lifeThreeP1.Image = ((System.Drawing.Image)(resources.GetObject("lifeThreeP1.Image")));
+            this.lifeThreeP1.Location = new System.Drawing.Point(48, 896);
+            this.lifeThreeP1.Name = "lifeThreeP1";
+            this.lifeThreeP1.Size = new System.Drawing.Size(52, 32);
+            this.lifeThreeP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.lifeThreeP1.TabIndex = 75;
+            this.lifeThreeP1.TabStop = false;
             // 
-            // lifeTwo
+            // lifeTwoP1
             // 
-            this.lifeTwo.Image = ((System.Drawing.Image)(resources.GetObject("lifeTwo.Image")));
-            this.lifeTwo.Location = new System.Drawing.Point(106, 896);
-            this.lifeTwo.Name = "lifeTwo";
-            this.lifeTwo.Size = new System.Drawing.Size(52, 32);
-            this.lifeTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.lifeTwo.TabIndex = 76;
-            this.lifeTwo.TabStop = false;
+            this.lifeTwoP1.Image = ((System.Drawing.Image)(resources.GetObject("lifeTwoP1.Image")));
+            this.lifeTwoP1.Location = new System.Drawing.Point(106, 896);
+            this.lifeTwoP1.Name = "lifeTwoP1";
+            this.lifeTwoP1.Size = new System.Drawing.Size(52, 32);
+            this.lifeTwoP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.lifeTwoP1.TabIndex = 76;
+            this.lifeTwoP1.TabStop = false;
             // 
             // bottomBoundsBox
             // 
@@ -1629,7 +1635,7 @@
             // player1ProjectileGhost
             // 
             this.player1ProjectileGhost.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
-            this.player1ProjectileGhost.Location = new System.Drawing.Point(666, 911);
+            this.player1ProjectileGhost.Location = new System.Drawing.Point(225, 912);
             this.player1ProjectileGhost.Name = "player1ProjectileGhost";
             this.player1ProjectileGhost.Size = new System.Drawing.Size(4, 16);
             this.player1ProjectileGhost.TabIndex = 78;
@@ -1639,7 +1645,7 @@
             // alienProjectile1Ghost
             // 
             this.alienProjectile1Ghost.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile1Ghost.Image")));
-            this.alienProjectile1Ghost.Location = new System.Drawing.Point(648, 899);
+            this.alienProjectile1Ghost.Location = new System.Drawing.Point(207, 900);
             this.alienProjectile1Ghost.Name = "alienProjectile1Ghost";
             this.alienProjectile1Ghost.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile1Ghost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1650,7 +1656,7 @@
             // alienProjectile2Ghost
             // 
             this.alienProjectile2Ghost.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile2Ghost.Image")));
-            this.alienProjectile2Ghost.Location = new System.Drawing.Point(630, 899);
+            this.alienProjectile2Ghost.Location = new System.Drawing.Point(189, 900);
             this.alienProjectile2Ghost.Name = "alienProjectile2Ghost";
             this.alienProjectile2Ghost.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile2Ghost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1661,7 +1667,7 @@
             // alienProjectile3Ghost
             // 
             this.alienProjectile3Ghost.Image = ((System.Drawing.Image)(resources.GetObject("alienProjectile3Ghost.Image")));
-            this.alienProjectile3Ghost.Location = new System.Drawing.Point(612, 899);
+            this.alienProjectile3Ghost.Location = new System.Drawing.Point(171, 900);
             this.alienProjectile3Ghost.Name = "alienProjectile3Ghost";
             this.alienProjectile3Ghost.Size = new System.Drawing.Size(12, 28);
             this.alienProjectile3Ghost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -1674,7 +1680,7 @@
             this.highScore.AutoSize = true;
             this.highScore.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highScore.ForeColor = System.Drawing.SystemColors.Control;
-            this.highScore.Location = new System.Drawing.Point(634, 22);
+            this.highScore.Location = new System.Drawing.Point(635, 24);
             this.highScore.Name = "highScore";
             this.highScore.Size = new System.Drawing.Size(57, 37);
             this.highScore.TabIndex = 82;
@@ -1693,7 +1699,7 @@
             // player2Projectile
             // 
             this.player2Projectile.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
-            this.player2Projectile.Location = new System.Drawing.Point(750, 911);
+            this.player2Projectile.Location = new System.Drawing.Point(309, 912);
             this.player2Projectile.Name = "player2Projectile";
             this.player2Projectile.Size = new System.Drawing.Size(4, 16);
             this.player2Projectile.TabIndex = 84;
@@ -1703,7 +1709,7 @@
             // player2ProjectileGhost
             // 
             this.player2ProjectileGhost.Image = global::SpaceInvaders.Properties.Resources.PlayerProjectile;
-            this.player2ProjectileGhost.Location = new System.Drawing.Point(676, 911);
+            this.player2ProjectileGhost.Location = new System.Drawing.Point(235, 912);
             this.player2ProjectileGhost.Name = "player2ProjectileGhost";
             this.player2ProjectileGhost.Size = new System.Drawing.Size(4, 16);
             this.player2ProjectileGhost.TabIndex = 85;
@@ -1725,7 +1731,7 @@
             this.highScoreText.AutoSize = true;
             this.highScoreText.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.highScoreText.ForeColor = System.Drawing.SystemColors.Control;
-            this.highScoreText.Location = new System.Drawing.Point(434, 22);
+            this.highScoreText.Location = new System.Drawing.Point(435, 24);
             this.highScoreText.Name = "highScoreText";
             this.highScoreText.Size = new System.Drawing.Size(182, 37);
             this.highScoreText.TabIndex = 87;
@@ -1736,11 +1742,41 @@
             this.scoreText.AutoSize = true;
             this.scoreText.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreText.ForeColor = System.Drawing.SystemColors.Control;
-            this.scoreText.Location = new System.Drawing.Point(116, 22);
+            this.scoreText.Location = new System.Drawing.Point(110, 24);
             this.scoreText.Name = "scoreText";
             this.scoreText.Size = new System.Drawing.Size(117, 37);
             this.scoreText.TabIndex = 88;
             this.scoreText.Text = "SCORE";
+            // 
+            // lifeThreeP2
+            // 
+            this.lifeThreeP2.Image = ((System.Drawing.Image)(resources.GetObject("lifeThreeP2.Image")));
+            this.lifeThreeP2.Location = new System.Drawing.Point(667, 896);
+            this.lifeThreeP2.Name = "lifeThreeP2";
+            this.lifeThreeP2.Size = new System.Drawing.Size(52, 32);
+            this.lifeThreeP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.lifeThreeP2.TabIndex = 91;
+            this.lifeThreeP2.TabStop = false;
+            // 
+            // lifeTwoP2
+            // 
+            this.lifeTwoP2.Image = ((System.Drawing.Image)(resources.GetObject("lifeTwoP2.Image")));
+            this.lifeTwoP2.Location = new System.Drawing.Point(609, 896);
+            this.lifeTwoP2.Name = "lifeTwoP2";
+            this.lifeTwoP2.Size = new System.Drawing.Size(52, 32);
+            this.lifeTwoP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.lifeTwoP2.TabIndex = 90;
+            this.lifeTwoP2.TabStop = false;
+            // 
+            // livesCounterP2
+            // 
+            this.livesCounterP2.Image = ((System.Drawing.Image)(resources.GetObject("livesCounterP2.Image")));
+            this.livesCounterP2.Location = new System.Drawing.Point(725, 900);
+            this.livesCounterP2.Name = "livesCounterP2";
+            this.livesCounterP2.Size = new System.Drawing.Size(43, 28);
+            this.livesCounterP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.livesCounterP2.TabIndex = 89;
+            this.livesCounterP2.TabStop = false;
             // 
             // MultiPlayerForm
             // 
@@ -1748,6 +1784,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.lifeThreeP2);
+            this.Controls.Add(this.lifeTwoP2);
+            this.Controls.Add(this.livesCounterP2);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.highScoreText);
             this.Controls.Add(this.btnControls);
@@ -1761,9 +1800,9 @@
             this.Controls.Add(this.player1ProjectileGhost);
             this.Controls.Add(this.playerScore);
             this.Controls.Add(this.bottomBoundsBox);
-            this.Controls.Add(this.lifeTwo);
-            this.Controls.Add(this.lifeThree);
-            this.Controls.Add(this.livesCounter);
+            this.Controls.Add(this.lifeTwoP1);
+            this.Controls.Add(this.lifeThreeP1);
+            this.Controls.Add(this.livesCounterP1);
             this.Controls.Add(this.soundToggle);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
@@ -1957,9 +1996,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.livesCounter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeThree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lifeTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.livesCounterP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBoundsBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1ProjectileGhost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alienProjectile1Ghost)).EndInit();
@@ -1968,6 +2007,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2Projectile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2ProjectileGhost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.livesCounterP2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2043,9 +2085,9 @@
         private System.Windows.Forms.Panel alienBoundsPanel;
         private System.Windows.Forms.Timer projectileAnimation;
         private System.Windows.Forms.PictureBox gameOver;
-        private System.Windows.Forms.PictureBox livesCounter;
-        private System.Windows.Forms.PictureBox lifeThree;
-        private System.Windows.Forms.PictureBox lifeTwo;
+        private System.Windows.Forms.PictureBox livesCounterP1;
+        private System.Windows.Forms.PictureBox lifeThreeP1;
+        private System.Windows.Forms.PictureBox lifeTwoP1;
         private System.Windows.Forms.PictureBox bottomBoundsBox;
         private System.Windows.Forms.PictureBox pbBlock4;
         private System.Windows.Forms.PictureBox pbBlock9;
@@ -2118,6 +2160,9 @@
         private System.Windows.Forms.Button btnControls;
         private System.Windows.Forms.Label highScoreText;
         private System.Windows.Forms.Label scoreText;
+        private System.Windows.Forms.PictureBox lifeThreeP2;
+        private System.Windows.Forms.PictureBox lifeTwoP2;
+        private System.Windows.Forms.PictureBox livesCounterP2;
     }
 }
 

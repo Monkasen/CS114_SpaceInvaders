@@ -965,7 +965,7 @@
   <metadata name="projectileAnimation.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>530, 17</value>
   </metadata>
-  <data name="livesCounter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="livesCounterP1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAABGdBTUEAALGPC/xhBQAAAHNJREFUSEvl
         zTEKgFAMA9B//0vr8sggFEp0842hSc/1sT8OvmUnxD07Ie7ZCXHPToj39ELcsxPinp0Q9+yEeE9v5GxP
@@ -973,7 +973,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="lifeThree.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lifeThreeP1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
         z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
@@ -981,7 +981,7 @@
         RB85C/3DY6KPnIX+XxyQ6kHuepC7HuSuB7nrQe56kLse5O5ng8Z1A1CnMzei1DNXAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="lifeTwo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="lifeTwoP1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
         z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
@@ -1022,6 +1022,30 @@
         z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
         DRmGRVQ6QzdkGBZR6QzdkGFYRKUzdEOGYRGVztANGYZFVDpDN2QYFlHpDN2QUUh/6iz0D4+JPnIW+ofH
         RB85C/3DY6KPnIX+XxyQ6kHuepC7HuSuB7nrQe56kLse5O5ng8Z1A1CnMzei1DNXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lifeThreeP2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
+        z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
+        DRmGRVQ6QzdkGBZR6QzdkGFYRKUzdEOGYRGVztANGYZFVDpDN2QYFlHpDN2QUUh/6iz0D4+JPnIW+ofH
+        RB85C/3DY6KPnIX+XxyQ6kHuepC7HuSuB7nrQe56kLse5O5ng8Z1A1CnMzei1DNXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lifeTwoP2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
+        z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
+        DRmGRVQ6QzdkGBZR6QzdkGFYRKUzdEOGYRGVztANGYZFVDpDN2QYFlHpDN2QUUh/6iz0D4+JPnIW+ofH
+        RB85C/3DY6KPnIX+XxyQ6kHuepC7HuSuB7nrQe56kLse5O5ng8Z1A1CnMzei1DNXAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="livesCounterP2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAABGdBTUEAALGPC/xhBQAAAHNJREFUSEvl
+        zTEKgFAMA9B//0vr8sggFEp0842hSc/1sT8OvmUnxD07Ie7ZCXHPToj39ELcsxPinp0Q9+yEeE9v5GxP
+        b+RsT2/kbE9v5Ow7dkPcsxPinp0Q9+zE6w9q8cfBJ/ma2szdmtrM3ZrazN2aGufcyhW8bu7jDAcAAAAA
+        SUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

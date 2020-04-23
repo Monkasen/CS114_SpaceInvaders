@@ -100,7 +100,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\SpaceInvadersFont.ttf" />
-    <None Include="Resources\space_invaders.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,9 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\resources\textures\Alien3_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SpaceInvadersFont.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

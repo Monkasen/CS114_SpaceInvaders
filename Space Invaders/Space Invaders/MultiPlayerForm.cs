@@ -31,6 +31,7 @@ namespace SpaceInvaders {
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
         private const int projectileGhostOffset = 16; // How far to the left the ghost projectiles are set
+        private int deathTarget = 0; // Tracks which player to kill for death animation, player 1 (0), or player 2 (1)
         string fileName = Path.Combine(Environment.CurrentDirectory, "highscoreMulti.txt");
 
         private List<PictureBox> AlienPBList = new List<PictureBox>();
@@ -53,6 +54,8 @@ namespace SpaceInvaders {
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player1.Location); // Syncs class and pictureBox
             p1.SetLives(3);
+            p2.SetPos(player2.Location); // Syncs class and pictureBox
+            p2.SetLives(3);
 
 
             // If the highscore file doesn't exist, create it
@@ -86,7 +89,7 @@ namespace SpaceInvaders {
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
         {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
-            if (gameTicks >= 15) { // Move aliens after 15 ticks
+            if (gameTicks >= 10) { // Move aliens after 15 ticks
                 PlaySound(1);
                 UpdateAliens();
                 TryShoot();
@@ -114,7 +117,7 @@ namespace SpaceInvaders {
                     p1.SetPos(player1.Location);
                 }
             }
-            if (Keyboard.IsKeyDown(Key.W)) // Shoot projectile
+            if (Keyboard.IsKeyDown(Key.W) && p1.GetLives() > 0) // Shoot projectile
             {
                 if (!p1.IsFired()) {
                     p1.Fire(true);
@@ -150,7 +153,7 @@ namespace SpaceInvaders {
                     p2.SetPos(player2.Location);
                 }
             }
-            if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
+            if (Keyboard.IsKeyDown(Key.Up) && p2.GetLives() > 0) // Shoot projectile
             {
                 if (!p2.IsFired()) {
                     p2.Fire(true);
@@ -194,14 +197,14 @@ namespace SpaceInvaders {
 
             // Check collision for alien projectile
             foreach (var item in AlienProjectileList) {
-                if (item.Bounds.IntersectsWith(player1.Bounds)) { // Check for alien projectile hitting player
+                if (item.Bounds.IntersectsWith(player1.Bounds) && p1.GetLives() > 0) { // Check for alien projectile hitting player
                     item.Enabled = false;
                     item.Visible = false;
                     item.Location = new Point(0, 0);
                     KillPlayer(p1);
                     --totalProjectiles;
                 }
-                if (item.Bounds.IntersectsWith(player2.Bounds)) { // Check for alien projectile hitting player
+                if (item.Bounds.IntersectsWith(player2.Bounds) && p2.GetLives() > 0) { // Check for alien projectile hitting player
                     item.Enabled = false;
                     item.Visible = false;
                     item.Location = new Point(0, 0);
@@ -272,7 +275,7 @@ namespace SpaceInvaders {
                         }
                         break;
                     }
-                case 1: { // Player death
+                case 1 when deathTarget == 0: { // Player 1 death
                         ++deathTimer;
                         alienMovement.Enabled = false; // Disable game while animation plays
                         playerMovement.Enabled = false;
@@ -299,8 +302,42 @@ namespace SpaceInvaders {
                             projectileCollision.Enabled = true;
                             projectileAnimation.Enabled = true;
                             player1.Image = Image.FromFile("resources/textures/PlayerShip.png");
-                            player1.Location = new Point(355, 824); // Reset player's position
+                            player1.Location = new Point(181, 824); // Reset player's position
                             p1.SetPos(player1.Location);
+                            deathTimer = 0; // Reset timer
+                            objectDeath.Enabled = false; // Disable timer until next death event
+                        }
+                        break;
+                    }
+                case 1 when deathTarget == 1: { // Player 2 death
+                        ++deathTimer;
+                        alienMovement.Enabled = false; // Disable game while animation plays
+                        playerMovement.Enabled = false;
+                        projectileCollision.Enabled = false;
+                        projectileAnimation.Enabled = false;
+                        if (deathCycle <= 10) { // Loop through animation 10 times
+                            if (deathTimer == 10 && deathAnimation) {
+                                player2.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
+                                ++deathCycle;
+                                deathAnimation = false;
+                                deathTimer = 0;
+                            }
+                            else if (deathTimer == 10 && !deathAnimation) {
+                                player2.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
+                                ++deathCycle;
+                                deathAnimation = true;
+                                deathTimer = 0;
+                            }
+                        }
+                        if (deathCycle == 11 && p1.GetLives() >= 0) { // After 10 cycles, and game is still going
+                            deathCycle = 0; // Reset cycle counter for next death
+                            alienMovement.Enabled = true; // Re-enable game
+                            playerMovement.Enabled = true;
+                            projectileCollision.Enabled = true;
+                            projectileAnimation.Enabled = true;
+                            player2.Image = Image.FromFile("resources/textures/PlayerShip.png");
+                            player2.Location = new Point(534, 824); // Reset player's position
+                            p2.SetPos(player2.Location);
                             deathTimer = 0; // Reset timer
                             objectDeath.Enabled = false; // Disable timer until next death event
                         }
@@ -690,6 +727,12 @@ namespace SpaceInvaders {
             p.LoseLife();
             deathType = 1;
             deathCycle = 0;
+            if (p == p1) {
+                deathTarget = 0;
+            }
+            else if (p == p2) {
+                deathTarget = 1;
+            }
             objectDeath.Enabled = true;
         }
 
@@ -724,6 +767,7 @@ namespace SpaceInvaders {
                 Thread.Sleep(1000);
                 MultiPlayerForm NewForm = new MultiPlayerForm(); // Open new form to start next wave
                 NewForm.p1.SetLives(p1.GetLives());
+                NewForm.p2.SetLives(p2.GetLives());
                 NewForm.score = score;
                 NewForm.playerScore.Text = playerScore.Text;
                 NewForm.Show();
@@ -744,50 +788,72 @@ namespace SpaceInvaders {
             // If players lose a life...
             switch (p1.GetLives()) {
                 case 2: {
-                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
-                        lifeTwo.Visible = false;
+                        livesCounterP1.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwoP1.Visible = false;
                         break;
                     }
                 case 1: {
-                        livesCounter.Image = Image.FromFile("resources/textures/2.png");
-                        lifeTwo.Visible = false;
-                        livesCounter.Image = Image.FromFile("resources/textures/1.png");
-                        lifeThree.Visible = false;
+                        livesCounterP1.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwoP1.Visible = false;
+                        livesCounterP1.Image = Image.FromFile("resources/textures/1.png");
+                        lifeThreeP1.Visible = false;
                         break;
                     }
-                case 0: { // If player loses all their lives...
-                        livesCounter.Image = Image.FromFile("resources/textures/0.png");
+                case 0: {
+                        livesCounterP1.Image = Image.FromFile("resources/textures/0.png");
                         player1.Visible = false;
-                        alienMovement.Enabled = false;
-                        playerMovement.Enabled = false;
-                        foreach (var item2 in AlienPBList)
-                            item2.Visible = false;
-                        player1Projectile.Visible = false;
-                        gameOver.Visible = true;
-                        #region Update High Score Counter
-                        using (StreamWriter fileWrite = new StreamWriter(fileName)) {
-                            int itemCounter = 0;
-                            int tempHolder = Convert.ToInt32(scores[2]);
-                            foreach (string Item in scores) {
-                                if (score > Convert.ToInt32(Item)) {
-                                    tempHolder = Convert.ToInt32(scores[itemCounter]);
-                                    scores[itemCounter] = score.ToString();
-                                    break;
-                                }
-                                itemCounter++;
-                            }
-                            for (int i = itemCounter + 1; i < 2; i++) {
-                                if (itemCounter == i - 1)
-                                    scores[i] = tempHolder.ToString();
-                                scores[i] = scores[i - 1];
-                            }
-                            fileWrite.WriteLine(scores[0]);
-                            fileWrite.WriteLine(scores[1]);
-                            fileWrite.WriteLine(scores[2]);
-                        }
-                        #endregion
                         break;
                     }
+            }
+            switch (p2.GetLives()) {
+                case 2: {
+                        livesCounterP2.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwoP2.Visible = false;
+                        break;
+                    }
+                case 1: {
+                        livesCounterP2.Image = Image.FromFile("resources/textures/2.png");
+                        lifeTwoP2.Visible = false;
+                        livesCounterP2.Image = Image.FromFile("resources/textures/1.png");
+                        lifeThreeP2.Visible = false;
+                        break;
+                    }
+                case 0: {
+                        livesCounterP2.Image = Image.FromFile("resources/textures/0.png");
+                        player2.Visible = false;
+                        break;
+                    }
+            }
+            if (p1.GetLives() == 0 && p2.GetLives() == 0) { // If both players lose all their lives...
+                alienMovement.Enabled = false;
+                playerMovement.Enabled = false;
+                foreach (var item2 in AlienPBList)
+                    item2.Visible = false;
+                player1Projectile.Visible = false;
+                player2Projectile.Visible = false;
+                gameOver.Visible = true;
+                #region Update High Score Counter
+                using (StreamWriter fileWrite = new StreamWriter(fileName)) {
+                    int itemCounter = 0;
+                    int tempHolder = Convert.ToInt32(scores[2]);
+                    foreach (string Item in scores) {
+                        if (score > Convert.ToInt32(Item)) {
+                            tempHolder = Convert.ToInt32(scores[itemCounter]);
+                            scores[itemCounter] = score.ToString();
+                            break;
+                        }
+                        itemCounter++;
+                    }
+                    for (int i = itemCounter + 1; i < 2; i++) {
+                        if (itemCounter == i - 1)
+                            scores[i] = tempHolder.ToString();
+                        scores[i] = scores[i - 1];
+                    }
+                    fileWrite.WriteLine(scores[0]);
+                    fileWrite.WriteLine(scores[1]);
+                    fileWrite.WriteLine(scores[2]);
+                }
+                #endregion
             }
         }
 
