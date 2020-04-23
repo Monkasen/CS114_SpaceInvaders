@@ -89,7 +89,6 @@
             this.pbAlien1 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.playerProjectile = new System.Windows.Forms.PictureBox();
-            this.tutorial = new System.Windows.Forms.Label();
             this.alienProjectile1 = new System.Windows.Forms.PictureBox();
             this.alienProjectile2 = new System.Windows.Forms.PictureBox();
             this.alienProjectile3 = new System.Windows.Forms.PictureBox();
@@ -166,6 +165,7 @@
             this.alienProjectile2Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile3Ghost = new System.Windows.Forms.PictureBox();
             this.highScoreLabel = new System.Windows.Forms.Label();
+            this.btnControls = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -902,17 +902,6 @@
             this.playerProjectile.TabIndex = 7;
             this.playerProjectile.TabStop = false;
             this.playerProjectile.Visible = false;
-            // 
-            // tutorial
-            // 
-            this.tutorial.AutoSize = true;
-            this.tutorial.ForeColor = System.Drawing.Color.Snow;
-            this.tutorial.Location = new System.Drawing.Point(180, 911);
-            this.tutorial.Name = "tutorial";
-            this.tutorial.Size = new System.Drawing.Size(406, 13);
-            this.tutorial.TabIndex = 6;
-            this.tutorial.Text = "Press A/D or the left/right arrow keys to move, press W or the up arrow key to sh" +
-    "oot.";
             // 
             // alienProjectile1
             // 
@@ -1683,12 +1672,23 @@
             this.highScoreLabel.TabIndex = 82;
             this.highScoreLabel.Text = "highscore";
             // 
+            // btnControls
+            // 
+            this.btnControls.Location = new System.Drawing.Point(346, 900);
+            this.btnControls.Name = "btnControls";
+            this.btnControls.Size = new System.Drawing.Size(75, 23);
+            this.btnControls.TabIndex = 83;
+            this.btnControls.Text = "Controls";
+            this.btnControls.UseVisualStyleBackColor = true;
+            this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
+            // 
             // SinglePlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.btnControls);
             this.Controls.Add(this.highScoreLabel);
             this.Controls.Add(this.alienProjectile1Ghost);
             this.Controls.Add(this.alienProjectile2Ghost);
@@ -1700,7 +1700,6 @@
             this.Controls.Add(this.lifeThree);
             this.Controls.Add(this.livesCounter);
             this.Controls.Add(this.soundToggle);
-            this.Controls.Add(this.tutorial);
             this.Controls.Add(this.pbAlien46);
             this.Controls.Add(this.pbAlien47);
             this.Controls.Add(this.pbAlien48);
@@ -1969,7 +1968,6 @@
         private System.Windows.Forms.PictureBox pbAlien47;
         private System.Windows.Forms.PictureBox pbAlien46;
         public System.Windows.Forms.PictureBox playerProjectile;
-        private System.Windows.Forms.Label tutorial;
         private System.Windows.Forms.PictureBox alienProjectile1;
         private System.Windows.Forms.PictureBox alienProjectile2;
         private System.Windows.Forms.PictureBox alienProjectile3;
@@ -2046,6 +2044,7 @@
         private System.Windows.Forms.PictureBox alienProjectile2Ghost;
         private System.Windows.Forms.PictureBox alienProjectile3Ghost;
         private System.Windows.Forms.Label highScoreLabel;
+        private System.Windows.Forms.Button btnControls;
     }
 }
 

@@ -768,5 +768,30 @@ namespace SpaceInvaders {
                     }
             }
         }
+
+        private void DisableAllTimers()
+        {
+            alienMovement.Enabled = false;
+            playerMovement.Enabled = false;
+            projectileCollision.Enabled = false;
+            objectDeath.Enabled = false;
+            projectileAnimation.Enabled = false;
+        }
+
+        private void EnableAllTimers()
+        {
+            alienMovement.Enabled = true;
+            playerMovement.Enabled = true;
+            projectileCollision.Enabled = true;
+            objectDeath.Enabled = true;
+            projectileAnimation.Enabled = true;
+        }
+
+        private void btnControls_Click(object sender, EventArgs e)
+        {
+            DisableAllTimers();
+            MessageBox.Show("Controls:\nA/Left arrow key: Move left\nD/Right arrow key: Move right\nW/Up arrow: Shoot");
+            EnableAllTimers();
+        }
     }
 }
