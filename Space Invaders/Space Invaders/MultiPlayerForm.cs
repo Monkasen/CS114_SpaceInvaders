@@ -17,6 +17,7 @@ namespace SpaceInvaders {
         private int numAliensLeft = 55; // Tracks how many aliens remain
         private int score = 0; // Track the player's close
         private const int rightSideDifference = 88;
+        private const int player1DivideDifference = 70; // Corrected difference from using (this.Width / 2) on player 1
         private const int projectileSpeed = 7;
         private int soundStep = 1; // Alien movement sound counter
         private int deathTimer = 0; // Death timer for alien explosion
@@ -37,8 +38,10 @@ namespace SpaceInvaders {
         private List<PictureBox> AlienProjectileGhostList = new List<PictureBox>();
         private List<Alien> AlienList = new List<Alien>();
         private List<Alien> BottomAliens = new List<Alien>();
-        private Projectile playerProj = new Projectile(1);
+        private Projectile player1Proj = new Projectile(1);
+        private Projectile player2Proj = new Projectile(1);
         private Player p1 = new Player();
+        private Player p2 = new Player();
         private static Random RandomNum = new Random();
         string[] scores = new string[] { "0", "0", "0" };
 
@@ -46,7 +49,7 @@ namespace SpaceInvaders {
         {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
-            p1.SetPos(player.Location); // Syncs class and pictureBox
+            p1.SetPos(player1.Location); // Syncs class and pictureBox
             p1.SetLives(3);
 
             // If the highscore file doesn't exist, create it
@@ -92,38 +95,82 @@ namespace SpaceInvaders {
 
         private void playerMovement_Tick(object sender, EventArgs e) // Timer handles all player movements and inputs
         {
-            if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A)) // Move left
+            // Player 1 movement keys
+            if (Keyboard.IsKeyDown(Key.A)) // Move left
             {
-                if (player.Location.X > 20) { // Limit movement within game area
-                    player.Location = new Point(player.Location.X - 3, player.Location.Y);
-                    p1.SetPos(player.Location);
+                if (player1.Location.X > 20) { // Limit movement within game area
+                    player1.Location = new Point(player1.Location.X - 3, player1.Location.Y);
+                    p1.SetPos(player1.Location);
                 }
             }
-            else if (Keyboard.IsKeyDown(Key.Right) || Keyboard.IsKeyDown(Key.D)) // Move right
+            else if (Keyboard.IsKeyDown(Key.D)) // Move right
             {
-                if (player.Location.X < this.Width - rightSideDifference) { // Limit movement within game area
-                    player.Location = new Point(player.Location.X + 3, player.Location.Y);
-                    p1.SetPos(player.Location);
+                //if (player1.Location.X < this.Width - rightSideDifference) { // Limit movement within game area
+                if (player1.Location.X < this.Width / 2 - player1DivideDifference){
+                    player1.Location = new Point(player1.Location.X + 3, player1.Location.Y);
+                    p1.SetPos(player1.Location);
                 }
             }
-            if (Keyboard.IsKeyDown(Key.Up) || Keyboard.IsKeyDown(Key.W)) // Shoot projectile
+            if (Keyboard.IsKeyDown(Key.W)) // Shoot projectile
             {
                 if (!p1.IsFired()) {
                     p1.Fire(true);
-                    playerProjectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
-                    playerProjectile.Visible = playerProj.SetVisibility(true);
-                    playerProjectile.Visible = true;
-                    playerProj.SetPos(p1.GetPos('x') + 25, 'x');
-                    playerProj.SetPos(p1.GetPos('y'), 'y');
+                    player1Projectile.Location = new Point(p1.GetPos('x') + (25), p1.GetPos('y'));
+                    player1Projectile.Visible = player1Proj.SetVisibility(true);
+                    player1Projectile.Visible = true;
+                    player1Proj.SetPos(p1.GetPos('x') + 25, 'x');
+                    player1Proj.SetPos(p1.GetPos('y'), 'y');
                     PlaySound(3);
                 }
             }
 
-            if (p1.IsFired()) {
-                playerProjectileGhost.Location = new Point(playerProj.GetPos('x') - projectileGhostOffset, playerProj.GetPos('y') - projectileSpeed);
-                playerProjectile.Location = new Point(playerProj.GetPos('x'), playerProj.GetPos('y') - projectileSpeed);
-                playerProj.SetPos(playerProj.GetPos('y') - projectileSpeed, 'y');
-                p1.Fire(OutOfBoundsCheck());
+            // If player 1 fired...
+            if (p1.IsFired())
+            {
+                player1ProjectileGhost.Location = new Point(player1Proj.GetPos('x') - projectileGhostOffset, player1Proj.GetPos('y') - projectileSpeed);
+                player1Projectile.Location = new Point(player1Proj.GetPos('x'), player1Proj.GetPos('y') - projectileSpeed);
+                player1Proj.SetPos(player1Proj.GetPos('y') - projectileSpeed, 'y');
+                p1.Fire(OutOfBoundsCheck(player1Proj));
+            }
+
+            // Player 2 movement keys
+            if (Keyboard.IsKeyDown(Key.Left)) // Move left
+            {
+                if (player2.Location.X > this.Width / 2)
+                { // Limit movement within game area
+                    player2.Location = new Point(player2.Location.X - 3, player2.Location.Y);
+                    p2.SetPos(player2.Location);
+                }
+            }
+            else if (Keyboard.IsKeyDown(Key.Right)) // Move right
+            {
+                if (player2.Location.X < this.Width - rightSideDifference)
+                {
+                    player2.Location = new Point(player2.Location.X + 3, player2.Location.Y);
+                    p2.SetPos(player2.Location);
+                }
+            }
+            if (Keyboard.IsKeyDown(Key.Up)) // Shoot projectile
+            {
+                if (!p2.IsFired())
+                {
+                    p2.Fire(true);
+                    player2Projectile.Location = new Point(p2.GetPos('x') + (25), p2.GetPos('y'));
+                    player2Projectile.Visible = player2Proj.SetVisibility(true);
+                    player2Projectile.Visible = true;
+                    player2Proj.SetPos(p2.GetPos('x') + 25, 'x');
+                    player2Proj.SetPos(p2.GetPos('y'), 'y');
+                    PlaySound(3);
+                }
+            }
+
+            // If player 2 fired...
+            if (p2.IsFired())
+            {
+                player2ProjectileGhost.Location = new Point(player2Proj.GetPos('x') - projectileGhostOffset, player2Proj.GetPos('y') - projectileSpeed);
+                player2Projectile.Location = new Point(player2Proj.GetPos('x'), player2Proj.GetPos('y') - projectileSpeed);
+                player2Proj.SetPos(player2Proj.GetPos('y') - projectileSpeed, 'y');
+                p2.Fire(OutOfBoundsCheck(player2Proj));
             }
         }
 
@@ -131,9 +178,15 @@ namespace SpaceInvaders {
         {
             // Check player's projectile collision
             for (int i = 0; i < 55; i++) {
-                if (playerProjectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
-                    playerProjectile.Visible = playerProj.SetVisibility(false); // Hides player's projectile
+                if (player1Projectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p1.IsFired()) { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
+                    player1Projectile.Visible = player1Proj.SetVisibility(false); // Hides player's projectile
                     p1.Fire(false); // Disables player's projectile
+                    KillAlien(ref i);
+                }
+                if (player2Projectile.Bounds.IntersectsWith(AlienPBList[i].Bounds) && (AlienList[i].GetState() == 1) && p2.IsFired())
+                { // Checks for bullet intersecting alien, if the alien is alive, and there if there is an active bullet
+                    player2Projectile.Visible = player2Proj.SetVisibility(false); // Hides player's projectile
+                    p2.Fire(false); // Disables player's projectile
                     KillAlien(ref i);
                 }
                 foreach (var block in BaseBlockList.Where(block => block.Visible))
@@ -145,11 +198,19 @@ namespace SpaceInvaders {
 
             // Check collision for alien projectile
             foreach (var item in AlienProjectileList) {
-                if (item.Bounds.IntersectsWith(player.Bounds)) { // Check for alien projectile hitting player
+                if (item.Bounds.IntersectsWith(player1.Bounds)) { // Check for alien projectile hitting player
                     item.Enabled = false;
                     item.Visible = false;
                     item.Location = new Point(0, 0);
-                    KillPlayer();
+                    KillPlayer(p1);
+                    --totalProjectiles;
+                }
+                if (item.Bounds.IntersectsWith(player2.Bounds))
+                { // Check for alien projectile hitting player
+                    item.Enabled = false;
+                    item.Visible = false;
+                    item.Location = new Point(0, 0);
+                    KillPlayer(p2);
                     --totalProjectiles;
                 }
                 if (item.Location.Y > 860) { // Check for out of bounds projectile
@@ -161,13 +222,20 @@ namespace SpaceInvaders {
             }
 
             // Check if any bases are hit
-            if (playerProjectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
+            if (player1Projectile.Visible || player2Projectile.Visible || alienProjectile1.Visible || alienProjectile2.Visible || alienProjectile3.Visible) // If there is any active projectile...
             {
                 foreach (var item in BaseBlockList.Where(item => item.Visible)) {
-                    if (playerProjectileGhost.Bounds.IntersectsWith(item.Bounds)) {
+                    if (player1ProjectileGhost.Bounds.IntersectsWith(item.Bounds)) {
                         item.Visible = false;
-                        playerProjectile.Visible = playerProj.SetVisibility(false);
+                        player1Projectile.Visible = player1Proj.SetVisibility(false);
                         p1.Fire(false);
+                    }
+
+                    if (player2ProjectileGhost.Bounds.IntersectsWith(item.Bounds))
+                    {
+                        item.Visible = false;
+                        player2Projectile.Visible = player2Proj.SetVisibility(false);
+                        p2.Fire(false);
                     }
 
                     for (int i = 0; i < AlienProjectileList.Count; i++) {
@@ -218,13 +286,13 @@ namespace SpaceInvaders {
                         projectileAnimation.Enabled = false;
                         if (deathCycle <= 10) { // Loop through animation 10 times
                             if (deathTimer == 10 && deathAnimation) {
-                                player.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
+                                player1.Image = Image.FromFile("resources/textures/PlayerDeath_1.png");
                                 ++deathCycle;
                                 deathAnimation = false;
                                 deathTimer = 0;
                             }
                             else if (deathTimer == 10 && !deathAnimation) {
-                                player.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
+                                player1.Image = Image.FromFile("resources/textures/PlayerDeath_2.png");
                                 ++deathCycle;
                                 deathAnimation = true;
                                 deathTimer = 0;
@@ -236,9 +304,9 @@ namespace SpaceInvaders {
                             playerMovement.Enabled = true;
                             projectileCollision.Enabled = true;
                             projectileAnimation.Enabled = true;
-                            player.Image = Image.FromFile("resources/textures/PlayerShip.png");
-                            player.Location = new Point(355, 824); // Reset player's position
-                            p1.SetPos(player.Location);
+                            player1.Image = Image.FromFile("resources/textures/PlayerShip.png");
+                            player1.Location = new Point(355, 824); // Reset player's position
+                            p1.SetPos(player1.Location);
                             deathTimer = 0; // Reset timer
                             objectDeath.Enabled = false; // Disable timer until next death event
                         }
@@ -277,11 +345,11 @@ namespace SpaceInvaders {
             ++projectileTick;
         }
 
-        private bool OutOfBoundsCheck() // Checks for out of bounds projectile
+        private bool OutOfBoundsCheck(Projectile p) // Checks for out of bounds projectile
         {
             // Player projectile check
-            if (playerProj.GetPos('y') < 67) {
-                playerProjectile.Visible = playerProj.SetVisibility(false);
+            if (p.GetPos('y') < 67) {
+                p.SetVisibility(false);
                 return false;
             }
             else {
@@ -621,11 +689,11 @@ namespace SpaceInvaders {
             }
         }
 
-        private void KillPlayer() // Handles process of kill the player
+        private void KillPlayer(Player p) // Handles process of kill the player
         {
             PlaySound(4);
             Thread.Sleep(10); // Audio clips without this slight pause
-            p1.LoseLife();
+            p.LoseLife();
             deathType = 1;
             deathCycle = 0;
             objectDeath.Enabled = true;
@@ -675,7 +743,7 @@ namespace SpaceInvaders {
                     projectileCollision.Enabled = false;
                     foreach (var item2 in AlienPBList)
                         item2.Visible = false;
-                    playerProjectile.Visible = false;
+                    player1Projectile.Visible = false;
                     gameOver.Visible = true;
                 }
             }
@@ -695,12 +763,12 @@ namespace SpaceInvaders {
                     }
                 case 0: { // If player loses all their lives...
                         livesCounter.Image = Image.FromFile("resources/textures/0.png");
-                        player.Visible = false;
+                        player1.Visible = false;
                         alienMovement.Enabled = false;
                         playerMovement.Enabled = false;
                         foreach (var item2 in AlienPBList)
                             item2.Visible = false;
-                        playerProjectile.Visible = false;
+                        player1Projectile.Visible = false;
                         gameOver.Visible = true;
                         #region Update High Score Counter
                         using (StreamWriter fileWrite = new StreamWriter(fileName)) {
@@ -767,6 +835,32 @@ namespace SpaceInvaders {
                         break;
                     }
             }
+        }
+
+        private void DisableAllTimers()
+        {
+            alienMovement.Enabled = false;
+            playerMovement.Enabled = false;
+            projectileCollision.Enabled = false;
+            objectDeath.Enabled = false;
+            projectileAnimation.Enabled = false;
+        }
+
+        private void EnableAllTimers()
+        {
+            alienMovement.Enabled = true;
+            playerMovement.Enabled = true;
+            projectileCollision.Enabled = true;
+            objectDeath.Enabled = true;
+            projectileAnimation.Enabled = true;
+        }
+
+        private void btnControls_Click(object sender, EventArgs e)
+        {
+            DisableAllTimers();
+            MessageBox.Show("Player 1's controls:\nA/D: Move left/right\nW: Shoot\n\n" +
+                            "Player 2's controls:\nLeft/Right arrow keys: Move left/right\nUp arrow key: Shoot");
+            EnableAllTimers();
         }
     }
 }

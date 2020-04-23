@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="playerMovement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>128, 17</value>
+    <value>135, 16</value>
   </metadata>
   <metadata name="projectileCollision.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>272, 17</value>
@@ -539,7 +539,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="player.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="player1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
         z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
@@ -1014,6 +1014,14 @@
         iVBORw0KGgoAAAANSUhEUgAAAAwAAAAcCAYAAABVo158AAAABGdBTUEAALGPC/xhBQAAAE9JREFUOE/N
         jMEJADAIA12i+8/UiVqEIE0Q+83jBOXOWDt+nJdOUAwCEnAraAEGwSgoOQwDZXxACzAMFHrQCYpBQAJu
         BS3AIBgFJYdVEHEBM5CdgJS7UjsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="player2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAYAAABdP1tmAAAABGdBTUEAALGPC/xhBQAAAKdJREFUWEft
+        z0EOhDAMQ9FegvufiRPBpptUX0FyimRQFm9Ra8jY4zjH264F/WYbDDfrQRUYbvb5QeuAJ3RDhmERlc7Q
+        DRmGRVQ6QzdkGBZR6QzdkGFYRKUzdEOGYRGVztANGYZFVDpDN2QYFlHpDN2QUUh/6iz0D4+JPnIW+ofH
+        RB85C/3DY6KPnIX+XxyQ6kHuepC7HuSuB7nrQe56kLse5O5ng8Z1A1CnMzei1DNXAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -12,7 +12,6 @@ C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Spac
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.exe
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\bin\Debug\Space Invaders.pdb
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csprojAssemblyReference.cache
-C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.GameWindow.resources
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csproj.GenerateResource.cache
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.csproj.CoreCompileInputs.cache
 C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.exe
@@ -41,3 +40,5 @@ C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Inva
 C:\Users\nerdo\OneDrive\Documents\GitHub\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\Space Invaders.pdb
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.MultiPlayerForm.resources
 C:\Users\Owner\Desktop\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.SinglePlayerForm.resources
+C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.MultiPlayerForm.resources
+C:\Users\ryanb\OneDrive - SNHU\SPRING20\CS-114\SpaceInvaders\Space Invaders\Space Invaders\obj\Debug\SpaceInvaders.SinglePlayerForm.resources
