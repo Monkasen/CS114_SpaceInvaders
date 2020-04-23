@@ -136,6 +136,11 @@ namespace SpaceInvaders {
                     p1.Fire(false); // Disables player's projectile
                     KillAlien(ref i);
                 }
+                foreach (var block in BaseBlockList.Where(block => block.Visible))
+                {
+                    if (AlienPBList[i].Visible && AlienPBList[i].Bounds.IntersectsWith(block.Bounds))
+                        block.Visible = false;
+                }
             }
 
             // Check collision for alien projectile
