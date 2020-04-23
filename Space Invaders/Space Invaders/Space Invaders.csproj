@@ -49,11 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alien.cs" />
-    <Compile Include="GameWindow1.cs">
+    <Compile Include="MultiPlayerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameWindow1.Designer.cs">
-      <DependentUpon>GameWindow1.cs</DependentUpon>
+    <Compile Include="MultiPlayerForm.Designer.cs">
+      <DependentUpon>MultiPlayerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SinglePlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinglePlayerForm.Designer.cs">
+      <DependentUpon>SinglePlayerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -65,8 +71,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GameWindow1.resx">
-      <DependentUpon>GameWindow1.cs</DependentUpon>
+    <EmbeddedResource Include="MultiPlayerForm.resx">
+      <DependentUpon>MultiPlayerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SinglePlayerForm.resx">
+      <DependentUpon>SinglePlayerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

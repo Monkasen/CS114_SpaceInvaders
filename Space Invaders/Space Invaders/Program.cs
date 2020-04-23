@@ -18,10 +18,10 @@ namespace SpaceInvaders {
             Application.Run(new MainMenu());
 
             if (MainMenu.gameMode == 1) {
-                Application.Run(new GameWindow());
+                Application.Run(new SinglePlayerForm());
             }
             else if (MainMenu.gameMode == 2){
-                MessageBox.Show("Not yet implemented!");
+                Application.Run(new MultiPlayerForm());
             }
         }
     }

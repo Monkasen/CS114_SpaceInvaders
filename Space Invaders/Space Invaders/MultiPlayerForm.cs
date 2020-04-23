@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Windows.Input; // For key events
 
 namespace SpaceInvaders {
-    public partial class GameWindow : Form {
+    public partial class MultiPlayerForm : Form {
         private bool musicToggle = true;
         private double gameTicks = 0; // Internal game clock
         private int projectileTick = 0; // Timer for alien projectile animations
@@ -29,7 +29,7 @@ namespace SpaceInvaders {
         private const int AlienPushY = 20; // How far aliens are pushed on the Y axis each tick
         private int totalProjectiles = 0; // Track how many alien projectiles are active
         private const int projectileGhostOffset = 16; // How far to the left the ghost projectiles are set
-        string fileName = Path.Combine(Environment.CurrentDirectory, "highscore.txt");
+        string fileName = Path.Combine(Environment.CurrentDirectory, "highscoreMulti.txt");
 
         private List<PictureBox> AlienPBList = new List<PictureBox>();
         private List<PictureBox> BaseBlockList = new List<PictureBox>();
@@ -42,7 +42,7 @@ namespace SpaceInvaders {
         private static Random RandomNum = new Random();
         string[] scores = new string[] { "0", "0", "0" };
 
-        public GameWindow()
+        public MultiPlayerForm()
         {
             InitializeComponent();
             InitializeAliens(); // Create list of aliens and their graphics
@@ -660,7 +660,7 @@ namespace SpaceInvaders {
                 playerMovement.Enabled = false;
                 projectileCollision.Enabled = false;
                 Thread.Sleep(1000);
-                GameWindow NewForm = new GameWindow(); // Open new form to start next wave
+                MultiPlayerForm NewForm = new MultiPlayerForm(); // Open new form to start next wave
                 NewForm.p1.SetLives(p1.GetLives());
                 NewForm.score = score;
                 NewForm.playerScore.Text = playerScore.Text;
