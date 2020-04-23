@@ -175,16 +175,6 @@ namespace SpaceInvaders {
                             --totalProjectiles;
                         }
                     }
-
-                    // Old way, deleted later if new way works better
-                    /*foreach (var proj in AlienProjectileList.Where(proj => proj.Enabled && proj.Bounds.IntersectsWith(item.Bounds)))
-                    {
-                        item.Visible = false;
-                        proj.Enabled = false;
-                        proj.Visible = false;
-                        proj.Location = new Point(0, 0);
-                        --totalProjectiles;
-                    }*/
                 }
             }
 
@@ -196,12 +186,6 @@ namespace SpaceInvaders {
                 }
 
             }
-
-            // Old way, delete later if new way works better
-            /*foreach (var item in AlienProjectileList.Where(item => item.Enabled))
-            {
-                item.Location = new Point(item.Location.X, item.Location.Y + (projectileSpeed));
-            }*/
         }
 
         private void objectDeath_Tick(object sender, EventArgs e) // Handles removing alien/player explosion after death
@@ -648,7 +632,7 @@ namespace SpaceInvaders {
             AlienPBList[i].Image = Image.FromFile("resources/textures/AlienDeath.png"); // Replaces alien image with death animation
             speedMultiplier *= 1.02; // When an alien dies, increase game speed by 2%
             PlaySound(2); // Play death sound
-            playerScore.Text = ($"{score += 10}"); // Add 10 points to score
+            UpdateScore(ref i); // Update player's score
             --numAliensLeft; // Decrement number of aliens remaining
             deathType = 0;
             objectDeath.Enabled = true; // Starts timer to remove alien explosion
@@ -760,6 +744,23 @@ namespace SpaceInvaders {
                         }
                     }
                 }
+            }
+        }
+
+        private void UpdateScore(ref int i) {
+            switch ((AlienList[i].GetAlienType())) {
+                case 1: {
+                        playerScore.Text = ($"{score += 10}"); // Add 10 points to score
+                        break;
+                    }
+                case 2: {
+                        playerScore.Text = ($"{score += 20}"); // Add 20 points to score
+                        break;
+                    }
+                case 3: {
+                        playerScore.Text = ($"{score += 30}"); // Add 30 points to score
+                        break;
+                    }
             }
         }
     }
