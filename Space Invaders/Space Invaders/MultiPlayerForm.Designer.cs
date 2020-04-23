@@ -164,11 +164,13 @@
             this.alienProjectile1Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile2Ghost = new System.Windows.Forms.PictureBox();
             this.alienProjectile3Ghost = new System.Windows.Forms.PictureBox();
-            this.highScoreLabel = new System.Windows.Forms.Label();
+            this.highScore = new System.Windows.Forms.Label();
             this.player2 = new System.Windows.Forms.PictureBox();
             this.player2Projectile = new System.Windows.Forms.PictureBox();
             this.player2ProjectileGhost = new System.Windows.Forms.PictureBox();
             this.btnControls = new System.Windows.Forms.Button();
+            this.highScoreText = new System.Windows.Forms.Label();
+            this.scoreText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -320,11 +322,11 @@
             // playerScore
             // 
             this.playerScore.AutoSize = true;
-            this.playerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerScore.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScore.ForeColor = System.Drawing.SystemColors.Control;
-            this.playerScore.Location = new System.Drawing.Point(364, 9);
+            this.playerScore.Location = new System.Drawing.Point(254, 22);
             this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(39, 42);
+            this.playerScore.Size = new System.Drawing.Size(37, 37);
             this.playerScore.TabIndex = 5;
             this.playerScore.Text = "0";
             // 
@@ -1667,16 +1669,16 @@
             this.alienProjectile3Ghost.TabStop = false;
             this.alienProjectile3Ghost.Visible = false;
             // 
-            // highScoreLabel
+            // highScore
             // 
-            this.highScoreLabel.AutoSize = true;
-            this.highScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highScoreLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.highScoreLabel.Location = new System.Drawing.Point(486, 9);
-            this.highScoreLabel.Name = "highScoreLabel";
-            this.highScoreLabel.Size = new System.Drawing.Size(181, 42);
-            this.highScoreLabel.TabIndex = 82;
-            this.highScoreLabel.Text = "highscore";
+            this.highScore.AutoSize = true;
+            this.highScore.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScore.ForeColor = System.Drawing.SystemColors.Control;
+            this.highScore.Location = new System.Drawing.Point(634, 22);
+            this.highScore.Name = "highScore";
+            this.highScore.Size = new System.Drawing.Size(57, 37);
+            this.highScore.TabIndex = 82;
+            this.highScore.Text = "0H";
             // 
             // player2
             // 
@@ -1718,17 +1720,41 @@
             this.btnControls.UseVisualStyleBackColor = true;
             this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
             // 
+            // highScoreText
+            // 
+            this.highScoreText.AutoSize = true;
+            this.highScoreText.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScoreText.ForeColor = System.Drawing.SystemColors.Control;
+            this.highScoreText.Location = new System.Drawing.Point(434, 22);
+            this.highScoreText.Name = "highScoreText";
+            this.highScoreText.Size = new System.Drawing.Size(182, 37);
+            this.highScoreText.TabIndex = 87;
+            this.highScoreText.Text = "HI - SCORE";
+            // 
+            // scoreText
+            // 
+            this.scoreText.AutoSize = true;
+            this.scoreText.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreText.ForeColor = System.Drawing.SystemColors.Control;
+            this.scoreText.Location = new System.Drawing.Point(116, 22);
+            this.scoreText.Name = "scoreText";
+            this.scoreText.Size = new System.Drawing.Size(117, 37);
+            this.scoreText.TabIndex = 88;
+            this.scoreText.Text = "SCORE";
+            // 
             // MultiPlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(766, 933);
+            this.Controls.Add(this.scoreText);
+            this.Controls.Add(this.highScoreText);
             this.Controls.Add(this.btnControls);
             this.Controls.Add(this.player2ProjectileGhost);
             this.Controls.Add(this.player2Projectile);
             this.Controls.Add(this.player2);
-            this.Controls.Add(this.highScoreLabel);
+            this.Controls.Add(this.highScore);
             this.Controls.Add(this.alienProjectile1Ghost);
             this.Controls.Add(this.alienProjectile2Ghost);
             this.Controls.Add(this.alienProjectile3Ghost);
@@ -2085,11 +2111,13 @@
         private System.Windows.Forms.PictureBox alienProjectile1Ghost;
         private System.Windows.Forms.PictureBox alienProjectile2Ghost;
         private System.Windows.Forms.PictureBox alienProjectile3Ghost;
-        private System.Windows.Forms.Label highScoreLabel;
+        private System.Windows.Forms.Label highScore;
         private System.Windows.Forms.PictureBox player2;
         public System.Windows.Forms.PictureBox player2Projectile;
         public System.Windows.Forms.PictureBox player2ProjectileGhost;
         private System.Windows.Forms.Button btnControls;
+        private System.Windows.Forms.Label highScoreText;
+        private System.Windows.Forms.Label scoreText;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -44,7 +45,8 @@ namespace SpaceInvaders {
 
         public SinglePlayerForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            UseCustomFont();
             InitializeAliens(); // Create list of aliens and their graphics
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
@@ -62,7 +64,7 @@ namespace SpaceInvaders {
                 scores[1] = fileRead.ReadLine();
                 scores[2] = fileRead.ReadLine();
             }
-            highScoreLabel.Text = scores[0];
+            highScore.Text = scores[0];
         }
 
         private void soundToggle_Click(object sender, EventArgs e) // Toggles game sound on/off
@@ -767,6 +769,20 @@ namespace SpaceInvaders {
                         break;
                     }
             }
+        }
+
+        private void UseCustomFont() {
+            PrivateFontCollection customFont = new PrivateFontCollection();
+
+            customFont.AddFontFile("SpaceInvadersFont.ttf");
+
+            scoreText.Font = new Font(customFont.Families[0], 20);
+
+            playerScore.Font = new Font(customFont.Families[0], 20);
+
+            highScoreText.Font = new Font(customFont.Families[0], 20);
+
+            highScore.Font = new Font(customFont.Families[0], 20);
         }
     }
 }
