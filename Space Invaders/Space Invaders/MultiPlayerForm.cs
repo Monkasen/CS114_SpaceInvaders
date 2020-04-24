@@ -81,7 +81,7 @@ namespace SpaceInvaders {
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
         {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
-            if (gameTicks >= 2) { // Move aliens after 15 ticks
+            if (gameTicks >= 10) { // Move aliens after 15 ticks
                 PlaySound(1);
                 UpdateAliens();
                 TryShoot();
