@@ -841,7 +841,7 @@ namespace SpaceInvaders {
                     int rand = RandomNum.Next(0, numAliensLeft);
                     if (rand == 1) {
                         int randAlien = RandomNum.Next(0, BottomAliens.Count); // Select random alien in BottomList
-                        while (BottomAliens[randAlien].GetState() == 0 && numAliensLeft > 0) // Will keep looping until an alive alien is selected
+                        while (BottomAliens[randAlien].GetState() == 0 && numAliensLeft > 0) // Will keep looping until a living alien is selected
                             randAlien = RandomNum.Next(0, BottomAliens.Count);
                         foreach (var item in AlienProjectileList) {
                             if (item.Enabled == false) {
@@ -875,23 +875,6 @@ namespace SpaceInvaders {
             }
         }
 
-        private void UseCustomFont()
-        {
-            PrivateFontCollection customFont = new PrivateFontCollection();
-
-            customFont.AddFontFile("SpaceInvadersFont.ttf");
-
-            scoreText.Font = new Font(customFont.Families[0], 20);
-
-            playerScore.Font = new Font(customFont.Families[0], 20);
-
-            highScoreText.Font = new Font(customFont.Families[0], 20);
-
-            highScore.Font = new Font(customFont.Families[0], 20);
-
-            btnControls.Font = new Font(customFont.Families[0], 12);
-        }
-
         private void UpdateHighScore()
         {
             using (StreamWriter fileWrite = new StreamWriter(fileName)) {
@@ -915,6 +898,23 @@ namespace SpaceInvaders {
                 fileWrite.WriteLine(scores[1]);
                 fileWrite.WriteLine(scores[2]);
             }
+        }
+
+        private void UseCustomFont()
+        {
+            PrivateFontCollection customFont = new PrivateFontCollection();
+
+            customFont.AddFontFile("SpaceInvadersFont.ttf");
+
+            scoreText.Font = new Font(customFont.Families[0], 20);
+
+            playerScore.Font = new Font(customFont.Families[0], 20);
+
+            highScoreText.Font = new Font(customFont.Families[0], 20);
+
+            highScore.Font = new Font(customFont.Families[0], 20);
+
+            btnControls.Font = new Font(customFont.Families[0], 12);
         }
 
         private void DisableAllTimers()
