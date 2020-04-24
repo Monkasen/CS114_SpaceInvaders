@@ -57,15 +57,7 @@ namespace SpaceInvaders {
             p2.SetPos(player2.Location); // Syncs class and pictureBox
             p2.SetLives(3);
 
-
-            // If the highscore file doesn't exist, create it
-            if (!File.Exists(fileName)) {
-                File.Create(fileName);
-                for (int i = 0; i < 3; i++) {
-                    File.OpenWrite(fileName);
-                    File.WriteAllLines(fileName, scores);
-                }
-            }
+            // Add highscores to a list
             using (StreamReader fileRead = new StreamReader(fileName)) {
                 scores[0] = fileRead.ReadLine();
                 scores[1] = fileRead.ReadLine();
@@ -89,7 +81,7 @@ namespace SpaceInvaders {
         private void alienMovement_Tick(object sender, EventArgs e) // Controls the movement and speed of aliens
         {
             gameTicks = Math.Round((gameTicks * speedMultiplier), 2);
-            if (gameTicks >= 10) { // Move aliens after 15 ticks
+            if (gameTicks >= 2) { // Move aliens after 15 ticks
                 PlaySound(1);
                 UpdateAliens();
                 TryShoot();
@@ -781,7 +773,12 @@ namespace SpaceInvaders {
                     projectileCollision.Enabled = false;
                     foreach (var item2 in AlienPBList)
                         item2.Visible = false;
+                    foreach (var item2 in AlienProjectileList)
+                        item2.Visible = false;
+                    player1.Visible = false;
+                    player2.Visible = false;
                     player1Projectile.Visible = false;
+                    player2Projectile.Visible = false;
                     gameOver.Visible = true;
                 }
             }
@@ -829,6 +826,9 @@ namespace SpaceInvaders {
                 playerMovement.Enabled = false;
                 foreach (var item2 in AlienPBList)
                     item2.Visible = false;
+                foreach (var item2 in AlienProjectileList)
+                    item2.Visible = false;
+                musicToggle = false;
                 player1Projectile.Visible = false;
                 player2Projectile.Visible = false;
                 gameOver.Visible = true;
@@ -911,6 +911,8 @@ namespace SpaceInvaders {
             highScoreText.Font = new Font(customFont.Families[0], 20);
 
             highScore.Font = new Font(customFont.Families[0], 20);
+
+            btnControls.Font = new Font(customFont.Families[0], 12);
         }
 
         private void DisableAllTimers()
@@ -934,8 +936,12 @@ namespace SpaceInvaders {
         private void btnControls_Click(object sender, EventArgs e)
         {
             DisableAllTimers();
-            MessageBox.Show("Player 1's controls:\nA/D: Move left/right\nW: Shoot\n\n" +
-                            "Player 2's controls:\nLeft/Right arrow keys: Move left/right\nUp arrow key: Shoot");
+            MessageBox.Show("Player 1's Controls:\n" +
+                "\nA/D: Move Left/Right\n" +
+                "W: Shoot\n" +
+                "\nPlayer 2's Controls:\n" +
+                "\nLeft/Right Arrow Keys: Move Left/Right\n" +
+                "Up Arrow Key: Shoot");
             EnableAllTimers();
         }
     }

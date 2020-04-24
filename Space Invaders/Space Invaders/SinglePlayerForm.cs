@@ -51,14 +51,7 @@ namespace SpaceInvaders {
             p1.SetPos(player.Location); // Syncs class and pictureBox
             p1.SetLives(3);
 
-            // If the highscore file doesn't exist, create it
-            if (!File.Exists(fileName)) {
-                File.Create(fileName);
-                for (int i = 0; i < 3; i++) {
-                    File.OpenWrite(fileName);
-                    File.WriteAllLines(fileName, scores);
-                }
-            }
+            // Add highscores to a list
             using (StreamReader fileRead = new StreamReader(fileName)) {
                 scores[0] = fileRead.ReadLine();
                 scores[1] = fileRead.ReadLine();
@@ -676,6 +669,9 @@ namespace SpaceInvaders {
                     projectileCollision.Enabled = false;
                     foreach (var item2 in AlienPBList)
                         item2.Visible = false;
+                    foreach (var item2 in AlienProjectileList)
+                        item2.Visible = false;
+                    player.Visible = false;
                     playerProjectile.Visible = false;
                     gameOver.Visible = true;
                 }
@@ -701,6 +697,9 @@ namespace SpaceInvaders {
                         playerMovement.Enabled = false;
                         foreach (var item2 in AlienPBList)
                             item2.Visible = false;
+                        foreach (var item2 in AlienProjectileList)
+                            item2.Visible = false;
+                        musicToggle = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
                         #region Update High Score Counter
@@ -784,6 +783,8 @@ namespace SpaceInvaders {
             highScoreText.Font = new Font(customFont.Families[0], 20);
 
             highScore.Font = new Font(customFont.Families[0], 20);
+
+            btnControls.Font = new Font(customFont.Families[0], 12);
         }
 
         private void DisableAllTimers()
@@ -807,7 +808,10 @@ namespace SpaceInvaders {
         private void btnControls_Click(object sender, EventArgs e)
         {
             DisableAllTimers();
-            MessageBox.Show("Controls:\nA/Left arrow key: Move left\nD/Right arrow key: Move right\nW/Up arrow: Shoot");
+            MessageBox.Show("Controls:\n" +
+                "\nA/Left Arrow Key: Move Left\n" +
+                "D/Right Arrow key: Move right\n" +
+                "W/Up Arrow Key: Shoot");
             EnableAllTimers();
         }
     }

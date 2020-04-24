@@ -330,7 +330,7 @@
             this.playerScore.AutoSize = true;
             this.playerScore.Font = new System.Drawing.Font("Space Invaders", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerScore.ForeColor = System.Drawing.SystemColors.Control;
-            this.playerScore.Location = new System.Drawing.Point(253, 24);
+            this.playerScore.Location = new System.Drawing.Point(243, 24);
             this.playerScore.Name = "playerScore";
             this.playerScore.Size = new System.Drawing.Size(37, 37);
             this.playerScore.TabIndex = 5;
@@ -967,7 +967,6 @@
             // alienBoundsPanel
             // 
             this.alienBoundsPanel.BackColor = System.Drawing.Color.Transparent;
-            this.alienBoundsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.alienBoundsPanel.Controls.Add(this.pbBlock38);
             this.alienBoundsPanel.Controls.Add(this.pbBlock43);
             this.alienBoundsPanel.Controls.Add(this.pbBlock45);
@@ -1718,11 +1717,16 @@
             // 
             // btnControls
             // 
-            this.btnControls.Location = new System.Drawing.Point(346, 900);
+            this.btnControls.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnControls.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.btnControls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControls.Font = new System.Drawing.Font("Space Invaders", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControls.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnControls.Location = new System.Drawing.Point(316, 900);
             this.btnControls.Name = "btnControls";
-            this.btnControls.Size = new System.Drawing.Size(75, 23);
+            this.btnControls.Size = new System.Drawing.Size(135, 28);
             this.btnControls.TabIndex = 86;
-            this.btnControls.Text = "Controls";
+            this.btnControls.Text = " Controls";
             this.btnControls.UseVisualStyleBackColor = true;
             this.btnControls.Click += new System.EventHandler(this.btnControls_Click);
             // 
