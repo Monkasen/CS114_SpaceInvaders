@@ -13,16 +13,7 @@ namespace SpaceInvaders {
         private int yCord;
         private Image alienImage;
 
-        public Alien() {
-
-        }
-        public Alien(int t, Image i) {
-            type = t;
-            alienImage = i;
-        }
-
-        public Alien(int t, Image i, int x, int y)
-        {
+        public Alien(int t, Image i, int x, int y) {
             type = t;
             alienImage = i;
             xCord = x;
