@@ -664,16 +664,15 @@ namespace SpaceInvaders {
             // If aliens reach the end...
             foreach (var item in AlienPBList) {
                 if (item.Location.Y > 720 && item.Visible == true) {
-                    alienMovement.Enabled = false;
-                    playerMovement.Enabled = false;
-                    projectileCollision.Enabled = false;
+                    player.Visible = false;
+                    DisableAllTimers();
                     foreach (var item2 in AlienPBList)
                         item2.Visible = false;
                     foreach (var item2 in AlienProjectileList)
                         item2.Visible = false;
-                    player.Visible = false;
                     playerProjectile.Visible = false;
                     gameOver.Visible = true;
+                    UpdateHighScore();
                 }
             }
             // If players lose a life...
@@ -693,8 +692,7 @@ namespace SpaceInvaders {
                 case 0: { // If player loses all their lives...
                         livesCounter.Image = Image.FromFile("resources/textures/0.png");
                         player.Visible = false;
-                        alienMovement.Enabled = false;
-                        playerMovement.Enabled = false;
+                        DisableAllTimers();
                         foreach (var item2 in AlienPBList)
                             item2.Visible = false;
                         foreach (var item2 in AlienProjectileList)
@@ -702,29 +700,7 @@ namespace SpaceInvaders {
                         musicToggle = false;
                         playerProjectile.Visible = false;
                         gameOver.Visible = true;
-                        #region Update High Score Counter
-                        using (StreamWriter fileWrite = new StreamWriter(fileName)) {
-                            int itemCounter = 0;
-                            int tempHolder = Convert.ToInt32(scores[2]);
-                            foreach (string Item in scores) {
-                                if (score > Convert.ToInt32(Item)) {
-                                    tempHolder = Convert.ToInt32(scores[itemCounter]);
-                                    scores[itemCounter] = score.ToString();
-                                    break;
-                                }
-                                itemCounter++;
-                            }
-                            for (int i = itemCounter + 1; i < 2; i++) {
-                                if (itemCounter == i - 1)
-                                    scores[i] = tempHolder.ToString();
-                                else
-                                    scores[i] = scores[i - 1];
-                            }
-                            fileWrite.WriteLine(scores[0]);
-                            fileWrite.WriteLine(scores[1]);
-                            fileWrite.WriteLine(scores[2]);
-                        }
-                        #endregion
+                        UpdateHighScore();
                         break;
                     }
             }
@@ -771,6 +747,32 @@ namespace SpaceInvaders {
             }
         }
 
+        private void UpdateHighScore() 
+        {
+            using (StreamWriter fileWrite = new StreamWriter(fileName)) {
+                int itemCounter = 0;
+                int tempHolder = Convert.ToInt32(scores[2]);
+                foreach (string Item in scores) {
+                    if (score > Convert.ToInt32(Item)) {
+                        tempHolder = Convert.ToInt32(scores[itemCounter]);
+                        scores[itemCounter] = score.ToString();
+                        break;
+                    }
+                    itemCounter++;
+                }
+                for (int i = itemCounter + 1; i < 2; i++) {
+                    if (itemCounter == i - 1)
+                        scores[i] = tempHolder.ToString();
+                    else
+                        scores[i] = scores[i - 1];
+                }
+                fileWrite.WriteLine(scores[0]);
+                fileWrite.WriteLine(scores[1]);
+                fileWrite.WriteLine(scores[2]);
+            }
+        }
+
+
         private void UseCustomFont()
         {
             PrivateFontCollection customFont = new PrivateFontCollection();
@@ -793,7 +795,6 @@ namespace SpaceInvaders {
             alienMovement.Enabled = false;
             playerMovement.Enabled = false;
             projectileCollision.Enabled = false;
-            objectDeath.Enabled = false;
             projectileAnimation.Enabled = false;
         }
 
@@ -802,7 +803,6 @@ namespace SpaceInvaders {
             alienMovement.Enabled = true;
             playerMovement.Enabled = true;
             projectileCollision.Enabled = true;
-            objectDeath.Enabled = true;
             projectileAnimation.Enabled = true;
         }
 
