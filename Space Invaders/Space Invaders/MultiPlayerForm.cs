@@ -847,7 +847,8 @@ namespace SpaceInvaders {
                     for (int i = itemCounter + 1; i < 2; i++) {
                         if (itemCounter == i - 1)
                             scores[i] = tempHolder.ToString();
-                        scores[i] = scores[i - 1];
+                        else 
+                            scores[i] = scores[i - 1];
                     }
                     fileWrite.WriteLine(scores[0]);
                     fileWrite.WriteLine(scores[1]);
