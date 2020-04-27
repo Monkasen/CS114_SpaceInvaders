@@ -102,7 +102,6 @@
             this.pbBlock42 = new System.Windows.Forms.PictureBox();
             this.pbBlock32 = new System.Windows.Forms.PictureBox();
             this.pbBlock36 = new System.Windows.Forms.PictureBox();
-            this.pbBlock41 = new System.Windows.Forms.PictureBox();
             this.pbBlock31 = new System.Windows.Forms.PictureBox();
             this.pbBlock35 = new System.Windows.Forms.PictureBox();
             this.pbBlock40 = new System.Windows.Forms.PictureBox();
@@ -117,7 +116,6 @@
             this.pbBlock57 = new System.Windows.Forms.PictureBox();
             this.pbBlock47 = new System.Windows.Forms.PictureBox();
             this.pbBlock51 = new System.Windows.Forms.PictureBox();
-            this.pbBlock56 = new System.Windows.Forms.PictureBox();
             this.pbBlock46 = new System.Windows.Forms.PictureBox();
             this.pbBlock50 = new System.Windows.Forms.PictureBox();
             this.pbBlock55 = new System.Windows.Forms.PictureBox();
@@ -132,7 +130,6 @@
             this.pbBlock27 = new System.Windows.Forms.PictureBox();
             this.pbBlock17 = new System.Windows.Forms.PictureBox();
             this.pbBlock21 = new System.Windows.Forms.PictureBox();
-            this.pbBlock26 = new System.Windows.Forms.PictureBox();
             this.pbBlock16 = new System.Windows.Forms.PictureBox();
             this.pbBlock20 = new System.Windows.Forms.PictureBox();
             this.pbBlock25 = new System.Windows.Forms.PictureBox();
@@ -147,7 +144,6 @@
             this.pbBlock12 = new System.Windows.Forms.PictureBox();
             this.pbBlock2 = new System.Windows.Forms.PictureBox();
             this.pbBlock6 = new System.Windows.Forms.PictureBox();
-            this.pbBlock11 = new System.Windows.Forms.PictureBox();
             this.pbBlock1 = new System.Windows.Forms.PictureBox();
             this.pbBlock5 = new System.Windows.Forms.PictureBox();
             this.pbBlock10 = new System.Windows.Forms.PictureBox();
@@ -174,6 +170,14 @@
             this.lifeThreeP2 = new System.Windows.Forms.PictureBox();
             this.lifeTwoP2 = new System.Windows.Forms.PictureBox();
             this.livesCounterP2 = new System.Windows.Forms.PictureBox();
+            this.pbBlock61 = new System.Windows.Forms.PictureBox();
+            this.pbBlock63 = new System.Windows.Forms.PictureBox();
+            this.pbBlock65 = new System.Windows.Forms.PictureBox();
+            this.pbBlock67 = new System.Windows.Forms.PictureBox();
+            this.pbBlock62 = new System.Windows.Forms.PictureBox();
+            this.pbBlock64 = new System.Windows.Forms.PictureBox();
+            this.pbBlock66 = new System.Windows.Forms.PictureBox();
+            this.pbBlock68 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAlien48)).BeginInit();
@@ -244,7 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock36)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock40)).BeginInit();
@@ -259,7 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock57)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock50)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock55)).BeginInit();
@@ -274,7 +276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock25)).BeginInit();
@@ -289,7 +290,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock10)).BeginInit();
@@ -311,6 +311,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.livesCounterP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock61)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock63)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock65)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock67)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock62)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock64)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock66)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock68)).BeginInit();
             this.SuspendLayout();
             // 
             // alienMovement
@@ -967,6 +975,14 @@
             // alienBoundsPanel
             // 
             this.alienBoundsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.alienBoundsPanel.Controls.Add(this.pbBlock68);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock66);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock64);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock62);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock67);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock65);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock63);
+            this.alienBoundsPanel.Controls.Add(this.pbBlock61);
             this.alienBoundsPanel.Controls.Add(this.pbBlock38);
             this.alienBoundsPanel.Controls.Add(this.pbBlock43);
             this.alienBoundsPanel.Controls.Add(this.pbBlock45);
@@ -975,7 +991,6 @@
             this.alienBoundsPanel.Controls.Add(this.pbBlock42);
             this.alienBoundsPanel.Controls.Add(this.pbBlock32);
             this.alienBoundsPanel.Controls.Add(this.pbBlock36);
-            this.alienBoundsPanel.Controls.Add(this.pbBlock41);
             this.alienBoundsPanel.Controls.Add(this.pbBlock31);
             this.alienBoundsPanel.Controls.Add(this.pbBlock35);
             this.alienBoundsPanel.Controls.Add(this.pbBlock40);
@@ -990,7 +1005,6 @@
             this.alienBoundsPanel.Controls.Add(this.pbBlock57);
             this.alienBoundsPanel.Controls.Add(this.pbBlock47);
             this.alienBoundsPanel.Controls.Add(this.pbBlock51);
-            this.alienBoundsPanel.Controls.Add(this.pbBlock56);
             this.alienBoundsPanel.Controls.Add(this.pbBlock46);
             this.alienBoundsPanel.Controls.Add(this.pbBlock50);
             this.alienBoundsPanel.Controls.Add(this.pbBlock55);
@@ -1005,7 +1019,6 @@
             this.alienBoundsPanel.Controls.Add(this.pbBlock27);
             this.alienBoundsPanel.Controls.Add(this.pbBlock17);
             this.alienBoundsPanel.Controls.Add(this.pbBlock21);
-            this.alienBoundsPanel.Controls.Add(this.pbBlock26);
             this.alienBoundsPanel.Controls.Add(this.pbBlock16);
             this.alienBoundsPanel.Controls.Add(this.pbBlock20);
             this.alienBoundsPanel.Controls.Add(this.pbBlock25);
@@ -1020,7 +1033,6 @@
             this.alienBoundsPanel.Controls.Add(this.pbBlock12);
             this.alienBoundsPanel.Controls.Add(this.pbBlock2);
             this.alienBoundsPanel.Controls.Add(this.pbBlock6);
-            this.alienBoundsPanel.Controls.Add(this.pbBlock11);
             this.alienBoundsPanel.Controls.Add(this.pbBlock1);
             this.alienBoundsPanel.Controls.Add(this.pbBlock5);
             this.alienBoundsPanel.Controls.Add(this.pbBlock10);
@@ -1105,15 +1117,6 @@
             this.pbBlock36.Size = new System.Drawing.Size(20, 20);
             this.pbBlock36.TabIndex = 130;
             this.pbBlock36.TabStop = false;
-            // 
-            // pbBlock41
-            // 
-            this.pbBlock41.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock41.Image")));
-            this.pbBlock41.Location = new System.Drawing.Point(446, 648);
-            this.pbBlock41.Name = "pbBlock41";
-            this.pbBlock41.Size = new System.Drawing.Size(20, 20);
-            this.pbBlock41.TabIndex = 129;
-            this.pbBlock41.TabStop = false;
             // 
             // pbBlock31
             // 
@@ -1241,15 +1244,6 @@
             this.pbBlock51.TabIndex = 115;
             this.pbBlock51.TabStop = false;
             // 
-            // pbBlock56
-            // 
-            this.pbBlock56.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock56.Image")));
-            this.pbBlock56.Location = new System.Drawing.Point(626, 648);
-            this.pbBlock56.Name = "pbBlock56";
-            this.pbBlock56.Size = new System.Drawing.Size(20, 20);
-            this.pbBlock56.TabIndex = 114;
-            this.pbBlock56.TabStop = false;
-            // 
             // pbBlock46
             // 
             this.pbBlock46.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock46.Image")));
@@ -1376,15 +1370,6 @@
             this.pbBlock21.TabIndex = 100;
             this.pbBlock21.TabStop = false;
             // 
-            // pbBlock26
-            // 
-            this.pbBlock26.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock26.Image")));
-            this.pbBlock26.Location = new System.Drawing.Point(270, 648);
-            this.pbBlock26.Name = "pbBlock26";
-            this.pbBlock26.Size = new System.Drawing.Size(20, 20);
-            this.pbBlock26.TabIndex = 99;
-            this.pbBlock26.TabStop = false;
-            // 
             // pbBlock16
             // 
             this.pbBlock16.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock16.Image")));
@@ -1510,15 +1495,6 @@
             this.pbBlock6.Size = new System.Drawing.Size(20, 20);
             this.pbBlock6.TabIndex = 85;
             this.pbBlock6.TabStop = false;
-            // 
-            // pbBlock11
-            // 
-            this.pbBlock11.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock11.Image")));
-            this.pbBlock11.Location = new System.Drawing.Point(91, 648);
-            this.pbBlock11.Name = "pbBlock11";
-            this.pbBlock11.Size = new System.Drawing.Size(20, 20);
-            this.pbBlock11.TabIndex = 84;
-            this.pbBlock11.TabStop = false;
             // 
             // pbBlock1
             // 
@@ -1782,6 +1758,78 @@
             this.livesCounterP2.TabIndex = 89;
             this.livesCounterP2.TabStop = false;
             // 
+            // pbBlock61
+            // 
+            this.pbBlock61.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock61.Image")));
+            this.pbBlock61.Location = new System.Drawing.Point(51, 608);
+            this.pbBlock61.Name = "pbBlock61";
+            this.pbBlock61.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock61.TabIndex = 138;
+            this.pbBlock61.TabStop = false;
+            // 
+            // pbBlock63
+            // 
+            this.pbBlock63.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock63.Image")));
+            this.pbBlock63.Location = new System.Drawing.Point(230, 608);
+            this.pbBlock63.Name = "pbBlock63";
+            this.pbBlock63.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock63.TabIndex = 139;
+            this.pbBlock63.TabStop = false;
+            // 
+            // pbBlock65
+            // 
+            this.pbBlock65.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock65.Image")));
+            this.pbBlock65.Location = new System.Drawing.Point(406, 608);
+            this.pbBlock65.Name = "pbBlock65";
+            this.pbBlock65.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock65.TabIndex = 140;
+            this.pbBlock65.TabStop = false;
+            // 
+            // pbBlock67
+            // 
+            this.pbBlock67.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock67.Image")));
+            this.pbBlock67.Location = new System.Drawing.Point(586, 608);
+            this.pbBlock67.Name = "pbBlock67";
+            this.pbBlock67.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock67.TabIndex = 141;
+            this.pbBlock67.TabStop = false;
+            // 
+            // pbBlock62
+            // 
+            this.pbBlock62.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock62.Image")));
+            this.pbBlock62.Location = new System.Drawing.Point(131, 608);
+            this.pbBlock62.Name = "pbBlock62";
+            this.pbBlock62.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock62.TabIndex = 142;
+            this.pbBlock62.TabStop = false;
+            // 
+            // pbBlock64
+            // 
+            this.pbBlock64.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock64.Image")));
+            this.pbBlock64.Location = new System.Drawing.Point(310, 608);
+            this.pbBlock64.Name = "pbBlock64";
+            this.pbBlock64.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock64.TabIndex = 143;
+            this.pbBlock64.TabStop = false;
+            // 
+            // pbBlock66
+            // 
+            this.pbBlock66.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock66.Image")));
+            this.pbBlock66.Location = new System.Drawing.Point(486, 608);
+            this.pbBlock66.Name = "pbBlock66";
+            this.pbBlock66.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock66.TabIndex = 144;
+            this.pbBlock66.TabStop = false;
+            // 
+            // pbBlock68
+            // 
+            this.pbBlock68.Image = ((System.Drawing.Image)(resources.GetObject("pbBlock68.Image")));
+            this.pbBlock68.Location = new System.Drawing.Point(666, 608);
+            this.pbBlock68.Name = "pbBlock68";
+            this.pbBlock68.Size = new System.Drawing.Size(20, 20);
+            this.pbBlock68.TabIndex = 145;
+            this.pbBlock68.TabStop = false;
+            // 
             // MultiPlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1947,7 +1995,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock36)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock40)).EndInit();
@@ -1962,7 +2009,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock57)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock47)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock50)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock55)).EndInit();
@@ -1977,7 +2023,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock25)).EndInit();
@@ -1992,7 +2037,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBlock11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBlock10)).EndInit();
@@ -2014,6 +2058,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lifeThreeP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTwoP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.livesCounterP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock61)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock63)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock65)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock67)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock62)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock64)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock66)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBlock68)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2107,7 +2159,6 @@
         private System.Windows.Forms.PictureBox pbBlock42;
         private System.Windows.Forms.PictureBox pbBlock32;
         private System.Windows.Forms.PictureBox pbBlock36;
-        private System.Windows.Forms.PictureBox pbBlock41;
         private System.Windows.Forms.PictureBox pbBlock31;
         private System.Windows.Forms.PictureBox pbBlock35;
         private System.Windows.Forms.PictureBox pbBlock40;
@@ -2122,7 +2173,6 @@
         private System.Windows.Forms.PictureBox pbBlock57;
         private System.Windows.Forms.PictureBox pbBlock47;
         private System.Windows.Forms.PictureBox pbBlock51;
-        private System.Windows.Forms.PictureBox pbBlock56;
         private System.Windows.Forms.PictureBox pbBlock46;
         private System.Windows.Forms.PictureBox pbBlock50;
         private System.Windows.Forms.PictureBox pbBlock55;
@@ -2137,7 +2187,6 @@
         private System.Windows.Forms.PictureBox pbBlock27;
         private System.Windows.Forms.PictureBox pbBlock17;
         private System.Windows.Forms.PictureBox pbBlock21;
-        private System.Windows.Forms.PictureBox pbBlock26;
         private System.Windows.Forms.PictureBox pbBlock16;
         private System.Windows.Forms.PictureBox pbBlock20;
         private System.Windows.Forms.PictureBox pbBlock25;
@@ -2152,7 +2201,6 @@
         private System.Windows.Forms.PictureBox pbBlock12;
         private System.Windows.Forms.PictureBox pbBlock2;
         private System.Windows.Forms.PictureBox pbBlock6;
-        private System.Windows.Forms.PictureBox pbBlock11;
         public System.Windows.Forms.PictureBox player1ProjectileGhost;
         private System.Windows.Forms.PictureBox alienProjectile1Ghost;
         private System.Windows.Forms.PictureBox alienProjectile2Ghost;
@@ -2167,6 +2215,14 @@
         private System.Windows.Forms.PictureBox lifeThreeP2;
         private System.Windows.Forms.PictureBox lifeTwoP2;
         private System.Windows.Forms.PictureBox livesCounterP2;
+        private System.Windows.Forms.PictureBox pbBlock61;
+        private System.Windows.Forms.PictureBox pbBlock68;
+        private System.Windows.Forms.PictureBox pbBlock66;
+        private System.Windows.Forms.PictureBox pbBlock64;
+        private System.Windows.Forms.PictureBox pbBlock62;
+        private System.Windows.Forms.PictureBox pbBlock67;
+        private System.Windows.Forms.PictureBox pbBlock65;
+        private System.Windows.Forms.PictureBox pbBlock63;
     }
 }
 

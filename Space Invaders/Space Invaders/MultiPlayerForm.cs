@@ -509,7 +509,7 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock8);
             BaseBlockList.Add(pbBlock9);
             BaseBlockList.Add(pbBlock10);
-            BaseBlockList.Add(pbBlock11);
+            //BaseBlockList.Add(pbBlock11);
             BaseBlockList.Add(pbBlock12);
             BaseBlockList.Add(pbBlock13);
             BaseBlockList.Add(pbBlock14);
@@ -524,7 +524,7 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock23);
             BaseBlockList.Add(pbBlock24);
             BaseBlockList.Add(pbBlock25);
-            BaseBlockList.Add(pbBlock26);
+            //BaseBlockList.Add(pbBlock26);
             BaseBlockList.Add(pbBlock27);
             BaseBlockList.Add(pbBlock28);
             BaseBlockList.Add(pbBlock29);
@@ -539,7 +539,7 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock38);
             BaseBlockList.Add(pbBlock39);
             BaseBlockList.Add(pbBlock40);
-            BaseBlockList.Add(pbBlock41);
+            //BaseBlockList.Add(pbBlock41);
             BaseBlockList.Add(pbBlock42);
             BaseBlockList.Add(pbBlock43);
             BaseBlockList.Add(pbBlock44);
@@ -554,11 +554,19 @@ namespace SpaceInvaders {
             BaseBlockList.Add(pbBlock53);
             BaseBlockList.Add(pbBlock54);
             BaseBlockList.Add(pbBlock55);
-            BaseBlockList.Add(pbBlock56);
+            //BaseBlockList.Add(pbBlock56);
             BaseBlockList.Add(pbBlock57);
             BaseBlockList.Add(pbBlock58);
             BaseBlockList.Add(pbBlock59);
             BaseBlockList.Add(pbBlock60);
+            BaseBlockList.Add(pbBlock61);
+            BaseBlockList.Add(pbBlock62);
+            BaseBlockList.Add(pbBlock63);
+            BaseBlockList.Add(pbBlock64);
+            BaseBlockList.Add(pbBlock65);
+            BaseBlockList.Add(pbBlock66);
+            BaseBlockList.Add(pbBlock67);
+            BaseBlockList.Add(pbBlock68);
             #endregion
 
             #region Add three potential and their ghosts alien projectiles to a list
@@ -577,7 +585,7 @@ namespace SpaceInvaders {
 
         private void UpdateAliens() // Handles alien animations, moving the aliens, and updating their position
         {
-            #region alien animation
+            #region Alien Animation
             switch (alienAnimation) {
                 case 0: {
                         foreach (var item in AlienList) {
@@ -612,7 +620,7 @@ namespace SpaceInvaders {
                 }
             }
             #endregion
-            #region alien movement
+            #region Alien Movement
             bool noneEdge = true; // Variable checks if any alien made it to edge, if so change Y coord and switch direction
 
             foreach (var item in AlienPBList) { // Loop checks if any alien that makes it to the edge is alive
@@ -648,7 +656,7 @@ namespace SpaceInvaders {
                 }
             }
             #endregion
-            #region update alien position
+            #region Update Alien Position
             for (int i = 0; i < AlienList.Count; i++) {
                 AlienList[i].SetXCord(AlienPBList[i].Location.X);
                 AlienList[i].SetYCord(AlienPBList[i].Location.Y);
